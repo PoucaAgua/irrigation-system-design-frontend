@@ -3,7 +3,7 @@
   "cognitoConfig": {
     "identityPoolName": "testAuthIdentityPool",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "irrigab07eaad8",
+    "resourceNameTruncated": "irriga464ad799",
     "userPoolName": "irrigationsystemdesign",
     "autoVerifiedAttributes": [
       "email"
@@ -27,16 +27,17 @@
     ],
     "requiredAttributes": [
       "email",
-      "name"
+      "name",
+      "profile"
     ],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [],
     "userpoolClientReadAttributes": [],
-    "userpoolClientLambdaRole": "irrigab07eaad8_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "irriga464ad799_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "b07eaad8",
+    "sharedId": "464ad799",
     "resourceName": "irrigationsystemdesign",
     "authSelections": "identityPoolAndUserPool",
     "serviceName": "Cognito",
@@ -50,21 +51,6 @@
     "thirdPartyAuth": false,
     "authProviders": [],
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true,
-    "authRoleArn": {
-      "Fn::GetAtt": [
-        "AuthRole",
-        "Arn"
-      ]
-    },
-    "unauthRoleArn": {
-      "Fn::GetAtt": [
-        "UnauthRole",
-        "Arn"
-      ]
-    },
-    "breakCircularDependency": true,
-    "dependsOn": [],
-    "hostedUI": false
+    "useEnabledMfas": true
   }
 }
