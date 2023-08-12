@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-irrigationsystemdesi-staging-13300-authRole",
+      "UnauthRoleArn": "arn:aws:iam::655115150704:role/amplify-irrigationsystemdesi-staging-13300-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::655115150704:role/amplify-irrigationsystemdesi-staging-13300-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-irrigationsystemdesi-staging-13300-deployment",
+      "UnauthRoleName": "amplify-irrigationsystemdesi-staging-13300-unauthRole",
+      "StackName": "amplify-irrigationsystemdesi-staging-13300",
+      "StackId": "arn:aws:cloudformation:us-east-1:655115150704:stack/amplify-irrigationsystemdesi-staging-13300/83209160-358b-11ee-8109-0e3415416185",
+      "AmplifyAppId": "dj5bcr6bhh06f"
+    },
+    "categories": {
+      "auth": {
+        "irrigationsystemdesign": {}
+      }
+    }
+  }
+}
