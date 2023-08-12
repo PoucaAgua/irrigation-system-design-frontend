@@ -64,7 +64,6 @@ function EToModalComponent({ showModal, onClose, eto, setEto }) {
     },
     ETo: {
       value: loadingCalculate ? "Loading..." : eto,
-      type: "number"
     }
 
   }

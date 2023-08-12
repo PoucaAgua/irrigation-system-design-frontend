@@ -1,45 +1,26 @@
 import './App.css';
-import { IrrigationSystemDesignHeader } from './ui-components';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import EToModalComponent from './components/EToModalComponent';
 import { withAuthenticator } from '@aws-amplify/ui-react';
+import Header from './components/Header';
 
 
 function App({ user, signOut }) {
-  console.log(user)
   const [eto, setEto] = useState(0);
   const [showEtoComponent, setShowEtoComponent] = useState(false);
 
 
-  const irrigationSystemDesignHeaderOverrides = {
-    Evapotranspiration: {
-      style: {
-        cursor: "pointer"
-      },
-      onClick: () => {
-        setShowEtoComponent(true);
-      }
-    },
-    UserData: {
-      overrides: {
-        image: {
-          src: user?.attributes?.profile
-        }        
-      }
-    },
-    SignOutButton: {
-      onClick: signOut
-    }
-  }
-
-
   return (
     <div className="App">
-      <IrrigationSystemDesignHeader
-        overrides={irrigationSystemDesignHeaderOverrides}
+      <Header
+        setShowEtoComponent={(bool) => setShowEtoComponent(bool)}
+        user={user}
+        signOut={() => signOut()}
       />
       <div>Eto: {eto}</div>
+
+
       <EToModalComponent
         showModal={showEtoComponent}
         onClose={() => setShowEtoComponent(false)}
