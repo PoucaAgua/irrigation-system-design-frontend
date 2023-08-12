@@ -6,4 +6,6 @@
 
 export { default as EToComponent } from "./EToComponent";
 export { default as IrrigationSystemDesignHeader } from "./IrrigationSystemDesignHeader";
+export { default as MainView } from "./MainView";
+export { default as UserData } from "./UserData";
 export { default as studioTheme } from "./studioTheme";

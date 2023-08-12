@@ -7,44 +7,24 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Icon, Image, Text, View } from "@aws-amplify/ui-react";
+import { Button, Text, View } from "@aws-amplify/ui-react";
+import UserData from "./UserData";
 export default function IrrigationSystemDesignHeader(props) {
   const { overrides, ...rest } = props;
   return (
     <View
-      width="1414px"
-      height="79px"
+      width="1218px"
+      height="97px"
       display="block"
       gap="unset"
       alignItems="unset"
       justifyContent="unset"
       position="relative"
       padding="0px 0px 0px 0px"
+      backgroundColor="rgba(133,199,212,0.5)"
       {...getOverrideProps(overrides, "IrrigationSystemDesignHeader")}
       {...rest}
     >
-      <Icon
-        width="1414px"
-        height="79px"
-        viewBox={{ minX: 0, minY: 0, width: 1414, height: 79 }}
-        paths={[
-          {
-            d: "M0 0L1414 0L1414 79L0 79L0 0Z",
-            fill: "rgba(125,214,232,0.4)",
-            fillRule: "nonzero",
-          },
-        ]}
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        position="absolute"
-        top="0%"
-        bottom="0%"
-        left="0%"
-        right="0%"
-        {...getOverrideProps(overrides, "Rectangle 1")}
-      ></Icon>
       <Text
         fontFamily="Inter"
         fontSize="16px"
@@ -55,8 +35,8 @@ export default function IrrigationSystemDesignHeader(props) {
         display="block"
         direction="column"
         justifyContent="unset"
-        width="175px"
-        height="38px"
+        width="150.74px"
+        height="46.66px"
         gap="unset"
         alignItems="unset"
         position="absolute"
@@ -69,23 +49,32 @@ export default function IrrigationSystemDesignHeader(props) {
         children="Evapotranspiration"
         {...getOverrideProps(overrides, "Evapotranspiration")}
       ></Text>
-      <Image
-        width="3.18%"
-        height="56.96%"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
+      <Button
+        width="88px"
+        height="27px"
         position="absolute"
-        top="21.52%"
-        bottom="21.52%"
-        left="96.04%"
-        right="0.78%"
-        borderRadius="160px"
+        top="35px"
+        left="1024px"
+        size="large"
+        isDisabled={false}
+        variation="primary"
+        children="SignOut"
+        {...getOverrideProps(overrides, "SignOutButton")}
+      ></Button>
+      <UserData
+        display="flex"
+        gap="0"
+        direction="column"
+        width="71px"
+        height="71px"
+        justifyContent="center"
+        alignItems="center"
+        position="absolute"
+        top="13px"
+        left="1135px"
         padding="0px 0px 0px 0px"
-        objectFit="cover"
-        {...getOverrideProps(overrides, "image")}
-      ></Image>
+        {...getOverrideProps(overrides, "UserData")}
+      ></UserData>
     </View>
   );
 }

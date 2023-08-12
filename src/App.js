@@ -20,6 +20,13 @@ function App({ user, signOut }) {
       onClick: () => {
         setShowEtoComponent(true);
       }
+    },
+    UserData: {
+      overrides: {
+        image: {
+          src: user?.attributes?.profile
+        }        
+      }
     }
   }
 

@@ -6,13 +6,14 @@
 
 import * as React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { IconProps, ImageProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { ButtonProps, TextProps, ViewProps } from "@aws-amplify/ui-react";
+import { UserDataProps } from "./UserData";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type IrrigationSystemDesignHeaderOverridesProps = {
     IrrigationSystemDesignHeader?: PrimitiveOverrideProps<ViewProps>;
-    "Rectangle 1"?: PrimitiveOverrideProps<IconProps>;
     Evapotranspiration?: PrimitiveOverrideProps<TextProps>;
-    image?: PrimitiveOverrideProps<ImageProps>;
+    SignOutButton?: PrimitiveOverrideProps<ButtonProps>;
+    UserData?: UserDataProps;
 } & EscapeHatchProps;
 export declare type IrrigationSystemDesignHeaderProps = React.PropsWithChildren<Partial<ViewProps> & {
     overrides?: IrrigationSystemDesignHeaderOverridesProps | undefined | null;
