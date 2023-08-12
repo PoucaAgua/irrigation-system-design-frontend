@@ -27,6 +27,9 @@ function App({ user, signOut }) {
           src: user?.attributes?.profile
         }        
       }
+    },
+    SignOutButton: {
+      onClick: signOut
     }
   }
 
