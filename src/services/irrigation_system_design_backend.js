@@ -5,6 +5,19 @@ class IrrigationSystemDesignService {
     this.config = new Configuration();
     this.URL = this.config.IRRIGATION_SYSTEM_DESIGN_BACKEND_URL;
     this.ETO_HARGRAVES_SAMANI = this.URL + this.config.ETO_HARGRAVES_SAMANI_PATH;
+
+    this.projects = [
+      {
+        "id": 1,
+        "name": "project1",
+        "user": "ravellys"
+      },
+      {
+        "id": 2,
+        "name": "project2",
+        "user": "ravellys"
+      },
+    ];
   }
 
   async calculateEto(payload) {
@@ -27,16 +40,11 @@ class IrrigationSystemDesignService {
   }
 
   getProjects(params) {
-    return [
-      {
-        "id": 1,
-        "name": "project1"
-      },
-      {
-        "id": 2,
-        "name": "project2"
-      },
-    ]
+    return this.projects;
+  }
+
+  insertProject(newProject) {
+    this.projects.put(newProject);
   }
 
 }
