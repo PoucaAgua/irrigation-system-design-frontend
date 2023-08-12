@@ -66,7 +66,7 @@ export default function IrrigationSystemDesignHeader(props) {
         gap="0"
         direction="column"
         width="71px"
-        height="71px"
+        height="unset"
         justifyContent="center"
         alignItems="center"
         position="absolute"

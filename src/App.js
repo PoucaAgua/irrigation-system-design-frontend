@@ -1,9 +1,10 @@
 import './App.css';
 import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import EToModalComponent from './components/EToModalComponent';
 import { withAuthenticator } from '@aws-amplify/ui-react';
 import Header from './components/Header';
+import EToModalComponent from './components/EToModalComponent';
+import Projects from './components/Projects';
 
 
 function App({ user, signOut }) {
@@ -18,8 +19,11 @@ function App({ user, signOut }) {
         user={user}
         signOut={() => signOut()}
       />
-      <div>Eto: {eto}</div>
 
+      <br/>
+      <Projects
+        user={user}
+      />
 
       <EToModalComponent
         showModal={showEtoComponent}
