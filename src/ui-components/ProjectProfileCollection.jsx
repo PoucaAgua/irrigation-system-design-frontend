@@ -13,13 +13,12 @@ export default function ProjectProfileCollection(props) {
   const { items, overrideItems, overrides, ...rest } = props;
   return (
     <Collection
-      type="grid"
-      isSearchable={true}
+      type="list"
+      isSearchable="true"
       isPaginated={true}
       searchPlaceholder="Search..."
-      itemsPerPage={6}
-      templateColumns="1fr 1fr 1fr"
-      autoFlow="row"
+      itemsPerPage={5}
+      direction="column"
       alignItems="center"
       justifyContent="center"
       items={items || []}

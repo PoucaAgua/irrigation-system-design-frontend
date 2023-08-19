@@ -12,12 +12,12 @@ export declare type EToComponentOverridesProps = {
     EToComponent?: PrimitiveOverrideProps<ViewProps>;
     EstimateETo?: PrimitiveOverrideProps<FlexProps>;
     Form?: PrimitiveOverrideProps<ViewProps>;
-    CalculateButton?: PrimitiveOverrideProps<ButtonProps>;
     Radiation?: PrimitiveOverrideProps<TextFieldProps>;
     Tmin?: PrimitiveOverrideProps<TextFieldProps>;
     Tmed?: PrimitiveOverrideProps<TextFieldProps>;
     Tmax?: PrimitiveOverrideProps<TextFieldProps>;
     SaveButton?: PrimitiveOverrideProps<ButtonProps>;
+    CalculateButton?: PrimitiveOverrideProps<ButtonProps>;
     ETo?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type EToComponentProps = React.PropsWithChildren<Partial<ViewProps> & {

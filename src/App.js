@@ -23,16 +23,21 @@ function App({ user, signOut }) {
       />
       <br />
 
-      {(pageView === PageView.LIST_OF_PROJECTS) && (
+      <main className="App-body">
+
+        {(pageView === PageView.LIST_OF_PROJECTS) && (
           <Projects
             user={user}
-            setPageView={(_pageView)=> setPageView(_pageView)}
+            setPageView={(_pageView) => setPageView(_pageView)}
           />
-      )}
+        )}
 
-      {(pageView === PageView.CREATE_NEW_PROJECT) && (
-        <div>CREATE_NEW_PROJECT</div>
-      )}
+        {(pageView === PageView.CREATE_NEW_PROJECT) && (
+          <div>CREATE_NEW_PROJECT</div>
+        )}
+
+      </main>
+
 
       <EToModalComponent
         showModal={showEtoComponent}

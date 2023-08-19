@@ -50,20 +50,6 @@ export default function EToComponent(props) {
           padding="0px 0px 0px 0px"
           {...getOverrideProps(overrides, "Form")}
         >
-          <Button
-            width="100px"
-            height="30px"
-            position="absolute"
-            padding="7px 9px 7px 9px"
-            top="220px"
-            left="173px"
-            backgroundColor="rgba(13,26,38,1)"
-            size="large"
-            isDisabled={false}
-            variation="primary"
-            children="Calculate"
-            {...getOverrideProps(overrides, "CalculateButton")}
-          ></Button>
           <TextField
             width="150px"
             height="90px"
@@ -120,24 +106,39 @@ export default function EToComponent(props) {
             variation="default"
             {...getOverrideProps(overrides, "Tmax")}
           ></TextField>
-          <Button
-            width="70px"
-            height="30px"
-            position="absolute"
-            top="220px"
-            left="284px"
-            backgroundColor="rgba(67,168,84,1)"
-            size="large"
-            isDisabled={false}
-            variation="primary"
-            children="save"
-            {...getOverrideProps(overrides, "SaveButton")}
-          ></Button>
         </View>
       </Flex>
+      <Button
+        width="147px"
+        height="36px"
+        position="absolute"
+        overflow="hidden"
+        top="339px"
+        left="241px"
+        backgroundColor="rgba(67,168,84,1)"
+        size="large"
+        isDisabled={false}
+        variation="primary"
+        children="save"
+        {...getOverrideProps(overrides, "SaveButton")}
+      ></Button>
+      <Button
+        width="151px"
+        height="36px"
+        position="absolute"
+        padding="7px 9px 7px 9px"
+        top="339px"
+        left="62px"
+        backgroundColor="rgba(13,26,38,1)"
+        size="large"
+        isDisabled={false}
+        variation="primary"
+        children="Calculate"
+        {...getOverrideProps(overrides, "CalculateButton")}
+      ></Button>
       <TextField
-        width="150px"
-        height="90px"
+        width="328px"
+        height="82px"
         label="ETo"
         placeholder="15"
         position="absolute"
