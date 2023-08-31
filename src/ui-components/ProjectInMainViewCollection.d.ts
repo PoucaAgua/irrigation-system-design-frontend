@@ -5,21 +5,21 @@
  **************************************************************************/
 
 import * as React from "react";
-import { ProjectProfileProps } from "./ProjectProfile";
+import { ProjectInMainViewProps } from "./ProjectInMainView";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { CollectionProps } from "@aws-amplify/ui-react";
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
-export declare type ProjectProfileCollectionOverridesProps = {
-    ProjectProfileCollection?: PrimitiveOverrideProps<CollectionProps>;
-    ProjectProfile?: ProjectProfileProps;
+export declare type ProjectInMainViewCollectionOverridesProps = {
+    ProjectInMainViewCollection?: PrimitiveOverrideProps<CollectionProps>;
+    ProjectInMainView?: ProjectInMainViewProps;
 } & EscapeHatchProps;
-export declare type ProjectProfileCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
+export declare type ProjectInMainViewCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
     items?: any[];
     overrideItems?: (collectionItem: {
         item: any;
         index: number;
-    }) => ProjectProfileProps;
+    }) => ProjectInMainViewProps;
 } & {
-    overrides?: ProjectProfileCollectionOverridesProps | undefined | null;
+    overrides?: ProjectInMainViewCollectionOverridesProps | undefined | null;
 }>;
-export default function ProjectProfileCollection(props: ProjectProfileCollectionProps): React.ReactElement;
+export default function ProjectInMainViewCollection(props: ProjectInMainViewCollectionProps): React.ReactElement;

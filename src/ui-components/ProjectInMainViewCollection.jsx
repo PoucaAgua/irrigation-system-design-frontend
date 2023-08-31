@@ -6,30 +6,28 @@
 
 /* eslint-disable */
 import * as React from "react";
-import ProjectProfile from "./ProjectProfile";
+import ProjectInMainView from "./ProjectInMainView";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Collection } from "@aws-amplify/ui-react";
-export default function ProjectProfileCollection(props) {
+export default function ProjectInMainViewCollection(props) {
   const { items, overrideItems, overrides, ...rest } = props;
   return (
     <Collection
       type="list"
-      isSearchable="true"
+      isSearchable={true}
       isPaginated={true}
       searchPlaceholder="Search..."
-      itemsPerPage={5}
       direction="column"
-      alignItems="center"
-      justifyContent="center"
+      justifyContent="left"
       items={items || []}
-      {...getOverrideProps(overrides, "ProjectProfileCollection")}
+      {...getOverrideProps(overrides, "ProjectInMainViewCollection")}
       {...rest}
     >
       {(item, index) => (
-        <ProjectProfile
+        <ProjectInMainView
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
-        ></ProjectProfile>
+        ></ProjectInMainView>
       )}
     </Collection>
   );

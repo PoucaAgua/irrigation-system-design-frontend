@@ -4,8 +4,16 @@
  * Any changes to this file will be overwritten when running amplify pull. *
  **************************************************************************/
 
-export { default as EToComponent } from "./EToComponent";
-export { default as ProjectProfile } from "./ProjectProfile";
-export { default as ProjectProfileCollection } from "./ProjectProfileCollection";
+export { default as ButtonClose } from "./ButtonClose";
+export { default as Buttonoption } from "./Buttonoption";
+export { default as CreateNewProjectButton } from "./CreateNewProjectButton";
+export { default as DeleteBuutton } from "./DeleteBuutton";
+export { default as InfoButton } from "./InfoButton";
+export { default as Inputdata } from "./Inputdata";
+export { default as NavbarHeader } from "./NavbarHeader";
+export { default as ProjectInMainView } from "./ProjectInMainView";
+export { default as ProjectInMainViewCollection } from "./ProjectInMainViewCollection";
+export { default as SignOutButton } from "./SignOutButton";
+export { default as UpdateButton } from "./UpdateButton";
 export { default as UserData } from "./UserData";
 export { default as studioTheme } from "./studioTheme";

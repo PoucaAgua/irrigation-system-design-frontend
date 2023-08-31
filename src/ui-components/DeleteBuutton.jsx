@@ -7,56 +7,45 @@
 /* eslint-disable */
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { Flex, Image, Text } from "@aws-amplify/ui-react";
-export default function UserData(props) {
+import { Flex, Text } from "@aws-amplify/ui-react";
+export default function DeleteBuutton(props) {
   const { overrides, ...rest } = props;
   return (
     <Flex
-      gap="0"
-      direction="column"
-      width="unset"
-      height="unset"
-      justifyContent="flex-start"
+      gap="10px"
+      direction="row"
+      width="113px"
+      height="34px"
+      justifyContent="center"
       alignItems="center"
+      overflow="hidden"
       position="relative"
-      padding="0px 0px 0px 0px"
-      {...getOverrideProps(overrides, "UserData")}
+      borderRadius="4px"
+      padding="2px 9px 2px 9px"
+      backgroundColor="rgba(254,91,91,1)"
+      {...getOverrideProps(overrides, "DeleteBuutton")}
       {...rest}
     >
-      <Image
-        width="59px"
-        height="56px"
-        display="block"
-        gap="unset"
-        alignItems="unset"
-        justifyContent="unset"
-        shrink="0"
-        position="relative"
-        borderRadius="160px"
-        padding="0px 0px 0px 0px"
-        objectFit="cover"
-        {...getOverrideProps(overrides, "image")}
-      ></Image>
       <Text
         fontFamily="Inter"
-        fontSize="12px"
-        fontWeight="400"
-        color="rgba(0,0,0,1)"
-        lineHeight="14.522727012634277px"
+        fontSize="20px"
+        fontWeight="700"
+        color="rgba(255,255,255,1)"
+        lineHeight="32px"
         textAlign="center"
         display="block"
         direction="column"
         justifyContent="unset"
-        width="104px"
-        height="26px"
+        width="unset"
+        height="unset"
         gap="unset"
         alignItems="unset"
         shrink="0"
         position="relative"
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
-        children="Name"
-        {...getOverrideProps(overrides, "Name")}
+        children="Delete "
+        {...getOverrideProps(overrides, "Delete")}
       ></Text>
     </Flex>
   );
