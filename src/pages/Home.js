@@ -1,5 +1,5 @@
 import React from "react";
-import HomeCards from "../components/Buttons/HomeButtons";
+import HomeCards from "../components/HomeCards";
 import Header from "../components/Header/index";
 import TitleHome from "../components/Titles/Title_home";
 
