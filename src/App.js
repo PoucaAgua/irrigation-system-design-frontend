@@ -1,5 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.js";
 import { withAuthenticator } from "@aws-amplify/ui-react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
