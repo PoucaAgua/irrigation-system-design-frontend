@@ -5,7 +5,10 @@ import "./style.css";
 function HomeButtons() {
   return (
     <>
-      <div className="d-grid gap-2 col-6 mx-auto custom-button">
+      <div
+        className="d-grid gap-2 col-6 mx-auto custom-button"
+        style={{ marginTop: 30 }}
+      >
         <Link
           to="/Evapotranspiration"
           className="btn btn-secondary custom-button"

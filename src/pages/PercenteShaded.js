@@ -2,7 +2,7 @@ import React from "react";
 //import { Link } from "react-router-dom";
 
 function PercenteShaded() {
-  return <div>PercenteShaded</div>;
+  return <h1 className="text-center">PercenteShaded</h1>;
 }
 
 export default PercenteShaded;
