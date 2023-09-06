@@ -1,40 +1,32 @@
-import './App.css';
-import { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import Header from './components/Header';
-import Projects from './components/Projects';
-import PageView from './domain/enum/PageView.js'
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.js";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+import CropCoefficient from "./pages/Crop_Coefficient";
+import Evapotranspiration from "./pages/Evapotranspiration";
+import IrrigationSystem from "./pages/IrrigationSystemDesign";
+import PercenteShaded from "./pages/PercenteShaded";
+import SizeLines from "./pages/SizeLines";
+import Irrigation from "./pages/Irrigation";
+import Home from "./pages/Home";
 
-
-function App({ user, signOut }) {
-  const [pageView, setPageView] = useState(PageView.LIST_OF_PROJECTS);
-  
+function App({ user, signOut })   {
   return (
-    <div className="App">
-      <Header
-        user={user}
-        signOut={() => signOut()}
-      />
-      <br />
-
-      <main className="App-body">
-
-        {(pageView === PageView.LIST_OF_PROJECTS) && (
-          <Projects
-            user={user}
-            setPageView={(_pageView) => setPageView(_pageView)}
-          />
-        )}
-
-        {(pageView === PageView.CREATE_NEW_PROJECT) && (
-          <div>CREATE_NEW_PROJECT</div>
-        )}
-
-      </main>
-
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home user={user} signOut={()=> signOut()} />} />
+          <Route path="/CropCoefficient" element={<CropCoefficient />} />
+          <Route path="/Evapotranspiration" element={<Evapotranspiration />} />
+          <Route path="/IrrigationSystem" element={<IrrigationSystem />} />
+          <Route path="/PercenteShaded" element={<PercenteShaded />} />
+          <Route path="/SizeLines" element={<SizeLines />} />
+          <Route path="/Irrigation" element={<Irrigation />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
