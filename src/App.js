@@ -5,6 +5,7 @@ import { withAuthenticator } from '@aws-amplify/ui-react';
 import Header from './components/Header';
 import Projects from './components/Projects';
 import PageView from './domain/enum/PageView.js'
+import MainView from './components/MainView';
 
 
 
@@ -20,8 +21,9 @@ function App({ user, signOut }) {
       <br />
 
       <main className="App-body">
+        <MainView></MainView>
 
-        {(pageView === PageView.LIST_OF_PROJECTS) && (
+        {/* {(pageView === PageView.LIST_OF_PROJECTS) && (
           <Projects
             user={user}
             setPageView={(_pageView) => setPageView(_pageView)}
@@ -30,7 +32,7 @@ function App({ user, signOut }) {
 
         {(pageView === PageView.CREATE_NEW_PROJECT) && (
           <div>CREATE_NEW_PROJECT</div>
-        )}
+        )} */}
 
       </main>
 
