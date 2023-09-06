@@ -35,7 +35,7 @@ const cardData = [
   },
 ];
 
-function HomeButtons() {
+function HomeCards() {
   return (
     <Container>
       <Row>
@@ -57,4 +57,4 @@ function HomeButtons() {
   );
 }
 
-export default HomeButtons;
+export default HomeCards;
