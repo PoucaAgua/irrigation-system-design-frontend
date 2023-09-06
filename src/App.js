@@ -12,12 +12,12 @@ import SizeLines from "./pages/SizeLines";
 import Irrigation from "./pages/Irrigation";
 import Home from "./pages/Home";
 
-function App() {
+function App({ user, signOut })   {
   return (
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home user={user} signOut={()=> signOut()} />} />
           <Route path="/CropCoefficient" element={<CropCoefficient />} />
           <Route path="/Evapotranspiration" element={<Evapotranspiration />} />
           <Route path="/IrrigationSystem" element={<IrrigationSystem />} />

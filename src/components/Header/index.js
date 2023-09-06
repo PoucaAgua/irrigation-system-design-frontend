@@ -1,11 +1,11 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
-import { UserData } from "../../ui-components";
 import IconWater from "../Icons/Icon_water";
 
 //user, signOut
-function Navbar() {
+function Header({user, signOut}) {
+
   return (
     <header className="p-3 mb-3 border-bottom bg-secondary">
       <div className="container">
@@ -26,13 +26,14 @@ function Navbar() {
               aria-expanded="false"
             >
               <img
-                src="https://github.com/mdo.png"
+                src={user?.attributes?.profile}
                 alt="mdo"
                 width="32"
                 height="32"
                 className="rounded-circle"
               />
             </a>
+
             <ul className="dropdown-menu text-small">
               <li>
                 <a className="dropdown-item" href="#">
@@ -53,16 +54,17 @@ function Navbar() {
                 <hr className="dropdown-divider" />
               </li>
               <li>
-                <a className="dropdown-item" href="#">
+                <a className="dropdown-item" href="#" onClick={signOut}>
                   Sign out
                 </a>
               </li>
             </ul>
           </div>
+
         </div>
       </div>
     </header>
   );
 }
 
-export default Navbar;
+export default Header;
