@@ -1,34 +1,67 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css"; // Importe o CSS do Bootstrap
-import "./style.css"; // Importe seu arquivo de estilo CSS personalizado
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./style.css";
 import { UserData } from "../../ui-components";
+import IconWater from "../Icons/Icon_water";
 
-function Navbar({ user, signOut }) {
+//user, signOut
+function Navbar() {
   return (
-    <nav className="navbar bg-secondary">
-      <div className="container-fluid">
-        <h4 className="navbar-brand text-white">IrrigationSystem</h4>
-        <div className="ml-auto">
-          <div className="d-flex align-items-center text-white">
-            <div className="mr-2">
-              <i className="bi bi-person"></i> {/* Ícone de usuário */}
-            </div>
-            <div className="profile">
-              <UserData
-                overrides={{
-                  image: {
-                    src: user?.attributes?.profile,
-                  },
-                  Name: {
-                    children: user?.attributes?.name,
-                  },
-                }}
+    <header className="p-3 mb-3 border-bottom bg-secondary">
+      <div className="container">
+        <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <h4
+            href="/"
+            className="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-white fs-4"
+          >
+            <IconWater />
+            IrrigationSystem
+          </h4>
+
+          <div className="dropdown text-end ms-auto">
+            <a
+              href="#"
+              className="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="https://github.com/mdo.png"
+                alt="mdo"
+                width="32"
+                height="32"
+                className="rounded-circle"
               />
-            </div>
+            </a>
+            <ul className="dropdown-menu text-small">
+              <li>
+                <a className="dropdown-item" href="#">
+                  New project...
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Settings
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Profile
+                </a>
+              </li>
+              <li>
+                <hr className="dropdown-divider" />
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Sign out
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-    </nav>
+    </header>
   );
 }
 
