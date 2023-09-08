@@ -9,9 +9,9 @@ export default class index extends Component {
             className="form-check-input"
             type="radio"
             name="flexRadioDefault"
-            id="flexRadioDefault1"
+            id="Single"
           />
-          <label className="form-check-label " for="flexRadioDefault1">
+          <label className="form-check-label " for="Single">
             Single lateral line
           </label>
         </div>
@@ -20,10 +20,10 @@ export default class index extends Component {
             className="form-check-input"
             type="radio"
             name="flexRadioDefault"
-            id="flexRadioDefault2"
+            id="Dual"
             checked
           />
-          <label className="form-check-label" for="flexRadioDefault2">
+          <label className="form-check-label" for="Dual">
             Dual lateral lines
           </label>
         </div>
