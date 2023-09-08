@@ -4,10 +4,9 @@ import "./style.css";
 import IconWater from "../Icons/Icon_water";
 
 //user, signOut
-function Header({user, signOut}) {
-
+function Header({ user, signOut }) {
   return (
-    <header className="p-3 mb-3 border-bottom bg-secondary">
+    <header className="p-2 mb-3 border-bottom bg-secondary">
       <div className="container">
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <h4
@@ -15,7 +14,7 @@ function Header({user, signOut}) {
             className="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-white fs-4"
           >
             <IconWater />
-            IrrigationSystem
+            Pouca Água
           </h4>
 
           <div className="dropdown text-end ms-auto">
@@ -28,8 +27,8 @@ function Header({user, signOut}) {
               <img
                 src={user?.attributes?.profile}
                 alt="mdo"
-                width="32"
-                height="32"
+                width="40"
+                height="40"
                 className="rounded-circle"
               />
             </a>
@@ -60,7 +59,6 @@ function Header({user, signOut}) {
               </li>
             </ul>
           </div>
-
         </div>
       </div>
     </header>
