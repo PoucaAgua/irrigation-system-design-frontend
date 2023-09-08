@@ -9,12 +9,9 @@ export default class index extends Component {
             className="form-check-input"
             type="radio"
             name="flexRadioDefault"
-            id="flexRadioDefault1"
+            id="Tree"
           />
-          <label
-            className="form-check-label text-left"
-            htmlFor="flexRadioDefault1"
-          >
+          <label className="form-check-label text-left" htmlFor="Tree">
             Tree irrigation
           </label>
         </div>
@@ -23,13 +20,10 @@ export default class index extends Component {
             className="form-check-input"
             type="radio"
             name="flexRadioDefault"
-            id="flexRadioDefault2"
+            id="continuous"
             checked
           />
-          <label
-            className="form-check-label text-left"
-            htmlFor="flexRadioDefault2"
-          >
+          <label className="form-check-label text-left" htmlFor="continuous">
             Irrigation for continuous strip formation
           </label>
         </div>
