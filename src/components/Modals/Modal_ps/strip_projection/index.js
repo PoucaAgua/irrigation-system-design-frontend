@@ -34,12 +34,18 @@ function StripModal({ Strip, setStrip }) {
           shaded_strip_plant: ss,
         };
 
-        const response = await irrigationSystemDesignService.calculateStrip(
-          payload
-        );
+        try {
+          const response = await irrigationSystemDesignService.calculateStrip(
+            payload
+          );
 
-        console.log("API Response:", response);
-        setLoadingCalculate(false);
+          console.log("API Response:", response);
+          setResult(response.value);
+        } catch (error) {
+          console.error("Error calculating Strip:", error);
+        } finally {
+          setLoadingCalculate(false);
+        }
       },
     },
 
