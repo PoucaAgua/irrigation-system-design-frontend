@@ -3,9 +3,9 @@ import React, { Component } from "react";
 export default class index extends Component {
   render() {
     return (
-      <h1 className="text-center" style={{ marginTop: 25 }}>
+      <p className="text-center fs-1" style={{ marginTop: 25 }}>
         PercenteShaded
-      </h1>
+      </p>
     );
   }
 }
