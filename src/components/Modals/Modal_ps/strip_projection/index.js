@@ -59,7 +59,7 @@ function StripModal({ Strip, setStrip }) {
     },
   };
 
-  const toggleModal = () => {
+  const toggleModalStrip = () => {
     setShowModal(!showModal);
   };
 
@@ -71,14 +71,14 @@ function StripModal({ Strip, setStrip }) {
           className="form-check-input"
           id="stripRadioButton"
           name="modalRadio"
-          onChange={toggleModal}
+          onChange={toggleModalStrip}
         />
         <label className="form-check-label" htmlFor="stripRadioButton">
           Strip Projection
         </label>
       </div>
 
-      <Modal show={showModal} onHide={toggleModal}>
+      <Modal show={showModal} onHide={toggleModalStrip}>
         <Modal.Header closeButton>
           <Modal.Title>
             Percent Shaded Area By Plant Strip Projection
@@ -128,7 +128,7 @@ function StripModal({ Strip, setStrip }) {
           >
             Calculate
           </Button>
-          <Button variant="danger" onClick={toggleModal}>
+          <Button variant="danger" onClick={toggleModalStrip}>
             Close
           </Button>
         </Modal.Footer>
