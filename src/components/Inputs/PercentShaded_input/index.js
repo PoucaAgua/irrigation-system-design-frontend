@@ -45,7 +45,7 @@ function LabeledInputs() {
 
       <div className="form-group">
         <label htmlFor="input4" className="left-label">
-          Percentage of wetted area:
+          Percentage of Wetted area:
         </label>
         <input
           id="input4"
@@ -58,7 +58,7 @@ function LabeledInputs() {
 
       <div className="form-group">
         <label htmlFor="input5" className="left-label">
-          Percentage of wetted area:
+          Percentage of Shaded area:
         </label>
         <input
           id="input5"

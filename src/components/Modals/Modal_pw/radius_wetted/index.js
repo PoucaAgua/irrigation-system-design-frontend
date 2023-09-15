@@ -91,51 +91,86 @@ function RadiusModal({ Radius, setRadius }) {
 
       <Modal show={showModal} onHide={toggleModalRadius}>
         <Modal.Header closeButton>
-          <Modal.Title>
-            Percent Wetted Area By Twice saturated wetted radius
+          <Modal.Title className="text-center fs-4">
+            Percent Wetted Area <br />
+            By Twice saturated wetted radius
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <label htmlFor="input5" className="left-label">
-            Q:
-          </label>
-          <input
-            id="input5"
-            type="text"
-            className="form-control mb-3"
-            style={{ width: "330px" }}
-            placeholder="Q"
-            value={q}
-            onChange={(e) => setQ(e.target.value)}
-          />
-          <label htmlFor="input5" className="left-label">
-            Hydraulic conductivity:
-          </label>
-          <input
-            id="input5"
-            type="text"
-            className="form-control mb-3"
-            style={{ width: "330px" }}
-            placeholder="Ko (cm h-1)"
-            value={k0}
-            onChange={(e) => setK0(e.target.value)}
-          />
-          <label htmlFor="input5" className="left-label">
-            Exponential model parameter for unsaturated soil hydraulic
-            conductivity:
-          </label>
-          <input
-            id="input5"
-            type="text"
-            className="form-control mb-3"
-            style={{ width: "330px" }}
-            placeholder="α"
-            value={alpha}
-            onChange={(e) => setAlpha(e.target.value)}
-          />
+          <div className="input mb-3 d-flex flex-column align-items-center">
+            <label
+              htmlFor="input5"
+              className="left-label"
+              style={{ marginRight: "65%" }}
+            >
+              Q:
+            </label>
+            <input
+              id="input5"
+              type="text"
+              className="form-control mb-3"
+              style={{ width: "330px" }}
+              placeholder="Q"
+              value={q}
+              onChange={(e) => setQ(e.target.value)}
+            />
+            <label
+              htmlFor="input5"
+              className="left-label"
+              style={{ marginRight: "34%" }}
+            >
+              Hydraulic conductivity:
+            </label>
+            <input
+              id="input5"
+              type="text"
+              className="form-control mb-3"
+              style={{ width: "330px" }}
+              placeholder="Ko (cm h-1)"
+              value={k0}
+              onChange={(e) => setK0(e.target.value)}
+            />
+            <label
+              htmlFor="input5"
+              className="left-label"
+              style={{ marginRight: "16%" }}
+            >
+              Soil Water Conductivity Parameter:
+            </label>
+            <input
+              id="input5"
+              type="text"
+              className="form-control mb-3"
+              style={{ width: "330px" }}
+              placeholder="α"
+              value={alpha}
+              onChange={(e) => setAlpha(e.target.value)}
+            />
+          </div>
           {result !== null && (
-            <div>
-              <strong>Result:</strong> {result}
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <div style={{ width: "60%", height: "40%" }}>
+                <table class="table table-bordered border-secondary">
+                  <thead>
+                    <tr>
+                      <th scope="col">Pw Result</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{result}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           )}
         </Modal.Body>
