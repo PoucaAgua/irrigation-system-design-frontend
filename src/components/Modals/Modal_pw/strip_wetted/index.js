@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-function PwStripModal({ Canopy, setCanopy }) {
+function PwStripModal({ PwStrip, setPwStrip }) {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [sr, setSr] = useState("");
@@ -43,7 +43,7 @@ function PwStripModal({ Canopy, setCanopy }) {
         };
 
         try {
-          const response = await irrigationSystemDesignService.calculateCanopy(
+          const response = await irrigationSystemDesignService.calculatePwStrip(
             payload
           );
 
@@ -62,8 +62,8 @@ function PwStripModal({ Canopy, setCanopy }) {
         alert("SaveButton need be implemented....");
       },
     },
-    Canopy: {
-      value: loadingCalculate ? "Loading..." : Canopy,
+    PwStrip: {
+      value: loadingCalculate ? "Loading..." : PwStrip,
     },
   };
 
