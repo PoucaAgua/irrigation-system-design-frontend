@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-function CanopyMOdal({ Radius, setRadius }) {
+function RadiusModal({ Radius, setRadius }) {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [q, setQ] = useState("");
@@ -43,7 +43,7 @@ function CanopyMOdal({ Radius, setRadius }) {
         };
 
         try {
-          const response = await irrigationSystemDesignService.calculateCanopy(
+          const response = await irrigationSystemDesignService.calculateRadius(
             payload
           );
 
@@ -161,4 +161,4 @@ function CanopyMOdal({ Radius, setRadius }) {
   );
 }
 
-export default CanopyMOdal;
+export default RadiusModal;
