@@ -223,7 +223,7 @@ function TreeModal({ Tree, setTree }) {
               type="text"
               className="form-control mb-3"
               style={{ width: "330px" }}
-              placeholder="cm h-1"
+              placeholder="cm h-1 (k0)"
               value={k0}
               onChange={(e) => setK0(e.target.value)}
             />
