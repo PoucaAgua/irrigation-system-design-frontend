@@ -93,64 +93,109 @@ function PwStripModal({ Canopy, setCanopy }) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p className="text-center fs-5">
-            Calculate monisted area Aw = SP x SW , m²
-          </p>
-          <label htmlFor="input5" className="left-label">
-            Crown projection diameter:
-          </label>
-          <input
-            id="input5"
-            type="text"
-            className="form-control mb-3"
-            style={{ width: "330px" }}
-            placeholder="Sw (m²)"
-            value={sw}
-            onChange={(e) => setSw(e.target.value)}
-          />
-          <label htmlFor="input5" className="left-label">
-            Spacing between plants in the row
-          </label>
-          <input
-            id="input5"
-            type="text"
-            className="form-control mb-3"
-            style={{ width: "330px" }}
-            placeholder="Sp (m)"
-            value={sp}
-            onChange={(e) => setSp(e.target.value)}
-          />
+          <div className="input mb-3 d-flex flex-column align-items-center">
+            <b
+              className="text-center fs-6"
+              style={{ marginBottom: 15, marginTop: 10 }}
+            >
+              Calculate monisted area Aw = SP x SW , m²
+            </b>
+            <label
+              htmlFor="input5"
+              className="left-label"
+              style={{ marginRight: "27%" }}
+            >
+              Crown projection diameter:
+            </label>
+            <input
+              id="input5"
+              type="text"
+              className="form-control mb-3"
+              style={{ width: "330px" }}
+              placeholder="Sw (m²)"
+              value={sw}
+              onChange={(e) => setSw(e.target.value)}
+            />
+            <label
+              htmlFor="input5"
+              className="left-label"
+              style={{ marginRight: "16%" }}
+            >
+              Spacing between plants in the row
+            </label>
+            <input
+              id="input5"
+              type="text"
+              className="form-control mb-3"
+              style={{ width: "330px" }}
+              placeholder="Sp (m)"
+              value={sp}
+              onChange={(e) => setSp(e.target.value)}
+            />
 
-          <p className="text-center fs-5">
-            Calculate occupied plant Ap = SP x SR, m²
-          </p>
-          <label htmlFor="input5" className="left-label">
-            Spacing between plants in the row:
-          </label>
-          <input
-            id="input5"
-            type="text"
-            className="form-control mb-3"
-            style={{ width: "330px" }}
-            placeholder="Sp (m)"
-            value={sp}
-            onChange={(e) => setSp(e.target.value)}
-          />
-          <label htmlFor="input5" className="left-label">
-            Spacing between rows of plants:
-          </label>
-          <input
-            id="input5"
-            type="text"
-            className="form-control mb-3"
-            style={{ width: "330px" }}
-            placeholder="Sr (m)"
-            value={sr}
-            onChange={(e) => setSr(e.target.value)}
-          />
+            <b
+              className="text-center fs-6"
+              style={{ marginBottom: 15, marginTop: 30 }}
+            >
+              Calculate occupied plant Ap = SP x SR, m²
+            </b>
+            <label
+              htmlFor="input5"
+              className="left-label"
+              style={{ marginRight: "16%" }}
+            >
+              Spacing between plants in the row:
+            </label>
+            <input
+              id="input5"
+              type="text"
+              className="form-control mb-3"
+              style={{ width: "330px" }}
+              placeholder="Sp (m)"
+              value={sp}
+              onChange={(e) => setSp(e.target.value)}
+            />
+            <label
+              htmlFor="input5"
+              className="left-label"
+              style={{ marginRight: "20%" }}
+            >
+              Spacing between rows of plants:
+            </label>
+            <input
+              id="input5"
+              type="text"
+              className="form-control mb-3"
+              style={{ width: "330px" }}
+              placeholder="Sr (m)"
+              value={sr}
+              onChange={(e) => setSr(e.target.value)}
+            />
+          </div>
           {result !== null && (
-            <div>
-              <strong>Result:</strong> {result}
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <div style={{ width: "60%", height: "40%" }}>
+                <table class="table table-bordered border-secondary">
+                  <thead>
+                    <tr>
+                      <th scope="col">Pw Result</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{result}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           )}
         </Modal.Body>

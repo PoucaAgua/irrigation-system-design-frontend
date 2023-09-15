@@ -80,13 +80,14 @@ function StripModal({ Strip, setStrip }) {
 
       <Modal show={showModal} onHide={toggleModalStrip}>
         <Modal.Header closeButton>
-          <Modal.Title>
-            Percent Shaded Area By Plant Strip Projection
+          <Modal.Title className="text-center fs-4">
+            Percent Shaded Area
+            <br /> By Plant Strip Projection
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="input mb-3">
-            <label className="form-label">
+          <div className="input mb-3 d-flex flex-column align-items-center">
+            <label className="form-label" style={{ marginRight: "18%" }}>
               Spacing between rows of plants:
             </label>
             <input
@@ -98,7 +99,9 @@ function StripModal({ Strip, setStrip }) {
               value={sr}
               onChange={(e) => setSr(e.target.value)}
             />
-            <label className="form-label">Shaded strip:</label>
+            <label className="form-label" style={{ marginRight: "47%" }}>
+              Shaded strip:
+            </label>
             <input
               id="input5"
               type="text"
@@ -109,9 +112,31 @@ function StripModal({ Strip, setStrip }) {
               onChange={(e) => setSs(e.target.value)}
             />
           </div>
+
           {result !== null && (
-            <div>
-              <strong>Result:</strong> {result}
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <div style={{ width: "60%", height: "40%" }}>
+                <table class="table table-bordered border-secondary">
+                  <thead>
+                    <tr>
+                      <th scope="col">Ps Result</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{result}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           )}
         </Modal.Body>
