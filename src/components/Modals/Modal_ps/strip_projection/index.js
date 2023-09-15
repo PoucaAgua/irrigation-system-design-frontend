@@ -69,11 +69,11 @@ function StripModal({ Strip, setStrip }) {
         <input
           type="radio"
           className="form-check-input"
-          id="stripRadioButton"
+          id="stripRadioButtonStrip"
           name="modalRadio"
           onChange={toggleModalStrip}
         />
-        <label className="form-check-label" htmlFor="stripRadioButton">
+        <label className="form-check-label" htmlFor="stripRadioButtonStrip">
           Strip Projection
         </label>
       </div>
