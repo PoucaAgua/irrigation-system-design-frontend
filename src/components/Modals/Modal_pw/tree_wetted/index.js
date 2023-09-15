@@ -101,12 +101,12 @@ function TreeModal({ Tree, setTree }) {
         <input
           type="radio"
           className="form-check-input"
-          id="radioButton"
+          id="radioButtonTree"
           name="modalRadio"
           onChange={toggleModalTree}
         />
-        <label className="form-check-label" htmlFor="radioButton">
-          Irrigation by tree
+        <label className="form-check-label" htmlFor="radioButtonTree">
+          Irrigation by Tree
         </label>
       </div>
 

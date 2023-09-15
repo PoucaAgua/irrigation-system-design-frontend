@@ -80,12 +80,12 @@ function RadiusModal({ Radius, setRadius }) {
         <input
           type="radio"
           className="form-check-input"
-          id="radioButton"
+          id="radioButtonRadius"
           name="modalRadio"
           onChange={toggleModalRadius}
         />
-        <label className="form-check-label" htmlFor="radioButton">
-          Twice saturated wetted radius
+        <label className="form-check-label" htmlFor="radioButtonRadius">
+          Twice Saturated Wetted Radius
         </label>
       </div>
 

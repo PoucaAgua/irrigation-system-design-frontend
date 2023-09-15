@@ -77,11 +77,11 @@ function CanopyMOdal({ Canopy, setCanopy }) {
         <input
           type="radio"
           className="form-check-input"
-          id="radioButton"
+          id="radioButtonCanopy"
           name="modalRadio"
           onChange={toggleModalCanopy}
         />
-        <label className="form-check-label" htmlFor="radioButton">
+        <label className="form-check-label" htmlFor="radioButtonCanopy">
           Canopy Projection
         </label>
       </div>
