@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-
 import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
+
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function CanopyModal({ Canopy, setCanopy }) {
@@ -12,6 +12,7 @@ function CanopyModal({ Canopy, setCanopy }) {
   const [sp, setSp] = useState("");
   const [dco, setDco] = useState("");
   const [result, setResult] = useState(null);
+  const [validationError, setValidationError] = useState("");
 
   const CanopyComponentOverrides = {
     Sr: {
@@ -35,7 +36,14 @@ function CanopyModal({ Canopy, setCanopy }) {
 
     CalculateButton: {
       onClick: async () => {
+        if (!sr || !sp || !dco) {
+          setValidationError("Please fill in all fields.");
+          return;
+        }
+
         setLoadingCalculate(true);
+        setValidationError("");
+
         const payload = {
           space_between_rows: sr,
           space_between_plants: sp,
@@ -59,7 +67,7 @@ function CanopyModal({ Canopy, setCanopy }) {
 
     SaveButton: {
       onClick: () => {
-        alert("SaveButton need be implemented....");
+        alert("SaveButton need to be implemented....");
       },
     },
     Canopy: {
@@ -144,6 +152,15 @@ function CanopyModal({ Canopy, setCanopy }) {
               onChange={(e) => setSr(e.target.value)}
             />
           </div>
+          {validationError && (
+            <div
+              className="alert alert-danger"
+              role="alert"
+              style={{ width: "60%", margin: "0 auto" }}
+            >
+              {validationError}
+            </div>
+          )}
           {result !== null && (
             <div
               style={{
@@ -155,7 +172,7 @@ function CanopyModal({ Canopy, setCanopy }) {
               }}
             >
               <div style={{ width: "60%", height: "40%" }}>
-                <table class="table table-bordered border-secondary">
+                <table className="table table-bordered border-secondary">
                   <thead>
                     <tr>
                       <th scope="col">Ps Result</th>
