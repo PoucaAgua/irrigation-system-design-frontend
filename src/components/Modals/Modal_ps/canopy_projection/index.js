@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-function CanopyMOdal({ Canopy, setCanopy }) {
+function CanopyModal({ Canopy, setCanopy }) {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [sr, setSr] = useState("");
@@ -193,4 +193,4 @@ function CanopyMOdal({ Canopy, setCanopy }) {
   );
 }
 
-export default CanopyMOdal;
+export default CanopyModal;
