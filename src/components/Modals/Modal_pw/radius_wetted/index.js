@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-
 import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
+
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function RadiusModal({ Radius, setRadius }) {
@@ -12,30 +12,41 @@ function RadiusModal({ Radius, setRadius }) {
   const [k0, setK0] = useState("");
   const [alpha, setAlpha] = useState("");
   const [result, setResult] = useState(null);
+  const [validationError, setValidationError] = useState("");
 
   const RadiusComponentOverrides = {
     Q: {
       onChange: (event) => {
         setQ(event.target.value);
+        setValidationError("");
       },
       type: "number",
     },
     K0: {
       onChange: (event) => {
         setK0(event.target.value);
+        setValidationError("");
       },
       type: "number",
     },
     Alpha: {
       onChange: (event) => {
         setAlpha(event.target.value);
+        setValidationError("");
       },
       type: "number",
     },
 
     CalculateButton: {
       onClick: async () => {
+        if (!q || !k0 || !alpha) {
+          setValidationError("Please fill in all fields.");
+          return;
+        }
+
         setLoadingCalculate(true);
+        setValidationError("");
+
         const payload = {
           q: q,
           hydraulic_conductivity_of_saturated_soil: k0,
@@ -62,7 +73,7 @@ function RadiusModal({ Radius, setRadius }) {
 
     SaveButton: {
       onClick: () => {
-        alert("SaveButton need be implemented....");
+        alert("SaveButton need to be implemented....");
       },
     },
     Radius: {
@@ -147,6 +158,15 @@ function RadiusModal({ Radius, setRadius }) {
               onChange={(e) => setAlpha(e.target.value)}
             />
           </div>
+          {validationError && (
+            <div
+              className="alert alert-danger"
+              role="alert"
+              style={{ width: "60%", margin: "0 auto" }}
+            >
+              {validationError}
+            </div>
+          )}
           {result !== null && (
             <div
               style={{
@@ -158,7 +178,7 @@ function RadiusModal({ Radius, setRadius }) {
               }}
             >
               <div style={{ width: "60%", height: "40%" }}>
-                <table class="table table-bordered border-secondary">
+                <table className="table table-bordered border-secondary">
                   <thead>
                     <tr>
                       <th scope="col">Pw Result</th>
