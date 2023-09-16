@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-
 import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
+
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function TreeModal({ Tree, setTree }) {
@@ -15,48 +15,62 @@ function TreeModal({ Tree, setTree }) {
   const [q, setQ] = useState("");
   const [k0, setK0] = useState("");
   const [result, setResult] = useState(null);
+  const [validationError, setValidationError] = useState("");
 
   const TreeComponentOverrides = {
     Sr: {
       onChange: (event) => {
         setSr(event.target.value);
+        setValidationError("");
       },
       type: "number",
     },
     Sp: {
       onChange: (event) => {
         setSp(event.target.value);
+        setValidationError("");
       },
       type: "number",
     },
     Np: {
       onChange: (event) => {
         setNp(event.target.value);
+        setValidationError("");
       },
       type: "number",
     },
     Z: {
       onChange: (event) => {
-        setNp(event.target.value);
+        setZ(event.target.value);
+        setValidationError("");
       },
       type: "number",
     },
     Q: {
       onChange: (event) => {
-        setNp(event.target.value);
+        setQ(event.target.value);
+        setValidationError("");
       },
       type: "number",
     },
     K0: {
       onChange: (event) => {
-        setNp(event.target.value);
+        setK0(event.target.value);
+        setValidationError("");
       },
       type: "number",
     },
 
     CalculateButton: {
       onClick: async () => {
+        if (!sr || !sp || !np || !z || !q || !k0) {
+          setValidationError("Please fill in all fields.");
+          return;
+        }
+
         setLoadingCalculate(true);
+        setValidationError("");
+
         const payload = {
           space_between_lines: sr,
           space_between_plants: sp,
@@ -83,7 +97,7 @@ function TreeModal({ Tree, setTree }) {
 
     SaveButton: {
       onClick: () => {
-        alert("SaveButton need be implemented....");
+        alert("SaveButton need to be implemented....");
       },
     },
     Tree: {
@@ -229,6 +243,15 @@ function TreeModal({ Tree, setTree }) {
             />
           </div>
 
+          {validationError && (
+            <div
+              className="alert alert-danger"
+              role="alert"
+              style={{ width: "60%", margin: "0 auto" }}
+            >
+              {validationError}
+            </div>
+          )}
           {result !== null && (
             <div
               style={{
@@ -240,7 +263,7 @@ function TreeModal({ Tree, setTree }) {
               }}
             >
               <div style={{ width: "60%", height: "40%" }}>
-                <table class="table table-bordered border-secondary">
+                <table className="table table-bordered border-secondary">
                   <thead>
                     <tr>
                       <th scope="col">Pw Result</th>
