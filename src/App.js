@@ -12,69 +12,18 @@ import SizeLines from "./pages/SizeLines";
 import Irrigation from "./pages/Irrigation";
 import Home from "./pages/Home";
 
-function App({ user, signOut }) {
+function App({ user, signOut })   {
   return (
     <Router>
       <div>
         <Routes>
-          <Route
-            path="/"
-            element={<Home user={user} signOut={() => signOut()} />}
-          />
-          <Route
-            path="/CropCoefficient"
-            element={
-              <CropCoefficient
-                element={
-                  <PercenteShaded user={user} signOut={() => signOut()} />
-                }
-              />
-            }
-          />
-          <Route
-            path="/Evapotranspiration"
-            element={
-              <Evapotranspiration
-                element={
-                  <PercenteShaded user={user} signOut={() => signOut()} />
-                }
-              />
-            }
-          />
-          <Route
-            path="/IrrigationSystem"
-            element={
-              <IrrigationSystem
-                element={
-                  <PercenteShaded user={user} signOut={() => signOut()} />
-                }
-              />
-            }
-          />
-          <Route
-            path="/PercenteShaded"
-            element={<PercenteShaded user={user} signOut={() => signOut()} />}
-          />
-          <Route
-            path="/SizeLines"
-            element={
-              <SizeLines
-                element={
-                  <PercenteShaded user={user} signOut={() => signOut()} />
-                }
-              />
-            }
-          />
-          <Route
-            path="/Irrigation"
-            element={
-              <Irrigation
-                element={
-                  <PercenteShaded user={user} signOut={() => signOut()} />
-                }
-              />
-            }
-          />
+          <Route path="/" element={<Home user={user} signOut={()=> signOut()} />} />
+          <Route path="/CropCoefficient" element={<CropCoefficient />} />
+          <Route path="/Evapotranspiration" element={<Evapotranspiration />} />
+          <Route path="/IrrigationSystem" element={<IrrigationSystem />} />
+          <Route path="/PercenteShaded" element={<PercenteShaded />} />
+          <Route path="/SizeLines" element={<SizeLines />} />
+          <Route path="/Irrigation" element={<Irrigation />} />
         </Routes>
       </div>
     </Router>
