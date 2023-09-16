@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-
 import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
+
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function StripModal({ Strip, setStrip }) {
@@ -11,24 +11,34 @@ function StripModal({ Strip, setStrip }) {
   const [sr, setSr] = useState("");
   const [ss, setSs] = useState("");
   const [result, setResult] = useState(null);
+  const [validationError, setValidationError] = useState("");
 
   const StripComponentOverrides = {
     Sr: {
       onChange: (event) => {
         setSr(event.target.value);
+        setValidationError("");
       },
       type: "number",
     },
     Ss: {
       onChange: (event) => {
         setSs(event.target.value);
+        setValidationError("");
       },
       type: "number",
     },
 
     CalculateButton: {
       onClick: async () => {
+        if (!sr || !ss) {
+          setValidationError("Please fill in all fields.");
+          return;
+        }
+
         setLoadingCalculate(true);
+        setValidationError("");
+
         const payload = {
           space_between_rows: sr,
           shaded_strip_plant: ss,
@@ -51,7 +61,7 @@ function StripModal({ Strip, setStrip }) {
 
     SaveButton: {
       onClick: () => {
-        alert("SaveButton need be implemented....");
+        alert("SaveButton need to be implemented....");
       },
     },
     Strip: {
@@ -113,6 +123,15 @@ function StripModal({ Strip, setStrip }) {
             />
           </div>
 
+          {validationError && (
+            <div
+              className="alert alert-danger"
+              role="alert"
+              style={{ width: "60%", margin: "0 auto" }}
+            >
+              {validationError}
+            </div>
+          )}
           {result !== null && (
             <div
               style={{
@@ -124,7 +143,7 @@ function StripModal({ Strip, setStrip }) {
               }}
             >
               <div style={{ width: "60%", height: "40%" }}>
-                <table class="table table-bordered border-secondary">
+                <table className="table table-bordered border-secondary">
                   <thead>
                     <tr>
                       <th scope="col">Ps Result</th>
