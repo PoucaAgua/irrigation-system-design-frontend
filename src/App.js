@@ -23,33 +23,17 @@ function App({ user, signOut }) {
           />
           <Route
             path="/CropCoefficient"
-            element={
-              <CropCoefficient
-                element={
-                  <CropCoefficient user={user} signOut={() => signOut()} />
-                }
-              />
-            }
+            element={<CropCoefficient user={user} signOut={() => signOut()} />}
           />
           <Route
             path="/Evapotranspiration"
             element={
-              <Evapotranspiration
-                element={
-                  <Evapotranspiration user={user} signOut={() => signOut()} />
-                }
-              />
+              <Evapotranspiration user={user} signOut={() => signOut()} />
             }
           />
           <Route
             path="/IrrigationSystem"
-            element={
-              <IrrigationSystem
-                element={
-                  <IrrigationSystem user={user} signOut={() => signOut()} />
-                }
-              />
-            }
+            element={<IrrigationSystem user={user} signOut={() => signOut()} />}
           />
           <Route
             path="/PercenteShaded"
@@ -57,19 +41,11 @@ function App({ user, signOut }) {
           />
           <Route
             path="/SizeLines"
-            element={
-              <SizeLines
-                element={<SizeLines user={user} signOut={() => signOut()} />}
-              />
-            }
+            element={<SizeLines user={user} signOut={() => signOut()} />}
           />
           <Route
             path="/Irrigation"
-            element={
-              <Irrigation
-                element={<Irrigation user={user} signOut={() => signOut()} />}
-              />
-            }
+            element={<Irrigation user={user} signOut={() => signOut()} />}
           />
         </Routes>
       </div>
