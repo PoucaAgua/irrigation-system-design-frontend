@@ -26,7 +26,7 @@ function App({ user, signOut }) {
             element={
               <CropCoefficient
                 element={
-                  <PercenteShaded user={user} signOut={() => signOut()} />
+                  <CropCoefficient user={user} signOut={() => signOut()} />
                 }
               />
             }
@@ -36,7 +36,7 @@ function App({ user, signOut }) {
             element={
               <Evapotranspiration
                 element={
-                  <PercenteShaded user={user} signOut={() => signOut()} />
+                  <Evapotranspiration user={user} signOut={() => signOut()} />
                 }
               />
             }
@@ -46,7 +46,7 @@ function App({ user, signOut }) {
             element={
               <IrrigationSystem
                 element={
-                  <PercenteShaded user={user} signOut={() => signOut()} />
+                  <IrrigationSystem user={user} signOut={() => signOut()} />
                 }
               />
             }
@@ -59,9 +59,7 @@ function App({ user, signOut }) {
             path="/SizeLines"
             element={
               <SizeLines
-                element={
-                  <PercenteShaded user={user} signOut={() => signOut()} />
-                }
+                element={<SizeLines user={user} signOut={() => signOut()} />}
               />
             }
           />
@@ -69,9 +67,7 @@ function App({ user, signOut }) {
             path="/Irrigation"
             element={
               <Irrigation
-                element={
-                  <PercenteShaded user={user} signOut={() => signOut()} />
-                }
+                element={<Irrigation user={user} signOut={() => signOut()} />}
               />
             }
           />
