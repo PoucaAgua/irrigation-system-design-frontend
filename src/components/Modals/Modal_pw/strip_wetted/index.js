@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-
 import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
@@ -12,6 +11,7 @@ function PwStripModal({ PwStrip, setPwStrip }) {
   const [sp, setSp] = useState("");
   const [sw, setSw] = useState("");
   const [result, setResult] = useState(null);
+  const [validationError, setValidationError] = useState("");
 
   const StripPwComponentOverrides = {
     Sr: {
@@ -35,11 +35,17 @@ function PwStripModal({ PwStrip, setPwStrip }) {
 
     CalculateButton: {
       onClick: async () => {
+        if (!sr || !sp || !sw) {
+          setValidationError("Please fill in all fields.");
+          return;
+        }
+
+        setValidationError("");
         setLoadingCalculate(true);
         const payload = {
-          space_between_rows: sr,
+          row_spacing_plants: sr,
           space_between_plants: sp,
-          diameter_projection: sw,
+          wetted_zone: sw,
         };
 
         try {
@@ -172,6 +178,15 @@ function PwStripModal({ PwStrip, setPwStrip }) {
               onChange={(e) => setSr(e.target.value)}
             />
           </div>
+          {validationError && (
+            <div
+              className="alert alert-danger"
+              role="alert"
+              style={{ width: "60%", margin: "0 auto" }}
+            >
+              {validationError}
+            </div>
+          )}
           {result !== null && (
             <div
               style={{
@@ -183,7 +198,7 @@ function PwStripModal({ PwStrip, setPwStrip }) {
               }}
             >
               <div style={{ width: "60%", height: "40%" }}>
-                <table class="table table-bordered border-secondary">
+                <table className="table table-bordered border-secondary">
                   <thead>
                     <tr>
                       <th scope="col">Pw Result</th>
