@@ -19,7 +19,8 @@ function LabeledInputs({
   const [inputValuePwTree, setInputValuePwTree] = useState("");
   const [inputValuePwStrip, setInputValuePwStrip] = useState("");
   const [inputValuePwRadius, setInputValuePwRadius] = useState("");
-
+  const [isInputPsDisabled, setIsInputPsDisabled] = useState(true);
+  const [isInputPwDisabled, setIsInputPwDisabled] = useState(true);
   useEffect(() => {
     // Atualizar os campos de entrada com os valores das variáveis quando elas mudarem
     setInputValuePsCanopy(resultPsCanopy || "");
@@ -61,6 +62,14 @@ function LabeledInputs({
     const value = e.target.value;
     setInputValuePwTree(value);
     setResultPwRadius(value);
+  };
+
+  // Função para lidar com a mudança do switch
+  const handleSwitchChangePs = () => {
+    setIsInputPsDisabled(!isInputPsDisabled); // Inverte o estado do switch
+  };
+  const handleSwitchChangePw = () => {
+    setIsInputPwDisabled(!isInputPwDisabled); // Inverte o estado do switch
   };
 
   return (
@@ -106,7 +115,19 @@ function LabeledInputs({
 
       <div className="form-group">
         <label htmlFor="input4" className="left-label">
-          Percentage of Wetted area:
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              checked={isInputPwDisabled}
+              onChange={handleSwitchChangePw}
+            />
+            <label class="form-check-label" for="flexSwitchCheckChecked">
+              Percentage of Wetted area:
+            </label>
+          </div>
         </label>
         <input
           id="input4"
@@ -114,11 +135,24 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Pw (%)"
+          disabled={isInputPwDisabled}
         />
       </div>
       <div className="form-group">
         <label htmlFor="input4" className="left-label">
-          Percentage of Shaded area:
+          <div class="form-check form-switch">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              checked={isInputPsDisabled}
+              onChange={handleSwitchChangePs}
+            />
+            <label class="form-check-label" for="flexSwitchCheckChecked">
+              Percentage of Shaded area:
+            </label>
+          </div>
         </label>
         <input
           id="input4"
@@ -126,6 +160,7 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Ps (%)"
+          disabled={isInputPsDisabled}
         />
       </div>
 
