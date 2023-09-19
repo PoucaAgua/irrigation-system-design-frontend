@@ -1,84 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
-const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-function PwStripModal({ PwStrip, setPwStrip }) {
-  const [loadingCalculate, setLoadingCalculate] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [sr, setSr] = useState("");
-  const [sp, setSp] = useState("");
-  const [sw, setSw] = useState("");
-  const [result, setResult] = useState(null);
-  const [validationError, setValidationError] = useState("");
-
-  const StripPwComponentOverrides = {
-    Sr: {
-      onChange: (event) => {
-        setSr(event.target.value);
-      },
-      type: "number",
-    },
-    Sp: {
-      onChange: (event) => {
-        setSp(event.target.value);
-      },
-      type: "number",
-    },
-    Sw: {
-      onChange: (event) => {
-        setSw(event.target.value);
-      },
-      type: "number",
-    },
-
-    CalculateButton: {
-      onClick: async () => {
-        if (!sr || !sp || !sw) {
-          setValidationError("Please fill in all fields.");
-          return;
-        }
-
-        setValidationError("");
-        setLoadingCalculate(true);
-        const payload = {
-          row_spacing_plants: sr,
-          space_between_plants: sp,
-          wetted_zone: sw,
-        };
-
-        try {
-          const response = await irrigationSystemDesignService.calculatePwStrip(
-            payload
-          );
-
-          console.log("API Response:", response);
-          setResult(response.value);
-        } catch (error) {
-          console.error("Error calculating Continuous strip:", error);
-        } finally {
-          setLoadingCalculate(false);
-        }
-      },
-    },
-
-    SaveButton: {
-      onClick: () => {
-        alert("SaveButton need be implemented....");
-      },
-    },
-    PwStrip: {
-      value: loadingCalculate ? "Loading..." : PwStrip,
-    },
-  };
-
-  const toggleModalPwStrip = () => {
-    setShowModal(!showModal);
-  };
-
+function PwStripModalRender({
+  showModalPwStrip,
+  toggleModalPwStrip,
+  sr,
+  sp,
+  sw,
+  resultPwStrip,
+  validationError,
+  loadingCalculate,
+  StripPwComponentOverrides,
+}) {
   return (
     <>
+      {" "}
       <div className="form-check" style={{ marginLeft: 16 }}>
         <input
           type="radio"
@@ -91,8 +28,7 @@ function PwStripModal({ PwStrip, setPwStrip }) {
           Continuous Strip
         </label>
       </div>
-
-      <Modal show={showModal} onHide={toggleModalPwStrip}>
+      <Modal show={showModalPwStrip} onHide={toggleModalPwStrip}>
         <Modal.Header closeButton>
           <Modal.Title className="text-center fs-4">
             Percent Wetted Area By <br /> Continuous strip <br /> Aw / Ap x 100
@@ -120,7 +56,7 @@ function PwStripModal({ PwStrip, setPwStrip }) {
               style={{ width: "330px" }}
               placeholder="Sw (m²)"
               value={sw}
-              onChange={(e) => setSw(e.target.value)}
+              onChange={(e) => StripPwComponentOverrides.Sw.onChange(e)}
             />
             <label
               htmlFor="input5"
@@ -136,7 +72,7 @@ function PwStripModal({ PwStrip, setPwStrip }) {
               style={{ width: "330px" }}
               placeholder="Sp (m)"
               value={sp}
-              onChange={(e) => setSp(e.target.value)}
+              onChange={(e) => StripPwComponentOverrides.Sp.onChange(e)}
             />
 
             <b
@@ -159,7 +95,7 @@ function PwStripModal({ PwStrip, setPwStrip }) {
               style={{ width: "330px" }}
               placeholder="Sp (m)"
               value={sp}
-              onChange={(e) => setSp(e.target.value)}
+              onChange={(e) => StripPwComponentOverrides.Sp.onChange(e)}
             />
             <label
               htmlFor="input5"
@@ -175,7 +111,7 @@ function PwStripModal({ PwStrip, setPwStrip }) {
               style={{ width: "330px" }}
               placeholder="Sr (m)"
               value={sr}
-              onChange={(e) => setSr(e.target.value)}
+              onChange={(e) => StripPwComponentOverrides.Sr.onChange(e)}
             />
           </div>
           {validationError && (
@@ -187,7 +123,7 @@ function PwStripModal({ PwStrip, setPwStrip }) {
               {validationError}
             </div>
           )}
-          {result !== null && (
+          {resultPwStrip !== null && (
             <div
               style={{
                 width: "100%",
@@ -206,7 +142,7 @@ function PwStripModal({ PwStrip, setPwStrip }) {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{result}</td>
+                      <td>{resultPwStrip}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -217,13 +153,13 @@ function PwStripModal({ PwStrip, setPwStrip }) {
         <Modal.Footer>
           <Button
             variant="success"
-            onClick={StripPwComponentOverrides.SaveButton.onClick}
+            onClick={StripPwComponentOverrides.SaveButtonStripPw.onClick}
           >
             Save
           </Button>
           <Button
             variant="primary"
-            onClick={StripPwComponentOverrides.CalculateButton.onClick}
+            onClick={StripPwComponentOverrides.CalculateButtonStripPw.onClick}
           >
             Calculate
           </Button>
@@ -236,4 +172,4 @@ function PwStripModal({ PwStrip, setPwStrip }) {
   );
 }
 
-export default PwStripModal;
+export default PwStripModalRender;

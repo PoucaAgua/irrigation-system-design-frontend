@@ -1,84 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 
-const irrigationSystemDesignService = new IrrigationSystemDesignService();
-
-function CanopyModal({ Canopy, setCanopy }) {
-  const [loadingCalculate, setLoadingCalculate] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [sr, setSr] = useState("");
-  const [sp, setSp] = useState("");
-  const [dco, setDco] = useState("");
-  const [result, setResult] = useState(null);
-  const [validationError, setValidationError] = useState("");
-
-  const CanopyComponentOverrides = {
-    Sr: {
-      onChange: (event) => {
-        setSr(event.target.value);
-      },
-      type: "number",
-    },
-    Sp: {
-      onChange: (event) => {
-        setSp(event.target.value);
-      },
-      type: "number",
-    },
-    Dco: {
-      onChange: (event) => {
-        setDco(event.target.value);
-      },
-      type: "number",
-    },
-
-    CalculateButton: {
-      onClick: async () => {
-        if (!sr || !sp || !dco) {
-          setValidationError("Please fill in all fields.");
-          return;
-        }
-
-        setLoadingCalculate(true);
-        setValidationError("");
-
-        const payload = {
-          space_between_rows: sr,
-          space_between_plants: sp,
-          diameter_projection: dco,
-        };
-
-        try {
-          const response = await irrigationSystemDesignService.calculateCanopy(
-            payload
-          );
-
-          console.log("API Response:", response);
-          setResult(response.value);
-        } catch (error) {
-          console.error("Error calculating Canopy:", error);
-        } finally {
-          setLoadingCalculate(false);
-        }
-      },
-    },
-
-    SaveButton: {
-      onClick: () => {
-        alert("SaveButton need to be implemented....");
-      },
-    },
-    Canopy: {
-      value: loadingCalculate ? "Loading..." : Canopy,
-    },
-  };
-
-  const toggleModalCanopy = () => {
-    setShowModal(!showModal);
-  };
-
+function CanopyModalRender({
+  showModalCanopy,
+  toggleModalCanopy,
+  sr,
+  sp,
+  dco,
+  setSr,
+  setSp,
+  setDco,
+  resultPsCanopy,
+  validationError,
+  loadingCalculate,
+  CanopyComponentOverrides,
+}) {
   return (
     <>
       <div className="form-check" style={{ marginLeft: 16 }}>
@@ -93,8 +30,7 @@ function CanopyModal({ Canopy, setCanopy }) {
           Canopy Projection
         </label>
       </div>
-
-      <Modal show={showModal} onHide={toggleModalCanopy}>
+      <Modal show={showModalCanopy} onHide={toggleModalCanopy}>
         <Modal.Header closeButton>
           <Modal.Title className="text-center fs-4">
             Percent Shaded Area
@@ -161,7 +97,7 @@ function CanopyModal({ Canopy, setCanopy }) {
               {validationError}
             </div>
           )}
-          {result !== null && (
+          {resultPsCanopy !== null && (
             <div
               style={{
                 width: "100%",
@@ -180,7 +116,7 @@ function CanopyModal({ Canopy, setCanopy }) {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{result}</td>
+                      <td>{resultPsCanopy}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -191,13 +127,13 @@ function CanopyModal({ Canopy, setCanopy }) {
         <Modal.Footer>
           <Button
             variant="success"
-            onClick={CanopyComponentOverrides.SaveButton.onClick}
+            onClick={CanopyComponentOverrides.SaveButtonCanopy.onClick}
           >
             Save
           </Button>
           <Button
             variant="primary"
-            onClick={CanopyComponentOverrides.CalculateButton.onClick}
+            onClick={CanopyComponentOverrides.CalculateButtonCanopy.onClick}
           >
             Calculate
           </Button>
@@ -210,4 +146,4 @@ function CanopyModal({ Canopy, setCanopy }) {
   );
 }
 
-export default CanopyModal;
+export default CanopyModalRender;

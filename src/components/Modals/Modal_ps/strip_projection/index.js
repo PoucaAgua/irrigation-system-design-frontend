@@ -1,78 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 
-const irrigationSystemDesignService = new IrrigationSystemDesignService();
-
-function StripModal({ Strip, setStrip }) {
-  const [loadingCalculate, setLoadingCalculate] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [sr, setSr] = useState("");
-  const [ss, setSs] = useState("");
-  const [result, setResult] = useState(null);
-  const [validationError, setValidationError] = useState("");
-
-  const StripComponentOverrides = {
-    Sr: {
-      onChange: (event) => {
-        setSr(event.target.value);
-        setValidationError("");
-      },
-      type: "number",
-    },
-    Ss: {
-      onChange: (event) => {
-        setSs(event.target.value);
-        setValidationError("");
-      },
-      type: "number",
-    },
-
-    CalculateButton: {
-      onClick: async () => {
-        if (!sr || !ss) {
-          setValidationError("Please fill in all fields.");
-          return;
-        }
-
-        setLoadingCalculate(true);
-        setValidationError("");
-
-        const payload = {
-          space_between_rows: sr,
-          shaded_strip_plant: ss,
-        };
-
-        try {
-          const response = await irrigationSystemDesignService.calculateStrip(
-            payload
-          );
-
-          console.log("API Response:", response);
-          setResult(response.value);
-        } catch (error) {
-          console.error("Error calculating Strip:", error);
-        } finally {
-          setLoadingCalculate(false);
-        }
-      },
-    },
-
-    SaveButton: {
-      onClick: () => {
-        alert("SaveButton need to be implemented....");
-      },
-    },
-    Strip: {
-      value: loadingCalculate ? "Loading..." : Strip,
-    },
-  };
-
-  const toggleModalStrip = () => {
-    setShowModal(!showModal);
-  };
-
+function StripModalRender({
+  showModalPsStrip,
+  toggleModalStrip,
+  sr,
+  ss,
+  setSr,
+  setSs,
+  resultPsStrip,
+  validationError,
+  loadingCalculate,
+  StripComponentOverrides,
+}) {
   return (
     <>
       <div className="form-check" style={{ marginRight: 16 }}>
@@ -87,8 +28,7 @@ function StripModal({ Strip, setStrip }) {
           Strip Projection
         </label>
       </div>
-
-      <Modal show={showModal} onHide={toggleModalStrip}>
+      <Modal show={showModalPsStrip} onHide={toggleModalStrip}>
         <Modal.Header closeButton>
           <Modal.Title className="text-center fs-4">
             Percent Shaded Area
@@ -132,7 +72,7 @@ function StripModal({ Strip, setStrip }) {
               {validationError}
             </div>
           )}
-          {result !== null && (
+          {resultPsStrip !== null && (
             <div
               style={{
                 width: "100%",
@@ -151,7 +91,7 @@ function StripModal({ Strip, setStrip }) {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{result}</td>
+                      <td>{resultPsStrip}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -162,13 +102,13 @@ function StripModal({ Strip, setStrip }) {
         <Modal.Footer>
           <Button
             variant="success"
-            onClick={StripComponentOverrides.SaveButton.onClick}
+            onClick={StripComponentOverrides.SaveButtonPsStrip.onClick}
           >
             Save
           </Button>
           <Button
             variant="primary"
-            onClick={StripComponentOverrides.CalculateButton.onClick}
+            onClick={StripComponentOverrides.CalculateButtonPsStrip.onClick}
           >
             Calculate
           </Button>
@@ -181,4 +121,4 @@ function StripModal({ Strip, setStrip }) {
   );
 }
 
-export default StripModal;
+export default StripModalRender;
