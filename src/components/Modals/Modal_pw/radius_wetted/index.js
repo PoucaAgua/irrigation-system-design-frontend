@@ -1,92 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 
-const irrigationSystemDesignService = new IrrigationSystemDesignService();
-
-function RadiusModal({ Radius, setRadius }) {
-  const [loadingCalculate, setLoadingCalculate] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [q, setQ] = useState("");
-  const [k0, setK0] = useState("");
-  const [alpha, setAlpha] = useState("");
-  const [result, setResult] = useState(null);
-  const [validationError, setValidationError] = useState("");
-
-  const RadiusComponentOverrides = {
-    Q: {
-      onChange: (event) => {
-        setQ(event.target.value);
-        setValidationError("");
-      },
-      type: "number",
-    },
-    K0: {
-      onChange: (event) => {
-        setK0(event.target.value);
-        setValidationError("");
-      },
-      type: "number",
-    },
-    Alpha: {
-      onChange: (event) => {
-        setAlpha(event.target.value);
-        setValidationError("");
-      },
-      type: "number",
-    },
-
-    CalculateButton: {
-      onClick: async () => {
-        if (!q || !k0 || !alpha) {
-          setValidationError("Please fill in all fields.");
-          return;
-        }
-
-        setLoadingCalculate(true);
-        setValidationError("");
-
-        const payload = {
-          q: q,
-          hydraulic_conductivity_of_saturated_soil: k0,
-          parameter_model_unsaturated_hydraulic: alpha,
-        };
-
-        try {
-          const response = await irrigationSystemDesignService.calculateRadius(
-            payload
-          );
-
-          console.log("API Response:", response);
-          setResult(response.value);
-        } catch (error) {
-          console.error(
-            "Error calculating Twice saturated wetted radius:",
-            error
-          );
-        } finally {
-          setLoadingCalculate(false);
-        }
-      },
-    },
-
-    SaveButton: {
-      onClick: () => {
-        alert("SaveButton need to be implemented....");
-      },
-    },
-    Radius: {
-      value: loadingCalculate ? "Loading..." : Radius,
-    },
-  };
-
-  const toggleModalRadius = () => {
-    setShowModal(!showModal);
-  };
-
+function RadiusModalRender({
+  showModalPwRadius,
+  toggleModalRadius,
+  q,
+  k0,
+  alpha,
+  resultPwRadius,
+  validationError,
+  loadingCalculate,
+  RadiusComponentOverrides,
+}) {
   return (
     <>
+      {" "}
       <div className="form-check" style={{ marginLeft: 16 }}>
         <input
           type="radio"
@@ -99,8 +28,7 @@ function RadiusModal({ Radius, setRadius }) {
           Twice Saturated Wetted Radius
         </label>
       </div>
-
-      <Modal show={showModal} onHide={toggleModalRadius}>
+      <Modal show={showModalPwRadius} onHide={toggleModalRadius}>
         <Modal.Header closeButton>
           <Modal.Title className="text-center fs-4">
             Percent Wetted Area <br />
@@ -123,7 +51,7 @@ function RadiusModal({ Radius, setRadius }) {
               style={{ width: "330px" }}
               placeholder="Q"
               value={q}
-              onChange={(e) => setQ(e.target.value)}
+              onChange={(e) => RadiusComponentOverrides.Q.onChange(e)}
             />
             <label
               htmlFor="input5"
@@ -139,7 +67,7 @@ function RadiusModal({ Radius, setRadius }) {
               style={{ width: "330px" }}
               placeholder="Ko (cm h-1)"
               value={k0}
-              onChange={(e) => setK0(e.target.value)}
+              onChange={(e) => RadiusComponentOverrides.K0.onChange(e)}
             />
             <label
               htmlFor="input5"
@@ -155,7 +83,7 @@ function RadiusModal({ Radius, setRadius }) {
               style={{ width: "330px" }}
               placeholder="α"
               value={alpha}
-              onChange={(e) => setAlpha(e.target.value)}
+              onChange={(e) => RadiusComponentOverrides.Alpha.onChange(e)}
             />
           </div>
           {validationError && (
@@ -167,7 +95,7 @@ function RadiusModal({ Radius, setRadius }) {
               {validationError}
             </div>
           )}
-          {result !== null && (
+          {resultPwRadius !== null && (
             <div
               style={{
                 width: "100%",
@@ -186,7 +114,7 @@ function RadiusModal({ Radius, setRadius }) {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{result}</td>
+                      <td>{resultPwRadius}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -197,13 +125,13 @@ function RadiusModal({ Radius, setRadius }) {
         <Modal.Footer>
           <Button
             variant="success"
-            onClick={RadiusComponentOverrides.SaveButton.onClick}
+            onClick={RadiusComponentOverrides.SaveButtonRadius.onClick}
           >
             Save
           </Button>
           <Button
             variant="primary"
-            onClick={RadiusComponentOverrides.CalculateButton.onClick}
+            onClick={RadiusComponentOverrides.CalculateButtonRadius.onClick}
           >
             Calculate
           </Button>
@@ -216,4 +144,4 @@ function RadiusModal({ Radius, setRadius }) {
   );
 }
 
-export default RadiusModal;
+export default RadiusModalRender;

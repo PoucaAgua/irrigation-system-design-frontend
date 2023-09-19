@@ -1,114 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 
-const irrigationSystemDesignService = new IrrigationSystemDesignService();
-
-function TreeModal({ Tree, setTree }) {
-  const [loadingCalculate, setLoadingCalculate] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [sr, setSr] = useState("");
-  const [sp, setSp] = useState("");
-  const [np, setNp] = useState("");
-  const [z, setZ] = useState("");
-  const [q, setQ] = useState("");
-  const [k0, setK0] = useState("");
-  const [result, setResult] = useState(null);
-  const [validationError, setValidationError] = useState("");
-
-  const TreeComponentOverrides = {
-    Sr: {
-      onChange: (event) => {
-        setSr(event.target.value);
-        setValidationError("");
-      },
-      type: "number",
-    },
-    Sp: {
-      onChange: (event) => {
-        setSp(event.target.value);
-        setValidationError("");
-      },
-      type: "number",
-    },
-    Np: {
-      onChange: (event) => {
-        setNp(event.target.value);
-        setValidationError("");
-      },
-      type: "number",
-    },
-    Z: {
-      onChange: (event) => {
-        setZ(event.target.value);
-        setValidationError("");
-      },
-      type: "number",
-    },
-    Q: {
-      onChange: (event) => {
-        setQ(event.target.value);
-        setValidationError("");
-      },
-      type: "number",
-    },
-    K0: {
-      onChange: (event) => {
-        setK0(event.target.value);
-        setValidationError("");
-      },
-      type: "number",
-    },
-
-    CalculateButton: {
-      onClick: async () => {
-        if (!sr || !sp || !np || !z || !q || !k0) {
-          setValidationError("Please fill in all fields.");
-          return;
-        }
-
-        setLoadingCalculate(true);
-        setValidationError("");
-
-        const payload = {
-          space_between_lines: sr,
-          space_between_plants: sp,
-          drippers_number: np,
-          z: z,
-          q: q,
-          hydraulic_conductivity_of_saturated_soil: k0,
-        };
-
-        try {
-          const response = await irrigationSystemDesignService.calculateTree(
-            payload
-          );
-
-          console.log("API Response:", response);
-          setResult(response.value);
-        } catch (error) {
-          console.error("Error calculating Irrigation by tree:", error);
-        } finally {
-          setLoadingCalculate(false);
-        }
-      },
-    },
-
-    SaveButton: {
-      onClick: () => {
-        alert("SaveButton need to be implemented....");
-      },
-    },
-    Tree: {
-      value: loadingCalculate ? "Loading..." : Tree,
-    },
-  };
-
-  const toggleModalTree = () => {
-    setShowModal(!showModal);
-  };
-
+function TreeModal({
+  showModalPwTree,
+  toggleModalTree,
+  setNp,
+  setSp,
+  setSr,
+  setZ,
+  setQ,
+  setK0,
+  validationError,
+  resultPwTree,
+  TreeComponentOverrides,
+  np,
+  sp,
+  sr,
+  z,
+  q,
+  k0,
+}) {
   return (
     <>
       <div className="form-check" style={{ marginLeft: 16 }}>
@@ -123,8 +35,7 @@ function TreeModal({ Tree, setTree }) {
           Irrigation by Tree
         </label>
       </div>
-
-      <Modal show={showModal} onHide={toggleModalTree}>
+      <Modal show={showModalPwTree} onHide={toggleModalTree}>
         <Modal.Header closeButton>
           <Modal.Title className="text-center fs-4">
             Percent Wetted Area
@@ -252,7 +163,7 @@ function TreeModal({ Tree, setTree }) {
               {validationError}
             </div>
           )}
-          {result !== null && (
+          {resultPwTree !== null && (
             <div
               style={{
                 width: "100%",
@@ -271,7 +182,7 @@ function TreeModal({ Tree, setTree }) {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{result}</td>
+                      <td>{resultPwTree}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -282,13 +193,13 @@ function TreeModal({ Tree, setTree }) {
         <Modal.Footer>
           <Button
             variant="success"
-            onClick={TreeComponentOverrides.SaveButton.onClick}
+            onClick={TreeComponentOverrides.SaveButtonPwTree.onClick}
           >
             Save
           </Button>
           <Button
             variant="primary"
-            onClick={TreeComponentOverrides.CalculateButton.onClick}
+            onClick={TreeComponentOverrides.CalculateButtonPwTree.onClick}
           >
             Calculate
           </Button>
