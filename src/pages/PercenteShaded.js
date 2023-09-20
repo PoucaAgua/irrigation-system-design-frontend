@@ -10,6 +10,7 @@ import RadiusModalRender from "../components/Modals/Modal_pw/radius_wetted";
 import PwTreeModalRender from "../components/Modals/Modal_pw/tree_wetted";
 import PwStripModalRender from "../components/Modals/Modal_pw/strip_wetted";
 import IrrigationSystemDesignService from "../services/irrigation_system_design_backend";
+import { createCanopyComponentOverrides } from "../components/AgronomicModule/PercentShaded/CanopyCalculation";
 
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
@@ -58,67 +59,21 @@ function PercenteShaded({
   const [isInputPsDisabled, setIsInputPsDisabled] = useState(false);
   const [isInputPwDisabled, setIsInputPwDisabled] = useState(false);
 
-  //PS canopy projection
-  const CanopyComponentOverrides = {
-    Sr: {
-      onChange: (event) => {
-        setSr(event.target.value);
-      },
-      type: "number",
-    },
-    Sp: {
-      onChange: (event) => {
-        setSp(event.target.value);
-      },
-      type: "number",
-    },
-    Dco: {
-      onChange: (event) => {
-        setDco(event.target.value);
-      },
-      type: "number",
-    },
-
-    CalculateButtonCanopy: {
-      onClick: async () => {
-        if (!sr || !sp || !dco) {
-          setValidationError("Please fill in all fields.");
-          return;
-        }
-
-        setLoadingCalculate(true);
-        setValidationError("");
-
-        const payload = {
-          space_between_rows: sr,
-          space_between_plants: sp,
-          diameter_projection: dco,
-        };
-
-        try {
-          const response = await irrigationSystemDesignService.calculateCanopy(
-            payload
-          );
-
-          console.log("API Response:", response);
-          setResultPsCanopy(response.value);
-        } catch (error) {
-          console.error("Error calculating Canopy:", error);
-        } finally {
-          setLoadingCalculate(false);
-        }
-      },
-    },
-
-    SaveButtonCanopy: {
-      onClick: () => {
-        alert("SaveButton need to be implemented....");
-      },
-    },
-    Canopy: {
-      value: loadingCalculate ? "Loading..." : Canopy,
-    },
-  };
+  //PS canopy calculation
+  const CanopyComponentOverrides = createCanopyComponentOverrides({
+    sr,
+    sp,
+    dco,
+    setSr,
+    setSp,
+    setDco,
+    setValidationError,
+    setLoadingCalculate,
+    setResultPsCanopy,
+    Canopy,
+    irrigationSystemDesignService,
+    loadingCalculate,
+  });
 
   const toggleModalCanopy = () => {
     setShowModalCanopy(!showModalCanopy);
