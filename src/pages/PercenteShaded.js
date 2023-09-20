@@ -15,6 +15,7 @@ import { createStripComponentOverrides } from "../components/AgronomicModule/Per
 import { createRadiusComponentOverrides } from "../components/AgronomicModule/PercentWetted/PwRadiusCalculation";
 import { createStripPwComponentOverrides } from "../components/AgronomicModule/PercentWetted/PwStripCalculation";
 import { createTreeComponentOverrides } from "../components/AgronomicModule/PercentWetted/PwTreeCalculation";
+import { Container } from "react-bootstrap";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function PercenteShaded({
@@ -158,7 +159,6 @@ function PercenteShaded({
   return (
     <>
       <Header user={user} signOut={signOut} />
-
       <TitlePercentShaded />
       <PercenteShadedInputs
         resultPsCanopy={resultPsCanopy}
@@ -209,84 +209,103 @@ function PercenteShaded({
         StripPwComponentOverrides={StripPwComponentOverrides}
         RadiusComponentOverrides={RadiusComponentOverrides}
       />
-      <Pstitle />
-      <div className="d-flex justify-content-center">
-        <StripModalRender
-          toggleModalStrip={toggleModalStrip}
-          sr={sr}
-          ss={ss}
-          setSr={setSr}
-          setSs={setSs}
-          showModalPsStrip={showModalPsStrip}
-          setShowModalPsStrip={setShowModalPsStrip}
-          resultPsStrip={resultPsStrip}
-          validationError={validationError}
-          loadingCalculate={loadingCalculate}
-          StripComponentOverrides={StripComponentOverrides}
-        />
 
-        <CanopyModalRender
-          showModalCanopy={showModalCanopy}
-          toggleModalCanopy={toggleModalCanopy}
-          sr={sr}
-          sp={sp}
-          dco={dco}
-          setSr={setSr}
-          setSp={setSp}
-          setDco={setDco}
-          resultPsCanopy={resultPsCanopy}
-          validationError={validationError}
-          loadingCalculate={loadingCalculate}
-          CanopyComponentOverrides={CanopyComponentOverrides}
-        />
-      </div>
-      <Pwtitle />
-      <div className="d-flex justify-content-center">
-        <PwTreeModalRender
-          showModalPwTree={showModalPwTree}
-          toggleModalTree={toggleModalTree}
-          setNp={setNp}
-          setSp={setSp}
-          setSr={setSr}
-          setZ={setZ}
-          setQ={setQ}
-          setK0={setK0}
-          validationError={validationError}
-          resultPwTree={resultPwTree}
-          TreeComponentOverrides={TreeComponentOverrides}
-          np={np}
-          sp={sp}
-          sr={sr}
-          z={z}
-          q={q}
-          k0={k0}
-        />
-
-        <PwStripModalRender
-          showModalPwStrip={showModalPwStrip}
-          toggleModalPwStrip={toggleModalPwStrip}
-          sr={sr}
-          sp={sp}
-          sw={sw}
-          resultPwStrip={resultPwStrip}
-          validationError={validationError}
-          loadingCalculate={loadingCalculate}
-          StripPwComponentOverrides={StripPwComponentOverrides}
-        />
-      </div>
-      <div className="d-flex justify-content-center" style={{ marginTop: 10 }}>
-        <RadiusModalRender
-          showModalPwRadius={showModalPwRadius}
-          toggleModalRadius={toggleModalRadius}
-          q={q}
-          k0={k0}
-          alpha={alpha}
-          resultPwRadius={resultPwRadius}
-          validationError={validationError}
-          loadingCalculate={loadingCalculate}
-          RadiusComponentOverrides={RadiusComponentOverrides}
-        />
-      </div>
+      <Container style={{ maxWidth: 660, height: 280 }}>
+        <div class="row">
+          <div class="col-sm-6 mb-3 mb-sm-0">
+            <div
+              class="card"
+              style={{ height: 200, marginLeft: 20, marginRight: 20 }}
+            >
+              <div class="card-body">
+                <div class="card-title">
+                  <Pstitle />
+                </div>
+                <CanopyModalRender
+                  showModalCanopy={showModalCanopy}
+                  toggleModalCanopy={toggleModalCanopy}
+                  sr={sr}
+                  sp={sp}
+                  dco={dco}
+                  setSr={setSr}
+                  setSp={setSp}
+                  setDco={setDco}
+                  resultPsCanopy={resultPsCanopy}
+                  validationError={validationError}
+                  loadingCalculate={loadingCalculate}
+                  CanopyComponentOverrides={CanopyComponentOverrides}
+                />
+                <StripModalRender
+                  toggleModalStrip={toggleModalStrip}
+                  sr={sr}
+                  ss={ss}
+                  setSr={setSr}
+                  setSs={setSs}
+                  showModalPsStrip={showModalPsStrip}
+                  setShowModalPsStrip={setShowModalPsStrip}
+                  resultPsStrip={resultPsStrip}
+                  validationError={validationError}
+                  loadingCalculate={loadingCalculate}
+                  StripComponentOverrides={StripComponentOverrides}
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div
+              class="card"
+              style={{ height: 200, marginRight: 20, marginLeft: 20 }}
+            >
+              <div class="card-body">
+                <div class="card-title">
+                  <Pwtitle />
+                </div>
+                <PwTreeModalRender
+                  showModalPwTree={showModalPwTree}
+                  toggleModalTree={toggleModalTree}
+                  setNp={setNp}
+                  setSp={setSp}
+                  setSr={setSr}
+                  setZ={setZ}
+                  setQ={setQ}
+                  setK0={setK0}
+                  validationError={validationError}
+                  resultPwTree={resultPwTree}
+                  TreeComponentOverrides={TreeComponentOverrides}
+                  np={np}
+                  sp={sp}
+                  sr={sr}
+                  z={z}
+                  q={q}
+                  k0={k0}
+                />
+                <PwStripModalRender
+                  showModalPwStrip={showModalPwStrip}
+                  toggleModalPwStrip={toggleModalPwStrip}
+                  sr={sr}
+                  sp={sp}
+                  sw={sw}
+                  resultPwStrip={resultPwStrip}
+                  validationError={validationError}
+                  loadingCalculate={loadingCalculate}
+                  StripPwComponentOverrides={StripPwComponentOverrides}
+                />
+                <RadiusModalRender
+                  showModalPwRadius={showModalPwRadius}
+                  toggleModalRadius={toggleModalRadius}
+                  q={q}
+                  k0={k0}
+                  alpha={alpha}
+                  resultPwRadius={resultPwRadius}
+                  validationError={validationError}
+                  loadingCalculate={loadingCalculate}
+                  RadiusComponentOverrides={RadiusComponentOverrides}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
     </>
   );
 }

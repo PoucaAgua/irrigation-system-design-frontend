@@ -16,7 +16,7 @@ function StripModalRender({
 }) {
   return (
     <>
-      <div className="form-check" style={{ marginRight: 16 }}>
+      <div className="form-check" style={{ marginLeft: 16 }}>
         <input
           type="radio"
           className="form-check-input"
