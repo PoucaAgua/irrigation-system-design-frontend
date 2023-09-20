@@ -27,6 +27,29 @@ function LabeledInputs({
   setInputValuePwRadius,
   setIsInputPsDisabled,
   setIsInputPwDisabled,
+  sr,
+  sp,
+  sw,
+  ss,
+  dco,
+  z,
+  q,
+  k0,
+  np,
+  alpha,
+  setSr,
+  setSs,
+  setNp,
+  setZ,
+  setQ,
+  setK0,
+  setSp,
+  setDco,
+  StripComponentOverrides,
+  CanopyComponentOverrides,
+  TreeComponentOverrides,
+  StripPwComponentOverrides,
+  RadiusComponentOverrides,
 }) {
   useEffect(() => {
     setInputValuePsCanopy(resultPsCanopy || "");
@@ -148,6 +171,8 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Sr (m)"
+          value={sr}
+          onChange={(e) => setSr(e.target.value)}
           disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
@@ -162,13 +187,15 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Sp (m)"
+          value={sp}
+          onChange={(e) => setSp(e.target.value)}
           disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
 
       <div className="form-group">
         <label htmlFor="input3" className="left-label">
-          SCrown projection diameter:
+          Crown projection diameter:
         </label>
         <input
           id="input3"
@@ -176,6 +203,8 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Sw (m²)"
+          value={sw}
+          onChange={(e) => StripPwComponentOverrides.Sw.onChange(e)}
           disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
@@ -189,6 +218,8 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Ss (m)"
+          value={ss}
+          onChange={(e) => setSs(e.target.value)}
           disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
@@ -202,6 +233,8 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Dco (m)"
+          value={dco}
+          onChange={(e) => setDco(e.target.value)}
           disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
@@ -215,6 +248,8 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Np (m)"
+          value={np}
+          onChange={(e) => setNp(e.target.value)}
           disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
@@ -228,6 +263,8 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Z (m)"
+          value={z}
+          onChange={(e) => setZ(e.target.value)}
           disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
@@ -241,6 +278,8 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Q (m)"
+          value={q}
+          onChange={(e) => setQ(e.target.value)}
           disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
@@ -254,6 +293,8 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Ko (cm h-1)"
+          value={k0}
+          onChange={(e) => setK0(e.target.value)}
           disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
@@ -267,6 +308,8 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="α"
+          value={alpha}
+          onChange={(e) => RadiusComponentOverrides.Alpha.onChange(e)}
           disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
