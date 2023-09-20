@@ -78,6 +78,13 @@ function LabeledInputs({
     setIsInputPwDisabled(!isInputPwDisabled);
   };
 
+  const hasResults =
+    resultPsCanopy ||
+    resultPsStrip ||
+    resultPwTree ||
+    resultPwStrip ||
+    resultPwRadius;
+
   return (
     <div className="d-flex flex-column align-items-center">
       <div className="form-group">
@@ -264,7 +271,7 @@ function LabeledInputs({
         />
       </div>
 
-      <TitleResults />
+      {hasResults && <TitleResults />}
 
       {inputValuePsCanopy !== null && inputValuePsCanopy !== "" && (
         <div className="form-group">
