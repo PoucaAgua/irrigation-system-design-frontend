@@ -135,6 +135,7 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Sr (m)"
+          disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
 
@@ -148,6 +149,7 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Sp (m)"
+          disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
 
@@ -161,6 +163,7 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Sw (m²)"
+          disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
       <div className="form-group">
@@ -173,6 +176,7 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Ss (m)"
+          disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
       <div className="form-group">
@@ -185,6 +189,7 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Dco (m)"
+          disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
       <div className="form-group">
@@ -197,6 +202,7 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Np (m)"
+          disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
       <div className="form-group">
@@ -209,6 +215,7 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Z (m)"
+          disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
       <div className="form-group">
@@ -221,6 +228,7 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Q (m)"
+          disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
       <div className="form-group">
@@ -233,6 +241,7 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Ko (cm h-1)"
+          disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
       <div className="form-group">
@@ -245,6 +254,7 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="α"
+          disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
 
