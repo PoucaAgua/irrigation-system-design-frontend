@@ -61,6 +61,7 @@ function PercenteShaded({
   const [inputValuePwRadius, setInputValuePwRadius] = useState("");
   const [isInputPsDisabled, setIsInputPsDisabled] = useState(false);
   const [isInputPwDisabled, setIsInputPwDisabled] = useState(false);
+  const shouldHideCards = isInputPsDisabled || isInputPwDisabled;
 
   const CanopyComponentOverrides = createCanopyComponentOverrides({
     sr,
@@ -212,98 +213,102 @@ function PercenteShaded({
 
       <Container style={{ maxWidth: 660, height: 280 }}>
         <div class="row">
-          <div class="col-sm-6 mb-3 mb-sm-0">
-            <div
-              class="card"
-              style={{ height: 200, marginLeft: 20, marginRight: 20 }}
-            >
-              <div class="card-body">
-                <div class="card-title">
-                  <Pstitle />
+          {!shouldHideCards && (
+            <>
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <div
+                  class="card"
+                  style={{ height: 200, marginLeft: 20, marginRight: 20 }}
+                >
+                  <div class="card-body">
+                    <div class="card-title">
+                      <Pstitle />
+                    </div>
+                    <CanopyModalRender
+                      showModalCanopy={showModalCanopy}
+                      toggleModalCanopy={toggleModalCanopy}
+                      sr={sr}
+                      sp={sp}
+                      dco={dco}
+                      setSr={setSr}
+                      setSp={setSp}
+                      setDco={setDco}
+                      resultPsCanopy={resultPsCanopy}
+                      validationError={validationError}
+                      loadingCalculate={loadingCalculate}
+                      CanopyComponentOverrides={CanopyComponentOverrides}
+                    />
+                    <StripModalRender
+                      toggleModalStrip={toggleModalStrip}
+                      sr={sr}
+                      ss={ss}
+                      setSr={setSr}
+                      setSs={setSs}
+                      showModalPsStrip={showModalPsStrip}
+                      setShowModalPsStrip={setShowModalPsStrip}
+                      resultPsStrip={resultPsStrip}
+                      validationError={validationError}
+                      loadingCalculate={loadingCalculate}
+                      StripComponentOverrides={StripComponentOverrides}
+                    />
+                  </div>
                 </div>
-                <CanopyModalRender
-                  showModalCanopy={showModalCanopy}
-                  toggleModalCanopy={toggleModalCanopy}
-                  sr={sr}
-                  sp={sp}
-                  dco={dco}
-                  setSr={setSr}
-                  setSp={setSp}
-                  setDco={setDco}
-                  resultPsCanopy={resultPsCanopy}
-                  validationError={validationError}
-                  loadingCalculate={loadingCalculate}
-                  CanopyComponentOverrides={CanopyComponentOverrides}
-                />
-                <StripModalRender
-                  toggleModalStrip={toggleModalStrip}
-                  sr={sr}
-                  ss={ss}
-                  setSr={setSr}
-                  setSs={setSs}
-                  showModalPsStrip={showModalPsStrip}
-                  setShowModalPsStrip={setShowModalPsStrip}
-                  resultPsStrip={resultPsStrip}
-                  validationError={validationError}
-                  loadingCalculate={loadingCalculate}
-                  StripComponentOverrides={StripComponentOverrides}
-                />
               </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div
-              class="card"
-              style={{ height: 200, marginRight: 20, marginLeft: 20 }}
-            >
-              <div class="card-body">
-                <div class="card-title">
-                  <Pwtitle />
+              <div class="col-sm-6">
+                <div
+                  class="card"
+                  style={{ height: 200, marginRight: 20, marginLeft: 20 }}
+                >
+                  <div class="card-body">
+                    <div class="card-title">
+                      <Pwtitle />
+                    </div>
+                    <PwTreeModalRender
+                      showModalPwTree={showModalPwTree}
+                      toggleModalTree={toggleModalTree}
+                      setNp={setNp}
+                      setSp={setSp}
+                      setSr={setSr}
+                      setZ={setZ}
+                      setQ={setQ}
+                      setK0={setK0}
+                      validationError={validationError}
+                      resultPwTree={resultPwTree}
+                      TreeComponentOverrides={TreeComponentOverrides}
+                      np={np}
+                      sp={sp}
+                      sr={sr}
+                      z={z}
+                      q={q}
+                      k0={k0}
+                    />
+                    <PwStripModalRender
+                      showModalPwStrip={showModalPwStrip}
+                      toggleModalPwStrip={toggleModalPwStrip}
+                      sr={sr}
+                      sp={sp}
+                      sw={sw}
+                      resultPwStrip={resultPwStrip}
+                      validationError={validationError}
+                      loadingCalculate={loadingCalculate}
+                      StripPwComponentOverrides={StripPwComponentOverrides}
+                    />
+                    <RadiusModalRender
+                      showModalPwRadius={showModalPwRadius}
+                      toggleModalRadius={toggleModalRadius}
+                      q={q}
+                      k0={k0}
+                      alpha={alpha}
+                      resultPwRadius={resultPwRadius}
+                      validationError={validationError}
+                      loadingCalculate={loadingCalculate}
+                      RadiusComponentOverrides={RadiusComponentOverrides}
+                    />
+                  </div>
                 </div>
-                <PwTreeModalRender
-                  showModalPwTree={showModalPwTree}
-                  toggleModalTree={toggleModalTree}
-                  setNp={setNp}
-                  setSp={setSp}
-                  setSr={setSr}
-                  setZ={setZ}
-                  setQ={setQ}
-                  setK0={setK0}
-                  validationError={validationError}
-                  resultPwTree={resultPwTree}
-                  TreeComponentOverrides={TreeComponentOverrides}
-                  np={np}
-                  sp={sp}
-                  sr={sr}
-                  z={z}
-                  q={q}
-                  k0={k0}
-                />
-                <PwStripModalRender
-                  showModalPwStrip={showModalPwStrip}
-                  toggleModalPwStrip={toggleModalPwStrip}
-                  sr={sr}
-                  sp={sp}
-                  sw={sw}
-                  resultPwStrip={resultPwStrip}
-                  validationError={validationError}
-                  loadingCalculate={loadingCalculate}
-                  StripPwComponentOverrides={StripPwComponentOverrides}
-                />
-                <RadiusModalRender
-                  showModalPwRadius={showModalPwRadius}
-                  toggleModalRadius={toggleModalRadius}
-                  q={q}
-                  k0={k0}
-                  alpha={alpha}
-                  resultPwRadius={resultPwRadius}
-                  validationError={validationError}
-                  loadingCalculate={loadingCalculate}
-                  RadiusComponentOverrides={RadiusComponentOverrides}
-                />
               </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
       </Container>
     </>
