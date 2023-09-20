@@ -447,6 +447,29 @@ function PercenteShaded({
         setInputValuePwRadius={setInputValuePwRadius}
         setIsInputPsDisabled={setIsInputPsDisabled}
         setIsInputPwDisabled={setIsInputPwDisabled}
+        sr={sr}
+        sp={sp}
+        sw={sw}
+        ss={ss}
+        dco={dco}
+        z={z}
+        q={q}
+        k0={k0}
+        np={np}
+        alpha={alpha}
+        setSr={setSr}
+        setSs={setSs}
+        setNp={setNp}
+        setZ={setZ}
+        setQ={setQ}
+        setK0={setK0}
+        setSp={setSp}
+        setDco={setDco}
+        StripComponentOverrides={StripComponentOverrides}
+        CanopyComponentOverrides={CanopyComponentOverrides}
+        TreeComponentOverrides={TreeComponentOverrides}
+        StripPwComponentOverrides={StripPwComponentOverrides}
+        RadiusComponentOverrides={RadiusComponentOverrides}
       />
       <Pstitle />
       <div className="d-flex justify-content-center">
