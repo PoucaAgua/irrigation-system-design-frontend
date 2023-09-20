@@ -13,6 +13,7 @@ import IrrigationSystemDesignService from "../services/irrigation_system_design_
 import { createCanopyComponentOverrides } from "../components/AgronomicModule/PercentShaded/CanopyCalculation";
 import { createStripComponentOverrides } from "../components/AgronomicModule/PercentShaded/StripCalculation";
 import { createRadiusComponentOverrides } from "../components/AgronomicModule/PercentWetted/PwRadiusCalculation";
+import { createStripPwComponentOverrides } from "../components/AgronomicModule/PercentWetted/PwStripCalculation";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function PercenteShaded({
@@ -119,66 +120,20 @@ function PercenteShaded({
   };
 
   // pw strip
-
-  const StripPwComponentOverrides = {
-    Sr: {
-      onChange: (event) => {
-        setSr(event.target.value);
-      },
-      type: "number",
-    },
-    Sp: {
-      onChange: (event) => {
-        setSp(event.target.value);
-      },
-      type: "number",
-    },
-    Sw: {
-      onChange: (event) => {
-        setSw(event.target.value);
-      },
-      type: "number",
-    },
-
-    CalculateButtonStripPw: {
-      onClick: async () => {
-        if (!sr || !sp || !sw) {
-          setValidationError("Please fill in all fields.");
-          return;
-        }
-
-        setValidationError("");
-        setLoadingCalculate(true);
-        const payload = {
-          row_spacing_plants: sr,
-          space_between_plants: sp,
-          wetted_zone: sw,
-        };
-
-        try {
-          const response = await irrigationSystemDesignService.calculatePwStrip(
-            payload
-          );
-
-          console.log("API Response:", response);
-          setResultPwStrip(response.value);
-        } catch (error) {
-          console.error("Error calculating Continuous strip:", error);
-        } finally {
-          setLoadingCalculate(false);
-        }
-      },
-    },
-
-    SaveButtonStripPw: {
-      onClick: () => {
-        alert("SaveButton need be implemented....");
-      },
-    },
-    PwStrip: {
-      value: loadingCalculate ? "Loading..." : PwStrip,
-    },
-  };
+  const StripPwComponentOverrides = createStripPwComponentOverrides({
+    sr,
+    sp,
+    sw,
+    loadingCalculate,
+    setSr,
+    setSp,
+    setSw,
+    setValidationError,
+    setLoadingCalculate,
+    setResultPwStrip,
+    PwStrip,
+    irrigationSystemDesignService,
+  });
 
   const toggleModalPwStrip = () => {
     setShowModalPwStrip(!showModalPwStrip);
