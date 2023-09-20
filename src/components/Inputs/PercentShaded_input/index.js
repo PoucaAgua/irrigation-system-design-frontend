@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import TitleResults from "../../Titles/Titles_percent_shaded/Results";
 import "./style.css";
 
 function LabeledInputs({
@@ -262,6 +263,8 @@ function LabeledInputs({
           disabled={isInputPsDisabled || isInputPwDisabled}
         />
       </div>
+
+      <TitleResults />
 
       {inputValuePsCanopy !== null && inputValuePsCanopy !== "" && (
         <div className="form-group">
