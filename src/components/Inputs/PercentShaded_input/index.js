@@ -279,6 +279,7 @@ function LabeledInputs({
             placeholder="Ps (%)"
             value={inputValuePsCanopy}
             onChange={handleInputChangePsCanopy}
+            disabled
           />
         </div>
       )}
@@ -296,6 +297,7 @@ function LabeledInputs({
             placeholder="Ps (%)"
             value={inputValuePsStrip}
             onChange={handleInputChangePsStrip}
+            disabled
           />
         </div>
       )}
@@ -313,6 +315,7 @@ function LabeledInputs({
             placeholder="Ps (%)"
             value={inputValuePwTree}
             onChange={handleInputChangePwTree}
+            disabled
           />
         </div>
       )}
@@ -330,6 +333,7 @@ function LabeledInputs({
             placeholder="Ps (%)"
             value={inputValuePwStrip}
             onChange={handleInputChangePwStrip}
+            disabled
           />
         </div>
       )}
@@ -347,6 +351,7 @@ function LabeledInputs({
             placeholder="Ps (%)"
             value={inputValuePwRadius}
             onChange={handleInputChangePwRadius}
+            disabled
           />
         </div>
       )}
