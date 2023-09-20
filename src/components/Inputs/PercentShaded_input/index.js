@@ -109,7 +109,7 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Pw (%)"
-          disabled={isInputPwDisabled}
+          disabled={!isInputPwDisabled}
         />
       </div>
       <div className="form-group">
@@ -134,7 +134,7 @@ function LabeledInputs({
           className="form-control mb-3"
           style={{ width: "330px" }}
           placeholder="Ps (%)"
-          disabled={isInputPsDisabled}
+          disabled={!isInputPsDisabled}
         />
       </div>
 
