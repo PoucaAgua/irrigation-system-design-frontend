@@ -55,8 +55,8 @@ function PercenteShaded({
   const [inputValuePwTree, setInputValuePwTree] = useState("");
   const [inputValuePwStrip, setInputValuePwStrip] = useState("");
   const [inputValuePwRadius, setInputValuePwRadius] = useState("");
-  const [isInputPsDisabled, setIsInputPsDisabled] = useState(true);
-  const [isInputPwDisabled, setIsInputPwDisabled] = useState(true);
+  const [isInputPsDisabled, setIsInputPsDisabled] = useState(false);
+  const [isInputPwDisabled, setIsInputPwDisabled] = useState(false);
 
   //PS canopy projection
   const CanopyComponentOverrides = {
