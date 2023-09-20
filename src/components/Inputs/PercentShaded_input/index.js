@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import "./style.css"; // Importe seu arquivo CSS personalizado
+import React, { useEffect } from "react";
+import "./style.css";
 
 function LabeledInputs({
   resultPsCanopy,
@@ -12,22 +12,28 @@ function LabeledInputs({
   setResultPwTree,
   setResultPwStrip,
   setResultPwRadius,
+  inputValuePsCanopy,
+  inputValuePsStrip,
+  inputValuePwTree,
+  inputValuePwStrip,
+  inputValuePwRadius,
+  isInputPsDisabled,
+  isInputPwDisabled,
+  setInputValuePsCanopy,
+  setInputValuePsStrip,
+  setInputValuePwTree,
+  setInputValuePwStrip,
+  setInputValuePwRadius,
+  setIsInputPsDisabled,
+  setIsInputPwDisabled,
 }) {
-  const [inputValue, setInputValue] = useState("");
-  const [inputValuePsCanopy, setInputValuePsCanopy] = useState("");
-  const [inputValuePsStrip, setInputValuePsStrip] = useState("");
-  const [inputValuePwTree, setInputValuePwTree] = useState("");
-  const [inputValuePwStrip, setInputValuePwStrip] = useState("");
-  const [inputValuePwRadius, setInputValuePwRadius] = useState("");
-  const [isInputPsDisabled, setIsInputPsDisabled] = useState(true);
-  const [isInputPwDisabled, setIsInputPwDisabled] = useState(true);
   useEffect(() => {
-    // Atualizar os campos de entrada com os valores das variáveis quando elas mudarem
     setInputValuePsCanopy(resultPsCanopy || "");
     setInputValuePsStrip(resultPsStrip || "");
     setInputValuePwTree(resultPwTree || "");
     setInputValuePwStrip(resultPwStrip || "");
     setInputValuePwRadius(resultPwRadius || "");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     resultPsCanopy,
     resultPsStrip,
@@ -64,12 +70,11 @@ function LabeledInputs({
     setResultPwRadius(value);
   };
 
-  // Função para lidar com a mudança do switch
   const handleSwitchChangePs = () => {
-    setIsInputPsDisabled(!isInputPsDisabled); // Inverte o estado do switch
+    setIsInputPsDisabled(!isInputPsDisabled);
   };
   const handleSwitchChangePw = () => {
-    setIsInputPwDisabled(!isInputPwDisabled); // Inverte o estado do switch
+    setIsInputPwDisabled(!isInputPwDisabled);
   };
 
   return (

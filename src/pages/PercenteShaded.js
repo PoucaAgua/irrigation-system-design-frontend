@@ -49,6 +49,14 @@ function PercenteShaded({
   const [np, setNp] = useState("");
   const [z, setZ] = useState("");
   const [resultPwTree, setResultPwTree] = useState(null);
+  //const [inputValue, setInputValue] = useState("");
+  const [inputValuePsCanopy, setInputValuePsCanopy] = useState("");
+  const [inputValuePsStrip, setInputValuePsStrip] = useState("");
+  const [inputValuePwTree, setInputValuePwTree] = useState("");
+  const [inputValuePwStrip, setInputValuePwStrip] = useState("");
+  const [inputValuePwRadius, setInputValuePwRadius] = useState("");
+  const [isInputPsDisabled, setIsInputPsDisabled] = useState(true);
+  const [isInputPwDisabled, setIsInputPwDisabled] = useState(true);
 
   //PS canopy projection
   const CanopyComponentOverrides = {
@@ -425,6 +433,20 @@ function PercenteShaded({
         setResultPwTree={setResultPwTree}
         setResultPwStrip={setResultPwStrip}
         setResultPwRadius={setResultPwRadius}
+        inputValuePsCanopy={inputValuePsCanopy}
+        inputValuePsStrip={inputValuePsStrip}
+        inputValuePwTree={inputValuePwTree}
+        inputValuePwStrip={inputValuePwStrip}
+        inputValuePwRadius={inputValuePwRadius}
+        isInputPsDisabled={isInputPsDisabled}
+        isInputPwDisabled={isInputPwDisabled}
+        setInputValuePsCanopy={setInputValuePsCanopy}
+        setInputValuePsStrip={setInputValuePsStrip}
+        setInputValuePwTree={setInputValuePwTree}
+        setInputValuePwStrip={setInputValuePwStrip}
+        setInputValuePwRadius={setInputValuePwRadius}
+        setIsInputPsDisabled={setIsInputPsDisabled}
+        setIsInputPwDisabled={setIsInputPwDisabled}
       />
       <Pstitle />
       <div className="d-flex justify-content-center">
