@@ -75,45 +75,6 @@ function LabeledInputs({
   return (
     <div className="d-flex flex-column align-items-center">
       <div className="form-group">
-        <label htmlFor="input1" className="left-label">
-          Spacing between rows of plants:
-        </label>
-        <input
-          id="input1"
-          type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
-          placeholder="Sr (m)"
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="input2" className="left-label">
-          Spacing between plants in the row:
-        </label>
-        <input
-          id="input2"
-          type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
-          placeholder="Sp (m)"
-        />
-      </div>
-
-      <div className="form-group">
-        <label htmlFor="input3" className="left-label">
-          Spacing between lateral lines:
-        </label>
-        <input
-          id="input3"
-          type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
-          placeholder="Sl (m)"
-        />
-      </div>
-
-      <div className="form-group">
         <label htmlFor="input4" className="left-label">
           <div class="form-check form-switch">
             <input
@@ -161,6 +122,129 @@ function LabeledInputs({
           style={{ width: "330px" }}
           placeholder="Ps (%)"
           disabled={isInputPsDisabled}
+        />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="input1" className="left-label">
+          Spacing between rows of plants:
+        </label>
+        <input
+          id="input1"
+          type="text"
+          className="form-control mb-3"
+          style={{ width: "330px" }}
+          placeholder="Sr (m)"
+        />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="input2" className="left-label">
+          Spacing between plants in the row:
+        </label>
+        <input
+          id="input2"
+          type="text"
+          className="form-control mb-3"
+          style={{ width: "330px" }}
+          placeholder="Sp (m)"
+        />
+      </div>
+
+      <div className="form-group">
+        <label htmlFor="input3" className="left-label">
+          SCrown projection diameter:
+        </label>
+        <input
+          id="input3"
+          type="text"
+          className="form-control mb-3"
+          style={{ width: "330px" }}
+          placeholder="Sw (m²)"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="input3" className="left-label">
+          Shaded strip:
+        </label>
+        <input
+          id="input3"
+          type="text"
+          className="form-control mb-3"
+          style={{ width: "330px" }}
+          placeholder="Ss (m)"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="input3" className="left-label">
+          Crown projection diameter:
+        </label>
+        <input
+          id="input3"
+          type="text"
+          className="form-control mb-3"
+          style={{ width: "330px" }}
+          placeholder="Dco (m)"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="input3" className="left-label">
+          Number of drippers per plant:
+        </label>
+        <input
+          id="input3"
+          type="text"
+          className="form-control mb-3"
+          style={{ width: "330px" }}
+          placeholder="Np (m)"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="input3" className="left-label">
+          Z:
+        </label>
+        <input
+          id="input3"
+          type="text"
+          className="form-control mb-3"
+          style={{ width: "330px" }}
+          placeholder="Z (m)"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="input3" className="left-label">
+          Q:
+        </label>
+        <input
+          id="input3"
+          type="text"
+          className="form-control mb-3"
+          style={{ width: "330px" }}
+          placeholder="Q (m)"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="input3" className="left-label">
+          Hydraulic conductivity:
+        </label>
+        <input
+          id="input3"
+          type="text"
+          className="form-control mb-3"
+          style={{ width: "330px" }}
+          placeholder="Ko (cm h-1)"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="input3" className="left-label">
+          Soil Water Conductivity Parameter:
+        </label>
+        <input
+          id="input3"
+          type="text"
+          className="form-control mb-3"
+          style={{ width: "330px" }}
+          placeholder="α"
         />
       </div>
 
@@ -248,19 +332,6 @@ function LabeledInputs({
           />
         </div>
       )}
-
-      <div className="form-group">
-        <label htmlFor="input6" className="left-label">
-          Assumed emission uniformity for the project:
-        </label>
-        <input
-          id="input6"
-          type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
-          placeholder="UE (%)"
-        />
-      </div>
     </div>
   );
 }
