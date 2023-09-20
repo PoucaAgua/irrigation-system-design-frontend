@@ -129,8 +129,7 @@ function LabeledInputs({
         <input
           id="input4"
           type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
+          className="form-control mb-3 custom-input"
           placeholder="Pw (%)"
           disabled={!isInputPwDisabled}
         />
@@ -154,8 +153,7 @@ function LabeledInputs({
         <input
           id="input4"
           type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
+          className="form-control mb-3 custom-input"
           placeholder="Ps (%)"
           disabled={!isInputPsDisabled}
         />
@@ -168,8 +166,7 @@ function LabeledInputs({
         <input
           id="input1"
           type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
+          className="form-control mb-3 custom-input"
           placeholder="Sr (m)"
           value={sr}
           onChange={(e) => setSr(e.target.value)}
@@ -184,8 +181,7 @@ function LabeledInputs({
         <input
           id="input2"
           type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
+          className="form-control mb-3 custom-input"
           placeholder="Sp (m)"
           value={sp}
           onChange={(e) => setSp(e.target.value)}
@@ -200,8 +196,7 @@ function LabeledInputs({
         <input
           id="input3"
           type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
+          className="form-control mb-3 custom-input"
           placeholder="Sw (m²)"
           value={sw}
           onChange={(e) => StripPwComponentOverrides.Sw.onChange(e)}
@@ -215,8 +210,7 @@ function LabeledInputs({
         <input
           id="input3"
           type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
+          className="form-control mb-3 custom-input"
           placeholder="Ss (m)"
           value={ss}
           onChange={(e) => setSs(e.target.value)}
@@ -230,8 +224,7 @@ function LabeledInputs({
         <input
           id="input3"
           type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
+          className="form-control mb-3 custom-input"
           placeholder="Dco (m)"
           value={dco}
           onChange={(e) => setDco(e.target.value)}
@@ -245,8 +238,7 @@ function LabeledInputs({
         <input
           id="input3"
           type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
+          className="form-control mb-3 custom-input"
           placeholder="Np (m)"
           value={np}
           onChange={(e) => setNp(e.target.value)}
@@ -260,8 +252,7 @@ function LabeledInputs({
         <input
           id="input3"
           type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
+          className="form-control mb-3 custom-input"
           placeholder="Z (m)"
           value={z}
           onChange={(e) => setZ(e.target.value)}
@@ -275,8 +266,7 @@ function LabeledInputs({
         <input
           id="input3"
           type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
+          className="form-control mb-3 custom-input"
           placeholder="Q (m)"
           value={q}
           onChange={(e) => setQ(e.target.value)}
@@ -290,8 +280,7 @@ function LabeledInputs({
         <input
           id="input3"
           type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
+          className="form-control mb-3 custom-input"
           placeholder="Ko (cm h-1)"
           value={k0}
           onChange={(e) => setK0(e.target.value)}
@@ -305,8 +294,7 @@ function LabeledInputs({
         <input
           id="input3"
           type="text"
-          className="form-control mb-3"
-          style={{ width: "330px" }}
+          className="form-control mb-3 custom-input"
           placeholder="α"
           value={alpha}
           onChange={(e) => RadiusComponentOverrides.Alpha.onChange(e)}
@@ -324,8 +312,7 @@ function LabeledInputs({
           <input
             id="input5"
             type="text"
-            className="form-control mb-3"
-            style={{ width: "330px" }}
+            className="form-control mb-3 custom-input"
             placeholder="Ps (%)"
             value={inputValuePsCanopy}
             onChange={handleInputChangePsCanopy}
@@ -342,8 +329,7 @@ function LabeledInputs({
           <input
             id="input6"
             type="text"
-            className="form-control mb-3"
-            style={{ width: "330px" }}
+            className="form-control mb-3 custom-input"
             placeholder="Ps (%)"
             value={inputValuePsStrip}
             onChange={handleInputChangePsStrip}
@@ -360,8 +346,7 @@ function LabeledInputs({
           <input
             id="input6"
             type="text"
-            className="form-control mb-3"
-            style={{ width: "330px" }}
+            className="form-control mb-3 custom-input"
             placeholder="Ps (%)"
             value={inputValuePwTree}
             onChange={handleInputChangePwTree}
@@ -378,8 +363,7 @@ function LabeledInputs({
           <input
             id="input6"
             type="text"
-            className="form-control mb-3"
-            style={{ width: "330px" }}
+            className="form-control mb-3 custom-input"
             placeholder="Ps (%)"
             value={inputValuePwStrip}
             onChange={handleInputChangePwStrip}
@@ -396,8 +380,7 @@ function LabeledInputs({
           <input
             id="input6"
             type="text"
-            className="form-control mb-3"
-            style={{ width: "330px" }}
+            className="form-control mb-3 custom-input"
             placeholder="Ps (%)"
             value={inputValuePwRadius}
             onChange={handleInputChangePwRadius}

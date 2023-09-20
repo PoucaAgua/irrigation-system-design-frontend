@@ -53,7 +53,6 @@ function PercenteShaded({
   const [np, setNp] = useState("");
   const [z, setZ] = useState("");
   const [resultPwTree, setResultPwTree] = useState(null);
-  //const [inputValue, setInputValue] = useState("");
   const [inputValuePsCanopy, setInputValuePsCanopy] = useState("");
   const [inputValuePsStrip, setInputValuePsStrip] = useState("");
   const [inputValuePwTree, setInputValuePwTree] = useState("");
@@ -62,7 +61,6 @@ function PercenteShaded({
   const [isInputPsDisabled, setIsInputPsDisabled] = useState(false);
   const [isInputPwDisabled, setIsInputPwDisabled] = useState(false);
 
-  //PS canopy calculation
   const CanopyComponentOverrides = createCanopyComponentOverrides({
     sr,
     sp,
@@ -77,12 +75,10 @@ function PercenteShaded({
     irrigationSystemDesignService,
     loadingCalculate,
   });
-
   const toggleModalCanopy = () => {
     setShowModalCanopy(!showModalCanopy);
   };
 
-  //PS strip
   const StripComponentOverrides = createStripComponentOverrides({
     sr,
     ss,
@@ -95,12 +91,10 @@ function PercenteShaded({
     irrigationSystemDesignService,
     loadingCalculate,
   });
-
   const toggleModalStrip = () => {
     setShowModalPsStrip(!showModalPsStrip);
   };
 
-  // pw radius
   const RadiusComponentOverrides = createRadiusComponentOverrides({
     q,
     k0,
@@ -115,12 +109,10 @@ function PercenteShaded({
     irrigationSystemDesignService,
     loadingCalculate,
   });
-
   const toggleModalRadius = () => {
     setShowModalPwRadius(!showModalPwRadius);
   };
 
-  // pw strip
   const StripPwComponentOverrides = createStripPwComponentOverrides({
     sr,
     sp,
@@ -135,12 +127,10 @@ function PercenteShaded({
     PwStrip,
     irrigationSystemDesignService,
   });
-
   const toggleModalPwStrip = () => {
     setShowModalPwStrip(!showModalPwStrip);
   };
 
-  //pw treee
   const TreeComponentOverrides = createTreeComponentOverrides({
     sr,
     sp,
@@ -161,7 +151,6 @@ function PercenteShaded({
     Tree,
     irrigationSystemDesignService,
   });
-
   const toggleModalTree = () => {
     setShowModalPwTree(!showModalPwTree);
   };
@@ -298,12 +287,6 @@ function PercenteShaded({
           RadiusComponentOverrides={RadiusComponentOverrides}
         />
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </>
   );
 }

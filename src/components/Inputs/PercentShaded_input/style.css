@@ -1,3 +1,13 @@
 .left-label {
   text-align: left;
 }
+
+.custom-input {
+  width: 330px;
+}
+
+@media (min-width: 768px) {
+  .custom-input {
+    width: 600px;    
+  }
+}
