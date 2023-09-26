@@ -16,7 +16,7 @@ export const createTreeComponentOverrides = ({
   setK0,
   setValidationError,
   setLoadingCalculate,
-  setResultPwTree,
+  setResultPw,
   Tree,
   irrigationSystemDesignService,
 }) => {
@@ -89,7 +89,7 @@ export const createTreeComponentOverrides = ({
           );
 
           console.log("API Response:", response);
-          setResultPwTree(response.value);
+          setResultPw(response.value);
         } catch (error) {
           console.error("Error calculating Irrigation by tree:", error);
         } finally {

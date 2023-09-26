@@ -37,28 +37,22 @@ function PercenteShaded({
   const [sr, setSr] = useState("");
   const [sp, setSp] = useState("");
   const [dco, setDco] = useState("");
-  const [resultPsCanopy, setResultPsCanopy] = useState(null);
   const [validationError, setValidationError] = useState("");
   const [showModalPsStrip, setShowModalPsStrip] = useState(false);
   const [ss, setSs] = useState("");
-  const [resultPsStrip, setResultPsStrip] = useState(null);
+  const [resultPs, setResultPs] = useState(null);
   const [showModalPwRadius, setShowModalPwRadius] = useState(false);
   const [q, setQ] = useState("");
   const [k0, setK0] = useState("");
   const [alpha, setAlpha] = useState("");
-  const [resultPwRadius, setResultPwRadius] = useState(null);
+  const [resultPw, setResultPw] = useState(null);
   const [showModalPwStrip, setShowModalPwStrip] = useState(false);
   const [sw, setSw] = useState("");
-  const [resultPwStrip, setResultPwStrip] = useState(null);
   const [showModalPwTree, setShowModalPwTree] = useState(false);
   const [np, setNp] = useState("");
   const [z, setZ] = useState("");
-  const [resultPwTree, setResultPwTree] = useState(null);
-  const [inputValuePsCanopy, setInputValuePsCanopy] = useState("");
-  const [inputValuePsStrip, setInputValuePsStrip] = useState("");
-  const [inputValuePwTree, setInputValuePwTree] = useState("");
-  const [inputValuePwStrip, setInputValuePwStrip] = useState("");
-  const [inputValuePwRadius, setInputValuePwRadius] = useState("");
+  const [inputValuePs, setInputValuePs] = useState("");
+  const [inputValuePw, setInputValuePw] = useState("");
   const [isInputPsDisabled, setIsInputPsDisabled] = useState(false);
   const [isInputPwDisabled, setIsInputPwDisabled] = useState(false);
   const shouldHideCards = isInputPsDisabled || isInputPwDisabled;
@@ -72,7 +66,7 @@ function PercenteShaded({
     setDco,
     setValidationError,
     setLoadingCalculate,
-    setResultPsCanopy,
+    setResultPs,
     Canopy,
     irrigationSystemDesignService,
     loadingCalculate,
@@ -88,7 +82,7 @@ function PercenteShaded({
     setSs,
     setValidationError,
     setLoadingCalculate,
-    setResultPsStrip,
+    setResultPs,
     Strip,
     irrigationSystemDesignService,
     loadingCalculate,
@@ -106,7 +100,7 @@ function PercenteShaded({
     setAlpha,
     setValidationError,
     setLoadingCalculate,
-    setResultPwRadius,
+    setResultPw,
     Radius,
     irrigationSystemDesignService,
     loadingCalculate,
@@ -125,7 +119,7 @@ function PercenteShaded({
     setSw,
     setValidationError,
     setLoadingCalculate,
-    setResultPwStrip,
+    setResultPw,
     PwStrip,
     irrigationSystemDesignService,
   });
@@ -149,7 +143,7 @@ function PercenteShaded({
     setK0,
     setValidationError,
     setLoadingCalculate,
-    setResultPwTree,
+    setResultPw,
     Tree,
     irrigationSystemDesignService,
   });
@@ -162,28 +156,16 @@ function PercenteShaded({
       <Header user={user} signOut={signOut} />
       <TitlePercentShaded />
       <PercenteShadedInputs
-        resultPsCanopy={resultPsCanopy}
-        resultPsStrip={resultPsStrip}
-        resultPwTree={resultPwTree}
-        resultPwStrip={resultPwStrip}
-        resultPwRadius={resultPwRadius}
-        setResultPsCanopy={setResultPsCanopy}
-        setResultPsStrip={setResultPsStrip}
-        setResultPwTree={setResultPwTree}
-        setResultPwStrip={setResultPwStrip}
-        setResultPwRadius={setResultPwRadius}
-        inputValuePsCanopy={inputValuePsCanopy}
-        inputValuePsStrip={inputValuePsStrip}
-        inputValuePwTree={inputValuePwTree}
-        inputValuePwStrip={inputValuePwStrip}
-        inputValuePwRadius={inputValuePwRadius}
+        resultPs={resultPs}
+        resultPw={resultPw}
+        setResultPs={setResultPs}
+        setResultPw={setResultPw}
+        inputValuePs={inputValuePs}
+        inputValuePw={inputValuePw}
         isInputPsDisabled={isInputPsDisabled}
         isInputPwDisabled={isInputPwDisabled}
-        setInputValuePsCanopy={setInputValuePsCanopy}
-        setInputValuePsStrip={setInputValuePsStrip}
-        setInputValuePwTree={setInputValuePwTree}
-        setInputValuePwStrip={setInputValuePwStrip}
-        setInputValuePwRadius={setInputValuePwRadius}
+        setInputValuePs={setInputValuePs}
+        setInputValuePw={setInputValuePw}
         setIsInputPsDisabled={setIsInputPsDisabled}
         setIsInputPwDisabled={setIsInputPwDisabled}
         sr={sr}
@@ -233,7 +215,7 @@ function PercenteShaded({
                       setSr={setSr}
                       setSp={setSp}
                       setDco={setDco}
-                      resultPsCanopy={resultPsCanopy}
+                      resultPs={resultPs}
                       validationError={validationError}
                       loadingCalculate={loadingCalculate}
                       CanopyComponentOverrides={CanopyComponentOverrides}
@@ -246,7 +228,7 @@ function PercenteShaded({
                       setSs={setSs}
                       showModalPsStrip={showModalPsStrip}
                       setShowModalPsStrip={setShowModalPsStrip}
-                      resultPsStrip={resultPsStrip}
+                      resultPs={resultPs}
                       validationError={validationError}
                       loadingCalculate={loadingCalculate}
                       StripComponentOverrides={StripComponentOverrides}
@@ -273,7 +255,7 @@ function PercenteShaded({
                       setQ={setQ}
                       setK0={setK0}
                       validationError={validationError}
-                      resultPwTree={resultPwTree}
+                      resultPw={resultPw}
                       TreeComponentOverrides={TreeComponentOverrides}
                       np={np}
                       sp={sp}
@@ -288,7 +270,7 @@ function PercenteShaded({
                       sr={sr}
                       sp={sp}
                       sw={sw}
-                      resultPwStrip={resultPwStrip}
+                      resultPw={resultPw}
                       validationError={validationError}
                       loadingCalculate={loadingCalculate}
                       StripPwComponentOverrides={StripPwComponentOverrides}
@@ -299,7 +281,7 @@ function PercenteShaded({
                       q={q}
                       k0={k0}
                       alpha={alpha}
-                      resultPwRadius={resultPwRadius}
+                      resultPw={resultPw}
                       validationError={validationError}
                       loadingCalculate={loadingCalculate}
                       RadiusComponentOverrides={RadiusComponentOverrides}

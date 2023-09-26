@@ -9,7 +9,7 @@ function StripModalRender({
   ss,
   setSr,
   setSs,
-  resultPsStrip,
+  resultPs,
   validationError,
   loadingCalculate,
   StripComponentOverrides,
@@ -72,7 +72,7 @@ function StripModalRender({
               {validationError}
             </div>
           )}
-          {resultPsStrip !== null && (
+          {resultPs !== null && (
             <div
               style={{
                 width: "100%",
@@ -91,7 +91,7 @@ function StripModalRender({
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{resultPsStrip}</td>
+                      <td>{resultPs}</td>
                     </tr>
                   </tbody>
                 </table>

@@ -11,7 +11,7 @@ function CanopyModalRender({
   setSr,
   setSp,
   setDco,
-  resultPsCanopy,
+  resultPs,
   validationError,
   loadingCalculate,
   CanopyComponentOverrides,
@@ -97,7 +97,7 @@ function CanopyModalRender({
               {validationError}
             </div>
           )}
-          {resultPsCanopy !== null && (
+          {resultPs !== null && (
             <div
               style={{
                 width: "100%",
@@ -116,7 +116,7 @@ function CanopyModalRender({
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{resultPsCanopy}</td>
+                      <td>{resultPs}</td>
                     </tr>
                   </tbody>
                 </table>

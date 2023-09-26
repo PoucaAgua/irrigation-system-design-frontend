@@ -10,7 +10,7 @@ export const createStripPwComponentOverrides = ({
   setSw,
   setValidationError,
   setLoadingCalculate,
-  setResultPwStrip,
+  setResultPw,
   PwStrip,
   irrigationSystemDesignService,
 }) => {
@@ -55,7 +55,7 @@ export const createStripPwComponentOverrides = ({
           );
 
           console.log("API Response:", response);
-          setResultPwStrip(response.value);
+          setResultPw(response.value);
         } catch (error) {
           console.error("Error calculating Continuous strip:", error);
         } finally {

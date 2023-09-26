@@ -9,7 +9,7 @@ export const createCanopyComponentOverrides = ({
   setDco,
   setValidationError,
   setLoadingCalculate,
-  setResultPsCanopy,
+  setResultPs,
   Canopy,
   irrigationSystemDesignService,
   loadingCalculate,
@@ -56,7 +56,7 @@ export const createCanopyComponentOverrides = ({
           );
 
           console.log("API Response:", response);
-          setResultPsCanopy(response.value);
+          setResultPs(response.value);
         } catch (error) {
           console.error("Error calculating Canopy:", error);
         } finally {
