@@ -7,7 +7,7 @@ export const createStripComponentOverrides = ({
   setSs,
   setValidationError,
   setLoadingCalculate,
-  setResultPsStrip,
+  setResultPs,
   Strip,
   irrigationSystemDesignService,
   loadingCalculate,
@@ -49,7 +49,7 @@ export const createStripComponentOverrides = ({
           );
 
           console.log("API Response:", response);
-          setResultPsStrip(response.value);
+          setResultPs(response.value);
         } catch (error) {
           console.error("Error calculating Strip:", error);
         } finally {

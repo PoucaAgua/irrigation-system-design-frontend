@@ -12,7 +12,7 @@ function TreeModal({
   setQ,
   setK0,
   validationError,
-  resultPwTree,
+  resultPw,
   TreeComponentOverrides,
   np,
   sp,
@@ -163,7 +163,7 @@ function TreeModal({
               {validationError}
             </div>
           )}
-          {resultPwTree !== null && (
+          {resultPw !== null && (
             <div
               style={{
                 width: "100%",
@@ -182,7 +182,7 @@ function TreeModal({
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{resultPwTree}</td>
+                      <td>{resultPw}</td>
                     </tr>
                   </tbody>
                 </table>

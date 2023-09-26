@@ -9,7 +9,7 @@ export const createRadiusComponentOverrides = ({
   setAlpha,
   setValidationError,
   setLoadingCalculate,
-  setResultPwRadius,
+  setResultPw,
   Radius,
   irrigationSystemDesignService,
   loadingCalculate,
@@ -59,7 +59,7 @@ export const createRadiusComponentOverrides = ({
           );
 
           console.log("API Response:", response);
-          setResultPwRadius(response.value);
+          setResultPw(response.value);
         } catch (error) {
           console.error(
             "Error calculating Twice saturated wetted radius:",

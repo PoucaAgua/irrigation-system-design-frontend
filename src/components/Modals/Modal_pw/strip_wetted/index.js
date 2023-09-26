@@ -8,7 +8,7 @@ function PwStripModalRender({
   sr,
   sp,
   sw,
-  resultPwStrip,
+  resultPw,
   validationError,
   loadingCalculate,
   StripPwComponentOverrides,
@@ -123,7 +123,7 @@ function PwStripModalRender({
               {validationError}
             </div>
           )}
-          {resultPwStrip !== null && (
+          {resultPw !== null && (
             <div
               style={{
                 width: "100%",
@@ -142,7 +142,7 @@ function PwStripModalRender({
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{resultPwStrip}</td>
+                      <td>{resultPw}</td>
                     </tr>
                   </tbody>
                 </table>

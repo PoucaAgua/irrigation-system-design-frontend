@@ -8,7 +8,7 @@ function RadiusModalRender({
   q,
   k0,
   alpha,
-  resultPwRadius,
+  resultPw,
   validationError,
   loadingCalculate,
   RadiusComponentOverrides,
@@ -95,7 +95,7 @@ function RadiusModalRender({
               {validationError}
             </div>
           )}
-          {resultPwRadius !== null && (
+          {resultPw !== null && (
             <div
               style={{
                 width: "100%",
@@ -114,7 +114,7 @@ function RadiusModalRender({
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{resultPwRadius}</td>
+                      <td>{resultPw}</td>
                     </tr>
                   </tbody>
                 </table>
