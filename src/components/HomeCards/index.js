@@ -1,37 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import React from "react";
+import { Link } from "react-router-dom";
+import { Container, Row, Col, Card } from "react-bootstrap";
 
 const cardData = [
   {
-    title: 'Evapotranspiration',
-    link: '/Evapotranspiration',
-    imageSrc: 'evapotranspiration-image-url.jpg',
+    title: "Evapotranspiration",
+    link: "/Evapotranspiration",
+    imageSrc: "evapotranspiration-image-url.jpg",
   },
   {
-    title: 'CropCoefficient',
-    link: '/CropCoefficient',
-    imageSrc: 'crop-coefficient-image-url.jpg',
+    title: "CropCoefficient",
+    link: "/CropCoefficient",
+    imageSrc: "crop-coefficient-image-url.jpg",
   },
   {
-    title: 'PercenteShaded',
-    link: '/PercenteShaded',
-    imageSrc: 'percent-shaded-image-url.jpg',
+    title: "Ps and Pw",
+    link: "/PsAndPw",
+    imageSrc: "percent-shaded-image-url.jpg",
   },
   {
-    title: 'SizeLines',
-    link: '/SizeLines',
-    imageSrc: 'size-lines-image-url.jpg',
+    title: "SizeLines",
+    link: "/SizeLines",
+    imageSrc: "size-lines-image-url.jpg",
   },
   {
-    title: 'Irrigation',
-    link: '/Irrigation',
-    imageSrc: 'irrigation-image-url.jpg',
+    title: "Irrigation",
+    link: "/Irrigation",
+    imageSrc: "irrigation-image-url.jpg",
   },
   {
-    title: 'IrrigationSystem',
-    link: '/IrrigationSystem',
-    imageSrc: 'irrigation-system-image-url.jpg',
+    title: "IrrigationSystem",
+    link: "/IrrigationSystem",
+    imageSrc: "irrigation-system-image-url.jpg",
   },
 ];
 
