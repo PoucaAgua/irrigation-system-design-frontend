@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Pwtitle from "../components/Titles/Titles_percent_shaded/Pw_area";
 import Pstitle from "../components/Titles/Titles_percent_shaded/Ps_area";
 import TitlePercentShaded from "../components/Titles/Titles_percent_shaded/Title_PercenteShaded";
-import PercenteShadedInputs from "../components/Inputs/PercentShaded_input";
+import PercenteShadedInputs from "../components/Inputs/PsAndPw_inputs";
 import StripModalRender from "../components/Modals/Modal_ps/strip_projection";
 import CanopyModalRender from "../components/Modals/Modal_ps/canopy_projection";
 import RadiusModalRender from "../components/Modals/Modal_pw/radius_wetted";
