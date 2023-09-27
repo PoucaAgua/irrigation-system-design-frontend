@@ -45,7 +45,11 @@ function HomeCards() {
               <Card.Img variant="top" src={card.imageSrc} alt={card.title} />
               <Card.Body>
                 <Card.Title>{card.title}</Card.Title>
-                <Link to={card.link} className="btn btn-secondary">
+                <Link
+                  to={card.link}
+                  className="btn btn-secondary"
+                  style={{ width: 220, height: 40 }}
+                >
                   Go to {card.title}
                 </Link>
               </Card.Body>
