@@ -1,46 +1,40 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-
-const cardData = [
-  {
-    title: "actual irrigation by soil params",
-    link: "/irrigation/actual_irrigation",
-    imageSrc: "actual-irrigation-image-url.jpg",
-  },
-  {
-    title: "actual irrigation by atmospheric params",
-    link: "/irrigation/actual_irrigation",
-    imageSrc: "actual-irrigation-image-url.jpg",
-  },
-  {
-    title: "maximum actual irrigation",
-    link: "/irrigation/actual_irrigation",
-    imageSrc: "actual-irrigation-image-url.jpg",
-  },
-];
+import ModalAtmospheric from "../IrrigationActualModals/irrigation_by_atmospheric";
+import ModalSoil from "../IrrigationActualModals/irrigation_by_soil";
+import ModalMaximum from "../IrrigationActualModals/maximum_actual_irrigation";
 
 function IrrigationCardActual() {
   return (
     <Container style={{ marginTop: 50 }}>
       <Row>
-        {cardData.map((card, index) => (
-          <Col key={index} xs={12} sm={6} md={4}>
-            <Card className="mb-4">
-              <Card.Img variant="top" src={card.imageSrc} alt={card.title} />
-              <Card.Body>
-                <Card.Title>{card.title}</Card.Title>
-                <Link
-                  to={card.link}
-                  className="btn btn-secondary"
-                  style={{ width: 250, height: 40 }}
-                >
-                  {card.title}
-                </Link>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
+        <Col xs={12} sm={6} md={4}>
+          <Card className="mb-4">
+            <Card.Img variant="top" src={0} alt={0} />
+            <Card.Body>
+              <Card.Title>Actual irrigation by soil params</Card.Title>
+              <ModalSoil />
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col xs={12} sm={6} md={4}>
+          <Card className="mb-4">
+            <Card.Img variant="top" src={0} alt={0} />
+            <Card.Body>
+              <Card.Title>Actual irrigation by atmospheric params</Card.Title>
+              <ModalAtmospheric />
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col xs={12} sm={6} md={4}>
+          <Card className="mb-4">
+            <Card.Img variant="top" src={0} alt={0} />
+            <Card.Body>
+              <Card.Title>Maximum actual irrigation</Card.Title>
+              <ModalMaximum />
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
     </Container>
   );
