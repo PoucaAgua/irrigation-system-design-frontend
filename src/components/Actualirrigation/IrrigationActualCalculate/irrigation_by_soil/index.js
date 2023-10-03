@@ -1,40 +1,63 @@
 export const createSoilComponentOverrides = ({
-  sr,
-  sp,
-  dco,
-  setSr,
-  setSp,
-  setDco,
-  setValidationError,
-  setLoadingCalculate,
-  setResultPs,
-  Canopy,
   irrigationSystemDesignService,
+  resultSoilParams,
+  setResultSoilParams,
+  soilMoistureFieldCapacity,
+  setSoilMoistureFieldCapacity,
+  soilMoistureAtPermanentWiltingPoint,
+  setSoilMoistureAtPermanentWiltingPoint,
+  depletionFactor,
+  setDepletionFactor,
+  soilDepth,
+  setSoilDepth,
+  effectivePrecipitation,
+  setEffectivePrecipitation,
+  setLoadingCalculate,
+  setValidationError,
   loadingCalculate,
+  SoilParams,
 }) => {
   return {
-    Sr: {
+    soilMoistureFieldCapacity: {
       onChange: (event) => {
-        setSr(event.target.value);
+        setSoilMoistureFieldCapacity(event.target.value);
       },
       type: "number",
     },
-    Sp: {
+    soilMoistureAtPermanentWiltingPoint: {
       onChange: (event) => {
-        setSp(event.target.value);
+        setSoilMoistureAtPermanentWiltingPoint(event.target.value);
       },
       type: "number",
     },
-    Dco: {
+    depletionFactor: {
       onChange: (event) => {
-        setDco(event.target.value);
+        setDepletionFactor(event.target.value);
+      },
+      type: "number",
+    },
+    soilDepth: {
+      onChange: (event) => {
+        setSoilDepth(event.target.value);
+      },
+      type: "number",
+    },
+    effectivePrecipitation: {
+      onChange: (event) => {
+        setEffectivePrecipitation(event.target.value);
       },
       type: "number",
     },
 
-    CalculateButtonCanopy: {
+    CalculateButtonSoilParams: {
       onClick: async () => {
-        if (!sr || !sp || !dco) {
+        if (
+          !soilMoistureFieldCapacity ||
+          !soilMoistureAtPermanentWiltingPoint ||
+          !depletionFactor ||
+          !effectivePrecipitation ||
+          !soilDepth
+        ) {
           setValidationError("Please fill in all fields.");
           return;
         }
@@ -43,33 +66,35 @@ export const createSoilComponentOverrides = ({
         setValidationError("");
 
         const payload = {
-          space_between_rows: sr,
-          space_between_plants: sp,
-          diameter_projection: dco,
+          soil_moisture_field_capacity: soilMoistureFieldCapacity,
+          soil_moisture_at_permanent_wilting_point:
+            soilMoistureAtPermanentWiltingPoint,
+          depletion_factor: depletionFactor,
+          soil_depth: soilDepth,
+          effective_precipitation: effectivePrecipitation,
         };
 
         try {
-          const response = await irrigationSystemDesignService.calculateCanopy(
-            payload
-          );
+          const response =
+            await irrigationSystemDesignService.calculateSoilParams(payload);
 
           console.log("API Response:", response);
-          setResultPs(response.value);
+          setResultSoilParams(response.value);
         } catch (error) {
-          console.error("Error calculating Canopy:", error);
+          console.error("Error calculating Atmospheric:", error);
         } finally {
           setLoadingCalculate(false);
         }
       },
     },
 
-    SaveButtonCanopy: {
+    SaveButtonSoilParams: {
       onClick: () => {
         alert("SaveButton need to be implemented....");
       },
     },
-    Canopy: {
-      value: loadingCalculate ? "Loading..." : Canopy,
+    SoilParams: {
+      value: loadingCalculate ? "Loading..." : SoilParams,
     },
   };
 };

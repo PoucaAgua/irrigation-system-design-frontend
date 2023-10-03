@@ -8,6 +8,8 @@ class IrrigationSystemDesignService {
       this.URL + this.config.ETO_HARGRAVES_SAMANI_PATH;
     this.ACTUAL_IRRIGATION_ATMOSPHERIC =
       this.URL + this.config.ACTUAL_IRRIGATION_ATMOSPHERIC;
+    this.ACTUAL_IRRIGATION_SOIL_PARAMS =
+      this.URL + this.config.ACTUAL_IRRIGATION_SOIL_PARAMS;
 
     this.projects = [
       {
@@ -57,6 +59,23 @@ class IrrigationSystemDesignService {
 
   async calculateAtmospheric(payload) {
     const response = await fetch(this.ACTUAL_IRRIGATION_ATMOSPHERIC, {
+      method: "POST",
+      headers: {
+        accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      alert(response.value);
+    }
+
+    return await response.json();
+  }
+
+  async calculateSoilParams(payload) {
+    const response = await fetch(this.ACTUAL_IRRIGATION_SOIL_PARAMS, {
       method: "POST",
       headers: {
         accept: "application/json",

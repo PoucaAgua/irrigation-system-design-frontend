@@ -1,21 +1,31 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import ModalAtmospheric from "../IrrigationActualModals/irrigation_by_atmospheric";
-//import ModalSoil from "../IrrigationActualModals/irrigation_by_soil";
+import ModalSoil from "../IrrigationActualModals/irrigation_by_soil";
 //import ModalMaximum from "../IrrigationActualModals/maximum_actual_irrigation";
-//import { SoilComponentOverrides } from "../IrrigationActualCalculate/irrigation_by_soil";
 //import { MaximumComponentOverrides } from "../IrrigationActualCalculate/maximum_actual_irrigation";
 import { createAtmosphericComponentOverrides } from "../IrrigationActualCalculate/irrigation_by_atmospheric/index";
+import { createSoilComponentOverrides } from "../IrrigationActualCalculate/irrigation_by_soil/index";
 import IrrigationSystemDesignService from "../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-function IrrigationCardActual(Atmospheric) {
+function IrrigationCardActual(Atmospheric, SoilParams) {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
   const [validationError, setValidationError] = useState("");
   const [resultAtmospheric, setResultAtmospheric] = useState(null);
   const [kc, setKc] = useState("");
   const [percentwettedarea, setPercentwettedarea] = useState("");
   const [actualevapotranspiration, setActualevapotranspiration] = useState("");
+  const [resultSoilParams, setResultSoilParams] = useState(null);
+  const [soilMoistureFieldCapacity, setSoilMoistureFieldCapacity] =
+    useState("");
+  const [
+    soilMoistureAtPermanentWiltingPoint,
+    setSoilMoistureAtPermanentWiltingPoint,
+  ] = useState("");
+  const [depletionFactor, setDepletionFactor] = useState("");
+  const [soilDepth, setSoilDepth] = useState("");
+  const [effectivePrecipitation, setEffectivePrecipitation] = useState("");
 
   const AtmosphericComponentOverrides = createAtmosphericComponentOverrides({
     irrigationSystemDesignService,
@@ -34,10 +44,27 @@ function IrrigationCardActual(Atmospheric) {
     Atmospheric,
   });
 
-  /*const SoilComponentOverrides = createSoilComponentOverrides({
+  const SoilComponentOverrides = createSoilComponentOverrides({
     irrigationSystemDesignService,
+    resultSoilParams,
+    setResultSoilParams,
+    soilMoistureFieldCapacity,
+    setSoilMoistureFieldCapacity,
+    soilMoistureAtPermanentWiltingPoint,
+    setSoilMoistureAtPermanentWiltingPoint,
+    depletionFactor,
+    setDepletionFactor,
+    soilDepth,
+    setSoilDepth,
+    effectivePrecipitation,
+    setEffectivePrecipitation,
+    setLoadingCalculate,
+    setValidationError,
+    loadingCalculate,
+    SoilParams,
+    validationError,
   });
- 
+  /*
   const MaximumComponentOverrides = createMaximumComponentOverrides({
     irrigationSystemDesignService,
   });
@@ -70,6 +97,39 @@ function IrrigationCardActual(Atmospheric) {
             </Card.Body>
           </Card>
         </Col>
+        <Col xs={12} sm={6} md={4}>
+          <Card className="mb-4">
+            <Card.Img variant="top" src={0} alt={0} />
+            <Card.Body>
+              <Card.Title>Actual irrigation by soil params</Card.Title>
+              <ModalSoil
+                SoilComponentOverrides={SoilComponentOverrides}
+                irrigationSystemDesignService={irrigationSystemDesignService}
+                resultSoilParams={resultSoilParams}
+                setResultSoilParams={setResultSoilParams}
+                soilMoistureFieldCapacity={soilMoistureFieldCapacity}
+                setSoilMoistureFieldCapacity={setSoilMoistureFieldCapacity}
+                soilMoistureAtPermanentWiltingPoint={
+                  soilMoistureAtPermanentWiltingPoint
+                }
+                setSoilMoistureAtPermanentWiltingPoint={
+                  setSoilMoistureAtPermanentWiltingPoint
+                }
+                depletionFactor={depletionFactor}
+                setDepletionFactor={setDepletionFactor}
+                soilDepth={soilDepth}
+                setSoilDepth={setSoilDepth}
+                effectivePrecipitation={effectivePrecipitation}
+                setEffectivePrecipitation={setEffectivePrecipitation}
+                setLoadingCalculate={setLoadingCalculate}
+                setValidationError={setValidationError}
+                loadingCalculate={loadingCalculate}
+                SoilParams={SoilParams}
+                validationError={validationError}
+              />
+            </Card.Body>
+          </Card>
+        </Col>
 
         {/* <Col xs={12} sm={6} md={4}>
           <Card className="mb-4">
@@ -82,16 +142,7 @@ function IrrigationCardActual(Atmospheric) {
             </Card.Body>
           </Card>
         </Col>
-        
-        <Col xs={12} sm={6} md={4}>
-          <Card className="mb-4">
-            <Card.Img variant="top" src={0} alt={0} />
-            <Card.Body>
-              <Card.Title>Actual irrigation by soil params</Card.Title>
-              <ModalSoil SoilComponentOverrides={SoilComponentOverrides} />
-            </Card.Body>
-          </Card>
-        </Col>
+      
         */}
       </Row>
     </Container>
