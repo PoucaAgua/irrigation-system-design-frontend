@@ -1,9 +1,23 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 
-function Atmospheric() {
+function Atmospheric({
+  AtmosphericComponentOverrides,
+  irrigationSystemDesignService,
+  setValidationError,
+  setLoadingCalculate,
+  loadingCalculate,
+  validationError,
+  resultAtmospheric,
+  kc,
+  setKc,
+  percentwettedarea,
+  setPercentwettedarea,
+  actualevapotranspiration,
+  setActualevapotranspiration,
+  setResultAtmospheric,
+}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -24,34 +38,113 @@ function Atmospheric() {
           <Modal.Title>Irrigation by Atmospheric</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
-            <Form.Group controlId="input1">
-              <Form.Label>Input 1</Form.Label>
-              <Form.Control type="text" placeholder="Digite algo" />
-            </Form.Group>
-            <Form.Group controlId="input2">
-              <Form.Label>Input 2</Form.Label>
-              <Form.Control type="text" placeholder="Digite algo" />
-            </Form.Group>
-            <Form.Group controlId="input3">
-              <Form.Label>Input 3</Form.Label>
-              <Form.Control type="text" placeholder="Digite algo" />
-            </Form.Group>
-            <Form.Group controlId="input4">
-              <Form.Label>Input 4</Form.Label>
-              <Form.Control type="text" placeholder="Digite algo" />
-            </Form.Group>
-            <Form.Group controlId="input5">
-              <Form.Label>Input 5</Form.Label>
-              <Form.Control type="text" placeholder="Digite algo" />
-            </Form.Group>
-          </Form>
+          <div className="input mb-3 d-flex flex-column align-items-center">
+            <label
+              className="left-label"
+              htmlFor="input1"
+              style={{ marginRight: "66%" }}
+            >
+              Kc
+            </label>
+            <input
+              id="input1"
+              type="text"
+              placeholder=""
+              className="form-control mb-3"
+              style={{ width: "330px" }}
+              value={kc}
+              onChange={(e) => setKc(e.target.value)}
+            />
+
+            <label
+              className="left-label"
+              htmlFor="input2"
+              style={{ marginRight: "39%" }}
+            >
+              Percent Wetted Area
+            </label>
+            <input
+              id="input2"
+              type="text"
+              placeholder=""
+              className="form-control mb-3"
+              style={{ width: "330px" }}
+              value={percentwettedarea}
+              onChange={(e) => setPercentwettedarea(e.target.value)}
+            />
+
+            <label
+              className="left-label"
+              htmlFor="input3"
+              style={{ marginRight: "31%" }}
+            >
+              Actual Evapotranspiration
+            </label>
+            <input
+              id="input3"
+              type="text"
+              placeholder=""
+              className="form-control mb-3"
+              style={{ width: "330px" }}
+              value={actualevapotranspiration}
+              onChange={(e) => setActualevapotranspiration(e.target.value)}
+            />
+          </div>
+
+          {validationError && (
+            <div
+              className="alert alert-danger"
+              role="alert"
+              style={{ width: "60%", margin: "0 auto" }}
+            >
+              {validationError}
+            </div>
+          )}
+          {resultAtmospheric !== null && (
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <div style={{ width: "60%", height: "40%" }}>
+                <table className="table table-bordered border-secondary">
+                  <thead>
+                    <tr>
+                      <th scope="col">Irrigation by Atmospheric Result</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{resultAtmospheric}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button
+            variant="primary"
+            onClick={
+              AtmosphericComponentOverrides.CalculateButtonAtmospheric.onClick
+            }
+          >
+            Calculate
+          </Button>
+          <Button
+            variant="success"
+            onClick={
+              AtmosphericComponentOverrides.SaveButtonAtmospheric.onClick
+            }
+          >
             Save
           </Button>
         </Modal.Footer>
