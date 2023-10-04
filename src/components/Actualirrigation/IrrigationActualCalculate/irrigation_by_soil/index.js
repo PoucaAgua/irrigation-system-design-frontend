@@ -81,7 +81,10 @@ export const createSoilComponentOverrides = ({
           console.log("API Response:", response);
           setResultSoilParams(response.value);
         } catch (error) {
-          console.error("Error calculating Atmospheric:", error);
+          console.error(
+            "Error calculating Actual irrigation soil params:",
+            error
+          );
         } finally {
           setLoadingCalculate(false);
         }

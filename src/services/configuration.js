@@ -5,6 +5,7 @@ class Configuration {
   ACTUAL_IRRIGATION_ATMOSPHERIC =
     "/dev/api/v1/irrigation/actual/atmospheric_params";
   ACTUAL_IRRIGATION_SOIL_PARAMS = "/dev/api/v1/irrigation/actual/soil_params";
+  ACTUAL_IRRIGATION_MAX = "/dev/api/v1/irrigation/actual/max";
 }
 
 export default Configuration;

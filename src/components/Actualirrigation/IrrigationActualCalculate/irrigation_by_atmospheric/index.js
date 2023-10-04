@@ -55,7 +55,10 @@ export const createAtmosphericComponentOverrides = ({
           console.log("API Response:", response);
           setResultAtmospheric(response.value);
         } catch (error) {
-          console.error("Error calculating Atmospheric:", error);
+          console.error(
+            "Error calculating Actual irrigation Atmospheric:",
+            error
+          );
         } finally {
           setLoadingCalculate(false);
         }
