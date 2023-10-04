@@ -50,7 +50,7 @@ function Maximum({
             <input
               id="input1"
               type="text"
-              placeholder=""
+              placeholder="Field capacity in cm³/cm³"
               className="form-control mb-3"
               style={{ width: "330px" }}
               value={soilMoistureFieldCapacity}
@@ -67,7 +67,7 @@ function Maximum({
             <input
               id="input2"
               type="text"
-              placeholder=""
+              placeholder="Permanent wilting point in cm³/cm³"
               className="form-control mb-3"
               style={{ width: "330px" }}
               value={soilMoistureAtPermanentWiltingPoint}
@@ -86,7 +86,7 @@ function Maximum({
             <input
               id="input3"
               type="text"
-              placeholder=""
+              placeholder=" 0.3 to 0.7. It is always less than 1"
               className="form-control mb-3"
               style={{ width: "330px" }}
               value={depletionFactor}
@@ -103,7 +103,7 @@ function Maximum({
             <input
               id="input4"
               type="text"
-              placeholder=""
+              placeholder=" Soil depth in cm"
               className="form-control mb-3"
               style={{ width: "330px" }}
               value={soilDepth}
@@ -120,7 +120,7 @@ function Maximum({
             <input
               id="input5"
               type="text"
-              placeholder=""
+              placeholder=" Effective precipitation in mm"
               className="form-control mb-3"
               style={{ width: "330px" }}
               value={effectivePrecipitation}
@@ -137,7 +137,7 @@ function Maximum({
             <input
               id="input5"
               type="text"
-              placeholder=""
+              placeholder="fraction of total wetted area, dimensionless"
               className="form-control mb-3"
               style={{ width: "330px" }}
               value={fractionOfTotalWettedArea}

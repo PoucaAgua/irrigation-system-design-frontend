@@ -3,9 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 function Soil({
-  irrigationSystemDesignService,
   resultSoilParams,
-  setResultSoilParams,
   soilMoistureFieldCapacity,
   setSoilMoistureFieldCapacity,
   soilMoistureAtPermanentWiltingPoint,
@@ -16,10 +14,6 @@ function Soil({
   setSoilDepth,
   effectivePrecipitation,
   setEffectivePrecipitation,
-  setLoadingCalculate,
-  setValidationError,
-  loadingCalculate,
-  SoilParams,
   SoilComponentOverrides,
   validationError,
 }) {
@@ -54,7 +48,7 @@ function Soil({
             <input
               id="input1"
               type="text"
-              placeholder=""
+              placeholder="Field capacity in cm³/cm³"
               className="form-control mb-3"
               style={{ width: "330px" }}
               value={soilMoistureFieldCapacity}
@@ -71,7 +65,7 @@ function Soil({
             <input
               id="input2"
               type="text"
-              placeholder=""
+              placeholder="Permanent wilting point in cm³/cm³"
               className="form-control mb-3"
               style={{ width: "330px" }}
               value={soilMoistureAtPermanentWiltingPoint}
@@ -90,7 +84,7 @@ function Soil({
             <input
               id="input3"
               type="text"
-              placeholder=""
+              placeholder="0.3 to 0.7. It is always less than 1."
               className="form-control mb-3"
               style={{ width: "330px" }}
               value={depletionFactor}
@@ -107,7 +101,7 @@ function Soil({
             <input
               id="input4"
               type="text"
-              placeholder=""
+              placeholder=" Soil depth in cm"
               className="form-control mb-3"
               style={{ width: "330px" }}
               value={soilDepth}
@@ -124,7 +118,7 @@ function Soil({
             <input
               id="input5"
               type="text"
-              placeholder=""
+              placeholder=" Effective precipitation in mm"
               className="form-control mb-3"
               style={{ width: "330px" }}
               value={effectivePrecipitation}

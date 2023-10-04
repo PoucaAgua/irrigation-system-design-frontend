@@ -4,10 +4,6 @@ import Button from "react-bootstrap/Button";
 
 function Atmospheric({
   AtmosphericComponentOverrides,
-  irrigationSystemDesignService,
-  setValidationError,
-  setLoadingCalculate,
-  loadingCalculate,
   validationError,
   resultAtmospheric,
   kc,
@@ -16,7 +12,6 @@ function Atmospheric({
   setPercentwettedarea,
   actualevapotranspiration,
   setActualevapotranspiration,
-  setResultAtmospheric,
 }) {
   const [show, setShow] = useState(false);
 
