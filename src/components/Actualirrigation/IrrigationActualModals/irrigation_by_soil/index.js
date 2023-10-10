@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import ErrorMsg from "../../../ErrorMensage";
 
 function Soil({
   resultSoilParams,
@@ -56,7 +57,7 @@ function Soil({
               value={soilMoistureFieldCapacity || msg}
               onChange={(e) => {
                 const inputValue = e.target.value;
-                if (parseInt(inputValue) > 1) {
+                if (parseInt(inputValue) > 100) {
                   setErro("Number cannot be greater than 1");
                 } else {
                   setErro("");
@@ -149,6 +150,7 @@ function Soil({
               onChange={(e) => setEffectivePrecipitation(e.target.value)}
             />
           </div>
+          <ErrorMsg />
           {erro && (
             <>
               <div
