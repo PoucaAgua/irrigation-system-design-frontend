@@ -1,25 +1,40 @@
-export const fetchData = async () => {
-  try {
-    const response = await fetch(
-      "https://d4p7uekk73.execute-api.us-east-1.amazonaws.com/dev/api/v1/irrigation/actual/soil_params",
-      {
-        method: "POST",
-      }
-    );
+import Configuration from "../../services/configuration";
 
-    if (!response.ok) {
-      const data = await response.json();
-      const errorDetails = data.detail;
-      if (errorDetails && errorDetails.length > 0) {
-        const errorMessage = errorDetails[0].msg;
-        return errorMessage;
-      } else {
-        return `Erro ${response.status}`;
-      }
-    } else {
-      return null;
-    }
-  } catch (error) {
-    return error.message;
+class ApiErrorService {
+  constructor() {
+    this.config = new Configuration();
+    this.URL = this.config.IRRIGATION_SYSTEM_DESIGN_BACKEND_URL;
+    this.ACTUAL_IRRIGATION_SOIL_PARAMS =
+      this.URL + this.config.ACTUAL_IRRIGATION_SOIL_PARAMS;
   }
-};
+
+  async fetchData(payload) {
+    try {
+      const response = await fetch(this.ACTUAL_IRRIGATION_SOIL_PARAMS, {
+        method: "POST",
+        headers: {
+          accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        if (data.detail && data.detail.length > 0) {
+          const errorMessage = data.detail[0].msg;
+          return errorMessage;
+        } else {
+          return `Erro ${response.status}`;
+        }
+      } else {
+        return null;
+      }
+    } catch (error) {
+      return error.message;
+    }
+  }
+}
+
+const apiService = new ApiErrorService();
+export default apiService;
