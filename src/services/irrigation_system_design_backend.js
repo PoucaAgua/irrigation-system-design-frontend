@@ -1,5 +1,5 @@
 import Configuration from "./configuration";
-
+import { processResponse } from "../components/ErrorMensage/index";
 class IrrigationSystemDesignService {
   constructor() {
     this.config = new Configuration();
@@ -85,6 +85,12 @@ class IrrigationSystemDesignService {
       body: JSON.stringify(payload),
     });
 
+    const errorMessage = await processResponse(response);
+
+    if (errorMessage) {
+      alert(errorMessage);
+    }
+
     if (!response.ok) {
       alert(response.value);
     }
@@ -101,6 +107,12 @@ class IrrigationSystemDesignService {
       },
       body: JSON.stringify(payload),
     });
+
+    const errorMessage = await processResponse(response);
+
+    if (errorMessage) {
+      alert(errorMessage);
+    }
 
     if (!response.ok) {
       alert(response.value);
