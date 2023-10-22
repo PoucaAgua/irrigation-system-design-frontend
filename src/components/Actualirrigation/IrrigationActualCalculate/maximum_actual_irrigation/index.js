@@ -11,7 +11,6 @@ export const createMaximumComponentOverrides = ({
   effectivePrecipitation,
   setEffectivePrecipitation,
   setLoadingCalculate,
-  setValidationError,
   loadingCalculate,
   fractionOfTotalWettedArea,
   setFractionOfTotalWettedArea,
@@ -58,20 +57,7 @@ export const createMaximumComponentOverrides = ({
 
     CalculateButtonMaximum: {
       onClick: async () => {
-        if (
-          !soilMoistureFieldCapacity ||
-          !soilMoistureAtPermanentWiltingPoint ||
-          !depletionFactor ||
-          !effectivePrecipitation ||
-          !fractionOfTotalWettedArea ||
-          !soilDepth
-        ) {
-          setValidationError("Please fill in all fields.");
-          return;
-        }
-
         setLoadingCalculate(true);
-        setValidationError("");
 
         const payload = {
           soil_moisture_field_capacity: soilMoistureFieldCapacity,

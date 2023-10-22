@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 
 function Atmospheric({
   AtmosphericComponentOverrides,
-  validationError,
   resultAtmospheric,
   kc,
   setKc,
@@ -14,7 +13,6 @@ function Atmospheric({
   setActualevapotranspiration,
 }) {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -86,15 +84,6 @@ function Atmospheric({
             />
           </div>
 
-          {validationError && (
-            <div
-              className="alert alert-danger"
-              role="alert"
-              style={{ width: "60%", margin: "0 auto" }}
-            >
-              {validationError}
-            </div>
-          )}
           {resultAtmospheric !== null && (
             <div
               style={{

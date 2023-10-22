@@ -1,6 +1,5 @@
 export const createSoilComponentOverrides = ({
   irrigationSystemDesignService,
-  resultSoilParams,
   setResultSoilParams,
   soilMoistureFieldCapacity,
   setSoilMoistureFieldCapacity,
@@ -13,7 +12,6 @@ export const createSoilComponentOverrides = ({
   effectivePrecipitation,
   setEffectivePrecipitation,
   setLoadingCalculate,
-  setValidationError,
   loadingCalculate,
   SoilParams,
 }) => {
@@ -51,19 +49,7 @@ export const createSoilComponentOverrides = ({
 
     CalculateButtonSoilParams: {
       onClick: async () => {
-        if (
-          !soilMoistureFieldCapacity ||
-          !soilMoistureAtPermanentWiltingPoint ||
-          !depletionFactor ||
-          !effectivePrecipitation ||
-          !soilDepth
-        ) {
-          setValidationError("Please fill in all fields.");
-          return;
-        }
-
         setLoadingCalculate(true);
-        setValidationError("");
 
         const payload = {
           soil_moisture_field_capacity: soilMoistureFieldCapacity,

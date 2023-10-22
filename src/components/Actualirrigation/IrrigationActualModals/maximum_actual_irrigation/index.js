@@ -16,15 +16,11 @@ function Maximum({
   fractionOfTotalWettedArea,
   setFractionOfTotalWettedArea,
   resultMaximum,
-  validationError,
   MaximumComponentOverrides,
 }) {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [msg, setMsg] = useState("");
-  const [erro, setErro] = useState("");
 
   return (
     <div>
@@ -55,15 +51,9 @@ function Maximum({
               placeholder="Field capacity in cm³/cm³"
               className="form-control mb-3"
               style={{ width: "330px" }}
-              value={soilMoistureFieldCapacity || msg}
+              value={soilMoistureFieldCapacity}
               onChange={(e) => {
-                const inputValue = e.target.value;
-                if (parseInt(inputValue) > 1) {
-                  setErro("Number cannot be greater than 1");
-                } else {
-                  setErro("");
-                  setSoilMoistureFieldCapacity(inputValue);
-                }
+                setSoilMoistureFieldCapacity(e.target.value);
               }}
             />
 
@@ -80,15 +70,9 @@ function Maximum({
               placeholder="Permanent wilting point in cm³/cm³"
               className="form-control mb-3"
               style={{ width: "330px" }}
-              value={soilMoistureAtPermanentWiltingPoint || msg}
+              value={soilMoistureAtPermanentWiltingPoint}
               onChange={(e) => {
-                const inputValue = e.target.value;
-                if (parseInt(inputValue) > 1) {
-                  setErro("Number cannot be greater than 1");
-                } else {
-                  setErro("");
-                  setSoilMoistureAtPermanentWiltingPoint(inputValue);
-                }
+                setSoilMoistureAtPermanentWiltingPoint(e.target.value);
               }}
             />
 
@@ -105,15 +89,9 @@ function Maximum({
               placeholder=" 0.3 to 0.7. It is always less than 1"
               className="form-control mb-3"
               style={{ width: "330px" }}
-              value={depletionFactor || msg}
+              value={depletionFactor}
               onChange={(e) => {
-                const inputValue = e.target.value;
-                if (parseInt(inputValue) > 1) {
-                  setErro("Number cannot be greater than 1");
-                } else {
-                  setErro("");
-                  setDepletionFactor(inputValue);
-                }
+                setDepletionFactor(e.target.value);
               }}
             />
 
@@ -164,39 +142,13 @@ function Maximum({
               placeholder="fraction of total wetted area, dimensionless"
               className="form-control mb-3"
               style={{ width: "330px" }}
-              value={fractionOfTotalWettedArea || msg}
+              value={fractionOfTotalWettedArea}
               onChange={(e) => {
-                const inputValue = e.target.value;
-                if (parseInt(inputValue) > 1) {
-                  setErro("Number cannot be greater than 1");
-                } else {
-                  setErro("");
-                  setFractionOfTotalWettedArea(inputValue);
-                }
+                setFractionOfTotalWettedArea(e.target.value);
               }}
             />
           </div>
-          {erro && (
-            <>
-              <div
-                className="alert alert-danger"
-                role="alert"
-                style={{ width: "60%", margin: "0 auto" }}
-              >
-                {erro}
-              </div>
-              <br />
-            </>
-          )}
-          {validationError && (
-            <div
-              className="alert alert-danger"
-              role="alert"
-              style={{ width: "60%", margin: "0 auto" }}
-            >
-              {validationError}
-            </div>
-          )}
+
           {resultMaximum !== null && (
             <div
               style={{

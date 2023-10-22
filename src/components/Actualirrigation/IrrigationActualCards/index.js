@@ -11,7 +11,6 @@ const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function IrrigationCardActual(Atmospheric, SoilParams, Maximum) {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
-  const [validationError, setValidationError] = useState("");
   const [resultAtmospheric, setResultAtmospheric] = useState(null);
   const [kc, setKc] = useState("");
   const [percentwettedarea, setPercentwettedarea] = useState("");
@@ -32,10 +31,8 @@ function IrrigationCardActual(Atmospheric, SoilParams, Maximum) {
 
   const AtmosphericComponentOverrides = createAtmosphericComponentOverrides({
     irrigationSystemDesignService,
-    setValidationError,
     setLoadingCalculate,
     loadingCalculate,
-    validationError,
     resultAtmospheric,
     kc,
     setKc,
@@ -62,10 +59,8 @@ function IrrigationCardActual(Atmospheric, SoilParams, Maximum) {
     effectivePrecipitation,
     setEffectivePrecipitation,
     setLoadingCalculate,
-    setValidationError,
     loadingCalculate,
     SoilParams,
-    validationError,
   });
 
   const MaximumComponentOverrides = createMaximumComponentOverrides({
@@ -85,9 +80,7 @@ function IrrigationCardActual(Atmospheric, SoilParams, Maximum) {
     resultMaximum,
     setResultMaximum,
     loadingCalculate,
-    validationError,
     setLoadingCalculate,
-    setValidationError,
     Maximum,
   });
 
@@ -102,10 +95,8 @@ function IrrigationCardActual(Atmospheric, SoilParams, Maximum) {
               <ModalAtmospheric
                 AtmosphericComponentOverrides={AtmosphericComponentOverrides}
                 irrigationSystemDesignService={irrigationSystemDesignService}
-                setValidationError={setValidationError}
                 setLoadingCalculate={setLoadingCalculate}
                 loadingCalculate={loadingCalculate}
-                validationError={validationError}
                 resultAtmospheric={resultAtmospheric}
                 kc={kc}
                 setKc={setKc}
@@ -143,10 +134,8 @@ function IrrigationCardActual(Atmospheric, SoilParams, Maximum) {
                 effectivePrecipitation={effectivePrecipitation}
                 setEffectivePrecipitation={setEffectivePrecipitation}
                 setLoadingCalculate={setLoadingCalculate}
-                setValidationError={setValidationError}
                 loadingCalculate={loadingCalculate}
                 SoilParams={SoilParams}
-                validationError={validationError}
               />
             </Card.Body>
           </Card>
@@ -179,9 +168,7 @@ function IrrigationCardActual(Atmospheric, SoilParams, Maximum) {
                 resultMaximum={resultMaximum}
                 setResultMaximum={setResultMaximum}
                 loadingCalculate={loadingCalculate}
-                validationError={validationError}
                 setLoadingCalculate={setLoadingCalculate}
-                setValidationError={setValidationError}
               />
             </Card.Body>
           </Card>

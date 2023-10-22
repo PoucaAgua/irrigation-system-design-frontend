@@ -8,7 +8,6 @@ export const createAtmosphericComponentOverrides = ({
   setPercentwettedarea,
   irrigationSystemDesignService,
   setLoadingCalculate,
-  setValidationError,
   loadingCalculate,
   Atmospheric,
 }) => {
@@ -34,13 +33,7 @@ export const createAtmosphericComponentOverrides = ({
 
     CalculateButtonAtmospheric: {
       onClick: async () => {
-        if (!kc || !actualevapotranspiration || !percentwettedarea) {
-          setValidationError("Please fill in all fields.");
-          return;
-        }
-
         setLoadingCalculate(true);
-        setValidationError("");
 
         const payload = {
           kc: kc,
