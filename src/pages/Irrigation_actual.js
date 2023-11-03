@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../components/Header/index";
-import IrrgationCardMenu from "../components/IrrigationCardMenu/index";
+import IrrgationCardActual from "../components/Actualirrigation/IrrigationActualCards";
 //import { Link } from "react-router-dom";
 
 function Irrigation({ user, signOut }) {
@@ -8,9 +8,9 @@ function Irrigation({ user, signOut }) {
     <>
       <Header user={user} signOut={signOut} />
       <h1 className="text-center" style={{ marginTop: 50 }}>
-        Irrigation
+        Actual Irrigation
       </h1>
-      <IrrgationCardMenu />
+      <IrrgationCardActual />
     </>
   );
 }
