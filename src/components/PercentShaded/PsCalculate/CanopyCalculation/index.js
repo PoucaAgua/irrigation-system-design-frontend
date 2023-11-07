@@ -1,5 +1,3 @@
-// CanopyComponentOverrides.js
-
 export const createCanopyComponentOverrides = ({
   sr,
   sp,
@@ -7,7 +5,6 @@ export const createCanopyComponentOverrides = ({
   setSr,
   setSp,
   setDco,
-  setValidationError,
   setLoadingCalculate,
   setResultPs,
   Canopy,
@@ -36,13 +33,7 @@ export const createCanopyComponentOverrides = ({
 
     CalculateButtonCanopy: {
       onClick: async () => {
-        if (!sr || !sp || !dco) {
-          setValidationError("Please fill in all fields.");
-          return;
-        }
-
         setLoadingCalculate(true);
-        setValidationError("");
 
         const payload = {
           space_between_rows: sr,
