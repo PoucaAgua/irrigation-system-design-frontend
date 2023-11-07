@@ -142,6 +142,12 @@ class IrrigationSystemDesignService {
       body: JSON.stringify(payload),
     });
 
+    const errorMessage = await processResponse(response);
+
+    if (errorMessage) {
+      alert(errorMessage);
+    }
+
     if (!response.ok) {
       alert(response.value);
     }
@@ -158,6 +164,12 @@ class IrrigationSystemDesignService {
       },
       body: JSON.stringify(payload),
     });
+
+    const errorMessage = await processResponse(response);
+
+    if (errorMessage) {
+      alert(errorMessage);
+    }
 
     if (!response.ok) {
       alert(response.value);
@@ -176,6 +188,12 @@ class IrrigationSystemDesignService {
       body: JSON.stringify(payload),
     });
 
+    const errorMessage = await processResponse(response);
+
+    if (errorMessage) {
+      alert(errorMessage);
+    }
+
     if (!response.ok) {
       alert(response.value);
     }
@@ -193,6 +211,12 @@ class IrrigationSystemDesignService {
       body: JSON.stringify(payload),
     });
 
+    const errorMessage = await processResponse(response);
+
+    if (errorMessage) {
+      alert(errorMessage);
+    }
+
     if (!response.ok) {
       alert(response.value);
     }
@@ -209,6 +233,12 @@ class IrrigationSystemDesignService {
       },
       body: JSON.stringify(payload),
     });
+
+    const errorMessage = await processResponse(response);
+
+    if (errorMessage) {
+      alert(errorMessage);
+    }
 
     if (!response.ok) {
       alert(response.value);
