@@ -3,8 +3,8 @@ import React, { Component } from "react";
 export default class index extends Component {
   render() {
     return (
-      <p className="fs-2 text-center" style={{ marginTop: 30 }}>
-        Pouca Água
+      <p className="fs-4 text-center" style={{ marginTop: 15 }}>
+        Percent Shaded - PS{" "}
       </p>
     );
   }
