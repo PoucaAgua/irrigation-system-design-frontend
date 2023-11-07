@@ -10,6 +10,7 @@ import IrrigationSystem from "./pages/IrrigationSystemDesign";
 import PsAndPw from "./pages/PsAndPw";
 import SizeLines from "./pages/SizeLines";
 import Irrigation from "./pages/Irrigation";
+import IrrigationActual from "./pages/Irrigation_actual";
 import Home from "./pages/Home";
 
 function App({ user, signOut }) {
@@ -21,31 +22,21 @@ function App({ user, signOut }) {
             path="/"
             element={<Home user={user} signOut={() => signOut()} />}
           />
-          <Route
-            path="/CropCoefficient"
-            element={<CropCoefficient user={user} signOut={() => signOut()} />}
-          />
-          <Route
-            path="/Evapotranspiration"
-            element={
-              <Evapotranspiration user={user} signOut={() => signOut()} />
-            }
-          />
-          <Route
-            path="/IrrigationSystem"
-            element={<IrrigationSystem user={user} signOut={() => signOut()} />}
-          />
+          <Route path="/CropCoefficient" element={<CropCoefficient />} />
+          <Route path="/Evapotranspiration" element={<Evapotranspiration />} />
+          <Route path="/IrrigationSystem" element={<IrrigationSystem />} />
           <Route
             path="/PsAndPw"
             element={<PsAndPw user={user} signOut={() => signOut()} />}
           />
-          <Route
-            path="/SizeLines"
-            element={<SizeLines user={user} signOut={() => signOut()} />}
-          />
+          <Route path="/SizeLines" element={<SizeLines />} />
           <Route
             path="/Irrigation"
             element={<Irrigation user={user} signOut={() => signOut()} />}
+          />
+          <Route
+            path="/irrigation/actual_irrigation"
+            element={<IrrigationActual user={user} signOut={() => signOut()} />}
           />
         </Routes>
       </div>
