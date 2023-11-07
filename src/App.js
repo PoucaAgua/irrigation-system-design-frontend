@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CropCoefficient from "./pages/Crop_Coefficient";
 import Evapotranspiration from "./pages/Evapotranspiration";
 import IrrigationSystem from "./pages/IrrigationSystemDesign";
-import PercenteShaded from "./pages/PercenteShaded";
+import PsAndPw from "./pages/PsAndPw";
 import SizeLines from "./pages/SizeLines";
 import Irrigation from "./pages/Irrigation";
 import IrrigationActual from "./pages/Irrigation_actual";
@@ -25,7 +25,7 @@ function App({ user, signOut }) {
           <Route path="/CropCoefficient" element={<CropCoefficient />} />
           <Route path="/Evapotranspiration" element={<Evapotranspiration />} />
           <Route path="/IrrigationSystem" element={<IrrigationSystem />} />
-          <Route path="/PercenteShaded" element={<PercenteShaded />} />
+          <Route path="/PsAndPw" element={<PsAndPw user={user} signOut={() => signOut()} />}/>
           <Route path="/SizeLines" element={<SizeLines />} />
           <Route
             path="/Irrigation"

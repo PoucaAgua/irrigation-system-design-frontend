@@ -14,8 +14,8 @@ const cardData = [
     imageSrc: "crop-coefficient-image-url.jpg",
   },
   {
-    title: "PercenteShaded",
-    link: "/PercenteShaded",
+    title: "Ps and Pw",
+    link: "/PsAndPw",
     imageSrc: "percent-shaded-image-url.jpg",
   },
   {
