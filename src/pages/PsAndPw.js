@@ -37,7 +37,6 @@ function PercenteShaded({
   const [sr, setSr] = useState("");
   const [sp, setSp] = useState("");
   const [dco, setDco] = useState("");
-  const [validationError, setValidationError] = useState("");
   const [showModalPsStrip, setShowModalPsStrip] = useState(false);
   const [ss, setSs] = useState("");
   const [resultPs, setResultPs] = useState(null);
@@ -67,7 +66,6 @@ function PercenteShaded({
     setSr,
     setSp,
     setDco,
-    setValidationError,
     setLoadingCalculate,
     setResultPs,
     Canopy,
@@ -83,7 +81,6 @@ function PercenteShaded({
     ss,
     setSr,
     setSs,
-    setValidationError,
     setLoadingCalculate,
     setResultPs,
     Strip,
@@ -101,7 +98,6 @@ function PercenteShaded({
     setQ,
     setK0,
     setAlpha,
-    setValidationError,
     setLoadingCalculate,
     setResultPw,
     Radius,
@@ -120,7 +116,6 @@ function PercenteShaded({
     setSr,
     setSp,
     setSw,
-    setValidationError,
     setLoadingCalculate,
     setResultPw,
     PwStrip,
@@ -144,7 +139,6 @@ function PercenteShaded({
     setZ,
     setQ,
     setK0,
-    setValidationError,
     setLoadingCalculate,
     setResultPw,
     Tree,
@@ -221,7 +215,6 @@ function PercenteShaded({
                           setSp={setSp}
                           setDco={setDco}
                           resultPs={resultPs}
-                          validationError={validationError}
                           loadingCalculate={loadingCalculate}
                           CanopyComponentOverrides={CanopyComponentOverrides}
                         />
@@ -234,7 +227,6 @@ function PercenteShaded({
                           showModalPsStrip={showModalPsStrip}
                           setShowModalPsStrip={setShowModalPsStrip}
                           resultPs={resultPs}
-                          validationError={validationError}
                           loadingCalculate={loadingCalculate}
                           StripComponentOverrides={StripComponentOverrides}
                         />
@@ -263,7 +255,6 @@ function PercenteShaded({
                           setZ={setZ}
                           setQ={setQ}
                           setK0={setK0}
-                          validationError={validationError}
                           resultPw={resultPw}
                           TreeComponentOverrides={TreeComponentOverrides}
                           np={np}
@@ -280,7 +271,6 @@ function PercenteShaded({
                           sp={sp}
                           sw={sw}
                           resultPw={resultPw}
-                          validationError={validationError}
                           loadingCalculate={loadingCalculate}
                           StripPwComponentOverrides={StripPwComponentOverrides}
                         />
@@ -291,7 +281,6 @@ function PercenteShaded({
                           k0={k0}
                           alpha={alpha}
                           resultPw={resultPw}
-                          validationError={validationError}
                           loadingCalculate={loadingCalculate}
                           RadiusComponentOverrides={RadiusComponentOverrides}
                         />
@@ -327,7 +316,6 @@ function PercenteShaded({
                           setSp={setSp}
                           setDco={setDco}
                           resultPs={resultPs}
-                          validationError={validationError}
                           loadingCalculate={loadingCalculate}
                           CanopyComponentOverrides={CanopyComponentOverrides}
                         />
@@ -340,7 +328,6 @@ function PercenteShaded({
                           showModalPsStrip={showModalPsStrip}
                           setShowModalPsStrip={setShowModalPsStrip}
                           resultPs={resultPs}
-                          validationError={validationError}
                           loadingCalculate={loadingCalculate}
                           StripComponentOverrides={StripComponentOverrides}
                         />
@@ -374,7 +361,6 @@ function PercenteShaded({
                           setZ={setZ}
                           setQ={setQ}
                           setK0={setK0}
-                          validationError={validationError}
                           resultPw={resultPw}
                           TreeComponentOverrides={TreeComponentOverrides}
                           np={np}
@@ -391,7 +377,6 @@ function PercenteShaded({
                           sp={sp}
                           sw={sw}
                           resultPw={resultPw}
-                          validationError={validationError}
                           loadingCalculate={loadingCalculate}
                           StripPwComponentOverrides={StripPwComponentOverrides}
                         />
@@ -402,7 +387,6 @@ function PercenteShaded({
                           k0={k0}
                           alpha={alpha}
                           resultPw={resultPw}
-                          validationError={validationError}
                           loadingCalculate={loadingCalculate}
                           RadiusComponentOverrides={RadiusComponentOverrides}
                         />

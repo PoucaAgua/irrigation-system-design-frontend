@@ -1,5 +1,3 @@
-// StripPwComponentOverrides.js
-
 export const createStripPwComponentOverrides = ({
   sr,
   sp,
@@ -8,7 +6,6 @@ export const createStripPwComponentOverrides = ({
   setSr,
   setSp,
   setSw,
-  setValidationError,
   setLoadingCalculate,
   setResultPw,
   PwStrip,
@@ -36,13 +33,8 @@ export const createStripPwComponentOverrides = ({
 
     CalculateButtonStripPw: {
       onClick: async () => {
-        if (!sr || !sp || !sw) {
-          setValidationError("Please fill in all fields.");
-          return;
-        }
-
-        setValidationError("");
         setLoadingCalculate(true);
+
         const payload = {
           row_spacing_plants: sr,
           space_between_plants: sp,
