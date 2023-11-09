@@ -1,21 +1,33 @@
 import Configuration from "./configuration";
-import { processResponse } from "../components/ErrorMensage/index";
+import EtoDesignService from "./EtoDesignService";
+import PSDesignService from "./PSDesignService";
+import PWDesignService from "./PWDesignService";
+import ActualIrrigationDesignService from "./ActualIrrigationDesignService";
 class IrrigationSystemDesignService {
   constructor() {
     this.config = new Configuration();
     this.URL = this.config.IRRIGATION_SYSTEM_DESIGN_BACKEND_URL;
-    this.ETO_HARGRAVES_SAMANI =
-      this.URL + this.config.ETO_HARGRAVES_SAMANI_PATH;
-    this.PS_STRIP = this.URL + this.config.PS_STRIP_PROJECTION;
-    this.PS_CANOPY = this.URL + this.config.PS_CANOPY_PROJECTION;
-    this.PW_WETTED_RADIUS = this.URL + this.config.PW_WETTED_RADIUS;
-    this.PW_IRRIGATION_TREE = this.URL + this.config.PW_IRRIGATION_TREE;
-    this.PW_CONTINUOUS_STRIP = this.URL + this.config.PW_CONTINUOUS_STRIP;
-    this.ACTUAL_IRRIGATION_ATMOSPHERIC =
-      this.URL + this.config.ACTUAL_IRRIGATION_ATMOSPHERIC;
-    this.ACTUAL_IRRIGATION_SOIL_PARAMS =
-      this.URL + this.config.ACTUAL_IRRIGATION_SOIL_PARAMS;
-    this.ACTUAL_IRRIGATION_MAX = this.URL + this.config.ACTUAL_IRRIGATION_MAX;
+    this.etoService = new EtoDesignService(
+      (this.ETO_HARGRAVES_SAMANI =
+        this.URL + this.config.ETO_HARGRAVES_SAMANI_PATH)
+    );
+    this.psDesignService = new PSDesignService(
+      (this.PS_STRIP = this.URL + this.config.PS_STRIP_PROJECTION),
+      (this.PS_CANOPY = this.URL + this.config.PS_CANOPY_PROJECTION)
+    );
+    this.pwDesignService = new PWDesignService(
+      (this.PW_WETTED_RADIUS = this.URL + this.config.PW_WETTED_RADIUS),
+      (this.PW_IRRIGATION_TREE = this.URL + this.config.PW_IRRIGATION_TREE),
+      (this.PW_CONTINUOUS_STRIP = this.URL + this.config.PW_CONTINUOUS_STRIP)
+    );
+    this.actualirrigationService = new ActualIrrigationDesignService(
+      (this.ACTUAL_IRRIGATION_ATMOSPHERIC =
+        this.URL + this.config.ACTUAL_IRRIGATION_ATMOSPHERIC),
+      (this.ACTUAL_IRRIGATION_SOIL_PARAMS =
+        this.URL + this.config.ACTUAL_IRRIGATION_SOIL_PARAMS),
+      (this.ACTUAL_IRRIGATION_MAX =
+        this.URL + this.config.ACTUAL_IRRIGATION_MAX)
+    );
 
     this.projects = [
       {
@@ -47,204 +59,39 @@ class IrrigationSystemDesignService {
   }
 
   async calculateEto(payload) {
-    const response = await fetch(this.ETO_HARGRAVES_SAMANI, {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    if (!response.ok) {
-      alert(response.value);
-    }
-
-    return await response.json();
+    return this.etoService.calculateEto(payload);
   }
 
   async calculateAtmospheric(payload) {
-    const response = await fetch(this.ACTUAL_IRRIGATION_ATMOSPHERIC, {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const errorMessage = await processResponse(response);
-
-    if (errorMessage) {
-      alert(errorMessage);
-    }
-
-    if (!response.ok) {
-      alert(response.value);
-    }
-
-    return await response.json();
+    return this.actualirrigationService.calculateAtmospheric(payload);
   }
 
   async calculateSoilParams(payload) {
-    const response = await fetch(this.ACTUAL_IRRIGATION_SOIL_PARAMS, {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const errorMessage = await processResponse(response);
-
-    if (errorMessage) {
-      alert(errorMessage);
-    }
-
-    if (!response.ok) {
-      alert(response.value);
-    }
-
-    return await response.json();
+    return this.actualirrigationService.calculateSoilParams(payload);
   }
 
   async calculateMaximum(payload) {
-    const response = await fetch(this.ACTUAL_IRRIGATION_MAX, {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const errorMessage = await processResponse(response);
-
-    if (errorMessage) {
-      alert(errorMessage);
-    }
-
-    if (!response.ok) {
-      alert(response.value);
-    }
-
-    return await response.json();
+    return this.actualirrigationService.calculateMaximum(payload);
   }
 
   async calculateStrip(payload) {
-    const response = await fetch(this.PS_STRIP, {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const errorMessage = await processResponse(response);
-
-    if (errorMessage) {
-      alert(errorMessage);
-    }
-
-    if (!response.ok) {
-      alert(response.value);
-    }
-
-    return await response.json();
+    return this.psDesignService.calculateStrip(payload);
   }
 
   async calculateCanopy(payload) {
-    const response = await fetch(this.PS_CANOPY, {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const errorMessage = await processResponse(response);
-
-    if (errorMessage) {
-      alert(errorMessage);
-    }
-
-    if (!response.ok) {
-      alert(response.value);
-    }
-
-    return await response.json();
+    return this.psDesignService.calculateCanopy(payload);
   }
 
   async calculateRadius(payload) {
-    const response = await fetch(this.PW_WETTED_RADIUS, {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const errorMessage = await processResponse(response);
-
-    if (errorMessage) {
-      alert(errorMessage);
-    }
-
-    if (!response.ok) {
-      alert(response.value);
-    }
-
-    return await response.json();
+    return this.pwDesignService.calculateRadius(payload);
   }
 
   async calculateTree(payload) {
-    const response = await fetch(this.PW_IRRIGATION_TREE, {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const errorMessage = await processResponse(response);
-
-    if (errorMessage) {
-      alert(errorMessage);
-    }
-
-    if (!response.ok) {
-      alert(response.value);
-    }
-
-    return await response.json();
+    return this.pwDesignService.calculateTree(payload);
   }
 
   async calculatePwStrip(payload) {
-    const response = await fetch(this.PW_CONTINUOUS_STRIP, {
-      method: "POST",
-      headers: {
-        accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
-
-    const errorMessage = await processResponse(response);
-
-    if (errorMessage) {
-      alert(errorMessage);
-    }
-
-    if (!response.ok) {
-      alert(response.value);
-    }
-
-    return await response.json();
+    return this.pwDesignService.calculatePwStrip(payload);
   }
 
   getProjects(params) {
