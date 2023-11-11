@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 import { processResponse } from "../components/ErrorMensage/index";
 
-export default class PWDesignService {
+export default class PWService {
   constructor(pwWettedRadiusUrl, pwIrrigationTreeUrl, pwContinuousStripUrl) {
     this.pwWettedRadiusUrl = pwWettedRadiusUrl;
     this.pwIrrigationTreeUrl = pwIrrigationTreeUrl;

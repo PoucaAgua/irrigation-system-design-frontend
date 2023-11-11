@@ -1,7 +1,7 @@
 import { processResponse } from "../components/ErrorMensage/index";
 import Swal from "sweetalert2";
 
-export default class AtmosphericService {
+export default class ActualIrrigationService {
   constructor(
     actualIrrigationAtmosphericUrl,
     actualIrrigationSoilParamsUrl,

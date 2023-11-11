@@ -16,6 +16,7 @@ class Configuration {
     "/dev/api/v1/percent_wetted_area/percent_wetted_area_irrigation_by_tree";
   PW_CONTINUOUS_STRIP =
     "/dev/api/v1/percent_wetted_area/percent_wetted_area_continuous_strip";
+  TOTAL_IRRIGATION = "/dev/api/v1/irrigation/total";
 }
 
 export default Configuration;
