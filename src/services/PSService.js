@@ -1,4 +1,5 @@
 import { processResponse } from "../components/ErrorMensage/index";
+import Swal from "sweetalert2";
 
 export default class PSDesignService {
   constructor(psStripUrl, psCanopyUrl) {
@@ -19,11 +20,13 @@ export default class PSDesignService {
     const errorMessage = await processResponse(response);
 
     if (errorMessage) {
-      alert(errorMessage);
-    }
-
-    if (!response.ok) {
-      alert(response.value);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: errorMessage,
+        confirmButtonColor: "#DC3545",
+      });
+      return;
     }
 
     return await response.json();
@@ -42,11 +45,13 @@ export default class PSDesignService {
     const errorMessage = await processResponse(response);
 
     if (errorMessage) {
-      alert(errorMessage);
-    }
-
-    if (!response.ok) {
-      alert(response.value);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: errorMessage,
+        confirmButtonColor: "#DC3545",
+      });
+      return;
     }
 
     return await response.json();
