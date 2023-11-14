@@ -55,7 +55,7 @@ function ShiftIrrigation({
             <label
               className="left-label"
               htmlFor="input2"
-              style={{ marginRight: "21%" }}
+              style={{ marginRight: "32%" }}
             >
               Crop Evapotranspiration
             </label>
