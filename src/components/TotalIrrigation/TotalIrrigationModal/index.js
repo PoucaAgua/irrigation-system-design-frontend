@@ -140,7 +140,11 @@ function TotalIrrigation({
                 <table className="table table-bordered border-secondary">
                   <thead>
                     <tr>
+
                       <th scope="col">Total Irrigation Result</th>
+
+                      <th scope="col">Irrigation by Atmospheric Result</th>
+
                     </tr>
                   </thead>
                   <tbody>
