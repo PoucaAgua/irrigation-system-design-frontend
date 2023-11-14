@@ -4,6 +4,8 @@ import PSService from "./PSService";
 import PWService from "./PWService";
 import ActualIrrigationService from "./ActualIrrigationService";
 import TotalIrrigationService from "./TotalirrigationService";
+import ShiftIrrigationService from "./ShiftIrrigationService";
+
 class IrrigationSystemDesignService {
   constructor() {
     this.config = new Configuration();
@@ -32,6 +34,11 @@ class IrrigationSystemDesignService {
     this.totalirrigationService = new TotalIrrigationService(
       (this.TOTAL_IRRIGATION = this.URL + this.config.TOTAL_IRRIGATION)
     );
+
+    this.shiftirrigationService = new ShiftIrrigationService(
+      (this.SHIFT_IRRIGATION = this.URL + this.config.SHIFT_IRRIGATION)
+    );
+
 
     this.projects = [
       {
@@ -101,6 +108,12 @@ class IrrigationSystemDesignService {
   async calculateTotalIrrigation(payload) {
     return this.totalirrigationService.calculateTotalIrrigation(payload);
   }
+
+
+  async calculateShiftIrrigation(payload) {
+    return this.shiftirrigationService.calculateShiftIrrigation(payload);
+  }
+
 
   getProjects(params) {
     return this.projects;

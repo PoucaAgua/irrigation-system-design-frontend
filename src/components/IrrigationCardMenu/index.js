@@ -14,9 +14,9 @@ const cardData = [
     imageSrc: "total-irrigation-image-url.jpg",
   },
   {
-    title: "Actual Irrigation",
-    link: "/irrigation/actual_irrigation",
-    imageSrc: "actual-irrigation-image-url.jpg",
+    title: "Maximum irrigation shift",
+    link: "/irrigation/shift_irrigation",
+    imageSrc: "shift-irrigation-image-url.jpg",
   },
 ];
 
