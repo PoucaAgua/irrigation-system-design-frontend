@@ -18,7 +18,6 @@ class Configuration {
     "/dev/api/v1/percent_wetted_area/percent_wetted_area_continuous_strip";
   TOTAL_IRRIGATION = "/dev/api/v1/irrigation/total";
   SHIFT_IRRIGATION = "/dev/api/v1/irrigation/maximum_irrigation_shift/";
-
 }
 
 export default Configuration;

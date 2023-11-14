@@ -4,7 +4,6 @@ import PSService from "./PSService";
 import PWService from "./PWService";
 import ActualIrrigationService from "./ActualIrrigationService";
 import TotalIrrigationService from "./TotalirrigationService";
-
 import ShiftIrrigationService from "./ShiftIrrigationService";
 
 class IrrigationSystemDesignService {

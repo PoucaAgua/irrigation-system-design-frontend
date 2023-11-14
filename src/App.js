@@ -44,12 +44,10 @@ function App({ user, signOut }) {
             path="/irrigation/total_irrigation"
             element={<IrrigationTotal user={user} signOut={() => signOut()} />}
           />
-
           <Route
             path="/irrigation/shift_irrigation"
             element={<IrrigationShift user={user} signOut={() => signOut()} />}
           />
-
         </Routes>
       </div>
     </Router>
