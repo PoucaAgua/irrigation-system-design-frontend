@@ -1,7 +1,7 @@
 import { processResponse } from "../components/ErrorMensage/index";
 import Swal from "sweetalert2";
 
-export default class PSDesignService {
+export default class PSService {
   constructor(psStripUrl, psCanopyUrl) {
     this.psStripUrl = psStripUrl;
     this.psCanopyUrl = psCanopyUrl;

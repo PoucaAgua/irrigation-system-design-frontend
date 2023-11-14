@@ -3,6 +3,7 @@ import EtoService from "./EtoService";
 import PSService from "./PSService";
 import PWService from "./PWService";
 import ActualIrrigationService from "./ActualIrrigationService";
+import TotalIrrigationService from "./TotalirrigationService";
 class IrrigationSystemDesignService {
   constructor() {
     this.config = new Configuration();
@@ -27,6 +28,9 @@ class IrrigationSystemDesignService {
         this.URL + this.config.ACTUAL_IRRIGATION_SOIL_PARAMS),
       (this.ACTUAL_IRRIGATION_MAX =
         this.URL + this.config.ACTUAL_IRRIGATION_MAX)
+    );
+    this.totalirrigationService = new TotalIrrigationService(
+      (this.TOTAL_IRRIGATION = this.URL + this.config.TOTAL_IRRIGATION)
     );
 
     this.projects = [
@@ -92,6 +96,10 @@ class IrrigationSystemDesignService {
 
   async calculatePwStrip(payload) {
     return this.pwService.calculatePwStrip(payload);
+  }
+
+  async calculateTotalIrrigation(payload) {
+    return this.totalirrigationService.calculateTotalIrrigation(payload);
   }
 
   getProjects(params) {

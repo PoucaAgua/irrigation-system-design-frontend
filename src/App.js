@@ -11,6 +11,7 @@ import PsAndPw from "./pages/PsAndPw";
 import SizeLines from "./pages/SizeLines";
 import Irrigation from "./pages/Irrigation";
 import IrrigationActual from "./pages/Irrigation_actual";
+import IrrigationTotal from "./pages/Irrigation_total";
 import Home from "./pages/Home";
 
 function App({ user, signOut }) {
@@ -37,6 +38,10 @@ function App({ user, signOut }) {
           <Route
             path="/irrigation/actual_irrigation"
             element={<IrrigationActual user={user} signOut={() => signOut()} />}
+          />
+          <Route
+            path="/irrigation/total_irrigation"
+            element={<IrrigationTotal user={user} signOut={() => signOut()} />}
           />
         </Routes>
       </div>

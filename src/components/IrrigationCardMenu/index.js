@@ -9,9 +9,9 @@ const cardData = [
     imageSrc: "actual-irrigation-image-url.jpg",
   },
   {
-    title: "Actual Irrigation",
-    link: "/irrigation/actual_irrigation",
-    imageSrc: "actual-irrigation-image-url.jpg",
+    title: "Total Irrigation",
+    link: "/irrigation/total_irrigation",
+    imageSrc: "total-irrigation-image-url.jpg",
   },
   {
     title: "Actual Irrigation",
