@@ -2,19 +2,18 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-function TotalIrrigation({
-  TotalComponentOverrides,
-  resultTotal,
+function ShiftIrrigation({
+  irrigationSystemDesignService,
+  setLoadingCalculate,
+  loadingCalculate,
+  resultShift,
+  setResultShift,
+  ShiftIrrigation,
   actualIrrigation,
   setActualIrrigation,
-  electricalConductivityIrrigation,
-  setElectricalConductivityIrrigation,
-  electricalConductivitySaturation,
-  setElectricalConductivitySaturation,
-  leachingFraction,
-  setLeachingFraction,
-  efficiency,
-  setEfficiency,
+  cropEvapotranspiration,
+  setCropEvapotranspiration,
+  ShiftComponentOverrides,
 }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -27,12 +26,12 @@ function TotalIrrigation({
         onClick={handleShow}
         style={{ width: 250, height: 40 }}
       >
-        Total Irrigation
+        Maximum irrigation shift
       </Button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Total Irrigation</Modal.Title>
+          <Modal.Title>Maximum irrigation shift</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="input mb-3 d-flex flex-column align-items-center">
@@ -58,7 +57,7 @@ function TotalIrrigation({
               htmlFor="input2"
               style={{ marginRight: "21%" }}
             >
-              Electrical Conductivity Irrigation
+              Crop Evapotranspiration
             </label>
             <input
               id="input2"
@@ -66,67 +65,12 @@ function TotalIrrigation({
               placeholder=""
               className="form-control mb-3"
               style={{ width: "330px" }}
-              value={electricalConductivityIrrigation}
-              onChange={(e) =>
-                setElectricalConductivityIrrigation(e.target.value)
-              }
-            />
-
-            <label
-              className="left-label"
-              htmlFor="input3"
-              style={{ marginRight: "19%" }}
-            >
-              Electrical Conductivity Saturation
-            </label>
-            <input
-              id="input3"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              style={{ width: "330px" }}
-              value={electricalConductivitySaturation}
-              onChange={(e) =>
-                setElectricalConductivitySaturation(e.target.value)
-              }
-            />
-
-            <label
-              className="left-label"
-              htmlFor="input3"
-              style={{ marginRight: "43%" }}
-            >
-              LeachingFraction
-            </label>
-            <input
-              id="input3"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              style={{ width: "330px" }}
-              value={leachingFraction}
-              onChange={(e) => setLeachingFraction(e.target.value)}
-            />
-
-            <label
-              className="left-label"
-              htmlFor="input3"
-              style={{ marginRight: "54%" }}
-            >
-              Efficiency
-            </label>
-            <input
-              id="input3"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              style={{ width: "330px" }}
-              value={efficiency}
-              onChange={(e) => setEfficiency(e.target.value)}
+              value={cropEvapotranspiration}
+              onChange={(e) => setCropEvapotranspiration(e.target.value)}
             />
           </div>
 
-          {resultTotal !== null && (
+          {resultShift !== null && (
             <div
               style={{
                 width: "100%",
@@ -140,12 +84,12 @@ function TotalIrrigation({
                 <table className="table table-bordered border-secondary">
                   <thead>
                     <tr>
-                      <th scope="col">Total Irrigation Result</th>
+                      <th scope="col">Maximum irrigation shift Result</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{resultTotal}</td>
+                      <td>{resultShift}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -159,13 +103,13 @@ function TotalIrrigation({
           </Button>
           <Button
             variant="primary"
-            onClick={TotalComponentOverrides.CalculateTotalIrrigation.onClick}
+            onClick={ShiftComponentOverrides.CalculateTotalIrrigation.onClick}
           >
             Calculate
           </Button>
           <Button
             variant="success"
-            onClick={TotalComponentOverrides.SaveButtonTotal.onClick}
+            onClick={ShiftComponentOverrides.SaveButtonTotal.onClick}
           >
             Save
           </Button>
@@ -175,4 +119,4 @@ function TotalIrrigation({
   );
 }
 
-export default TotalIrrigation;
+export default ShiftIrrigation;
