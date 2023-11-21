@@ -179,6 +179,11 @@ function Penman() {
           Validate
         </button>
       </div>
+      {resultPenman && (
+        <div class="alert alert-light" role="alert">
+          <p className="fs-3 text-center">Result:{resultPenman}</p>
+        </div>
+      )}
     </>
   );
 }

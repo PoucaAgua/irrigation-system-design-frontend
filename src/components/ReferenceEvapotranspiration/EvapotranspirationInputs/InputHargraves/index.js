@@ -106,6 +106,13 @@ function Hargraves(Hargraves) {
           Validate
         </button>
       </div>
+      {resultHargraves !== null &&
+        resultHargraves !== undefined &&
+        resultHargraves !== "" && (
+          <div class="alert alert-light" role="alert">
+            <p className="fs-3 text-center">Result: {resultHargraves}</p>
+          </div>
+        )}
     </>
   );
 }

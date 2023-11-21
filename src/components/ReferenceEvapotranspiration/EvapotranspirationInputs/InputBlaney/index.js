@@ -113,6 +113,11 @@ function Blaney(Blaney) {
           Validate
         </button>
       </div>
+      {resultBlaney && (
+        <div class="alert alert-light" role="alert">
+          <p className="fs-3 text-center">Result:{resultBlaney}</p>
+        </div>
+      )}
     </>
   );
 }
