@@ -18,6 +18,12 @@ class Configuration {
     "/dev/api/v1/percent_wetted_area/percent_wetted_area_continuous_strip";
   TOTAL_IRRIGATION = "/dev/api/v1/irrigation/total";
   SHIFT_IRRIGATION = "/dev/api/v1/irrigation/maximum_irrigation_shift/";
+  REFERENCE_EVAPOTRANSPIRATION_BLANEY_CRIDDLE =
+    "/dev/api/v1/reference_evapotranspiration/blaney_criddle";
+  REFERENCE_EVAPOTRANSPIRATION_HARGRAVES_SAMANI =
+    "/dev/api/v1/reference_evapotranspiration/hargraves_samani";
+  REFERENCE_EVAPOTRANSPIRATION_PENMAN_MONTEITH =
+    "/dev/api/v1/reference_evapotranspiration/penman_monteith";
 }
 
 export default Configuration;
