@@ -1,103 +1,119 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import { createBlaneyComponentOverrides } from "../../EvapotranspirationCalculate/CalculateBlaney";
+import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
+import SelectorMonth from "../../EvapotranspirationSelector/EvapotranspirationBlaney/MonthSelector";
+import SelectorHemisphere from "../../EvapotranspirationSelector/EvapotranspirationBlaney/HemisphereSelector";
+const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-export default class index extends Component {
-  render() {
-    return (
-      <>
-        <p className="text-center fs-3" style={{ marginTop: 50 }}>
-          Blaney Criddle
-        </p>
-        <select
-          class="form-select d-flex flex-column align-items-center mb-3"
-          aria-label="Default select example"
-        >
-          <option selected>Select the month</option>
-          <option value="Jan">January</option>
-          <option value="Fev">February</option>
-          <option value="Mar">March</option>
-          <option value="Abr">April</option>
-          <option value="Mai">May</option>
-          <option value="Jun">June</option>
-          <option value="Jul">July</option>
-          <option value="Ago">August</option>
-          <option value="Set">September</option>
-          <option value="Out">October</option>
-          <option value="Nov">November</option>
-          <option value="Dez">December</option>
-        </select>
-        <select
-          class="form-select d-flex flex-column align-items-center mb-3"
-          aria-label="Default select example"
-        >
-          <option selected>Select the hemisphere</option>
-          <option value="SUL">Sul</option>
-          <option value="NORTE">Norte</option>
-        </select>
-        <div className="form-group">
-          <label htmlFor="input1" className="left-label">
-            Temperature med:
-          </label>
-          <input
-            id="input1"
-            type="text"
-            className="form-control mb-3 custom-input"
-            placeholder=""
-            value={0}
-            onChange={(e) => 0(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="input1" className="left-label">
-            Temperature max:
-          </label>
-          <input
-            id="input1"
-            type="text"
-            className="form-control mb-3 custom-input"
-            placeholder=""
-            value={0}
-            onChange={(e) => 0(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="input1" className="left-label">
-            Temperature min:
-          </label>
-          <input
-            id="input1"
-            type="text"
-            className="form-control mb-3 custom-input"
-            placeholder=""
-            value={0}
-            onChange={(e) => 0(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="input1" className="left-label">
-            Latitude:
-          </label>
-          <input
-            id="input1"
-            type="text"
-            className="form-control mb-3 custom-input"
-            placeholder=""
-            value={0}
-            onChange={(e) => 0(e.target.value)}
-          />
-        </div>
+function Blaney(Blaney) {
+  const [loadingCalculate, setLoadingCalculate] = useState(false);
+  const [resultBlaney, setResultBlaney] = useState(null);
+  const [month, setMonth] = useState(null);
+  const [hemisphere, setHemisphere] = useState(null);
+  const [temperatureMin, setTemperatureMin] = useState(null);
+  const [temperatureMax, setTemperatureMax] = useState(null);
+  const [temperatureMed, setTemperatureMed] = useState(null);
+  const [latitude, setLatitude] = useState(null);
 
-        <div
-          class="d-grid gap-2 d-md-flex justify-content-md-end"
-          style={{ marginBottom: 50 }}
+  const BlaneyComponentOverrides = createBlaneyComponentOverrides({
+    irrigationSystemDesignService,
+    loadingCalculate,
+    setLoadingCalculate,
+    resultBlaney,
+    setResultBlaney,
+    month,
+    setMonth,
+    hemisphere,
+    setHemisphere,
+    temperatureMin,
+    setTemperatureMin,
+    temperatureMax,
+    setTemperatureMax,
+    temperatureMed,
+    setTemperatureMed,
+    latitude,
+    setLatitude,
+    Blaney,
+  });
+
+  return (
+    <>
+      <p className="text-center fs-3" style={{ marginTop: 50 }}>
+        Blaney Criddle
+      </p>
+      <SelectorMonth month={month} setMonth={setMonth} />
+      <SelectorHemisphere
+        hemisphere={hemisphere}
+        setHemisphere={setHemisphere}
+      />
+      <div className="form-group">
+        <label htmlFor="input1" className="left-label">
+          Temperature med:
+        </label>
+        <input
+          id="input1"
+          type="text"
+          className="form-control mb-3 custom-input"
+          placeholder=""
+          value={temperatureMed}
+          onChange={(e) => setTemperatureMed(e.target.value)}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="input1" className="left-label">
+          Temperature max:
+        </label>
+        <input
+          id="input1"
+          type="text"
+          className="form-control mb-3 custom-input"
+          placeholder=""
+          value={temperatureMax}
+          onChange={(e) => setTemperatureMax(e.target.value)}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="input1" className="left-label">
+          Temperature min:
+        </label>
+        <input
+          id="input1"
+          type="text"
+          className="form-control mb-3 custom-input"
+          placeholder=""
+          value={temperatureMin}
+          onChange={(e) => setTemperatureMin(e.target.value)}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="input1" className="left-label">
+          Latitude:
+        </label>
+        <input
+          id="input1"
+          type="text"
+          className="form-control mb-3 custom-input"
+          placeholder=""
+          value={latitude}
+          onChange={(e) => setLatitude(e.target.value)}
+        />
+      </div>
+      <div
+        class="d-grid gap-2 d-md-flex justify-content-md-end"
+        style={{ marginBottom: 50 }}
+      >
+        <button
+          class="btn btn-success me-md-2"
+          type="button"
+          onClick={BlaneyComponentOverrides.CalculateButtonBlaney.onClick}
         >
-          <button class="btn btn-success me-md-2" type="button">
-            Calculate
-          </button>
-          <button class="btn btn-danger" type="button">
-            Validate
-          </button>
-        </div>
-      </>
-    );
-  }
+          Calculate
+        </button>
+        <button class="btn btn-danger" type="button">
+          Validate
+        </button>
+      </div>
+    </>
+  );
 }
+export default Blaney;
