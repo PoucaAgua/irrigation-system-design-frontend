@@ -1,12 +1,14 @@
 import React from "react";
 
-function Month() {
+function Month({ month, setMonth }) {
   return (
     <select
-      class="form-select d-flex flex-column align-items-center mb-3"
+      className="form-select d-flex flex-column align-items-center mb-3"
       aria-label="Default select example"
+      value={month}
+      onChange={(e) => setMonth(e.target.value)}
     >
-      <option selected>Select the month</option>
+      <option defaultValue>Select the month</option>
       <option value="Jan">January</option>
       <option value="Fev">February</option>
       <option value="Mar">March</option>
@@ -22,4 +24,5 @@ function Month() {
     </select>
   );
 }
+
 export default Month;
