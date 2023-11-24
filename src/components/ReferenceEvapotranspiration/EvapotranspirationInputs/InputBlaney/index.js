@@ -1,43 +1,29 @@
-import React, { useState } from "react";
-import { createBlaneyComponentOverrides } from "../../EvapotranspirationCalculate/CalculateBlaney";
-import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
+import React from "react";
 import ResultCard from "../../EvapotranspirationCardResult";
 import SelectorMonth from "../../EvapotranspirationSelector/EvapotranspirationBlaney/MonthSelector";
 import SelectorHemisphere from "../../EvapotranspirationSelector/EvapotranspirationBlaney/HemisphereSelector";
-const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-function Blaney(Blaney) {
-  const [loadingCalculate, setLoadingCalculate] = useState(false);
-  const [resultEvapotranspiration, setResultEvapotranspiration] =
-    useState(null);
-  const [month, setMonth] = useState(null);
-  const [hemisphere, setHemisphere] = useState(null);
-  const [temperatureMin, setTemperatureMin] = useState(null);
-  const [temperatureMax, setTemperatureMax] = useState(null);
-  const [temperatureMed, setTemperatureMed] = useState(null);
-  const [latitude, setLatitude] = useState(null);
-
-  const BlaneyComponentOverrides = createBlaneyComponentOverrides({
-    irrigationSystemDesignService,
-    loadingCalculate,
-    setLoadingCalculate,
-    resultEvapotranspiration,
-    setResultEvapotranspiration,
-    month,
-    setMonth,
-    hemisphere,
-    setHemisphere,
-    temperatureMin,
-    setTemperatureMin,
-    temperatureMax,
-    setTemperatureMax,
-    temperatureMed,
-    setTemperatureMed,
-    latitude,
-    setLatitude,
-    Blaney,
-  });
-
+function Blaney({
+  Blaney,
+  BlaneyComponentOverrides,
+  irrigationSystemDesignService,
+  loadingCalculate,
+  setLoadingCalculate,
+  resultEvapotranspiration,
+  setResultEvapotranspiration,
+  month,
+  setMonth,
+  hemisphere,
+  setHemisphere,
+  temperatureMin,
+  setTemperatureMin,
+  temperatureMax,
+  setTemperatureMax,
+  temperatureMed,
+  setTemperatureMed,
+  latitude,
+  setLatitude,
+}) {
   return (
     <>
       <p className="text-center fs-3" style={{ marginTop: 50 }}>

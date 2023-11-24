@@ -1,39 +1,26 @@
-import React, { useState } from "react";
-import { createHargravesComponentOverrides } from "../../EvapotranspirationCalculate/CalculateHargraves";
-import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
+import React from "react";
 import ResultCard from "../../EvapotranspirationCardResult";
 import SelectorMonth from "../../EvapotranspirationSelector/EvapotranspirationHargraves/MonthSelector";
-const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-function Hargraves(Hargraves) {
-  const [loadingCalculate, setLoadingCalculate] = useState(false);
-  const [resultEvapotranspiration, setResultEvapotranspiration] =
-    useState(null);
-  const [month, setMonth] = useState(null);
-  const [temperatureMin, setTemperatureMin] = useState(null);
-  const [temperatureMax, setTemperatureMax] = useState(null);
-  const [temperatureMed, setTemperatureMed] = useState(null);
-  const [latitude, setLatitude] = useState(null);
-
-  const HargravesComponentOverrides = createHargravesComponentOverrides({
-    irrigationSystemDesignService,
-    temperatureMin,
-    setTemperatureMin,
-    temperatureMax,
-    setTemperatureMax,
-    temperatureMed,
-    setTemperatureMed,
-    latitude,
-    setLatitude,
-    month,
-    setMonth,
-    resultEvapotranspiration,
-    setResultEvapotranspiration,
-    loadingCalculate,
-    setLoadingCalculate,
-    Hargraves,
-  });
-
+function Hargraves({
+  Hargraves,
+  HargravesComponentOverrides,
+  irrigationSystemDesignService,
+  temperatureMin,
+  setTemperatureMin,
+  temperatureMax,
+  setTemperatureMax,
+  temperatureMed,
+  setTemperatureMed,
+  latitude,
+  setLatitude,
+  month,
+  setMonth,
+  resultEvapotranspiration,
+  setResultEvapotranspiration,
+  loadingCalculate,
+  setLoadingCalculate,
+}) {
   return (
     <>
       <p className="text-center fs-3" style={{ marginTop: 50 }}>

@@ -1,50 +1,34 @@
-import React, { useState } from "react";
-import { createPenmanComponentOverrides } from "../../EvapotranspirationCalculate/CalculatePenman";
+import React from "react";
+
 import ResultCard from "../../EvapotranspirationCardResult";
-import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
-const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-function Penman(Penman) {
-  const [loadingCalculate, setLoadingCalculate] = useState(false);
-  const [resultEvapotranspiration, setResultEvapotranspiration] =
-    useState(null);
-  const [temperatureMin, setTemperatureMin] = useState(null);
-  const [temperatureMax, setTemperatureMax] = useState(null);
-  const [temperatureMed, setTemperatureMed] = useState(null);
-  const [relativeHumidity, setRelativeHumidity] = useState(null);
-  const [days, setDays] = useState(null);
-  const [altitude, setAltitude] = useState(null);
-  const [windSpeed, setWindSpeed] = useState(null);
-  const [groundHeat, setGroundHeat] = useState(null);
-  const [dailyRadiation, setDailyRadiation] = useState(null);
-
-  const PenmanComponentOverrides = createPenmanComponentOverrides({
-    irrigationSystemDesignService,
-    loadingCalculate,
-    setLoadingCalculate,
-    resultEvapotranspiration,
-    setResultEvapotranspiration,
-    temperatureMin,
-    setTemperatureMin,
-    temperatureMax,
-    setTemperatureMax,
-    temperatureMed,
-    setTemperatureMed,
-    relativeHumidity,
-    setRelativeHumidity,
-    days,
-    setDays,
-    altitude,
-    setAltitude,
-    windSpeed,
-    setWindSpeed,
-    groundHeat,
-    setGroundHeat,
-    dailyRadiation,
-    setDailyRadiation,
-    Penman,
-  });
-
+function Penman({
+  Penman,
+  PenmanComponentOverrides,
+  irrigationSystemDesignService,
+  loadingCalculate,
+  setLoadingCalculate,
+  resultEvapotranspiration,
+  setResultEvapotranspiration,
+  temperatureMin,
+  setTemperatureMin,
+  temperatureMax,
+  setTemperatureMax,
+  temperatureMed,
+  setTemperatureMed,
+  relativeHumidity,
+  setRelativeHumidity,
+  days,
+  setDays,
+  altitude,
+  setAltitude,
+  windSpeed,
+  setWindSpeed,
+  groundHeat,
+  setGroundHeat,
+  dailyRadiation,
+  setDailyRadiation,
+}) {
   return (
     <>
       <p className="text-center fs-3" style={{ marginTop: 50 }}>
