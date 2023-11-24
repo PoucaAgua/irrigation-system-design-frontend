@@ -2,8 +2,8 @@ export const createBlaneyComponentOverrides = ({
   irrigationSystemDesignService,
   loadingCalculate,
   setLoadingCalculate,
-  resultBlaney,
-  setResultBlaney,
+  resultEvapotranspiration,
+  setResultEvapotranspiration,
   month,
   setMonth,
   hemisphere,
@@ -75,7 +75,7 @@ export const createBlaneyComponentOverrides = ({
           );
 
           console.log("API Response:", response);
-          setResultBlaney(response.value);
+          setResultEvapotranspiration(response.value);
         } catch (error) {
           console.error(
             "Error calculating Evapotranspiration Blaney Criddle :",

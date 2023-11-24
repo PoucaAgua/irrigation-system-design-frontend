@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { createPenmanComponentOverrides } from "../../EvapotranspirationCalculate/CalculatePenman";
+import ResultCard from "../../EvapotranspirationCardResult";
 import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-function Penman() {
+function Penman(Penman) {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
-  const [resultPenman, setResultPenman] = useState(null);
+  const [resultEvapotranspiration, setResultEvapotranspiration] =
+    useState(null);
   const [temperatureMin, setTemperatureMin] = useState(null);
   const [temperatureMax, setTemperatureMax] = useState(null);
   const [temperatureMed, setTemperatureMed] = useState(null);
@@ -20,8 +22,8 @@ function Penman() {
     irrigationSystemDesignService,
     loadingCalculate,
     setLoadingCalculate,
-    resultPenman,
-    setResultPenman,
+    resultEvapotranspiration,
+    setResultEvapotranspiration,
     temperatureMin,
     setTemperatureMin,
     temperatureMax,
@@ -40,6 +42,7 @@ function Penman() {
     setGroundHeat,
     dailyRadiation,
     setDailyRadiation,
+    Penman,
   });
 
   return (
@@ -55,7 +58,7 @@ function Penman() {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(°C)"
           value={temperatureMed}
           onChange={(e) => setTemperatureMed(e.target.value)}
         />
@@ -68,7 +71,7 @@ function Penman() {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(°C)"
           value={temperatureMax}
           onChange={(e) => setTemperatureMax(e.target.value)}
         />
@@ -81,7 +84,7 @@ function Penman() {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(°C)"
           value={temperatureMin}
           onChange={(e) => setTemperatureMin(e.target.value)}
         />
@@ -94,7 +97,7 @@ function Penman() {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(%)"
           value={relativeHumidity}
           onChange={(e) => setRelativeHumidity(e.target.value)}
         />
@@ -107,7 +110,7 @@ function Penman() {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(dd/mm/aa)"
           value={days}
           onChange={(e) => setDays(e.target.value)}
         />
@@ -120,7 +123,7 @@ function Penman() {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(m)"
           value={altitude}
           onChange={(e) => setAltitude(e.target.value)}
         />
@@ -133,7 +136,7 @@ function Penman() {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(m/s)"
           value={windSpeed}
           onChange={(e) => setWindSpeed(e.target.value)}
         />
@@ -146,7 +149,7 @@ function Penman() {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(W/m²)"
           value={groundHeat}
           onChange={(e) => setGroundHeat(e.target.value)}
         />
@@ -159,31 +162,21 @@ function Penman() {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(Gy)"
           value={dailyRadiation}
           onChange={(e) => setDailyRadiation(e.target.value)}
         />
       </div>
-      <div
-        class="d-grid gap-2 d-md-flex justify-content-md-end"
-        style={{ marginBottom: 50 }}
-      >
+      <div class="d-grid gap-2 col-6 mx-auto" style={{ marginBottom: 50 }}>
         <button
-          class="btn btn-success me-md-2"
+          class="btn btn-secondary"
           type="button"
           onClick={PenmanComponentOverrides.CalculateButtonPenman.onClick}
         >
           Calculate
         </button>
-        <button class="btn btn-danger" type="button">
-          Validate
-        </button>
       </div>
-      {resultPenman && (
-        <div class="alert alert-light" role="alert">
-          <p className="fs-3 text-center">Result:{resultPenman}</p>
-        </div>
-      )}
+      <ResultCard resultEvapotranspiration={resultEvapotranspiration} />
     </>
   );
 }

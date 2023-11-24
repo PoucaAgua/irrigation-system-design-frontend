@@ -2,8 +2,8 @@ export const createPenmanComponentOverrides = ({
   irrigationSystemDesignService,
   loadingCalculate,
   setLoadingCalculate,
-  resultPenman,
-  setResultPenman,
+  resultEvapotranspiration,
+  setResultEvapotranspiration,
   temperatureMin,
   setTemperatureMin,
   temperatureMax,
@@ -102,7 +102,7 @@ export const createPenmanComponentOverrides = ({
           );
 
           console.log("API Response:", response);
-          setResultPenman(response.value);
+          setResultEvapotranspiration(response.value);
         } catch (error) {
           console.error(
             "Error calculating Evapotranspiration Penman Monteith :",

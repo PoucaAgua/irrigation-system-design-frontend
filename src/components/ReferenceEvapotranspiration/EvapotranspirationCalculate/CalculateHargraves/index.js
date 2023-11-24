@@ -10,8 +10,8 @@ export const createHargravesComponentOverrides = ({
   setLatitude,
   month,
   setMonth,
-  resultHargraves,
-  setResultHargraves,
+  resultEvapotranspiration,
+  setResultEvapotranspiration,
   loadingCalculate,
   setLoadingCalculate,
   Hargraves,
@@ -65,7 +65,7 @@ export const createHargravesComponentOverrides = ({
             await irrigationSystemDesignService.calculateHargraves(payload);
 
           console.log("API Response:", response);
-          setResultHargraves(response.value);
+          setResultEvapotranspiration(response.value);
         } catch (error) {
           console.error(
             "Error calculating Evapotranspiration Hargraves Samani :",

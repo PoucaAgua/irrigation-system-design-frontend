@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { createHargravesComponentOverrides } from "../../EvapotranspirationCalculate/CalculateHargraves";
 import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
+import ResultCard from "../../EvapotranspirationCardResult";
 import SelectorMonth from "../../EvapotranspirationSelector/EvapotranspirationHargraves/MonthSelector";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function Hargraves(Hargraves) {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
-  const [resultHargraves, setResultHargraves] = useState(null);
+  const [resultEvapotranspiration, setResultEvapotranspiration] =
+    useState(null);
   const [month, setMonth] = useState(null);
   const [temperatureMin, setTemperatureMin] = useState(null);
   const [temperatureMax, setTemperatureMax] = useState(null);
@@ -25,8 +27,8 @@ function Hargraves(Hargraves) {
     setLatitude,
     month,
     setMonth,
-    resultHargraves,
-    setResultHargraves,
+    resultEvapotranspiration,
+    setResultEvapotranspiration,
     loadingCalculate,
     setLoadingCalculate,
     Hargraves,
@@ -46,7 +48,7 @@ function Hargraves(Hargraves) {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(°C)"
           value={temperatureMed}
           onChange={(e) => setTemperatureMed(e.target.value)}
         />
@@ -59,7 +61,7 @@ function Hargraves(Hargraves) {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(°C)"
           value={temperatureMax}
           onChange={(e) => setTemperatureMax(e.target.value)}
         />
@@ -72,7 +74,7 @@ function Hargraves(Hargraves) {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(°C)"
           value={temperatureMin}
           onChange={(e) => setTemperatureMin(e.target.value)}
         />
@@ -85,34 +87,22 @@ function Hargraves(Hargraves) {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(°)"
           value={latitude}
           onChange={(e) => setLatitude(e.target.value)}
         />
       </div>
 
-      <div
-        class="d-grid gap-2 d-md-flex justify-content-md-end"
-        style={{ marginBottom: 50 }}
-      >
+      <div class="d-grid gap-2 col-6 mx-auto">
         <button
-          class="btn btn-success me-md-2"
+          class="btn btn-secondary"
           type="button"
           onClick={HargravesComponentOverrides.CalculateButtonHargraves.onClick}
         >
           Calculate
         </button>
-        <button class="btn btn-danger" type="button">
-          Validate
-        </button>
       </div>
-      {resultHargraves !== null &&
-        resultHargraves !== undefined &&
-        resultHargraves !== "" && (
-          <div class="alert alert-light" role="alert">
-            <p className="fs-3 text-center">Result: {resultHargraves}</p>
-          </div>
-        )}
+      <ResultCard resultEvapotranspiration={resultEvapotranspiration} />
     </>
   );
 }

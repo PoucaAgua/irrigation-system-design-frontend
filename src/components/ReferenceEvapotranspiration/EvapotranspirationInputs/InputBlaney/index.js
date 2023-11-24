@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import { createBlaneyComponentOverrides } from "../../EvapotranspirationCalculate/CalculateBlaney";
 import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
+import ResultCard from "../../EvapotranspirationCardResult";
 import SelectorMonth from "../../EvapotranspirationSelector/EvapotranspirationBlaney/MonthSelector";
 import SelectorHemisphere from "../../EvapotranspirationSelector/EvapotranspirationBlaney/HemisphereSelector";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function Blaney(Blaney) {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
-  const [resultBlaney, setResultBlaney] = useState(null);
+  const [resultEvapotranspiration, setResultEvapotranspiration] =
+    useState(null);
   const [month, setMonth] = useState(null);
   const [hemisphere, setHemisphere] = useState(null);
   const [temperatureMin, setTemperatureMin] = useState(null);
@@ -19,8 +21,8 @@ function Blaney(Blaney) {
     irrigationSystemDesignService,
     loadingCalculate,
     setLoadingCalculate,
-    resultBlaney,
-    setResultBlaney,
+    resultEvapotranspiration,
+    setResultEvapotranspiration,
     month,
     setMonth,
     hemisphere,
@@ -54,7 +56,7 @@ function Blaney(Blaney) {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(°C)"
           value={temperatureMed}
           onChange={(e) => setTemperatureMed(e.target.value)}
         />
@@ -67,7 +69,7 @@ function Blaney(Blaney) {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(°C)"
           value={temperatureMax}
           onChange={(e) => setTemperatureMax(e.target.value)}
         />
@@ -80,7 +82,7 @@ function Blaney(Blaney) {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(°C)"
           value={temperatureMin}
           onChange={(e) => setTemperatureMin(e.target.value)}
         />
@@ -93,31 +95,22 @@ function Blaney(Blaney) {
           id="input1"
           type="text"
           className="form-control mb-3 custom-input"
-          placeholder=""
+          placeholder="(°)"
           value={latitude}
           onChange={(e) => setLatitude(e.target.value)}
         />
       </div>
-      <div
-        class="d-grid gap-2 d-md-flex justify-content-md-end"
-        style={{ marginBottom: 50 }}
-      >
+      <div class="d-grid gap-2 col-6 mx-auto">
         <button
-          class="btn btn-success me-md-2"
+          class="btn btn-secondary"
           type="button"
           onClick={BlaneyComponentOverrides.CalculateButtonBlaney.onClick}
         >
           Calculate
         </button>
-        <button class="btn btn-danger" type="button">
-          Validate
-        </button>
       </div>
-      {resultBlaney && (
-        <div class="alert alert-light" role="alert">
-          <p className="fs-3 text-center">Result:{resultBlaney}</p>
-        </div>
-      )}
+      <br />
+      <ResultCard resultEvapotranspiration={resultEvapotranspiration} />
     </>
   );
 }
