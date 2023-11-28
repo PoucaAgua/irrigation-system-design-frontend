@@ -6,6 +6,7 @@ import ActualIrrigationService from "./ActualIrrigationService";
 import TotalIrrigationService from "./TotalirrigationService";
 import ShiftIrrigationService from "./ShiftIrrigationService";
 
+import ReferenceEvapotranspirationService from "./ReferenceEvapotranspirationService";
 class IrrigationSystemDesignService {
   constructor() {
     this.config = new Configuration();
@@ -34,11 +35,22 @@ class IrrigationSystemDesignService {
     this.totalirrigationService = new TotalIrrigationService(
       (this.TOTAL_IRRIGATION = this.URL + this.config.TOTAL_IRRIGATION)
     );
+    this.totalirrigationService = new TotalIrrigationService(
+      (this.TOTAL_IRRIGATION = this.URL + this.config.TOTAL_IRRIGATION)
+    );
+    this.referenceevapotranspirationService =
+      new ReferenceEvapotranspirationService(
+        (this.REFERENCE_EVAPOTRANSPIRATION_BLANEY_CRIDDLE =
+          this.URL + this.config.REFERENCE_EVAPOTRANSPIRATION_BLANEY_CRIDDLE),
+        (this.REFERENCE_EVAPOTRANSPIRATION_HARGRAVES_SAMANI =
+          this.URL + this.config.REFERENCE_EVAPOTRANSPIRATION_HARGRAVES_SAMANI),
+        (this.REFERENCE_EVAPOTRANSPIRATION_PENMAN_MONTEITH =
+          this.URL + this.config.REFERENCE_EVAPOTRANSPIRATION_PENMAN_MONTEITH)
+      );
 
     this.shiftirrigationService = new ShiftIrrigationService(
       (this.SHIFT_IRRIGATION = this.URL + this.config.SHIFT_IRRIGATION)
     );
-
 
     this.projects = [
       {
@@ -108,12 +120,19 @@ class IrrigationSystemDesignService {
   async calculateTotalIrrigation(payload) {
     return this.totalirrigationService.calculateTotalIrrigation(payload);
   }
-
+  async calculateHargraves(payload) {
+    return this.referenceevapotranspirationService.calculateHargraves(payload);
+  }
+  async calculateBlaney(payload) {
+    return this.referenceevapotranspirationService.calculateBlaney(payload);
+  }
+  async calculatePenman(payload) {
+    return this.referenceevapotranspirationService.calculatePenman(payload);
+  }
 
   async calculateShiftIrrigation(payload) {
     return this.shiftirrigationService.calculateShiftIrrigation(payload);
   }
-
 
   getProjects(params) {
     return this.projects;

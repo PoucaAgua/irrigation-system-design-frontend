@@ -25,8 +25,13 @@ function App({ user, signOut }) {
             element={<Home user={user} signOut={() => signOut()} />}
           />
           <Route path="/CropCoefficient" element={<CropCoefficient />} />
-          <Route path="/Evapotranspiration" element={<Evapotranspiration />} />
           <Route path="/IrrigationSystem" element={<IrrigationSystem />} />
+          <Route
+            path="/Evapotranspiration"
+            element={
+              <Evapotranspiration user={user} signOut={() => signOut()} />
+            }
+          />
           <Route
             path="/PsAndPw"
             element={<PsAndPw user={user} signOut={() => signOut()} />}
