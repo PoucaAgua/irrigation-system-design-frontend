@@ -10,7 +10,12 @@ import { createKellerAndBliesnerComponentOverrides } from "../CropEvapotranspira
 import IrrigationSystemDesignService from "../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-function SelectCropEvapotranspiration() {
+function SelectCropEvapotranspiration(
+  Bernardo,
+  KellerAndBliesner,
+  Keller,
+  Fereres
+) {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
   const [resultCropEvapotranspiration, setResultCropEvapotranspiration] =
     useState(null);
@@ -34,6 +39,7 @@ function SelectCropEvapotranspiration() {
     setP,
     resultCropEvapotranspiration,
     setResultCropEvapotranspiration,
+    Keller,
   });
   const BernardoComponentOverrides = createBernardoComponentOverrides({
     irrigationSystemDesignService,
@@ -49,6 +55,7 @@ function SelectCropEvapotranspiration() {
     setP,
     resultCropEvapotranspiration,
     setResultCropEvapotranspiration,
+    Bernardo,
   });
   const FereresComponentOverrides = createFereresComponentOverrides({
     irrigationSystemDesignService,
@@ -64,6 +71,7 @@ function SelectCropEvapotranspiration() {
     setP,
     resultCropEvapotranspiration,
     setResultCropEvapotranspiration,
+    Fereres,
   });
   const KellerAndBliesnerComponentOverrides =
     createKellerAndBliesnerComponentOverrides({
@@ -80,6 +88,7 @@ function SelectCropEvapotranspiration() {
       setP,
       resultCropEvapotranspiration,
       setResultCropEvapotranspiration,
+      KellerAndBliesner,
     });
 
   const handleSelectChange = (event) => {
