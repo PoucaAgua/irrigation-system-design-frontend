@@ -1,5 +1,5 @@
 import React from "react";
-import ResultCard from "../../EvapotranspirationCardResult";
+import ResultCard from "../../CropEvapotranspirationCardResult";
 
 function Bernardo({
   irrigationSystemDesignService,

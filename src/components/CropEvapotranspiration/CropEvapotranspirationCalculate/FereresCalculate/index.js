@@ -12,7 +12,6 @@ export const createFereresComponentOverrides = ({
   setP,
   resultCropEvapotranspiration,
   setResultCropEvapotranspiration,
-  KellerAndBliesner,
   Fereres,
 }) => {
   return {

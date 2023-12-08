@@ -53,7 +53,7 @@ export const createKellerAndBliesnerComponentOverrides = ({
 
         try {
           const response =
-            await irrigationSystemDesignService.calculateKellerAndBliesner(
+            await irrigationSystemDesignService.calculateKellerandBliesner(
               payload
             );
 
