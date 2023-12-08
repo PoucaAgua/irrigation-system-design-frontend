@@ -5,8 +5,8 @@ import PWService from "./PWService";
 import ActualIrrigationService from "./ActualIrrigationService";
 import TotalIrrigationService from "./TotalirrigationService";
 import ShiftIrrigationService from "./ShiftIrrigationService";
-
 import ReferenceEvapotranspirationService from "./ReferenceEvapotranspirationService";
+import CropEvapotranspirationService from "./CropEvapotranspirationService";
 class IrrigationSystemDesignService {
   constructor() {
     this.config = new Configuration();
@@ -35,9 +35,6 @@ class IrrigationSystemDesignService {
     this.totalirrigationService = new TotalIrrigationService(
       (this.TOTAL_IRRIGATION = this.URL + this.config.TOTAL_IRRIGATION)
     );
-    this.totalirrigationService = new TotalIrrigationService(
-      (this.TOTAL_IRRIGATION = this.URL + this.config.TOTAL_IRRIGATION)
-    );
     this.referenceevapotranspirationService =
       new ReferenceEvapotranspirationService(
         (this.REFERENCE_EVAPOTRANSPIRATION_BLANEY_CRIDDLE =
@@ -47,6 +44,16 @@ class IrrigationSystemDesignService {
         (this.REFERENCE_EVAPOTRANSPIRATION_PENMAN_MONTEITH =
           this.URL + this.config.REFERENCE_EVAPOTRANSPIRATION_PENMAN_MONTEITH)
       );
+    this.cropevapotranspirationService = new CropEvapotranspirationService(
+      (this.CROP_EVAPOTRANSPIRATION_BERNARDO =
+        this.URL + this.config.CROP_EVAPOTRANSPIRATION_BERNARDO),
+      (this.CROP_EVAPOTRANSPIRATION_FERERES =
+        this.URL + this.config.CROP_EVAPOTRANSPIRATION_FERERES),
+      (this.CROP_EVAPOTRANSPIRATION_KELLER =
+        this.URL + this.config.CROP_EVAPOTRANSPIRATION_KELLER),
+      (this.CROP_EVAPOTRANSPIRATION_KELLERANDBLIESNER =
+        this.URL + this.config.CROP_EVAPOTRANSPIRATION_KELLERANDBLIESNER)
+    );
 
     this.shiftirrigationService = new ShiftIrrigationService(
       (this.SHIFT_IRRIGATION = this.URL + this.config.SHIFT_IRRIGATION)
@@ -120,14 +127,35 @@ class IrrigationSystemDesignService {
   async calculateTotalIrrigation(payload) {
     return this.totalirrigationService.calculateTotalIrrigation(payload);
   }
+
   async calculateHargraves(payload) {
     return this.referenceevapotranspirationService.calculateHargraves(payload);
   }
+
   async calculateBlaney(payload) {
     return this.referenceevapotranspirationService.calculateBlaney(payload);
   }
+
   async calculatePenman(payload) {
     return this.referenceevapotranspirationService.calculatePenman(payload);
+  }
+
+  async calculateBernardo(payload) {
+    return this.cropevapotranspirationService.calculateBernardo(payload);
+  }
+
+  async calculateFereres(payload) {
+    return this.cropevapotranspirationService.calculateFereres(payload);
+  }
+
+  async calculateKeller(payload) {
+    return this.cropevapotranspirationService.calculateKeller(payload);
+  }
+
+  async calculateKellerandBliesner(payload) {
+    return this.cropevapotranspirationService.calculateKellerandBliesner(
+      payload
+    );
   }
 
   async calculateShiftIrrigation(payload) {
