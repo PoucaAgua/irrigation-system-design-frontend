@@ -24,6 +24,13 @@ class Configuration {
     "/dev/api/v1/reference_evapotranspiration/hargraves_samani";
   REFERENCE_EVAPOTRANSPIRATION_PENMAN_MONTEITH =
     "/dev/api/v1/reference_evapotranspiration/penman_monteith";
+  CROP_EVAPOTRANSPIRATION_BERNARDO =
+    "/dev/api/v1/crop_evapotranspiration/Bernardo";
+  CROP_EVAPOTRANSPIRATION_FERERES =
+    "/dev/api/v1/crop_evapotranspiration/Fereres";
+  CROP_EVAPOTRANSPIRATION_KELLER = "/dev/api/v1/crop_evapotranspiration/Keller";
+  CROP_EVAPOTRANSPIRATION_KELLERANDBLIESNER =
+    "/dev/api/v1/crop_evapotranspiration/Keller and Bliesner";
 }
 
 export default Configuration;

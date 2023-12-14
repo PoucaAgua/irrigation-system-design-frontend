@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import CropCoefficient from "./pages/Crop_Coefficient";
 import Evapotranspiration from "./pages/Evapotranspiration";
+import ReferenceEvapotranspiration from "./pages/ReferenceEvapotranspiration";
+import CropEvapotranspiration from "./pages/CropEvapotranspiration";
 import IrrigationSystem from "./pages/IrrigationSystemDesign";
 import PsAndPw from "./pages/PsAndPw";
 import SizeLines from "./pages/SizeLines";
@@ -30,6 +32,21 @@ function App({ user, signOut }) {
             path="/Evapotranspiration"
             element={
               <Evapotranspiration user={user} signOut={() => signOut()} />
+            }
+          />
+          <Route
+            path="/Evapotranspiration/ReferenceEvapotranspiration"
+            element={
+              <ReferenceEvapotranspiration
+                user={user}
+                signOut={() => signOut()}
+              />
+            }
+          />
+          <Route
+            path="/Evapotranspiration/CropEvapotranspiration"
+            element={
+              <CropEvapotranspiration user={user} signOut={() => signOut()} />
             }
           />
           <Route
