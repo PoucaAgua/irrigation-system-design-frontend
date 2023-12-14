@@ -24,12 +24,6 @@ class Configuration {
     "/dev/api/v1/reference_evapotranspiration/hargraves_samani";
   REFERENCE_EVAPOTRANSPIRATION_PENMAN_MONTEITH =
     "/dev/api/v1/reference_evapotranspiration/penman_monteith";
-  REFERENCE_EVAPOTRANSPIRATION_BLANEY_CRIDDLE =
-    "/dev/api/v1/reference_evapotranspiration/blaney_criddle";
-  REFERENCE_EVAPOTRANSPIRATION_HARGRAVES_SAMANI =
-    "/dev/api/v1/reference_evapotranspiration/hargraves_samani";
-  REFERENCE_EVAPOTRANSPIRATION_PENMAN_MONTEITH =
-    "/dev/api/v1/reference_evapotranspiration/penman_monteith";
   CROP_EVAPOTRANSPIRATION_BERNARDO =
     "/dev/api/v1/crop_evapotranspiration/Bernardo";
   CROP_EVAPOTRANSPIRATION_FERERES =
