@@ -15,6 +15,7 @@ import Irrigation from "./pages/Irrigation";
 import IrrigationActual from "./pages/Irrigation_actual";
 import IrrigationTotal from "./pages/Irrigation_total";
 import IrrigationShift from "./pages/Irrigation_shift";
+import IrrigationTime from "./pages/Irrigation_time";
 import Home from "./pages/Home";
 
 function App({ user, signOut }) {
@@ -69,6 +70,10 @@ function App({ user, signOut }) {
           <Route
             path="/irrigation/shift_irrigation"
             element={<IrrigationShift user={user} signOut={() => signOut()} />}
+          />
+          <Route
+            path="/irrigation/irrigation_time"
+            element={<IrrigationTime user={user} signOut={() => signOut()} />}
           />
         </Routes>
       </div>
