@@ -9,6 +9,7 @@ function Irrigation({ user, signOut }) {
       <h1 className="text-center" style={{ marginTop: 50 }}>
         Irrigation Time
       </h1>
+      <CardTime />
     </>
   );
 }
