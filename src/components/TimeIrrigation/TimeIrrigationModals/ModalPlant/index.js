@@ -6,8 +6,8 @@ function Plant({
   irrigationSystemDesignService,
   setLoadingCalculate,
   loadingCalculate,
-  resultIrrigationTime,
-  setResultIrrigationTime,
+  resultIrrigationTimeByPlant,
+  setResultIrrigationTimeByPlant,
   totalIrrigation,
   setTotalIrrigation,
   spacingBetweenSideLines,
@@ -45,7 +45,7 @@ function Plant({
             <label
               className="left-label"
               htmlFor="input1"
-              style={{ marginRight: "66%" }}
+              style={{ marginRight: "48%" }}
             >
               Total irrigation
             </label>
@@ -62,7 +62,7 @@ function Plant({
             <label
               className="left-label"
               htmlFor="input2"
-              style={{ marginRight: "39%" }}
+              style={{ marginRight: "34%" }}
             >
               Spacing between plants
             </label>
@@ -79,7 +79,7 @@ function Plant({
             <label
               className="left-label"
               htmlFor="input3"
-              style={{ marginRight: "31%" }}
+              style={{ marginRight: "29%" }}
             >
               Spacing between side lines
             </label>
@@ -95,7 +95,7 @@ function Plant({
             <label
               className="left-label"
               htmlFor="input3"
-              style={{ marginRight: "31%" }}
+              style={{ marginRight: "25%" }}
             >
               Number of emitters per plant
             </label>
@@ -112,7 +112,7 @@ function Plant({
             <label
               className="left-label"
               htmlFor="input3"
-              style={{ marginRight: "31%" }}
+              style={{ marginRight: "51%" }}
             >
               Emitter flow
             </label>
@@ -127,7 +127,7 @@ function Plant({
             />
           </div>
 
-          {resultIrrigationTime !== null && (
+          {resultIrrigationTimeByPlant !== null && (
             <div
               style={{
                 width: "100%",
@@ -146,7 +146,7 @@ function Plant({
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{resultIrrigationTime}</td>
+                      <td>{resultIrrigationTimeByPlant}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -161,8 +161,8 @@ function Plant({
           <Button
             variant="primary"
             onClick={
-              IrrigationTimeByPlantComponentOverrides
-                .CalculateButtonIrrigationByPlant.onClick
+              IrrigationTimeByPlantComponentOverrides.CalculateButtonByPlant
+                .onClick
             }
           >
             Calculate

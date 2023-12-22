@@ -6,8 +6,8 @@ function Line({
   irrigationSystemDesignService,
   setLoadingCalculate,
   loadingCalculate,
-  resultIrrigationTime,
-  setResultIrrigationTime,
+  resultIrrigationTimeByLine,
+  setResultIrrigationTimeByLine,
   totalIrrigation,
   setTotalIrrigation,
   spacingBetweenSideLines,
@@ -20,7 +20,7 @@ function Line({
   setNumberOfEmittersPerPlant,
   spacingBetweenEmitters,
   setSpacingbetweenEmitters,
-  IrrigationTimeByPlantComponentOverrides,
+  IrrigationTimeByLineComponentOverrides,
 }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -45,7 +45,7 @@ function Line({
             <label
               className="left-label"
               htmlFor="input1"
-              style={{ marginRight: "66%" }}
+              style={{ marginRight: "48%" }}
             >
               Total irrigation
             </label>
@@ -62,7 +62,7 @@ function Line({
             <label
               className="left-label"
               htmlFor="input3"
-              style={{ marginRight: "31%" }}
+              style={{ marginRight: "29%" }}
             >
               Spacing between side lines
             </label>
@@ -78,7 +78,7 @@ function Line({
             <label
               className="left-label"
               htmlFor="input3"
-              style={{ marginRight: "31%" }}
+              style={{ marginRight: "30%" }}
             >
               Spacing between emitters
             </label>
@@ -95,7 +95,7 @@ function Line({
             <label
               className="left-label"
               htmlFor="input3"
-              style={{ marginRight: "31%" }}
+              style={{ marginRight: "51%" }}
             >
               Emitter flow
             </label>
@@ -110,7 +110,7 @@ function Line({
             />
           </div>
 
-          {resultIrrigationTime !== null && (
+          {resultIrrigationTimeByLine !== null && (
             <div
               style={{
                 width: "100%",
@@ -129,7 +129,7 @@ function Line({
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{resultIrrigationTime}</td>
+                      <td>{resultIrrigationTimeByLine}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -144,8 +144,8 @@ function Line({
           <Button
             variant="primary"
             onClick={
-              IrrigationTimeByPlantComponentOverrides
-                .CalculateButtonIrrigationByLine.onClick
+              IrrigationTimeByLineComponentOverrides.CalculateButtonByLine
+                .onClick
             }
           >
             Calculate
@@ -153,7 +153,7 @@ function Line({
           <Button
             variant="success"
             onClick={
-              IrrigationTimeByPlantComponentOverrides.SaveButtonIrrigationByLine
+              IrrigationTimeByLineComponentOverrides.SaveButtonIrrigationByLine
                 .onClick
             }
           >
