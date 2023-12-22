@@ -7,9 +7,12 @@ import { createIrrigationTimeByPlantComponentOverrides } from "../TimeIrrigation
 import IrrigationSystemDesignService from "../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-function IrrigationTimeCard(Atmospheric, SoilParams, Maximum) {
+function IrrigationTimeCard(IrrigationByLine, IrrigationByPlant) {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
-  const [resultIrrigationTime, setResultIrrigationTime] = useState(null);
+  const [resultIrrigationTimeByLine, setResultIrrigationTimeByLine] =
+    useState(null);
+  const [resultIrrigationTimeByPlant, setResultIrrigationTimeByPlant] =
+    useState(null);
   const [totalIrrigation, setTotalIrrigation] = useState("");
   const [spacingBetweenSideLines, setSpacingBetweenSideLines] = useState("");
   const [emitterFlow, setEmitterFlow] = useState("");
@@ -23,20 +26,16 @@ function IrrigationTimeCard(Atmospheric, SoilParams, Maximum) {
       irrigationSystemDesignService,
       setLoadingCalculate,
       loadingCalculate,
-      resultIrrigationTime,
-      setResultIrrigationTime,
+      setResultIrrigationTimeByLine,
       totalIrrigation,
       setTotalIrrigation,
       spacingBetweenSideLines,
       setSpacingBetweenSideLines,
       emitterFlow,
       setEmitterFlow,
-      spacingBetweenPlants,
-      setSpacingBetweenPlants,
-      numberOfEmittersPerPlant,
-      setNumberOfEmittersPerPlant,
       spacingBetweenEmitters,
       setSpacingbetweenEmitters,
+      IrrigationByLine,
     });
 
   const IrrigationTimeByPlantComponentOverrides =
@@ -44,8 +43,7 @@ function IrrigationTimeCard(Atmospheric, SoilParams, Maximum) {
       irrigationSystemDesignService,
       setLoadingCalculate,
       loadingCalculate,
-      resultIrrigationTime,
-      setResultIrrigationTime,
+      setResultIrrigationTimeByPlant,
       totalIrrigation,
       setTotalIrrigation,
       spacingBetweenSideLines,
@@ -56,8 +54,7 @@ function IrrigationTimeCard(Atmospheric, SoilParams, Maximum) {
       setSpacingBetweenPlants,
       numberOfEmittersPerPlant,
       setNumberOfEmittersPerPlant,
-      spacingBetweenEmitters,
-      setSpacingbetweenEmitters,
+      IrrigationByPlant,
     });
 
   return (
@@ -75,8 +72,8 @@ function IrrigationTimeCard(Atmospheric, SoilParams, Maximum) {
                 irrigationSystemDesignService={irrigationSystemDesignService}
                 setLoadingCalculate={setLoadingCalculate}
                 loadingCalculate={loadingCalculate}
-                resultIrrigationTime={resultIrrigationTime}
-                setResultIrrigationTime={setResultIrrigationTime}
+                resultIrrigationTimeByPlant={resultIrrigationTimeByPlant}
+                setResultIrrigationTimeByPlant={setResultIrrigationTimeByPlant}
                 totalIrrigation={totalIrrigation}
                 setTotalIrrigation={setTotalIrrigation}
                 spacingBetweenSideLines={spacingBetweenSideLines}
@@ -89,6 +86,7 @@ function IrrigationTimeCard(Atmospheric, SoilParams, Maximum) {
                 setNumberOfEmittersPerPlant={setNumberOfEmittersPerPlant}
                 spacingBetweenEmitters={spacingBetweenEmitters}
                 setSpacingbetweenEmitters={setSpacingbetweenEmitters}
+                IrrigationByLine={IrrigationByLine}
               />
             </Card.Body>
           </Card>
@@ -105,8 +103,8 @@ function IrrigationTimeCard(Atmospheric, SoilParams, Maximum) {
                 irrigationSystemDesignService={irrigationSystemDesignService}
                 setLoadingCalculate={setLoadingCalculate}
                 loadingCalculate={loadingCalculate}
-                resultIrrigationTime={resultIrrigationTime}
-                setResultIrrigationTime={setResultIrrigationTime}
+                resultIrrigationTimeByLine={resultIrrigationTimeByLine}
+                setResultIrrigationTimeByLine={setResultIrrigationTimeByLine}
                 totalIrrigation={totalIrrigation}
                 setTotalIrrigation={setTotalIrrigation}
                 spacingBetweenSideLines={spacingBetweenSideLines}
@@ -119,6 +117,7 @@ function IrrigationTimeCard(Atmospheric, SoilParams, Maximum) {
                 setNumberOfEmittersPerPlant={setNumberOfEmittersPerPlant}
                 spacingBetweenEmitters={spacingBetweenEmitters}
                 setSpacingbetweenEmitters={setSpacingbetweenEmitters}
+                IrrigationByLine={IrrigationByLine}
               />
             </Card.Body>
           </Card>
