@@ -1,11 +1,9 @@
 import React from "react";
-import Header from "../components/Header/index";
 import SelectorType from "../components/ReferenceEvapotranspiration/EvapotranspirationSelector/EvapotranspirationType";
 
-function ReferenceEvapotranspiration({ user, signOut }) {
+function ReferenceEvapotranspiration() {
   return (
     <>
-      <Header user={user} signOut={signOut} />
       <h1 className="text-center fs-2" style={{ marginTop: 50 }}>
         Reference Evapotranspiration
       </h1>

@@ -1,11 +1,9 @@
 import React from "react";
-import Header from "../components/Header/index";
 import SelectorType from "../components/CropEvapotranspiration/CropEvapotranspirationSelector";
 
-function CropEvapotranspiration({ user, signOut }) {
+function CropEvapotranspiration() {
   return (
     <>
-      <Header user={user} signOut={signOut} />
       <h1 className="text-center fs-2" style={{ marginTop: 50 }}>
         CropEvapotranspiration
       </h1>
