@@ -7,7 +7,7 @@ import TotalIrrigationService from "./TotalirrigationService";
 import ShiftIrrigationService from "./ShiftIrrigationService";
 import ReferenceEvapotranspirationService from "./ReferenceEvapotranspirationService";
 import CropEvapotranspirationService from "./CropEvapotranspirationService";
-import IrrigationTimeService from "./TimeIrrigation";
+import IrrigationTimeService from "./TimeIrrigationService";
 class IrrigationSystemDesignService {
   constructor() {
     this.config = new Configuration();
