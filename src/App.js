@@ -18,62 +18,44 @@ import IrrigationShift from "./pages/Irrigation_shift";
 import IrrigationTime from "./pages/Irrigation_time";
 import Home from "./pages/Home";
 
+import Header from "./components/Header";
+
 function App({ user, signOut }) {
   return (
     <Router>
+      <Header user={user} signOut={() => signOut()} />
       <div>
         <Routes>
-          <Route
-            path="/"
-            element={<Home user={user} signOut={() => signOut()} />}
-          />
+          <Route path="/" element={<Home />} />
           <Route path="/CropCoefficient" element={<CropCoefficient />} />
           <Route path="/IrrigationSystem" element={<IrrigationSystem />} />
-          <Route
-            path="/Evapotranspiration"
-            element={
-              <Evapotranspiration user={user} signOut={() => signOut()} />
-            }
-          />
+          <Route path="/Evapotranspiration" element={<Evapotranspiration />} />
           <Route
             path="/Evapotranspiration/ReferenceEvapotranspiration"
-            element={
-              <ReferenceEvapotranspiration
-                user={user}
-                signOut={() => signOut()}
-              />
-            }
+            element={<ReferenceEvapotranspiration />}
           />
           <Route
             path="/Evapotranspiration/CropEvapotranspiration"
-            element={
-              <CropEvapotranspiration user={user} signOut={() => signOut()} />
-            }
+            element={<CropEvapotranspiration />}
           />
-          <Route
-            path="/PsAndPw"
-            element={<PsAndPw user={user} signOut={() => signOut()} />}
-          />
+          <Route path="/PsAndPw" element={<PsAndPw />} />
           <Route path="/SizeLines" element={<SizeLines />} />
-          <Route
-            path="/Irrigation"
-            element={<Irrigation user={user} signOut={() => signOut()} />}
-          />
+          <Route path="/Irrigation" element={<Irrigation />} />
           <Route
             path="/irrigation/actual_irrigation"
-            element={<IrrigationActual user={user} signOut={() => signOut()} />}
+            element={<IrrigationActual />}
           />
           <Route
             path="/irrigation/total_irrigation"
-            element={<IrrigationTotal user={user} signOut={() => signOut()} />}
+            element={<IrrigationTotal />}
           />
           <Route
             path="/irrigation/shift_irrigation"
-            element={<IrrigationShift user={user} signOut={() => signOut()} />}
+            element={<IrrigationShift />}
           />
           <Route
             path="/irrigation/irrigation_time"
-            element={<IrrigationTime user={user} signOut={() => signOut()} />}
+            element={<IrrigationTime />}
           />
         </Routes>
       </div>

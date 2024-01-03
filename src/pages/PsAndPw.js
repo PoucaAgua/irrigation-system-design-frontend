@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from "../components/Header";
 import Pwtitle from "../components/PercentWetted/PwTitle/Pw_area";
 import Pstitle from "../components/PercentShaded/PsTitle/Ps_area";
 import TitlePercentShaded from "../components/Titles/Titles_percent_shaded/Title_PercenteShaded";
@@ -19,8 +18,6 @@ import { Container } from "react-bootstrap";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function PercenteShaded({
-  user,
-  signOut,
   Canopy,
   setCanopy,
   Strip,
@@ -150,7 +147,6 @@ function PercenteShaded({
 
   return (
     <>
-      <Header user={user} signOut={signOut} />
       <TitlePercentShaded />
       <PercenteShadedInputs
         resultPs={resultPs}
