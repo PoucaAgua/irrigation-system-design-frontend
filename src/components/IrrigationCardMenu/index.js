@@ -14,6 +14,11 @@ const cardData = [
     imageSrc: "total-irrigation-image-url.jpg",
   },
   {
+    title: "Irrigation Time",
+    link: "/irrigation/irrigation_time",
+    imageSrc: "irrigation-time-image-url.jpg",
+  },
+  {
     title: "Maximum irrigation shift",
     link: "/irrigation/shift_irrigation",
     imageSrc: "shift-irrigation-image-url.jpg",
@@ -25,7 +30,7 @@ function IrrigationCards() {
     <Container style={{ marginTop: 50 }}>
       <Row>
         {cardData.map((card, index) => (
-          <Col key={index} xs={12} sm={6} md={4}>
+          <Col key={index} xs={12} sm={6} md={3}>
             <Card className="mb-4">
               <Card.Img variant="top" src={card.imageSrc} alt={card.title} />
               <Card.Body>

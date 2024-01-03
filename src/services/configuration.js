@@ -31,6 +31,8 @@ class Configuration {
   CROP_EVAPOTRANSPIRATION_KELLER = "/dev/api/v1/crop_evapotranspiration/Keller";
   CROP_EVAPOTRANSPIRATION_KELLERANDBLIESNER =
     "/dev/api/v1/crop_evapotranspiration/Keller and Bliesner";
+  IRRIGATION_TIME_BY_PLANT = "/dev/api/v1/irrigation/time/plant";
+  IRRIGATION_TIME_BY_LINE = "/dev/api/v1/irrigation/time/line";
 }
 
 export default Configuration;

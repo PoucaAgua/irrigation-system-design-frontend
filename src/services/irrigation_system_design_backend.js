@@ -7,6 +7,7 @@ import TotalIrrigationService from "./TotalirrigationService";
 import ShiftIrrigationService from "./ShiftIrrigationService";
 import ReferenceEvapotranspirationService from "./ReferenceEvapotranspirationService";
 import CropEvapotranspirationService from "./CropEvapotranspirationService";
+import IrrigationTimeService from "./TimeIrrigationService";
 class IrrigationSystemDesignService {
   constructor() {
     this.config = new Configuration();
@@ -53,6 +54,12 @@ class IrrigationSystemDesignService {
         this.URL + this.config.CROP_EVAPOTRANSPIRATION_KELLER),
       (this.CROP_EVAPOTRANSPIRATION_KELLERANDBLIESNER =
         this.URL + this.config.CROP_EVAPOTRANSPIRATION_KELLERANDBLIESNER)
+    );
+    this.irrigationTimeService = new IrrigationTimeService(
+      (this.IRRIGATION_TIME_BY_LINE =
+        this.URL + this.config.IRRIGATION_TIME_BY_LINE),
+      (this.IRRIGATION_TIME_BY_PLANT =
+        this.URL + this.config.IRRIGATION_TIME_BY_PLANT)
     );
 
     this.shiftirrigationService = new ShiftIrrigationService(
@@ -156,6 +163,14 @@ class IrrigationSystemDesignService {
     return this.cropevapotranspirationService.calculateKellerandBliesner(
       payload
     );
+  }
+
+  async calculateIrrigationByLine(payload) {
+    return this.irrigationTimeService.calculateIrrigationByLine(payload);
+  }
+
+  async calculateIrrigationByPlant(payload) {
+    return this.irrigationTimeService.calculateIrrigationByPlant(payload);
   }
 
   async calculateShiftIrrigation(payload) {
