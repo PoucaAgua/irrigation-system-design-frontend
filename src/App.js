@@ -57,6 +57,10 @@ function App({ user, signOut }) {
             path="/irrigation/irrigation_time"
             element={<IrrigationTime />}
           />
+          <Route
+            path="/irrigation/irrigation_time"
+            element={<IrrigationTime user={user} signOut={() => signOut()} />}
+          />
         </Routes>
       </div>
     </Router>
