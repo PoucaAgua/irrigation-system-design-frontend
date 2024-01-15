@@ -33,6 +33,11 @@ const cardData = [
     link: "/IrrigationSystem",
     imageSrc: "irrigation-system-image-url.jpg",
   },
+  {
+    title: "Sizing",
+    link: "/Sizing",
+    imageSrc: "sizing-image-url.jpg",
+  },
 ];
 
 function HomeCards() {
