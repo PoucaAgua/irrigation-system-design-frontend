@@ -1,7 +1,7 @@
 import React from "react";
 import SizingCardMenu from "../components/SizingCardMenu";
 
-function Irrigation() {
+function Sizing() {
   return (
     <>
       <h1 className="text-center" style={{ marginTop: 50 }}>
@@ -12,4 +12,4 @@ function Irrigation() {
   );
 }
 
-export default Irrigation;
+export default Sizing;

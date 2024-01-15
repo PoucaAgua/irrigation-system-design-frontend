@@ -4,18 +4,18 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 
 const cardData = [
   {
-    title: "Derivation Line ",
+    title: "Diameter ",
     link: "/sizing/derivation_line",
     imageSrc: "derivation-line-image-url.jpg",
   },
   {
-    title: "Lateral Line",
+    title: "Load Loss",
     link: "/sizing/lateral_line",
     imageSrc: "lateral-line-image-url.jpg",
   },
 ];
 
-function SizingCards() {
+function DerivationLineCards() {
   return (
     <Container style={{ marginTop: 50 }}>
       <Row>
@@ -41,4 +41,4 @@ function SizingCards() {
   );
 }
 
-export default SizingCards;
+export default DerivationLineCards;
