@@ -7,11 +7,10 @@ import { createSizingDiameterComponentOverrides } from "../SizingLateralLineCalc
 import IrrigationSystemDesignService from "../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-function SizingLateralCard(Diameter, Load) {
+function SizingLateralCard(Diameter, Head) {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
   const [resultSizingHead, setResultSizingHead] = useState(null);
   const [resultDiameter, setResultDiamater] = useState(null);
-
   const [servicePressure, setServicePressure] = useState("");
   const [nominalFlow, setNominalFlow] = useState("");
   const [maxFlow, setMaxFlow] = useState("");
@@ -45,6 +44,7 @@ function SizingLateralCard(Diameter, Load) {
       setExponentPressure,
       coefficient,
       setCoefficient,
+      Diameter,
     });
 
   const SizingHeadComponentOverrides = createSizingHeadComponentOverrides({
@@ -61,6 +61,7 @@ function SizingLateralCard(Diameter, Load) {
     setInternalDiameter,
     lengthLateral,
     setLengthLateral,
+    Head,
   });
 
   return (
