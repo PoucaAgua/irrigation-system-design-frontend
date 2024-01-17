@@ -7,7 +7,7 @@ import { createSizingDiameterComponentOverrides } from "../SizingDerivationLineC
 import IrrigationSystemDesignService from "../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-function SizingDerivationCard(Derivation, Load) {
+function SizingDerivationCard(Diameter, Load) {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
   const [resultSizingLoad, setResultSizingLoad] = useState(null);
   const [resultDiameter, setResultDiamater] = useState(null);
@@ -23,20 +23,19 @@ function SizingDerivationCard(Derivation, Load) {
       irrigationSystemDesignService,
       loadingCalculate,
       setLoadingCalculate,
-      SizingDiameterComponentOverrides,
       resultDiameter,
       setResultDiamater,
       speedMax,
       setSpeedMax,
       demandFlow,
       setDemandFlow,
+      Diameter,
     });
 
   const SizingLoadComponentOverrides = createSizingLoadComponentOverrides({
     irrigationSystemDesignService,
     loadingCalculate,
     setLoadingCalculate,
-    SizingLoadComponentOverrides,
     resultSizingLoad,
     setResultSizingLoad,
     diameterDerivation,
@@ -47,6 +46,7 @@ function SizingDerivationCard(Derivation, Load) {
     setFlow,
     lengthDerivation,
     setLengthDerivation,
+    Load,
   });
 
   return (
