@@ -98,14 +98,18 @@ function SizingDiameter({
           </Button>
           <Button
             variant="primary"
-            onClick={SizingDiameterComponentOverrides.CalculateDiameter.onClick}
+            onClick={
+              SizingDiameterComponentOverrides.CalculateDerivationDiameter
+                .onClick
+            }
           >
             Calculate
           </Button>
           <Button
             variant="success"
             onClick={
-              SizingDiameterComponentOverrides.SaveButtonDiameter.onClick
+              SizingDiameterComponentOverrides.SaveButtonDerivationDiameter
+                .onClick
             }
           >
             Save

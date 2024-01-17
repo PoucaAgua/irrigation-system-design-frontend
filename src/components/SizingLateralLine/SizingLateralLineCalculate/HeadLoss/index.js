@@ -1,4 +1,4 @@
-export const createSizingLoadComponentOverrides = ({
+export const createSizingHeadComponentOverrides = ({
   irrigationSystemDesignService,
   loadingCalculate,
   setLoadingCalculate,
@@ -39,7 +39,7 @@ export const createSizingLoadComponentOverrides = ({
       type: "number",
     },
 
-    CalculateHead: {
+    CalculateLateralHead: {
       onClick: async () => {
         setLoadingCalculate(true);
 
@@ -51,9 +51,8 @@ export const createSizingLoadComponentOverrides = ({
         };
 
         try {
-          const response = await irrigationSystemDesignService.CalculateHead(
-            payload
-          );
+          const response =
+            await irrigationSystemDesignService.calculateLateralHead(payload);
 
           console.log("API Response:", response);
           setResultSizingHead(response.value);
@@ -65,7 +64,7 @@ export const createSizingLoadComponentOverrides = ({
       },
     },
 
-    SaveButtonHead: {
+    SaveButtonLateralHead: {
       onClick: () => {
         alert("SaveButton need to be implemented....");
       },

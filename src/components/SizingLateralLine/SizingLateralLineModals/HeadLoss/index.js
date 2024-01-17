@@ -136,13 +136,13 @@ function SizingHead({
           </Button>
           <Button
             variant="primary"
-            onClick={SizingHeadComponentOverrides.CalculateSizingHead.onClick}
+            onClick={SizingHeadComponentOverrides.CalculateLateralHead.onClick}
           >
             Calculate
           </Button>
           <Button
             variant="success"
-            onClick={SizingHeadComponentOverrides.SaveButtonSizingHead.onClick}
+            onClick={SizingHeadComponentOverrides.SaveButtonLateralHead.onClick}
           >
             Save
           </Button>

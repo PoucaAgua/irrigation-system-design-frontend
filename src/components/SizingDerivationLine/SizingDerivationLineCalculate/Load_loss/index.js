@@ -39,7 +39,7 @@ export const createSizingLoadComponentOverrides = ({
       type: "number",
     },
 
-    CalculateLoad: {
+    CalculateDerivationLoad: {
       onClick: async () => {
         setLoadingCalculate(true);
 
@@ -51,21 +51,22 @@ export const createSizingLoadComponentOverrides = ({
         };
 
         try {
-          const response = await irrigationSystemDesignService.CalculateLoad(
-            payload
-          );
+          const response =
+            await irrigationSystemDesignService.calculateDerivationLoad(
+              payload
+            );
 
           console.log("API Response:", response);
           setResultSizingLoad(response.value);
         } catch (error) {
-          console.error("Error calculating Load:", error);
+          console.error("Error calculating Derivation Load:", error);
         } finally {
           setLoadingCalculate(false);
         }
       },
     },
 
-    SaveButtonLoad: {
+    SaveButtonDerivationLoad: {
       onClick: () => {
         alert("SaveButton need to be implemented....");
       },

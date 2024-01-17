@@ -136,13 +136,17 @@ function SizingLoad({
           </Button>
           <Button
             variant="primary"
-            onClick={SizingLoadComponentOverrides.CalculateLoad.onClick}
+            onClick={
+              SizingLoadComponentOverrides.CalculateDerivationLoad.onClick
+            }
           >
             Calculate
           </Button>
           <Button
             variant="success"
-            onClick={SizingLoadComponentOverrides.SaveButtonLoad.onClick}
+            onClick={
+              SizingLoadComponentOverrides.SaveButtonDerivationLoad.onClick
+            }
           >
             Save
           </Button>

@@ -23,7 +23,7 @@ export const createSizingDiameterComponentOverrides = ({
       type: "number",
     },
 
-    CalculateDiameter: {
+    CalculateDerivationDiameter: {
       onClick: async () => {
         setLoadingCalculate(true);
 
@@ -34,19 +34,21 @@ export const createSizingDiameterComponentOverrides = ({
 
         try {
           const response =
-            await irrigationSystemDesignService.calculateDiameter(payload);
+            await irrigationSystemDesignService.calculateDerivationDiameter(
+              payload
+            );
 
           console.log("API Response:", response);
           setResultDiamater(response.value);
         } catch (error) {
-          console.error("Error calculating Diameter:", error);
+          console.error("Error calculating Derivation Diameter:", error);
         } finally {
           setLoadingCalculate(false);
         }
       },
     },
 
-    SaveButtonDiameter: {
+    SaveButtonDerivationDiameter: {
       onClick: () => {
         alert("SaveButton need to be implemented....");
       },

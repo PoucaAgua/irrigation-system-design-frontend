@@ -69,6 +69,8 @@ function SizingDerivationCard(Diameter, Load) {
               />
             </Card.Body>
           </Card>
+        </Col>
+        <Col xs={12} sm={6} md={4}>
           <Card className="mb-4">
             <Card.Img variant="top" src={0} alt={0} />
             <Card.Body>

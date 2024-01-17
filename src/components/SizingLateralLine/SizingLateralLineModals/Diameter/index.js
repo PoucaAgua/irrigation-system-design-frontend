@@ -213,14 +213,16 @@ function SizingDiameter({
           <Button
             variant="primary"
             onClick={
-              SizingDiameterComponentOverrides.CalculateTotalIrrigation.onClick
+              SizingDiameterComponentOverrides.CalculateLateralDiameter.onClick
             }
           >
             Calculate
           </Button>
           <Button
             variant="success"
-            onClick={SizingDiameterComponentOverrides.SaveButtonTotal.onClick}
+            onClick={
+              SizingDiameterComponentOverrides.SaveButtonLateralDiameter.onClick
+            }
           >
             Save
           </Button>
