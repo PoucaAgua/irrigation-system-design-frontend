@@ -1,44 +1,122 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import ModalDiameter from "../SizingLateralLineModals/Diameter";
+import ModalHead from "../SizingLateralLineModals/HeadLoss";
+import { createSizingHeadComponentOverrides } from "../SizingLateralLineCalculate/HeadLoss";
+import { createSizingDiameterComponentOverrides } from "../SizingLateralLineCalculate/Diameter";
+import IrrigationSystemDesignService from "../../../services/irrigation_system_design_backend";
+const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
-const cardData = [
-  {
-    title: "Diameter ",
-    link: "/sizing/derivation_line",
-    imageSrc: "derivation-line-image-url.jpg",
-  },
-  {
-    title: "Head Loss",
-    link: "/sizing/lateral_line",
-    imageSrc: "lateral-line-image-url.jpg",
-  },
-];
+function SizingLateralCard(Diameter, Load) {
+  const [loadingCalculate, setLoadingCalculate] = useState(false);
+  const [resultSizingHead, setResultSizingHead] = useState(null);
+  const [resultDiameter, setResultDiamater] = useState(null);
 
-function LateralLineCards() {
+  const [servicePressure, setServicePressure] = useState("");
+  const [nominalFlow, setNominalFlow] = useState("");
+  const [maxFlow, setMaxFlow] = useState("");
+  const [internalDiameter, setInternalDiameter] = useState("");
+  const [emitterSpacing, setEmitterSpacing] = useState("");
+  const [flowExponent, setFlowExponent] = useState("");
+  const [exponentPressure, setExponentPressure] = useState("");
+  const [coefficient, setCoefficient] = useState("");
+  const [lengthLateral, setLengthLateral] = useState("");
+
+  const SizingDiameterComponentOverrides =
+    createSizingDiameterComponentOverrides({
+      irrigationSystemDesignService,
+      loadingCalculate,
+      setLoadingCalculate,
+      resultDiameter,
+      setResultDiamater,
+      servicePressure,
+      setServicePressure,
+      nominalFlow,
+      setNominalFlow,
+      maxFlow,
+      setMaxFlow,
+      internalDiameter,
+      setInternalDiameter,
+      emitterSpacing,
+      setEmitterSpacing,
+      flowExponent,
+      setFlowExponent,
+      exponentPressure,
+      setExponentPressure,
+      coefficient,
+      setCoefficient,
+    });
+
+  const SizingHeadComponentOverrides = createSizingHeadComponentOverrides({
+    irrigationSystemDesignService,
+    loadingCalculate,
+    setLoadingCalculate,
+    resultSizingHead,
+    setResultSizingHead,
+    nominalFlow,
+    setNominalFlow,
+    emitterSpacing,
+    setEmitterSpacing,
+    internalDiameter,
+    setInternalDiameter,
+    lengthLateral,
+    setLengthLateral,
+  });
+
   return (
     <Container style={{ marginTop: 50 }}>
       <Row>
-        {cardData.map((card, index) => (
-          <Col key={index} xs={12} sm={6} md={3}>
-            <Card className="mb-4">
-              <Card.Img variant="top" src={card.imageSrc} alt={card.title} />
-              <Card.Body>
-                <Card.Title>{card.title}</Card.Title>
-                <Link
-                  to={card.link}
-                  className="btn btn-secondary"
-                  style={{ width: 250, height: 40 }}
-                >
-                  Go to {card.title}
-                </Link>
-              </Card.Body>
-            </Card>
-          </Col>
-        ))}
+        <Col xs={12} sm={6} md={4}>
+          <Card className="mb-4">
+            <Card.Img variant="top" src={0} alt={0} />
+            <Card.Body>
+              <Card.Title>Diameter</Card.Title>
+              <ModalDiameter
+                SizingDiameterComponentOverrides={
+                  SizingDiameterComponentOverrides
+                }
+                resultDiameter={resultDiameter}
+                servicePressure={servicePressure}
+                setServicePressure={setServicePressure}
+                nominalFlow={nominalFlow}
+                setNominalFlow={setNominalFlow}
+                maxFlow={maxFlow}
+                setMaxFlow={setMaxFlow}
+                internalDiameter={internalDiameter}
+                setInternalDiameter={setInternalDiameter}
+                emitterSpacing={emitterSpacing}
+                setEmitterSpacing={setEmitterSpacing}
+                flowExponent={flowExponent}
+                setFlowExponent={setFlowExponent}
+                exponentPressure={exponentPressure}
+                setExponentPressure={setExponentPressure}
+                coefficient={coefficient}
+                setCoefficient={setCoefficient}
+              />
+            </Card.Body>
+          </Card>
+          <Card className="mb-4">
+            <Card.Img variant="top" src={0} alt={0} />
+            <Card.Body>
+              <Card.Title>Head Loss</Card.Title>
+              <ModalHead
+                SizingHeadComponentOverrides={SizingHeadComponentOverrides}
+                resultSizingHead={resultSizingHead}
+                nominalFlow={nominalFlow}
+                setNominalFlow={setNominalFlow}
+                emitterSpacing={emitterSpacing}
+                setEmitterSpacing={setEmitterSpacing}
+                internalDiameter={internalDiameter}
+                setInternalDiameter={setInternalDiameter}
+                lengthLateral={lengthLateral}
+                setLengthLateral={setLengthLateral}
+              />
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
     </Container>
   );
 }
 
-export default LateralLineCards;
+export default SizingLateralCard;
