@@ -10,7 +10,7 @@ const irrigationSystemDesignService = new IrrigationSystemDesignService();
 function SizingLateralCard(Diameter, Head) {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
   const [resultSizingHead, setResultSizingHead] = useState(null);
-  const [resultDiameter, setResultDiamater] = useState(null);
+  const [resultDiameter, setResultDiameter] = useState(null);
   const [servicePressure, setServicePressure] = useState("");
   const [nominalFlow, setNominalFlow] = useState("");
   const [maxFlow, setMaxFlow] = useState("");
@@ -27,7 +27,7 @@ function SizingLateralCard(Diameter, Head) {
       loadingCalculate,
       setLoadingCalculate,
       resultDiameter,
-      setResultDiamater,
+      setResultDiameter,
       servicePressure,
       setServicePressure,
       nominalFlow,

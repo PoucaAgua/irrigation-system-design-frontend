@@ -8,7 +8,7 @@ export default class SizingLateralService {
   }
 
   async calculateLateralDiameter(payload) {
-    const response = await fetch(this.calculateLateralDiameter, {
+    const response = await fetch(this.sizingLateralDiameterUrl, {
       method: "POST",
       headers: {
         accept: "application/json",
