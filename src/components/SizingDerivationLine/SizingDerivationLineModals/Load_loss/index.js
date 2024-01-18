@@ -33,12 +33,11 @@ function SizingLoad({
           <Modal.Title>Load Loss</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="input mb-3 d-flex flex-column align-items-center">
-            <label
-              className="left-label"
-              htmlFor="input1"
-              style={{ marginRight: "46%" }}
-            >
+          <div
+            className="input mb-3 d-flex flex-column"
+            style={{ marginLeft: "10%", marginRight: "10%" }}
+          >
+            <label className="left-label" htmlFor="input1">
               Length derivation line
             </label>
             <input
@@ -46,16 +45,11 @@ function SizingLoad({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={lengthDerivation}
               onChange={(e) => setLengthDerivation(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "32%" }}
-            >
+            <label className="left-label" htmlFor="input2">
               Flow
             </label>
             <input
@@ -63,16 +57,11 @@ function SizingLoad({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={flow}
               onChange={(e) => setFlow(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "32%" }}
-            >
+            <label className="left-label" htmlFor="input2">
               N outputs
             </label>
             <input
@@ -80,16 +69,11 @@ function SizingLoad({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={noutputs}
               onChange={(e) => setNoutputs(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "32%" }}
-            >
+            <label className="left-label" htmlFor="input2">
               diameter_derivation_line
             </label>
             <input
@@ -97,7 +81,6 @@ function SizingLoad({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={diameterDerivation}
               onChange={(e) => setDiameterDerivation(e.target.value)}
             />

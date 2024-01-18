@@ -33,12 +33,11 @@ function SizingHead({
           <Modal.Title>Head Loss</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="input mb-3 d-flex flex-column align-items-center">
-            <label
-              className="left-label"
-              htmlFor="input1"
-              style={{ marginRight: "46%" }}
-            >
+          <div
+            className="input mb-3 d-flex flex-column"
+            style={{ marginLeft: "10%", marginRight: "10%" }}
+          >
+            <label className="left-label" htmlFor="input1">
               Length lateral line
             </label>
             <input
@@ -46,16 +45,11 @@ function SizingHead({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={lengthLateral}
               onChange={(e) => setLengthLateral(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "32%" }}
-            >
+            <label className="left-label" htmlFor="input2">
               Internal diameter
             </label>
             <input
@@ -63,41 +57,30 @@ function SizingHead({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={internalDiameter}
               onChange={(e) => setInternalDiameter(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "32%" }}
-            >
+            <label className="left-label" htmlFor="input3">
               Emitter Spacing
             </label>
             <input
-              id="input2"
+              id="input3"
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={emitterSpacing}
               onChange={(e) => setEmitterSpacing(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "32%" }}
-            >
+            <label className="left-label" htmlFor="input4">
               Nominal flow rate
             </label>
             <input
-              id="input2"
+              id="input4"
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={nominalFlow}
               onChange={(e) => setNominalFlow(e.target.value)}
             />

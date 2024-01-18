@@ -29,12 +29,11 @@ function SizingDiameter({
           <Modal.Title>Diameter</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="input mb-3 d-flex flex-column align-items-center">
-            <label
-              className="left-label"
-              htmlFor="input1"
-              style={{ marginRight: "46%" }}
-            >
+          <div
+            className="input mb-3 d-flex flex-column"
+            style={{ marginLeft: "10%", marginRight: "10%" }}
+          >
+            <label className="left-label" htmlFor="input1">
               Demand Flow
             </label>
             <input
@@ -42,16 +41,11 @@ function SizingDiameter({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={demandFlow}
               onChange={(e) => setDemandFlow(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "32%" }}
-            >
+            <label className="left-label" htmlFor="input2">
               Speed Max
             </label>
             <input
@@ -59,7 +53,6 @@ function SizingDiameter({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={speedMax}
               onChange={(e) => setSpeedMax(e.target.value)}
             />

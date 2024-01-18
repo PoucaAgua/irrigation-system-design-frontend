@@ -41,12 +41,11 @@ function SizingDiameter({
           <Modal.Title>Diameter</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="input mb-3 d-flex flex-column align-items-center">
-            <label
-              className="left-label"
-              htmlFor="input1"
-              style={{ marginRight: "46%" }}
-            >
+          <div
+            className="input mb-3 d-flex flex-column"
+            style={{ marginLeft: "10%", marginRight: "10%" }}
+          >
+            <label className="left-label" htmlFor="input1">
               Service Pressure
             </label>
             <input
@@ -54,16 +53,11 @@ function SizingDiameter({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={servicePressure}
               onChange={(e) => setServicePressure(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "32%" }}
-            >
+            <label className="left-label" htmlFor="input2">
               Nominal flow rate
             </label>
             <input
@@ -71,16 +65,11 @@ function SizingDiameter({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={nominalFlow}
               onChange={(e) => setNominalFlow(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "32%" }}
-            >
+            <label className="left-label" htmlFor="input2">
               Max flow rate variation
             </label>
             <input
@@ -88,16 +77,11 @@ function SizingDiameter({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={maxFlow}
               onChange={(e) => setMaxFlow(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "32%" }}
-            >
+            <label className="left-label" htmlFor="input2">
               Internal diameter
             </label>
             <input
@@ -105,16 +89,11 @@ function SizingDiameter({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={internalDiameter}
               onChange={(e) => setInternalDiameter(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "32%" }}
-            >
+            <label className="left-label" htmlFor="input2">
               Emitter spacing
             </label>
             <input
@@ -122,16 +101,11 @@ function SizingDiameter({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={emitterSpacing}
               onChange={(e) => setEmitterSpacing(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "32%" }}
-            >
+            <label className="left-label" htmlFor="input2">
               Flow exponent
             </label>
             <input
@@ -139,16 +113,11 @@ function SizingDiameter({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={flowExponent}
               onChange={(e) => setFlowExponent(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "32%" }}
-            >
+            <label className="left-label" htmlFor="input2">
               Exponent pressure losse quation
             </label>
             <input
@@ -156,16 +125,11 @@ function SizingDiameter({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={exponentPressure}
               onChange={(e) => setExponentPressure(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "32%" }}
-            >
+            <label className="left-label" htmlFor="input2">
               Coefficient
             </label>
             <input
@@ -173,7 +137,6 @@ function SizingDiameter({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={coefficient}
               onChange={(e) => setCoefficient(e.target.value)}
             />
