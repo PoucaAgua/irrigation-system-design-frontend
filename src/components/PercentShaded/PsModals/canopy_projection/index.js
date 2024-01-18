@@ -38,51 +38,39 @@ function CanopyModalRender({
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="input mb-3 d-flex flex-column align-items-center">
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "27%" }}
-            >
+          <div
+            className="input mb-3 d-flex flex-column"
+            style={{ marginLeft: "10%", marginRight: "10%" }}
+          >
+            <label htmlFor="input1" className="left-label">
               Crown projection diameter:
             </label>
             <input
-              id="input5"
+              id="input1"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="Dco (m)"
               value={dco}
               onChange={(e) => setDco(e.target.value)}
             />
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "16%" }}
-            >
+            <label htmlFor="input2" className="left-label">
               Spacing between plants in the row:
             </label>
             <input
-              id="input5"
+              id="input2"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="Sp (m)"
               value={sp}
               onChange={(e) => setSp(e.target.value)}
             />
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "20%" }}
-            >
+            <label htmlFor="input3" className="left-label">
               Spacing between rows of plants:
             </label>
             <input
-              id="input5"
+              id="input3"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="Sr (m)"
               value={sr}
               onChange={(e) => setSr(e.target.value)}

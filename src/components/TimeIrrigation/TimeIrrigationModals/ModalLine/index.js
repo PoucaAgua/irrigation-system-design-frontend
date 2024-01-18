@@ -41,12 +41,11 @@ function Line({
           <Modal.Title>Irrigation Time by Line</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="input mb-3 d-flex flex-column align-items-center">
-            <label
-              className="left-label"
-              htmlFor="input1"
-              style={{ marginRight: "48%" }}
-            >
+          <div
+            className="input mb-3 d-flex flex-column"
+            style={{ marginLeft: "10%", marginRight: "10%" }}
+          >
+            <label className="left-label" htmlFor="input1">
               Total irrigation
             </label>
             <input
@@ -54,32 +53,22 @@ function Line({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={totalIrrigation}
               onChange={(e) => setTotalIrrigation(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input3"
-              style={{ marginRight: "29%" }}
-            >
+            <label className="left-label" htmlFor="input2">
               Spacing between side lines
             </label>
             <input
-              id="input3"
+              id="input2"
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={spacingBetweenSideLines}
               onChange={(e) => setSpacingBetweenSideLines(e.target.value)}
             />
-            <label
-              className="left-label"
-              htmlFor="input3"
-              style={{ marginRight: "30%" }}
-            >
+            <label className="left-label" htmlFor="input3">
               Spacing between emitters
             </label>
             <input
@@ -87,24 +76,18 @@ function Line({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={spacingBetweenEmitters}
               onChange={(e) => setSpacingbetweenEmitters(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input3"
-              style={{ marginRight: "51%" }}
-            >
+            <label className="left-label" htmlFor="input4">
               Emitter flow
             </label>
             <input
-              id="input3"
+              id="input4"
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={emitterFlow}
               onChange={(e) => setEmitterFlow(e.target.value)}
             />

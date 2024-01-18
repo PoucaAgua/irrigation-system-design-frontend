@@ -62,7 +62,7 @@ function SizingHead({
             />
 
             <label className="left-label" htmlFor="input3">
-              Emitter Spacing
+              Emitter spacing
             </label>
             <input
               id="input3"

@@ -43,53 +43,41 @@ function TreeModal({
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="input mb-3 d-flex flex-column align-items-center">
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "23%" }}
-            >
+          <div
+            className="input mb-3 d-flex flex-column"
+            style={{ marginLeft: "10%", marginRight: "10%" }}
+          >
+            <label htmlFor="input1" className="left-label">
               Number of drippers per plant:
             </label>
             <input
-              id="input5"
+              id="input1"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="Np"
               value={np}
               onChange={(e) => setNp(e.target.value)}
             />
 
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "16%" }}
-            >
+            <label htmlFor="input2" className="left-label">
               Spacing between plants in the row:
             </label>
             <input
-              id="input5"
+              id="input2"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="Sp (m)"
               value={sp}
               onChange={(e) => setSp(e.target.value)}
             />
 
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "20%" }}
-            >
+            <label htmlFor="input3" className="left-label">
               Spacing between rows of plants:
             </label>
             <input
-              id="input5"
+              id="input3"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="Sr (m)"
               value={sr}
               onChange={(e) => setSr(e.target.value)}
@@ -102,52 +90,37 @@ function TreeModal({
               Dw Calculate
             </b>
 
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "46%" }}
-            >
+            <label htmlFor="input4" className="left-label">
               Wetting depth:
             </label>
             <input
-              id="input5"
+              id="input4"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="Z (cm)"
               value={z}
               onChange={(e) => setZ(e.target.value)}
             />
 
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "65%" }}
-            >
+            <label htmlFor="input5" className="left-label">
               Q:
             </label>
             <input
               id="input5"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="Q"
               value={q}
               onChange={(e) => setQ(e.target.value)}
             />
 
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "9%" }}
-            >
+            <label htmlFor="input6" className="left-label">
               Hydraulic conductivity of saturated soil:
             </label>
             <input
-              id="input5"
+              id="input6"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="cm h-1 (k0)"
               value={k0}
               onChange={(e) => setK0(e.target.value)}

@@ -74,7 +74,7 @@ function SizingLoad({
             />
 
             <label className="left-label" htmlFor="input2">
-              diameter_derivation_line
+              Diameter derivation line
             </label>
             <input
               id="input2"
