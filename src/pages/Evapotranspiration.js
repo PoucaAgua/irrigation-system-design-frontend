@@ -1,5 +1,5 @@
 import React from "react";
-import EvapotranspirationCards from "../components/EvapotranspirationCards";
+import EvapotranspirationCards from "../components/Cards/EvapotranspirationCards";
 
 function Evapotranspiration() {
   return (

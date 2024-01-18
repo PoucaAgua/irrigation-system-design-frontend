@@ -1,5 +1,5 @@
 import React from "react";
-import IrrgationCardMenu from "../components/IrrigationCardMenu/index";
+import IrrgationCardMenu from "../components/Cards/IrrigationCardMenu/index";
 
 function Irrigation() {
   return (
