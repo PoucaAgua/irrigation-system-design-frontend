@@ -33,6 +33,10 @@ class Configuration {
     "/dev/api/v1/crop_evapotranspiration/Keller and Bliesner";
   IRRIGATION_TIME_BY_PLANT = "/dev/api/v1/irrigation/time/plant";
   IRRIGATION_TIME_BY_LINE = "/dev/api/v1/irrigation/time/line";
+  SIZIN_DERIVATION_LINE_DIAMETER = "/dev/api/v1/derivation_line/diameter";
+  SIZIN_DERIVATION_LINE_LOAD = "/dev/api/v1/derivation_line/load_loss";
+  SIZIN_LATERAL_LINE_DIAMETER = "/dev/api/v1/Lateral_Line_line/diameter";
+  SIZIN_LATERAL_LINE_HEAD = "/dev/api/v1/Lateral_Line_line/head_loss";
 }
 
 export default Configuration;

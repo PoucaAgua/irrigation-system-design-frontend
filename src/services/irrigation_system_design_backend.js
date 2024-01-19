@@ -8,6 +8,9 @@ import ShiftIrrigationService from "./ShiftIrrigationService";
 import ReferenceEvapotranspirationService from "./ReferenceEvapotranspirationService";
 import CropEvapotranspirationService from "./CropEvapotranspirationService";
 import IrrigationTimeService from "./TimeIrrigationService";
+import SizingDerivationService from "./sizingDerivationService";
+import SizingLateralService from "./sizingLateralService";
+
 class IrrigationSystemDesignService {
   constructor() {
     this.config = new Configuration();
@@ -61,7 +64,18 @@ class IrrigationSystemDesignService {
       (this.IRRIGATION_TIME_BY_PLANT =
         this.URL + this.config.IRRIGATION_TIME_BY_PLANT)
     );
-
+    this.sizingDerivationService = new SizingDerivationService(
+      (this.SIZING_DERIVATION_LINE_DIAMETER =
+        this.URL + this.config.SIZIN_DERIVATION_LINE_DIAMETER),
+      (this.SIZIN_DERIVATION_LINE_LOAD =
+        this.URL + this.config.SIZIN_DERIVATION_LINE_LOAD)
+    );
+    this.sizingLateralService = new SizingLateralService(
+      (this.SIZIN_LATERAL_LINE_DIAMETER =
+        this.URL + this.config.SIZIN_LATERAL_LINE_DIAMETER),
+      (this.SIZIN_LATERAL_LINE_HEAD =
+        this.URL + this.config.SIZIN_LATERAL_LINE_HEAD)
+    );
     this.shiftirrigationService = new ShiftIrrigationService(
       (this.SHIFT_IRRIGATION = this.URL + this.config.SHIFT_IRRIGATION)
     );
@@ -175,6 +189,22 @@ class IrrigationSystemDesignService {
 
   async calculateShiftIrrigation(payload) {
     return this.shiftirrigationService.calculateShiftIrrigation(payload);
+  }
+
+  async calculateDerivationDiameter(payload) {
+    return this.sizingDerivationService.calculateDerivationDiameter(payload);
+  }
+
+  async calculateDerivationLoad(payload) {
+    return this.sizingDerivationService.calculateDerivationLoad(payload);
+  }
+
+  async calculateLateralDiameter(payload) {
+    return this.sizingLateralService.calculateLateralDiameter(payload);
+  }
+
+  async calculateLateralHead(payload) {
+    return this.sizingLateralService.calculateLateralHead(payload);
   }
 
   getProjects(params) {

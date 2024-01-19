@@ -16,6 +16,9 @@ import IrrigationActual from "./pages/Irrigation_actual";
 import IrrigationTotal from "./pages/Irrigation_total";
 import IrrigationShift from "./pages/Irrigation_shift";
 import IrrigationTime from "./pages/Irrigation_time";
+import Sizing from "./pages/Sizing";
+import SizingDerivation from "./pages/Sizing_Derivation_line";
+import SizingLateral from "./pages/Sizing_Lateral_line";
 import Home from "./pages/Home";
 
 import Header from "./components/Header";
@@ -59,8 +62,14 @@ function App({ user, signOut }) {
           />
           <Route
             path="/irrigation/irrigation_time"
-            element={<IrrigationTime user={user} signOut={() => signOut()} />}
+            element={<IrrigationTime />}
           />
+          <Route path="/Sizing" element={<Sizing />} />
+          <Route
+            path="/Sizing/derivation_line"
+            element={<SizingDerivation />}
+          />
+          <Route path="/Sizing/lateral_line" element={<SizingLateral />} />
         </Routes>
       </div>
     </Router>
