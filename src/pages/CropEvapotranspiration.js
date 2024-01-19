@@ -1,12 +1,11 @@
 import React from "react";
 import SelectorType from "../components/CropEvapotranspiration/CropEvapotranspirationSelector";
+import TitleCropEvapotranspiration from "../components/Titles/Title_CropEvapotranspiration";
 
 function CropEvapotranspiration() {
   return (
     <>
-      <h1 className="text-center fs-2" style={{ marginTop: 50 }}>
-        CropEvapotranspiration
-      </h1>
+      <TitleCropEvapotranspiration />
       <div
         className="d-flex flex-column align-items-center"
         style={{ marginTop: 25 }}
