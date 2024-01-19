@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Pwtitle from "../components/PercentWetted/PwTitle/Pw_area";
 import Pstitle from "../components/PercentShaded/PsTitle/Ps_area";
-import TitlePercentShaded from "../components/Titles/Titles_percent_shaded/Title_PercenteShaded";
+import TitlePWAndPs from "../components/Titles/Title_pw_and_ps";
 import PercenteShadedInputs from "../components/Inputs/PsAndPw_inputs";
 import StripModalRender from "../components/PercentShaded/PsModals/strip_projection";
 import CanopyModalRender from "../components/PercentShaded/PsModals/canopy_projection";
@@ -147,7 +147,7 @@ function PercenteShaded({
 
   return (
     <>
-      <TitlePercentShaded />
+      <TitlePWAndPs />
       <PercenteShadedInputs
         resultPs={resultPs}
         resultPw={resultPw}
