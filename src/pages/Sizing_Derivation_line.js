@@ -1,12 +1,11 @@
 import React from "react";
 import SizingDerivationCardMenu from "../components/SizingDerivationLine/SizingDerivationLineCards";
+import TitleSizingDerivationLine from "../components/Titles/Titles_Sizing/Title_Sizing_derivation";
 
 function SizingDerivation() {
   return (
     <>
-      <h1 className="text-center" style={{ marginTop: 50 }}>
-        Sizing Derivation Line
-      </h1>
+      <TitleSizingDerivationLine />
       <SizingDerivationCardMenu />
     </>
   );

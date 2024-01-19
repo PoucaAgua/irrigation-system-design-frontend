@@ -1,12 +1,11 @@
 import React from "react";
 import SizingCardMenu from "../components/Cards/SizingCardMenu";
+import TitleSizing from "../components/Titles/Titles_Sizing/Title_Sizing_home";
 
 function Sizing() {
   return (
     <>
-      <h1 className="text-center" style={{ marginTop: 50 }}>
-        Sizing
-      </h1>
+      <TitleSizing />
       <SizingCardMenu />
     </>
   );
