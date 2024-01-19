@@ -17,18 +17,15 @@ function ShiftIrrigation({
   ShiftComponentOverrides,
 }) {
   const [show, setShow] = useState(false);
-
-  const [calculated, setCalculated] = useState(false); // Novo estado para controlar a exibição de ResultShift
+  const [calculated, setCalculated] = useState(false);
   const handleClose = () => {
     setShow(false);
-    setCalculated(false); // Reseta a condição de exibição quando o modal é fechado
+    setCalculated(false);
   };
   const handleShow = () => setShow(true);
-
-  // Função para lidar com o clique no botão Calculate
   const handleCalculate = () => {
-    ShiftComponentOverrides.CalculateTotalIrrigation.onClick(); // Sua lógica existente
-    setCalculated(true); // Atualiza o estado para mostrar o ResultShift
+    ShiftComponentOverrides.CalculateTotalIrrigation.onClick();
+    setCalculated(true);
   };
 
   return (

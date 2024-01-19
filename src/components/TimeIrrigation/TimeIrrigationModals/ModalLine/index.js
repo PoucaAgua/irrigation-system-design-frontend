@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import ResultIrrigationTimeByLine from "../ResultModalLine";
 
 function Line({
   irrigationSystemDesignService,
@@ -23,8 +24,16 @@ function Line({
   IrrigationTimeByLineComponentOverrides,
 }) {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const [calculated, setCalculated] = useState(false);
+  const handleClose = () => {
+    setShow(false);
+    setCalculated(false);
+  };
   const handleShow = () => setShow(true);
+  const handleCalculate = () => {
+    IrrigationTimeByLineComponentOverrides.CalculateButtonByLine.onClick();
+    setCalculated(true);
+  };
 
   return (
     <div>
@@ -93,44 +102,17 @@ function Line({
             />
           </div>
 
-          {resultIrrigationTimeByLine !== null && (
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div style={{ width: "60%", height: "40%" }}>
-                <table className="table table-bordered border-secondary">
-                  <thead>
-                    <tr>
-                      <th scope="col">Irrigation Time by Line Result</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{resultIrrigationTimeByLine}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+          {calculated && (
+            <ResultIrrigationTimeByLine
+              resultIrrigationTimeByLine={resultIrrigationTimeByLine}
+            />
           )}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={handleClose}>
             Close
           </Button>
-          <Button
-            variant="primary"
-            onClick={
-              IrrigationTimeByLineComponentOverrides.CalculateButtonByLine
-                .onClick
-            }
-          >
+          <Button variant="primary" onClick={ handleCalculate}>
             Calculate
           </Button>
           <Button
