@@ -1,7 +1,12 @@
 import React from "react";
+import TitleSizeLines from "../components/Titles/Title_Sizelines";
 
 function SizeLines() {
-  return <h1 className="text-center">SizeLines</h1>;
+  return (
+    <>
+      <TitleSizeLines />
+    </>
+  );
 }
 
 export default SizeLines;
