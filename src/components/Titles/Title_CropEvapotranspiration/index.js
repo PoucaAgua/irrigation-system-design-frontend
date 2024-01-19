@@ -1,14 +1,8 @@
 import React, { Component } from "react";
+import "./style.css";
 
 export default class index extends Component {
   render() {
-    return (
-      <p
-        className="fs-1 text-center"
-        style={{ marginTop: "3%", marginBottom: "3%" }}
-      >
-        Crop Evapotranspiration
-      </p>
-    );
+    return <p id="customTitle">Crop Evapotranspiration</p>;
   }
 }
