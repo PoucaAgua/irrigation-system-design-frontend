@@ -1,5 +1,5 @@
 import React from "react";
-import SizingCardMenu from "../components/SizingCardMenu";
+import SizingCardMenu from "../components/Cards/SizingCardMenu";
 
 function Sizing() {
   return (
