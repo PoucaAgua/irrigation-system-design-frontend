@@ -7,7 +7,7 @@ export default class index extends Component {
         className="fs-1 text-center"
         style={{ marginTop: "3%", marginBottom: "3%" }}
       >
-        Pouca Água
+        Crop Coefficient
       </p>
     );
   }

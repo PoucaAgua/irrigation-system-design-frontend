@@ -1,7 +1,8 @@
 import React from "react";
+import TitleCropCoefficient from "../components/Titles/Title_CropCoefficient";
 
 function Crop_Coefficient() {
-  return <h1 className="text-center">Crop_Coefficient</h1>;
+  return <TitleCropCoefficient />;
 }
 
 export default Crop_Coefficient;

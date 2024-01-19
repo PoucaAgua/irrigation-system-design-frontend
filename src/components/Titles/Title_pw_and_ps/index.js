@@ -3,7 +3,10 @@ import React, { Component } from "react";
 export default class index extends Component {
   render() {
     return (
-      <p className="text-center fs-1" style={{ marginTop: 25 }}>
+      <p
+        className="fs-1 text-center"
+        style={{ marginTop: "3%", marginBottom: "3%" }}
+      >
         Ps and Pw
       </p>
     );
