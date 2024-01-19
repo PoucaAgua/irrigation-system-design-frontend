@@ -31,12 +31,11 @@ function Atmospheric({
           <Modal.Title>Irrigation by Atmospheric</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="input mb-3 d-flex flex-column align-items-center">
-            <label
-              className="left-label"
-              htmlFor="input1"
-              style={{ marginRight: "66%" }}
-            >
+          <div
+            className="input mb-3 d-flex flex-column"
+            style={{ marginLeft: "10%", marginRight: "10%" }}
+          >
+            <label className="left-label" htmlFor="input1">
               Kc
             </label>
             <input
@@ -44,41 +43,30 @@ function Atmospheric({
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={kc}
               onChange={(e) => setKc(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "39%" }}
-            >
-              Percent Wetted Area
+            <label className="left-label" htmlFor="input2">
+              Percent wetted area
             </label>
             <input
               id="input2"
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={percentwettedarea}
               onChange={(e) => setPercentwettedarea(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input3"
-              style={{ marginRight: "31%" }}
-            >
-              Actual Evapotranspiration
+            <label className="left-label" htmlFor="input3">
+              Actual evapotranspiration
             </label>
             <input
               id="input3"
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={actualevapotranspiration}
               onChange={(e) => setActualevapotranspiration(e.target.value)}
             />

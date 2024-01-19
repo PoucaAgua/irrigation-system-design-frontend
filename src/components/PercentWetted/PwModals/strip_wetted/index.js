@@ -35,41 +35,34 @@ function PwStripModalRender({
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="input mb-3 d-flex flex-column align-items-center">
+          <div
+            className="input mb-3 d-flex flex-column"
+            style={{ marginLeft: "10%", marginRight: "10%" }}
+          >
             <b
               className="text-center fs-6"
               style={{ marginBottom: 15, marginTop: 10 }}
             >
               Calculate monisted area Aw = SP x SW , m²
             </b>
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "27%" }}
-            >
+            <label htmlFor="input1" className="left-label">
               Crown projection diameter:
             </label>
             <input
-              id="input5"
+              id="input1"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="Sw (m²)"
               value={sw}
               onChange={(e) => StripPwComponentOverrides.Sw.onChange(e)}
             />
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "16%" }}
-            >
+            <label htmlFor="input2" className="left-label">
               Spacing between plants in the row
             </label>
             <input
-              id="input5"
+              id="input2"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="Sp (m)"
               value={sp}
               onChange={(e) => StripPwComponentOverrides.Sp.onChange(e)}
@@ -81,34 +74,24 @@ function PwStripModalRender({
             >
               Calculate occupied plant Ap = SP x SR, m²
             </b>
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "16%" }}
-            >
+            <label htmlFor="input3" className="left-label">
               Spacing between plants in the row:
             </label>
             <input
-              id="input5"
+              id="input3"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="Sp (m)"
               value={sp}
               onChange={(e) => StripPwComponentOverrides.Sp.onChange(e)}
             />
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "20%" }}
-            >
+            <label htmlFor="input4" className="left-label">
               Spacing between rows of plants:
             </label>
             <input
-              id="input5"
+              id="input4"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="Sr (m)"
               value={sr}
               onChange={(e) => StripPwComponentOverrides.Sr.onChange(e)}

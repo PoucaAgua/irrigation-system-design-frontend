@@ -46,7 +46,7 @@ function SizingDiameter({
             style={{ marginLeft: "10%", marginRight: "10%" }}
           >
             <label className="left-label" htmlFor="input1">
-              Service Pressure
+              Service pressure
             </label>
             <input
               id="input1"

@@ -36,27 +36,28 @@ function StripModalRender({
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="input mb-3 d-flex flex-column align-items-center">
-            <label className="form-label" style={{ marginRight: "18%" }}>
+          <div
+            className="input mb-3 d-flex flex-column"
+            style={{ marginLeft: "10%", marginRight: "10%" }}
+          >
+            <label htmlFor="input1" className="form-label">
               Spacing between rows of plants:
             </label>
             <input
-              id="input5"
+              id="input1"
               type="text"
               className="form-control"
-              style={{ width: "330px" }}
               placeholder="Sr (m)"
               value={sr}
               onChange={(e) => setSr(e.target.value)}
             />
-            <label className="form-label" style={{ marginRight: "47%" }}>
+            <label htmlFor="input2" className="form-label">
               Shaded strip:
             </label>
             <input
-              id="input5"
+              id="input2"
               type="text"
               className="form-control"
-              style={{ width: "330px" }}
               placeholder="Ss (m)"
               value={ss}
               onChange={(e) => setSs(e.target.value)}

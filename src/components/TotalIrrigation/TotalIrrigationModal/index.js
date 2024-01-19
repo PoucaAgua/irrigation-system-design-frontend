@@ -35,92 +35,70 @@ function TotalIrrigation({
           <Modal.Title>Total Irrigation</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="input mb-3 d-flex flex-column align-items-center">
-            <label
-              className="left-label"
-              htmlFor="input1"
-              style={{ marginRight: "46%" }}
-            >
-              actualIrrigation
+          <div
+            className="input mb-3 d-flex flex-column"
+            style={{ marginLeft: "10%", marginRight: "10%" }}
+          >
+            <label className="left-label" htmlFor="input1">
+              Actual irrigation
             </label>
             <input
               id="input1"
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={actualIrrigation}
               onChange={(e) => setActualIrrigation(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input2"
-              style={{ marginRight: "21%" }}
-            >
-              Electrical Conductivity Irrigation
+            <label className="left-label" htmlFor="input2">
+              Electrical conductivity irrigation
             </label>
             <input
               id="input2"
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={electricalConductivityIrrigation}
               onChange={(e) =>
                 setElectricalConductivityIrrigation(e.target.value)
               }
             />
 
-            <label
-              className="left-label"
-              htmlFor="input3"
-              style={{ marginRight: "19%" }}
-            >
-              Electrical Conductivity Saturation
+            <label className="left-label" htmlFor="input3">
+              Electrical conductivity saturation
             </label>
             <input
               id="input3"
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={electricalConductivitySaturation}
               onChange={(e) =>
                 setElectricalConductivitySaturation(e.target.value)
               }
             />
 
-            <label
-              className="left-label"
-              htmlFor="input3"
-              style={{ marginRight: "43%" }}
-            >
-              LeachingFraction
+            <label className="left-label" htmlFor="input4">
+              Leaching fraction
             </label>
             <input
-              id="input3"
+              id="input4"
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={leachingFraction}
               onChange={(e) => setLeachingFraction(e.target.value)}
             />
 
-            <label
-              className="left-label"
-              htmlFor="input3"
-              style={{ marginRight: "54%" }}
-            >
+            <label className="left-label" htmlFor="input5">
               Efficiency
             </label>
             <input
-              id="input3"
+              id="input5"
               type="text"
               placeholder=""
               className="form-control mb-3"
-              style={{ width: "330px" }}
               value={efficiency}
               onChange={(e) => setEfficiency(e.target.value)}
             />
@@ -140,11 +118,9 @@ function TotalIrrigation({
                 <table className="table table-bordered border-secondary">
                   <thead>
                     <tr>
-
                       <th scope="col">Total Irrigation Result</th>
 
                       <th scope="col">Irrigation by Atmospheric Result</th>
-
                     </tr>
                   </thead>
                   <tbody>

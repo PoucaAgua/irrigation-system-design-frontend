@@ -34,7 +34,7 @@ function SizingDiameter({
             style={{ marginLeft: "10%", marginRight: "10%" }}
           >
             <label className="left-label" htmlFor="input1">
-              Demand Flow
+              Demand flow
             </label>
             <input
               id="input1"
@@ -46,7 +46,7 @@ function SizingDiameter({
             />
 
             <label className="left-label" htmlFor="input2">
-              Speed Max
+              Speed max
             </label>
             <input
               id="input2"

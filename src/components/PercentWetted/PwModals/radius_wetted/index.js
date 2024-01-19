@@ -36,51 +36,39 @@ function RadiusModalRender({
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div className="input mb-3 d-flex flex-column align-items-center">
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "65%" }}
-            >
+          <div
+            className="input mb-3 d-flex flex-column"
+            style={{ marginLeft: "10%", marginRight: "10%" }}
+          >
+            <label htmlFor="input1" className="left-label">
               Q:
             </label>
             <input
-              id="input5"
+              id="input1"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="Q"
               value={q}
               onChange={(e) => RadiusComponentOverrides.Q.onChange(e)}
             />
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "34%" }}
-            >
+            <label htmlFor="input2" className="left-label">
               Hydraulic conductivity:
             </label>
             <input
-              id="input5"
+              id="input2"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="Ko (cm h-1)"
               value={k0}
               onChange={(e) => RadiusComponentOverrides.K0.onChange(e)}
             />
-            <label
-              htmlFor="input5"
-              className="left-label"
-              style={{ marginRight: "16%" }}
-            >
-              Soil Water Conductivity Parameter:
+            <label htmlFor="input3" className="left-label">
+              Soil water conductivity parameter:
             </label>
             <input
-              id="input5"
+              id="input3"
               type="text"
               className="form-control mb-3"
-              style={{ width: "330px" }}
               placeholder="α"
               value={alpha}
               onChange={(e) => RadiusComponentOverrides.Alpha.onChange(e)}
