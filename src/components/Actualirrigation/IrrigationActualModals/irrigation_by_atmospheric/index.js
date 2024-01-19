@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import ResultAtmospheric from "../ResultModal/ResultModalAtmospheric";
 
 function Atmospheric({
   AtmosphericComponentOverrides,
@@ -13,8 +14,16 @@ function Atmospheric({
   setActualevapotranspiration,
 }) {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const [calculated, setCalculated] = useState(false);
+  const handleClose = () => {
+    setShow(false);
+    setCalculated(false);
+  };
   const handleShow = () => setShow(true);
+  const handleCalculate = () => {
+    AtmosphericComponentOverrides.CalculateButtonAtmospheric.onClick();
+    setCalculated(true);
+  };
 
   return (
     <div>
@@ -72,43 +81,15 @@ function Atmospheric({
             />
           </div>
 
-          {resultAtmospheric !== null && (
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div style={{ width: "60%", height: "40%" }}>
-                <table className="table table-bordered border-secondary">
-                  <thead>
-                    <tr>
-                      <th scope="col">Irrigation by Atmospheric Result</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{resultAtmospheric}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+          {calculated && (
+            <ResultAtmospheric resultAtmospheric={resultAtmospheric} />
           )}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={handleClose}>
             Close
           </Button>
-          <Button
-            variant="primary"
-            onClick={
-              AtmosphericComponentOverrides.CalculateButtonAtmospheric.onClick
-            }
-          >
+          <Button variant="primary" onClick={handleCalculate}>
             Calculate
           </Button>
           <Button
