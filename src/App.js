@@ -22,55 +22,62 @@ import SizingLateral from "./pages/Sizing_Lateral_line";
 import Home from "./pages/Home";
 
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App({ user, signOut }) {
   return (
     <Router>
-      <Header user={user} signOut={() => signOut()} />
-      <div>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/CropCoefficient" element={<CropCoefficient />} />
-          <Route path="/IrrigationSystem" element={<IrrigationSystem />} />
-          <Route path="/Evapotranspiration" element={<Evapotranspiration />} />
-          <Route
-            path="/Evapotranspiration/ReferenceEvapotranspiration"
-            element={<ReferenceEvapotranspiration />}
-          />
-          <Route
-            path="/Evapotranspiration/CropEvapotranspiration"
-            element={<CropEvapotranspiration />}
-          />
-          <Route path="/PsAndPw" element={<PsAndPw />} />
-          <Route path="/SizeLines" element={<SizeLines />} />
-          <Route path="/Irrigation" element={<Irrigation />} />
-          <Route
-            path="/irrigation/actual_irrigation"
-            element={<IrrigationActual />}
-          />
-          <Route
-            path="/irrigation/total_irrigation"
-            element={<IrrigationTotal />}
-          />
-          <Route
-            path="/irrigation/shift_irrigation"
-            element={<IrrigationShift />}
-          />
-          <Route
-            path="/irrigation/irrigation_time"
-            element={<IrrigationTime />}
-          />
-          <Route
-            path="/irrigation/irrigation_time"
-            element={<IrrigationTime />}
-          />
-          <Route path="/Sizing" element={<Sizing />} />
-          <Route
-            path="/Sizing/derivation_line"
-            element={<SizingDerivation />}
-          />
-          <Route path="/Sizing/lateral_line" element={<SizingLateral />} />
-        </Routes>
+      <div className="page-container">
+        <Header user={user} signOut={() => signOut()} />
+        <div className="content-wrap">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/CropCoefficient" element={<CropCoefficient />} />
+            <Route path="/IrrigationSystem" element={<IrrigationSystem />} />
+            <Route
+              path="/Evapotranspiration"
+              element={<Evapotranspiration />}
+            />
+            <Route
+              path="/Evapotranspiration/ReferenceEvapotranspiration"
+              element={<ReferenceEvapotranspiration />}
+            />
+            <Route
+              path="/Evapotranspiration/CropEvapotranspiration"
+              element={<CropEvapotranspiration />}
+            />
+            <Route path="/PsAndPw" element={<PsAndPw />} />
+            <Route path="/SizeLines" element={<SizeLines />} />
+            <Route path="/Irrigation" element={<Irrigation />} />
+            <Route
+              path="/irrigation/actual_irrigation"
+              element={<IrrigationActual />}
+            />
+            <Route
+              path="/irrigation/total_irrigation"
+              element={<IrrigationTotal />}
+            />
+            <Route
+              path="/irrigation/shift_irrigation"
+              element={<IrrigationShift />}
+            />
+            <Route
+              path="/irrigation/irrigation_time"
+              element={<IrrigationTime />}
+            />
+            <Route
+              path="/irrigation/irrigation_time"
+              element={<IrrigationTime />}
+            />
+            <Route path="/Sizing" element={<Sizing />} />
+            <Route
+              path="/Sizing/derivation_line"
+              element={<SizingDerivation />}
+            />
+            <Route path="/Sizing/lateral_line" element={<SizingLateral />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
     </Router>
   );
