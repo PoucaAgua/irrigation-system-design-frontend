@@ -1,20 +1,18 @@
-// ResultAlert.js
 import React from "react";
 
 const ResultCard = ({ resultEvapotranspiration }) => {
   return (
-    <>
-      <br />
-      {resultEvapotranspiration !== null &&
-        resultEvapotranspiration !== undefined &&
-        resultEvapotranspiration !== "" && (
-          <div class="alert alert-light" role="alert">
-            <p className="fs-3 text-center">
-              Result: {resultEvapotranspiration}
-            </p>
-          </div>
-        )}
-    </>
+    <div>
+      {resultEvapotranspiration === null ? (
+        <div>
+          <p className="fs-2 text-center">Loading...</p>
+        </div>
+      ) : (
+        <div class="alert alert-light" role="alert">
+          <p className="fs-3 text-center">Result: {resultEvapotranspiration}</p>
+        </div>
+      )}
+    </div>
   );
 };
 

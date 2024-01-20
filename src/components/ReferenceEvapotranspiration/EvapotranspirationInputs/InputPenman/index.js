@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useState } from "react";
 import ResultCard from "../../EvapotranspirationCardResult";
 
 function Penman({
@@ -29,6 +28,11 @@ function Penman({
   dailyRadiation,
   setDailyRadiation,
 }) {
+  const [calculated, setCalculated] = useState(false);
+  const handleCalculate = () => {
+    PenmanComponentOverrides.CalculateButtonPenman.onClick();
+    setCalculated(true);
+  };
   return (
     <>
       <p className="text-center fs-3" style={{ marginTop: 50 }}>
@@ -155,12 +159,15 @@ function Penman({
         <button
           class="btn btn-secondary"
           type="button"
-          onClick={PenmanComponentOverrides.CalculateButtonPenman.onClick}
+          onClick={handleCalculate}
         >
           Calculate
         </button>
       </div>
-      <ResultCard resultEvapotranspiration={resultEvapotranspiration} />
+      <br />
+      {calculated && (
+        <ResultCard resultEvapotranspiration={resultEvapotranspiration} />
+      )}
     </>
   );
 }
