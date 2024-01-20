@@ -1,12 +1,11 @@
 import React from "react";
 import EvapotranspirationCards from "../components/Cards/EvapotranspirationCards";
+import TitleEvapotranspiration from "../components/Titles/Title_Evapotranspiration";
 
 function Evapotranspiration() {
   return (
     <>
-      <h1 className="text-center fs-2" style={{ marginTop: 50 }}>
-        Evapotranspiration
-      </h1>
+      <TitleEvapotranspiration />
       <EvapotranspirationCards />
     </>
   );

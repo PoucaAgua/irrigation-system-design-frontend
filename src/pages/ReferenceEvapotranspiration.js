@@ -1,12 +1,11 @@
 import React from "react";
 import SelectorType from "../components/ReferenceEvapotranspiration/EvapotranspirationSelector/EvapotranspirationType";
+import TitleReferenceEvapotranspiration from "../components/Titles/Title_ReferenceEvapotranspiration";
 
 function ReferenceEvapotranspiration() {
   return (
     <>
-      <h1 className="text-center fs-2" style={{ marginTop: 50 }}>
-        Reference Evapotranspiration
-      </h1>
+      <TitleReferenceEvapotranspiration />
       <div
         className="d-flex flex-column align-items-center"
         style={{ marginTop: 25 }}

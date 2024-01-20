@@ -9,7 +9,7 @@ const cardData = [
     imageSrc: "evapotranspiration-image-url.jpg",
   },
   {
-    title: "CropCoefficient",
+    title: "Crop Coefficient",
     link: "/CropCoefficient",
     imageSrc: "crop-coefficient-image-url.jpg",
   },
@@ -29,7 +29,7 @@ const cardData = [
     imageSrc: "irrigation-image-url.jpg",
   },
   {
-    title: "IrrigationSystem",
+    title: "Irrigation System",
     link: "/IrrigationSystem",
     imageSrc: "irrigation-system-image-url.jpg",
   },

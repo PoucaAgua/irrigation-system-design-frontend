@@ -1,12 +1,11 @@
 import React from "react";
 import CardShift from "../components/ShiftIrrigation/IrrigationShiftCards";
+import TitleShiftIrrigation from "../components/Titles/Titles_Irrigation/Title_Irrigation_shift";
 
 function Irrigation() {
   return (
     <>
-      <h1 className="text-center" style={{ marginTop: 50 }}>
-        Maximum irrigation shift
-      </h1>
+      <TitleShiftIrrigation />
       <CardShift />
     </>
   );

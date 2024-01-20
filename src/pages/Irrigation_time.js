@@ -1,12 +1,11 @@
 import React from "react";
 import CardTime from "../components/TimeIrrigation/TimeIrrigationCards";
+import TitleTimeIrrigation from "../components/Titles/Titles_Irrigation/Title_Irrigation_time";
 
 function Irrigation() {
   return (
     <>
-      <h1 className="text-center" style={{ marginTop: 50 }}>
-        Irrigation Time
-      </h1>
+      <TitleTimeIrrigation />
       <CardTime />
     </>
   );

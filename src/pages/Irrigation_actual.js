@@ -1,13 +1,12 @@
 import React from "react";
-import IrrgationCardActual from "../components/Actualirrigation/IrrigationActualCards";
+import IrrigationCardActual from "../components/Actualirrigation/IrrigationActualCards";
+import TitleActualIrrigation from "../components/Titles/Titles_Irrigation/Title_Irrigation_actual";
 
 function Irrigation() {
   return (
     <>
-      <h1 className="text-center" style={{ marginTop: 50 }}>
-        Actual Irrigation
-      </h1>
-      <IrrgationCardActual />
+      <TitleActualIrrigation />
+      <IrrigationCardActual />
     </>
   );
 }

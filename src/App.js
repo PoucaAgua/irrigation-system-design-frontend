@@ -8,7 +8,7 @@ import CropCoefficient from "./pages/Crop_Coefficient";
 import Evapotranspiration from "./pages/Evapotranspiration";
 import ReferenceEvapotranspiration from "./pages/ReferenceEvapotranspiration";
 import CropEvapotranspiration from "./pages/CropEvapotranspiration";
-import IrrigationSystem from "./pages/IrrigationSystemDesign";
+import IrrigationSystem from "./pages/IrrigationSystem";
 import PsAndPw from "./pages/PsAndPw";
 import SizeLines from "./pages/SizeLines";
 import Irrigation from "./pages/Irrigation";
