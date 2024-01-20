@@ -24,7 +24,6 @@ function Plant({
   IrrigationTimeByPlantComponentOverrides,
 }) {
   const [show, setShow] = useState(false);
-
   const [calculated, setCalculated] = useState(false);
   const handleClose = () => {
     setShow(false);

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import ResultPs from "../ResultModalCanopy";
 
 function CanopyModalRender({
   showModalCanopy,
@@ -12,10 +13,13 @@ function CanopyModalRender({
   setSp,
   setDco,
   resultPs,
-  validationError,
-  loadingCalculate,
   CanopyComponentOverrides,
 }) {
+  const [calculated, setCalculated] = useState(false);
+  const handleCalculate = () => {
+    CanopyComponentOverrides.CalculateButtonCanopy.onClick();
+    setCalculated(true);
+  };
   return (
     <>
       <div className="form-check" style={{ marginLeft: 16 }}>
@@ -76,41 +80,8 @@ function CanopyModalRender({
               onChange={(e) => setSr(e.target.value)}
             />
           </div>
-          {validationError && (
-            <div
-              className="alert alert-danger"
-              role="alert"
-              style={{ width: "60%", margin: "0 auto" }}
-            >
-              {validationError}
-            </div>
-          )}
-          {resultPs !== null && (
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div style={{ width: "60%", height: "40%" }}>
-                <table className="table table-bordered border-secondary">
-                  <thead>
-                    <tr>
-                      <th scope="col">Ps Result</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{resultPs}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
+
+          {calculated && <ResultPs resultPs={resultPs} />}
         </Modal.Body>
         <Modal.Footer>
           <Button
@@ -119,10 +90,7 @@ function CanopyModalRender({
           >
             Save
           </Button>
-          <Button
-            variant="primary"
-            onClick={CanopyComponentOverrides.CalculateButtonCanopy.onClick}
-          >
+          <Button variant="primary" onClick={handleCalculate}>
             Calculate
           </Button>
           <Button variant="danger" onClick={toggleModalCanopy}>

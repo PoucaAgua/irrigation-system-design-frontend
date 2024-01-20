@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import ResultPs from "../ResultModalStrip";
 
 function StripModalRender({
   showModalPsStrip,
@@ -10,10 +11,13 @@ function StripModalRender({
   setSr,
   setSs,
   resultPs,
-  validationError,
-  loadingCalculate,
   StripComponentOverrides,
 }) {
+  const [calculated, setCalculated] = useState(false);
+  const handleCalculate = () => {
+    StripComponentOverrides.CalculateButtonPsStrip.onClick();
+    setCalculated(true);
+  };
   return (
     <>
       <div className="form-check" style={{ marginLeft: 16 }}>
@@ -64,41 +68,7 @@ function StripModalRender({
             />
           </div>
 
-          {validationError && (
-            <div
-              className="alert alert-danger"
-              role="alert"
-              style={{ width: "60%", margin: "0 auto" }}
-            >
-              {validationError}
-            </div>
-          )}
-          {resultPs !== null && (
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div style={{ width: "60%", height: "40%" }}>
-                <table className="table table-bordered border-secondary">
-                  <thead>
-                    <tr>
-                      <th scope="col">Ps Result</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{resultPs}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
+          {calculated && <ResultPs resultPs={resultPs} />}
         </Modal.Body>
         <Modal.Footer>
           <Button
@@ -107,10 +77,7 @@ function StripModalRender({
           >
             Save
           </Button>
-          <Button
-            variant="primary"
-            onClick={StripComponentOverrides.CalculateButtonPsStrip.onClick}
-          >
+          <Button variant="primary" onClick={handleCalculate}>
             Calculate
           </Button>
           <Button variant="danger" onClick={toggleModalStrip}>
