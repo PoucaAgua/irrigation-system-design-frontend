@@ -1,12 +1,13 @@
 import React from "react";
 import "./style.css";
+import Spinner from "../../SpinnerLoadind";
 
 const ResultModal = ({ resultTotal }) => {
   return (
     <div>
       {resultTotal === null ? (
         <div id="position">
-          <p className="fs-2 text-center">Loading...</p>
+          <Spinner />
         </div>
       ) : (
         <div id="position">
