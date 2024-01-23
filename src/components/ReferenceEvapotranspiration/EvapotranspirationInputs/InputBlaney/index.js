@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ResultCard from "../../EvapotranspirationCardResult";
 import SelectorMonth from "../../EvapotranspirationSelector/EvapotranspirationBlaney/MonthSelector";
 import SelectorHemisphere from "../../EvapotranspirationSelector/EvapotranspirationBlaney/HemisphereSelector";
@@ -24,6 +24,11 @@ function Blaney({
   latitude,
   setLatitude,
 }) {
+  const [calculated, setCalculated] = useState(false);
+  const handleCalculate = () => {
+    BlaneyComponentOverrides.CalculateButtonBlaney.onClick();
+    setCalculated(true);
+  };
   return (
     <>
       <p className="text-center fs-3" style={{ marginTop: 50 }}>
@@ -90,13 +95,15 @@ function Blaney({
         <button
           class="btn btn-secondary"
           type="button"
-          onClick={BlaneyComponentOverrides.CalculateButtonBlaney.onClick}
+          onClick={handleCalculate}
         >
           Calculate
         </button>
       </div>
       <br />
-      <ResultCard resultEvapotranspiration={resultEvapotranspiration} />
+      {calculated && (
+        <ResultCard resultEvapotranspiration={resultEvapotranspiration} />
+      )}
     </>
   );
 }

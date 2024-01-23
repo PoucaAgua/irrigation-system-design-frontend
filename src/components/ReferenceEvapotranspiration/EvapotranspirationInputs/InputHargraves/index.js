@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ResultCard from "../../EvapotranspirationCardResult";
 import SelectorMonth from "../../EvapotranspirationSelector/EvapotranspirationHargraves/MonthSelector";
 
@@ -21,6 +21,11 @@ function Hargraves({
   loadingCalculate,
   setLoadingCalculate,
 }) {
+  const [calculated, setCalculated] = useState(false);
+  const handleCalculate = () => {
+    HargravesComponentOverrides.CalculateButtonHargraves.onClick();
+    setCalculated(true);
+  };
   return (
     <>
       <p className="text-center fs-3" style={{ marginTop: 50 }}>
@@ -84,12 +89,15 @@ function Hargraves({
         <button
           class="btn btn-secondary"
           type="button"
-          onClick={HargravesComponentOverrides.CalculateButtonHargraves.onClick}
+          onClick={handleCalculate}
         >
           Calculate
         </button>
       </div>
-      <ResultCard resultEvapotranspiration={resultEvapotranspiration} />
+      <br />
+      {calculated && (
+        <ResultCard resultEvapotranspiration={resultEvapotranspiration} />
+      )}
     </>
   );
 }

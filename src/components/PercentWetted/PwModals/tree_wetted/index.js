@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import ResultPw from "../ResultModalTree";
 
 function TreeModal({
   showModalPwTree,
@@ -11,7 +12,6 @@ function TreeModal({
   setZ,
   setQ,
   setK0,
-  validationError,
   resultPw,
   TreeComponentOverrides,
   np,
@@ -21,6 +21,11 @@ function TreeModal({
   q,
   k0,
 }) {
+  const [calculated, setCalculated] = useState(false);
+  const handleCalculate = () => {
+    TreeComponentOverrides.CalculateButtonPwTree.onClick();
+    setCalculated(true);
+  };
   return (
     <>
       <div className="form-check" style={{ marginLeft: 16 }}>
@@ -127,41 +132,7 @@ function TreeModal({
             />
           </div>
 
-          {validationError && (
-            <div
-              className="alert alert-danger"
-              role="alert"
-              style={{ width: "60%", margin: "0 auto" }}
-            >
-              {validationError}
-            </div>
-          )}
-          {resultPw !== null && (
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div style={{ width: "60%", height: "40%" }}>
-                <table className="table table-bordered border-secondary">
-                  <thead>
-                    <tr>
-                      <th scope="col">Pw Result</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{resultPw}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
+          {calculated && <ResultPw resultPs={resultPw} />}
         </Modal.Body>
         <Modal.Footer>
           <Button
@@ -170,10 +141,7 @@ function TreeModal({
           >
             Save
           </Button>
-          <Button
-            variant="primary"
-            onClick={TreeComponentOverrides.CalculateButtonPwTree.onClick}
-          >
+          <Button variant="primary" onClick={handleCalculate}>
             Calculate
           </Button>
           <Button variant="danger" onClick={toggleModalTree}>

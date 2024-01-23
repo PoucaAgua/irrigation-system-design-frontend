@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import ResultTotal from "../ResultModal";
 
 function TotalIrrigation({
   TotalComponentOverrides,
@@ -17,8 +18,16 @@ function TotalIrrigation({
   setEfficiency,
 }) {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const [calculated, setCalculated] = useState(false);
+  const handleClose = () => {
+    setShow(false);
+    setCalculated(false);
+  };
   const handleShow = () => setShow(true);
+  const handleCalculate = () => {
+    TotalComponentOverrides.CalculateTotalIrrigation.onClick();
+    setCalculated(true);
+  };
 
   return (
     <div>
@@ -104,43 +113,13 @@ function TotalIrrigation({
             />
           </div>
 
-          {resultTotal !== null && (
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div style={{ width: "60%", height: "40%" }}>
-                <table className="table table-bordered border-secondary">
-                  <thead>
-                    <tr>
-                      <th scope="col">Total Irrigation Result</th>
-
-                      <th scope="col">Irrigation by Atmospheric Result</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{resultTotal}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
+          {calculated && <ResultTotal resultTotal={resultTotal} />}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={handleClose}>
             Close
           </Button>
-          <Button
-            variant="primary"
-            onClick={TotalComponentOverrides.CalculateTotalIrrigation.onClick}
-          >
+          <Button variant="primary" onClick={handleCalculate}>
             Calculate
           </Button>
           <Button

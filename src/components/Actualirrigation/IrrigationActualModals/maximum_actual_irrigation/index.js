@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import ResultMaximum from "../ResultModal/ResultModalActual";
 
 function Maximum({
   soilMoistureFieldCapacity,
@@ -19,8 +20,16 @@ function Maximum({
   MaximumComponentOverrides,
 }) {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const [calculated, setCalculated] = useState(false);
+  const handleClose = () => {
+    setShow(false);
+    setCalculated(false);
+  };
   const handleShow = () => setShow(true);
+  const handleCalculate = () => {
+    MaximumComponentOverrides.CalculateButtonMaximum.onClick();
+    setCalculated(true);
+  };
 
   return (
     <div>
@@ -122,41 +131,13 @@ function Maximum({
             />
           </div>
 
-          {resultMaximum !== null && (
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div style={{ width: "60%", height: "40%" }}>
-                <table className="table table-bordered border-secondary">
-                  <thead>
-                    <tr>
-                      <th scope="col">Irrigation by Max actual irrigation</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{resultMaximum}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
+          {calculated && <ResultMaximum resultMaximum={resultMaximum} />}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={handleClose}>
             Close
           </Button>
-          <Button
-            variant="primary"
-            onClick={MaximumComponentOverrides.CalculateButtonMaximum.onClick}
-          >
+          <Button variant="primary" onClick={handleCalculate}>
             Calculate
           </Button>
           <Button

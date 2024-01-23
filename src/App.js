@@ -21,6 +21,7 @@ import SizingDerivation from "./pages/Sizing_Derivation_line";
 import SizingLateral from "./pages/Sizing_Lateral_line";
 import Home from "./pages/Home";
 
+import LoadingView from "./components/LoadingView";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -78,6 +79,7 @@ function App({ user, signOut }) {
           </Routes>
         </div>
         <Footer />
+        <LoadingView />
       </div>
     </Router>
   );

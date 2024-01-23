@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import ResultLoad from "../ResultModalLoad";
 
 function SizingLoad({
   SizingLoadComponentOverrides,
@@ -15,8 +16,16 @@ function SizingLoad({
   setLengthDerivation,
 }) {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const [calculated, setCalculated] = useState(false);
+  const handleClose = () => {
+    setShow(false);
+    setCalculated(false);
+  };
   const handleShow = () => setShow(true);
+  const handleCalculate = () => {
+    SizingLoadComponentOverrides.CalculateDerivationLoad.onClick();
+    setCalculated(true);
+  };
 
   return (
     <div>
@@ -86,43 +95,13 @@ function SizingLoad({
             />
           </div>
 
-          {resultSizingLoad !== null && (
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div style={{ width: "60%", height: "40%" }}>
-                <table className="table table-bordered border-secondary">
-                  <thead>
-                    <tr>
-                      <th scope="col">Sizing Load Loss Result</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{resultSizingLoad}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
+          {calculated && <ResultLoad resultSizingLoad={resultSizingLoad} />}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={handleClose}>
             Close
           </Button>
-          <Button
-            variant="primary"
-            onClick={
-              SizingLoadComponentOverrides.CalculateDerivationLoad.onClick
-            }
-          >
+          <Button variant="primary" onClick={handleCalculate}>
             Calculate
           </Button>
           <Button

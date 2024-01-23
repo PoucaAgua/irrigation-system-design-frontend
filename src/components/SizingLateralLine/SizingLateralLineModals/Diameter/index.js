@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import ResultDiameter from "../ResultModalDiameter";
 
 function SizingDiameter({
   SizingDiameterComponentOverrides,
@@ -23,8 +24,16 @@ function SizingDiameter({
   setCoefficient,
 }) {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const [calculated, setCalculated] = useState(false);
+  const handleClose = () => {
+    setShow(false);
+    setCalculated(false);
+  };
   const handleShow = () => setShow(true);
+  const handleCalculate = () => {
+    SizingDiameterComponentOverrides.CalculateLateralDiameter.onClick();
+    setCalculated(true);
+  };
 
   return (
     <div>
@@ -142,43 +151,13 @@ function SizingDiameter({
             />
           </div>
 
-          {resultDiameter !== null && (
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div style={{ width: "60%", height: "40%" }}>
-                <table className="table table-bordered border-secondary">
-                  <thead>
-                    <tr>
-                      <th scope="col">Sizing Diameter Result</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{resultDiameter}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
+          {calculated && <ResultDiameter resultDiameter={resultDiameter} />}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={handleClose}>
             Close
           </Button>
-          <Button
-            variant="primary"
-            onClick={
-              SizingDiameterComponentOverrides.CalculateLateralDiameter.onClick
-            }
-          >
+          <Button variant="primary" onClick={handleCalculate}>
             Calculate
           </Button>
           <Button

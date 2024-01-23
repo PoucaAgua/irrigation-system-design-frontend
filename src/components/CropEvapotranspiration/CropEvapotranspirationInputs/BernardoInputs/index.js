@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ResultCard from "../../CropEvapotranspirationCardResult";
 
 function Bernardo({
@@ -17,6 +17,11 @@ function Bernardo({
   setResultCropEvapotranspiration,
   BernardoComponentOverrides,
 }) {
+  const [calculated, setCalculated] = useState(false);
+  const handleCalculate = () => {
+    BernardoComponentOverrides.CalculateButtonBernardo.onClick();
+    setCalculated(true);
+  };
   return (
     <>
       <p className="text-center fs-3" style={{ marginTop: 50 }}>
@@ -79,12 +84,17 @@ function Bernardo({
         <button
           class="btn btn-secondary"
           type="button"
-          onClick={BernardoComponentOverrides.CalculateButtonBernardo.onClick}
+          onClick={handleCalculate}
         >
           Calculate
         </button>
       </div>
-      <ResultCard resultCropEvapotranspiration={resultCropEvapotranspiration} />
+      <br />
+      {calculated && (
+        <ResultCard
+          resultCropEvapotranspiration={resultCropEvapotranspiration}
+        />
+      )}
     </>
   );
 }

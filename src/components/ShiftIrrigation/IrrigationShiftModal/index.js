@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import ResultShift from "../ResultModal";
 
 function ShiftIrrigation({
   irrigationSystemDesignService,
@@ -16,8 +17,16 @@ function ShiftIrrigation({
   ShiftComponentOverrides,
 }) {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  const [calculated, setCalculated] = useState(false);
+  const handleClose = () => {
+    setShow(false);
+    setCalculated(false);
+  };
   const handleShow = () => setShow(true);
+  const handleCalculate = () => {
+    ShiftComponentOverrides.CalculateTotalIrrigation.onClick();
+    setCalculated(true);
+  };
 
   return (
     <div>
@@ -62,42 +71,13 @@ function ShiftIrrigation({
               onChange={(e) => setCropEvapotranspiration(e.target.value)}
             />
           </div>
-
-          {resultShift !== null && (
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div style={{ width: "60%", height: "40%" }}>
-                <table className="table table-bordered border-secondary">
-                  <thead>
-                    <tr>
-                      <th scope="col">Maximum irrigation shift Result</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{resultShift}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
+          {calculated && <ResultShift resultShift={resultShift} />}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="danger" onClick={handleClose}>
             Close
           </Button>
-          <Button
-            variant="primary"
-            onClick={ShiftComponentOverrides.CalculateTotalIrrigation.onClick}
-          >
+          <Button variant="primary" onClick={handleCalculate}>
             Calculate
           </Button>
           <Button

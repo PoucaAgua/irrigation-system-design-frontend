@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import ResultPw from "../ResultModalStrip";
 
 function PwStripModalRender({
   showModalPwStrip,
@@ -13,6 +14,11 @@ function PwStripModalRender({
   loadingCalculate,
   StripPwComponentOverrides,
 }) {
+  const [calculated, setCalculated] = useState(false);
+  const handleCalculate = () => {
+    StripPwComponentOverrides.CalculateButtonStripPw.onClick();
+    setCalculated(true);
+  };
   return (
     <>
       {" "}
@@ -97,41 +103,8 @@ function PwStripModalRender({
               onChange={(e) => StripPwComponentOverrides.Sr.onChange(e)}
             />
           </div>
-          {validationError && (
-            <div
-              className="alert alert-danger"
-              role="alert"
-              style={{ width: "60%", margin: "0 auto" }}
-            >
-              {validationError}
-            </div>
-          )}
-          {resultPw !== null && (
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <div style={{ width: "60%", height: "40%" }}>
-                <table className="table table-bordered border-secondary">
-                  <thead>
-                    <tr>
-                      <th scope="col">Pw Result</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>{resultPw}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
+
+          {calculated && <ResultPw resultPw={resultPw} />}
         </Modal.Body>
         <Modal.Footer>
           <Button
@@ -140,10 +113,7 @@ function PwStripModalRender({
           >
             Save
           </Button>
-          <Button
-            variant="primary"
-            onClick={StripPwComponentOverrides.CalculateButtonStripPw.onClick}
-          >
+          <Button variant="primary" onClick={handleCalculate}>
             Calculate
           </Button>
           <Button variant="danger" onClick={toggleModalPwStrip}>
