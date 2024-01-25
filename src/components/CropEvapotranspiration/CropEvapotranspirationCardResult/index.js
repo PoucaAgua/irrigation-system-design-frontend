@@ -1,11 +1,12 @@
 import React from "react";
+import Spinner from "../../SpinnerLoadind";
 
 const ResultCard = ({ resultCropEvapotranspiration }) => {
   return (
     <div>
       {resultCropEvapotranspiration === null ? (
         <div>
-          <p className="fs-2 text-center">Loading...</p>
+          <Spinner />
         </div>
       ) : (
         <div class="alert alert-light" role="alert">

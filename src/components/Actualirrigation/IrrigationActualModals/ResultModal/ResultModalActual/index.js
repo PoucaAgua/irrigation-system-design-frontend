@@ -1,12 +1,13 @@
 import React from "react";
 import "./style.css";
+import Spinner from "../../../../SpinnerLoadind";
 
 const ResultModal = ({ resultMaximum }) => {
   return (
     <div>
       {resultMaximum === null ? (
         <div id="position">
-          <p className="fs-2 text-center">Loading...</p>
+          <Spinner />
         </div>
       ) : (
         <div id="position">
