@@ -264,8 +264,11 @@ function PercenteShaded({
                           showModalPwStrip={showModalPwStrip}
                           toggleModalPwStrip={toggleModalPwStrip}
                           sr={sr}
+                          setSr={setSr}
                           sp={sp}
+                          setSp={setSp}
                           sw={sw}
+                          setSw={setSw}
                           resultPw={resultPw}
                           loadingCalculate={loadingCalculate}
                           StripPwComponentOverrides={StripPwComponentOverrides}
@@ -274,8 +277,11 @@ function PercenteShaded({
                           showModalPwRadius={showModalPwRadius}
                           toggleModalRadius={toggleModalRadius}
                           q={q}
+                          setQ={setQ}
                           k0={k0}
+                          setK0={setK0}
                           alpha={alpha}
+                          setAlpha={setAlpha}
                           resultPw={resultPw}
                           loadingCalculate={loadingCalculate}
                           RadiusComponentOverrides={RadiusComponentOverrides}
