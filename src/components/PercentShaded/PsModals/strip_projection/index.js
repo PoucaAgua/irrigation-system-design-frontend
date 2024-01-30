@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import ResultPs from "../ResultModalStrip";
+import ResultPs from "../../PsResultModal/ResultModalStrip";
 
 function StripModalRender({
   showModalPsStrip,

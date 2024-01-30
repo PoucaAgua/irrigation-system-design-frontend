@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import ResultAtmospheric from "../ResultModal/ResultModalAtmospheric";
+import ResultAtmospheric from "../../IrrigationActualResultModal/ResultModalAtmospheric";
 
 function Atmospheric({
   AtmosphericComponentOverrides,

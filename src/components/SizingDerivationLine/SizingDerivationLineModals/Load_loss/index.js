@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import ResultLoad from "../ResultModalLoad";
+import ResultLoad from "../../SizingDerivationLineResultModal/ResultModalLoad";
 
 function SizingLoad({
   SizingLoadComponentOverrides,

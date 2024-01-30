@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import ResultIrrigationTimeByPlant from "../ResultModalPlant";
+import ResultIrrigationTimeByPlant from "../../TimeIrrigationResultModal/ResultModalPlant";
 
 function Plant({
   irrigationSystemDesignService,

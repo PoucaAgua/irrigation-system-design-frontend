@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import Spinner from "../../../../SpinnerLoadind";
+import Spinner from "../../../SpinnerLoadind";
 
 const ResultModal = ({ resultMaximum }) => {
   return (
