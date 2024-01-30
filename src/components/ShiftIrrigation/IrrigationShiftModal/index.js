@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import ResultShift from "../IrrigationShiftResultModal";
+import ShiftInput from "../IrrigationShiftInputs";
 
 function ShiftIrrigation({
   irrigationSystemDesignService,
@@ -43,34 +44,12 @@ function ShiftIrrigation({
           <Modal.Title>Maximum irrigation shift</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div
-            className="input mb-3 d-flex flex-column"
-            style={{ marginLeft: "10%", marginRight: "10%" }}
-          >
-            <label className="left-label" htmlFor="input1">
-              Actual irrigation
-            </label>
-            <input
-              id="input1"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              value={actualIrrigation}
-              onChange={(e) => setActualIrrigation(e.target.value)}
-            />
-
-            <label className="left-label" htmlFor="input2">
-              Crop evapotranspiration
-            </label>
-            <input
-              id="input2"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              value={cropEvapotranspiration}
-              onChange={(e) => setCropEvapotranspiration(e.target.value)}
-            />
-          </div>
+          <ShiftInput
+            actualIrrigation={actualIrrigation}
+            setActualIrrigation={setActualIrrigation}
+            cropEvapotranspiration={cropEvapotranspiration}
+            setCropEvapotranspiration={setCropEvapotranspiration}
+          />
           {calculated && <ResultShift resultShift={resultShift} />}
         </Modal.Body>
         <Modal.Footer>
