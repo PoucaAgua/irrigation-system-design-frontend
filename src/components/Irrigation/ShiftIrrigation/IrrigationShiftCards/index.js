@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import ModalShiftIrrigation from "../IrrigationShiftModal";
 import { createShiftComponentOverrides } from "../IrrigationShiftCalculate";
-import IrrigationSystemDesignService from "../../../services/irrigation_system_design_backend";
+import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function IrrigationCardShift(ShiftIrrigation) {

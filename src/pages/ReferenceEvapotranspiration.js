@@ -1,5 +1,5 @@
 import React from "react";
-import SelectorType from "../components/ReferenceEvapotranspiration/EvapotranspirationSelector/EvapotranspirationType";
+import SelectorType from "../components/Evapotranspiration/ReferenceEvapotranspiration/EvapotranspirationSelector/EvapotranspirationType";
 import TitleReferenceEvapotranspiration from "../components/Titles/Title_ReferenceEvapotranspiration";
 
 function ReferenceEvapotranspiration() {

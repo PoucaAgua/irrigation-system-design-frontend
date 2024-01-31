@@ -4,7 +4,7 @@ import ModalPlant from "../TimeIrrigationModals/ModalPlant";
 import ModalLine from "../TimeIrrigationModals/ModalLine";
 import { createIrrigationTimeByLineComponentOverrides } from "../TimeIrrigationCalculate/CalculateLine";
 import { createIrrigationTimeByPlantComponentOverrides } from "../TimeIrrigationCalculate/CalculatePlant";
-import IrrigationSystemDesignService from "../../../services/irrigation_system_design_backend";
+import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function IrrigationTimeCard(IrrigationByLine, IrrigationByPlant) {

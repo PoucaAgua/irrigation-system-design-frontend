@@ -1,5 +1,5 @@
 import React from "react";
-import SizingDerivationCardMenu from "../components/SizingDerivationLine/SizingDerivationLineCards";
+import SizingDerivationCardMenu from "../components/Sizing/SizingDerivationLine/SizingDerivationLineCards";
 import TitleSizingDerivationLine from "../components/Titles/Titles_Sizing/Title_Sizing_derivation";
 
 function SizingDerivation() {

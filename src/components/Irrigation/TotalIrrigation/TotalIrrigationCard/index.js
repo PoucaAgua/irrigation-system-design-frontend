@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import ModalTotalIrrigation from "../TotalIrrigationModal/index";
 import { createTotalComponentOverrides } from "../TotalIrrigationCalculate/index";
-import IrrigationSystemDesignService from "../../../services/irrigation_system_design_backend";
+import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function IrrigationCardTotal(TotalIrrigation) {
