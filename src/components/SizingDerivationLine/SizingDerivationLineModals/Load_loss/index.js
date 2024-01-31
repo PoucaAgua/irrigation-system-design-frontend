@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import ResultLoad from "../../SizingDerivationLineResultModal/ResultModalLoad";
+import LoadInput from "../../SizingDerivationLineInputs/Load_loss";
 
 function SizingLoad({
   SizingLoadComponentOverrides,
@@ -42,59 +43,16 @@ function SizingLoad({
           <Modal.Title>Load Loss</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div
-            className="input mb-3 d-flex flex-column"
-            style={{ marginLeft: "10%", marginRight: "10%" }}
-          >
-            <label className="left-label" htmlFor="input1">
-              Length derivation line
-            </label>
-            <input
-              id="input1"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              value={lengthDerivation}
-              onChange={(e) => setLengthDerivation(e.target.value)}
-            />
-
-            <label className="left-label" htmlFor="input2">
-              Flow
-            </label>
-            <input
-              id="input2"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              value={flow}
-              onChange={(e) => setFlow(e.target.value)}
-            />
-
-            <label className="left-label" htmlFor="input2">
-              N outputs
-            </label>
-            <input
-              id="input2"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              value={noutputs}
-              onChange={(e) => setNoutputs(e.target.value)}
-            />
-
-            <label className="left-label" htmlFor="input2">
-              Diameter derivation line
-            </label>
-            <input
-              id="input2"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              value={diameterDerivation}
-              onChange={(e) => setDiameterDerivation(e.target.value)}
-            />
-          </div>
-
+          <LoadInput
+            lengthDerivation={lengthDerivation}
+            setLengthDerivation={setLengthDerivation}
+            flow={flow}
+            setFlow={setFlow}
+            noutputs={noutputs}
+            setNoutputs={setNoutputs}
+            diameterDerivation={diameterDerivation}
+            setDiameterDerivation={setDiameterDerivation}
+          />
           {calculated && <ResultLoad resultSizingLoad={resultSizingLoad} />}
         </Modal.Body>
         <Modal.Footer>
