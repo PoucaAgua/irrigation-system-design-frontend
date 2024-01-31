@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import Spinner from "../../../SpinnerLoadind";
+import Spinner from "../../../../SpinnerLoadind";
 
 const ResultModal = ({ resultPs }) => {
   return (
@@ -15,7 +15,7 @@ const ResultModal = ({ resultPs }) => {
             <table className="table table-bordered border-secondary">
               <thead>
                 <tr>
-                  <th scope="col">Irrigation by Tree Result</th>
+                  <th scope="col">Canopy Projection Result</th>
                 </tr>
               </thead>
               <tbody>
