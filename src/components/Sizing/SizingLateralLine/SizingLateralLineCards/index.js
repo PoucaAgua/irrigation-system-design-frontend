@@ -4,7 +4,7 @@ import ModalDiameter from "../SizingLateralLineModals/Diameter";
 import ModalHead from "../SizingLateralLineModals/HeadLoss";
 import { createSizingHeadComponentOverrides } from "../SizingLateralLineCalculate/HeadLoss";
 import { createSizingDiameterComponentOverrides } from "../SizingLateralLineCalculate/Diameter";
-import IrrigationSystemDesignService from "../../../services/irrigation_system_design_backend";
+import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function SizingLateralCard(Diameter, Head) {

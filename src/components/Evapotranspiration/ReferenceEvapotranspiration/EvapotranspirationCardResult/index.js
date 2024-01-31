@@ -1,5 +1,5 @@
 import React from "react";
-import Spinner from "../../SpinnerLoadind";
+import Spinner from "../../../SpinnerLoading";
 
 const ResultCard = ({ resultEvapotranspiration }) => {
   return (

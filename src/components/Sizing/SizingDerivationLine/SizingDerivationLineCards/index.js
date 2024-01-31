@@ -4,7 +4,7 @@ import ModalDiameter from "../SizingDerivationLineModals/Diameter";
 import ModalLoad from "../SizingDerivationLineModals/Load_loss";
 import { createSizingLoadComponentOverrides } from "../SizingDerivationLineCalculate/Load_loss";
 import { createSizingDiameterComponentOverrides } from "../SizingDerivationLineCalculate/Diameter";
-import IrrigationSystemDesignService from "../../../services/irrigation_system_design_backend";
+import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function SizingDerivationCard(Diameter, Load) {

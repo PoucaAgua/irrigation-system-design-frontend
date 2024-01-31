@@ -6,7 +6,7 @@ import ModalMaximum from "../IrrigationActualModals/maximum_actual_irrigation";
 import { createMaximumComponentOverrides } from "../IrrigationActualCalculate/maximum_actual_irrigation/index";
 import { createAtmosphericComponentOverrides } from "../IrrigationActualCalculate/irrigation_by_atmospheric/index";
 import { createSoilComponentOverrides } from "../IrrigationActualCalculate/irrigation_by_soil/index";
-import IrrigationSystemDesignService from "../../../services/irrigation_system_design_backend";
+import IrrigationSystemDesignService from "../../../../services/irrigation_system_design_backend";
 const irrigationSystemDesignService = new IrrigationSystemDesignService();
 
 function IrrigationCardActual(Atmospheric, SoilParams, Maximum) {
