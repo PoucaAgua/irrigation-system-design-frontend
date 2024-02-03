@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import ResultDiameter from "../../SizingLateralLineResultModal/ResultModalDiameter";
+import DiameterInput from "../../SizingLateralLineInputs/Diameter";
 
 function SizingDiameter({
   SizingDiameterComponentOverrides,
@@ -50,107 +51,24 @@ function SizingDiameter({
           <Modal.Title>Diameter</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div
-            className="input mb-3 d-flex flex-column"
-            style={{ marginLeft: "10%", marginRight: "10%" }}
-          >
-            <label className="left-label" htmlFor="input1">
-              Service pressure
-            </label>
-            <input
-              id="input1"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              value={servicePressure}
-              onChange={(e) => setServicePressure(e.target.value)}
-            />
-
-            <label className="left-label" htmlFor="input2">
-              Nominal flow rate
-            </label>
-            <input
-              id="input2"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              value={nominalFlow}
-              onChange={(e) => setNominalFlow(e.target.value)}
-            />
-
-            <label className="left-label" htmlFor="input2">
-              Max flow rate variation
-            </label>
-            <input
-              id="input2"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              value={maxFlow}
-              onChange={(e) => setMaxFlow(e.target.value)}
-            />
-
-            <label className="left-label" htmlFor="input2">
-              Internal diameter
-            </label>
-            <input
-              id="input2"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              value={internalDiameter}
-              onChange={(e) => setInternalDiameter(e.target.value)}
-            />
-
-            <label className="left-label" htmlFor="input2">
-              Emitter spacing
-            </label>
-            <input
-              id="input2"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              value={emitterSpacing}
-              onChange={(e) => setEmitterSpacing(e.target.value)}
-            />
-
-            <label className="left-label" htmlFor="input2">
-              Flow exponent
-            </label>
-            <input
-              id="input2"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              value={flowExponent}
-              onChange={(e) => setFlowExponent(e.target.value)}
-            />
-
-            <label className="left-label" htmlFor="input2">
-              Exponent pressure losse quation
-            </label>
-            <input
-              id="input2"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              value={exponentPressure}
-              onChange={(e) => setExponentPressure(e.target.value)}
-            />
-
-            <label className="left-label" htmlFor="input2">
-              Coefficient
-            </label>
-            <input
-              id="input2"
-              type="text"
-              placeholder=""
-              className="form-control mb-3"
-              value={coefficient}
-              onChange={(e) => setCoefficient(e.target.value)}
-            />
-          </div>
-
+          <DiameterInput
+            servicePressure={servicePressure}
+            setServicePressure={setServicePressure}
+            nominalFlow={nominalFlow}
+            setNominalFlow={setNominalFlow}
+            maxFlow={maxFlow}
+            setMaxFlow={setMaxFlow}
+            internalDiameter={internalDiameter}
+            setInternalDiameter={setInternalDiameter}
+            emitterSpacing={emitterSpacing}
+            setEmitterSpacing={setEmitterSpacing}
+            flowExponent={flowExponent}
+            setFlowExponent={setFlowExponent}
+            exponentPressure={exponentPressure}
+            setExponentPressure={setExponentPressure}
+            coefficient={coefficient}
+            setCoefficient={setCoefficient}
+          />
           {calculated && <ResultDiameter resultDiameter={resultDiameter} />}
         </Modal.Body>
         <Modal.Footer>

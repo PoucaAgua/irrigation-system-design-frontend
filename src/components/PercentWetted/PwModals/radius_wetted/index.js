@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import ResultPw from "../../PwResultModal/ResultModalRadius";
+import RadiusInput from "../../PwInputs/radius_wetted";
 
 function RadiusModalRender({
   showModalPwRadius,
   toggleModalRadius,
   q,
+  setQ,
   k0,
+  setK0,
   alpha,
+  setAlpha,
   resultPw,
   validationError,
   loadingCalculate,
@@ -42,45 +46,14 @@ function RadiusModalRender({
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <div
-            className="input mb-3 d-flex flex-column"
-            style={{ marginLeft: "10%", marginRight: "10%" }}
-          >
-            <label htmlFor="input1" className="left-label">
-              Q:
-            </label>
-            <input
-              id="input1"
-              type="text"
-              className="form-control mb-3"
-              placeholder="Q"
-              value={q}
-              onChange={(e) => RadiusComponentOverrides.Q.onChange(e)}
-            />
-            <label htmlFor="input2" className="left-label">
-              Hydraulic conductivity:
-            </label>
-            <input
-              id="input2"
-              type="text"
-              className="form-control mb-3"
-              placeholder="Ko (cm h-1)"
-              value={k0}
-              onChange={(e) => RadiusComponentOverrides.K0.onChange(e)}
-            />
-            <label htmlFor="input3" className="left-label">
-              Soil water conductivity parameter:
-            </label>
-            <input
-              id="input3"
-              type="text"
-              className="form-control mb-3"
-              placeholder="α"
-              value={alpha}
-              onChange={(e) => RadiusComponentOverrides.Alpha.onChange(e)}
-            />
-          </div>
-
+          <RadiusInput
+            q={q}
+            setQ={setQ}
+            k0={k0}
+            setK0={setK0}
+            alpha={alpha}
+            setAlpha={setAlpha}
+          />
           {calculated && <ResultPw resultPs={resultPw} />}
         </Modal.Body>
         <Modal.Footer>
