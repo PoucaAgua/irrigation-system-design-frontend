@@ -1,5 +1,5 @@
 import React from "react";
-import SelectorType from "../components/CropEvapotranspiration/CropEvapotranspirationSelector";
+import SelectorType from "../components/Evapotranspiration/CropEvapotranspiration/CropEvapotranspirationSelector";
 import TitleCropEvapotranspiration from "../components/Titles/Title_CropEvapotranspiration";
 
 function CropEvapotranspiration() {
