@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import ResultIrrigationTimeByLine from "../ResultModalLine";
+import ResultIrrigationTimeByLine from "../../TimeIrrigationResultModal/ResultModalLine";
 
 function Line({
   irrigationSystemDesignService,
@@ -112,7 +112,7 @@ function Line({
           <Button variant="danger" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={ handleCalculate}>
+          <Button variant="primary" onClick={handleCalculate}>
             Calculate
           </Button>
           <Button

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import ResultPw from "../ResultModalTree";
+import ResultPw from "../../PwResultModal/ResultModalTree";
 
 function TreeModal({
   showModalPwTree,

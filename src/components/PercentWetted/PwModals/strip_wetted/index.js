@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import ResultPw from "../ResultModalStrip";
+import ResultPw from "../../PwResultModal/ResultModalStrip";
 
 function PwStripModalRender({
   showModalPwStrip,

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import ResultMaximum from "../ResultModal/ResultModalActual";
+import ResultMaximum from "../../IrrigationActualResultModal/ResultModalActual";
 
 function Maximum({
   soilMoistureFieldCapacity,

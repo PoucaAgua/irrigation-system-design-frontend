@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import ResultSoilParams from "../ResultModal/ResultModalSoil";
+import ResultSoilParams from "../../IrrigationActualResultModal/ResultModalSoil";
 
 function Soil({
   resultSoilParams,

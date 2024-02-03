@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import ResultTotal from "../ResultModal";
+import ResultTotal from "../TotalIrrigationResultModal";
 
 function TotalIrrigation({
   TotalComponentOverrides,
