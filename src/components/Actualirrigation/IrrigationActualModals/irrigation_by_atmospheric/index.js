@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import ResultAtmospheric from "../../IrrigationActualResultModal/ResultModalAtmospheric";
 import AtmosphericInput from "../../IrrigationActualInputs/irrigation_by_atmospheric";
 
+
 function Atmospheric({
   AtmosphericComponentOverrides,
   resultAtmospheric,
