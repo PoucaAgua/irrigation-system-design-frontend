@@ -17,9 +17,8 @@ function IrrigationTimeCard(IrrigationByLine, IrrigationByPlant) {
   const [spacingBetweenSideLines, setSpacingBetweenSideLines] = useState("");
   const [emitterFlow, setEmitterFlow] = useState("");
   const [spacingBetweenPlants, setSpacingBetweenPlants] = useState("");
-  const [numberOfEmittersPerPlant, setNumberOfEmittersPerPlant] =
-    useState(null);
-  const [spacingBetweenEmitters, setSpacingbetweenEmitters] = useState(null);
+  const [numberOfEmittersPerPlant, setNumberOfEmittersPerPlant] = useState("");
+  const [spacingBetweenEmitters, setSpacingbetweenEmitters] = useState("");
 
   const IrrigationTimeByLineComponentOverrides =
     createIrrigationTimeByLineComponentOverrides({

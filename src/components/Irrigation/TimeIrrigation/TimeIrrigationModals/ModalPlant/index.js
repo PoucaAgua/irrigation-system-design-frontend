@@ -34,6 +34,60 @@ function Plant({
   const handleCalculate = () => {
     IrrigationTimeByPlantComponentOverrides.CalculateButtonByPlant.onClick();
     setCalculated(true);
+
+    if (totalIrrigation === "") {
+      setTotalIrrigationError(true);
+    }
+
+    if (spacingBetweenSideLines === "") {
+      setSpacingBetweenSideLinesError(true);
+    }
+
+    if (spacingBetweenPlants === "") {
+      setSpacingBetweenPlantsError(true);
+    }
+
+    if (numberOfEmittersPerPlant === "") {
+      setNumberOfEmittersPerPlantError(true);
+    }
+
+    if (emitterFlow === "") {
+      setEmitterFlowError(true);
+    }
+  };
+
+  const [numberOfEmittersPerPlantError, setNumberOfEmittersPerPlantError] =
+    useState(false);
+  const [spacingBetweenSideLinesError, setSpacingBetweenSideLinesError] =
+    useState(false);
+  const [spacingBetweenPlantsError, setSpacingBetweenPlantsError] =
+    useState(false);
+  const [totalIrrigationError, setTotalIrrigationError] = useState(false);
+  const [emitterFlowError, setEmitterFlowError] = useState(false);
+
+  const handleTotalIrrigationChange = (e) => {
+    setTotalIrrigation(e.target.value);
+    setTotalIrrigationError(false);
+  };
+
+  const handleSpacingBetweenSideLinesChange = (e) => {
+    setSpacingBetweenSideLines(e.target.value);
+    setSpacingBetweenSideLinesError(false);
+  };
+
+  const handleSpacingBetweenPlantsChange = (e) => {
+    setSpacingBetweenPlants(e.target.value);
+    setSpacingBetweenPlantsError(false);
+  };
+
+  const handleEmitterFlowChange = (e) => {
+    setEmitterFlow(e.target.value);
+    setEmitterFlowError(false);
+  };
+
+  const handleNumberOfEmittersPerPlantChange = (e) => {
+    setNumberOfEmittersPerPlant(e.target.value);
+    setNumberOfEmittersPerPlantError(false);
   };
 
   return (
@@ -62,6 +116,20 @@ function Plant({
             setNumberOfEmittersPerPlant={setNumberOfEmittersPerPlant}
             emitterFlow={emitterFlow}
             setEmitterFlow={setEmitterFlow}
+            numberOfEmittersPerPlantError={numberOfEmittersPerPlantError}
+            spacingBetweenSideLinesError={spacingBetweenSideLinesError}
+            spacingBetweenPlantsError={spacingBetweenPlantsError}
+            totalIrrigationError={totalIrrigationError}
+            emitterFlowError={emitterFlowError}
+            handleTotalIrrigationChange={handleTotalIrrigationChange}
+            handleSpacingBetweenSideLinesChange={
+              handleSpacingBetweenSideLinesChange
+            }
+            handleSpacingBetweenPlantsChange={handleSpacingBetweenPlantsChange}
+            handleEmitterFlowChange={handleEmitterFlowChange}
+            handleNumberOfEmittersPerPlantChange={
+              handleNumberOfEmittersPerPlantChange
+            }
           />
           {calculated && (
             <ResultIrrigationTimeByPlant
