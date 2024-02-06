@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import ResultCard from "../../CropEvapotranspirationCardResult";
 
-function Bernardo({
-  irrigationSystemDesignService,
-  loadingCalculate,
-  setLoadingCalculate,
+function CropEvapotranspirationInputs({
   eto,
   setEto,
   kc,
@@ -14,18 +10,12 @@ function Bernardo({
   p,
   setP,
   resultCropEvapotranspiration,
-  setResultCropEvapotranspiration,
-  KellerComponentOverrides,
+  BernardoComponentOverrides,
 }) {
-  const [calculated, setCalculated] = useState(false);
-  const handleCalculate = () => {
-    KellerComponentOverrides.CalculateButtonKeller.onClick();
-    setCalculated(true);
-  };
   return (
     <>
       <p className="text-center fs-3" style={{ marginTop: 50 }}>
-        Keller
+        Bernardo
       </p>
       <div className="form-group">
         <label htmlFor="input1" className="left-label">
@@ -79,23 +69,8 @@ function Bernardo({
           onChange={(e) => setP(e.target.value)}
         />
       </div>
-
-      <div class="d-grid gap-2 col-6 mx-auto">
-        <button
-          class="btn btn-secondary"
-          type="button"
-          onClick={handleCalculate}
-        >
-          Calculate
-        </button>
-      </div>
       <br />
-      {calculated && (
-        <ResultCard
-          resultCropEvapotranspiration={resultCropEvapotranspiration}
-        />
-      )}
     </>
   );
 }
-export default Bernardo;
+export default CropEvapotranspirationInputs;
