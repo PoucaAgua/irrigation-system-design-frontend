@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 function CropEvapotranspirationInputs({
   eto,
@@ -9,14 +9,17 @@ function CropEvapotranspirationInputs({
   setKl,
   p,
   setP,
-  resultCropEvapotranspiration,
-  BernardoComponentOverrides,
+  etoError,
+  kcError,
+  klError,
+  pError,
+  handleEtoChange,
+  handleKcChange,
+  handleKlChange,
+  handlePChange,
 }) {
   return (
     <>
-      <p className="text-center fs-3" style={{ marginTop: 50 }}>
-        Bernardo
-      </p>
       <div className="form-group">
         <label htmlFor="input1" className="left-label">
           Eto :
@@ -24,10 +27,10 @@ function CropEvapotranspirationInputs({
         <input
           id="input1"
           type="text"
-          className="form-control mb-3 custom-input"
+          className={`form-control mb-3 ${etoError ? "is-invalid" : ""}`}
           placeholder=""
           value={eto}
-          onChange={(e) => setEto(e.target.value)}
+          onChange={handleEtoChange}
         />
       </div>
       <div className="form-group">
@@ -37,10 +40,10 @@ function CropEvapotranspirationInputs({
         <input
           id="input1"
           type="text"
-          className="form-control mb-3 custom-input"
+          className={`form-control mb-3 ${kcError ? "is-invalid" : ""}`}
           placeholder=""
           value={kc}
-          onChange={(e) => setKc(e.target.value)}
+          onChange={handleKcChange}
         />
       </div>
       <div className="form-group">
@@ -50,10 +53,10 @@ function CropEvapotranspirationInputs({
         <input
           id="input1"
           type="text"
-          className="form-control mb-3 custom-input"
+          className={`form-control mb-3 ${klError ? "is-invalid" : ""}`}
           placeholder=""
           value={kl}
-          onChange={(e) => setKl(e.target.value)}
+          onChange={handleKlChange}
         />
       </div>
       <div className="form-group">
@@ -63,10 +66,10 @@ function CropEvapotranspirationInputs({
         <input
           id="input1"
           type="text"
-          className="form-control mb-3 custom-input"
+          className={`form-control mb-3 ${pError ? "is-invalid" : ""}`}
           placeholder=""
           value={p}
-          onChange={(e) => setP(e.target.value)}
+          onChange={handlePChange}
         />
       </div>
       <br />

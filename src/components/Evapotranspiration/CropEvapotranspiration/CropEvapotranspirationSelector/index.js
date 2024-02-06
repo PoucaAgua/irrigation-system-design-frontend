@@ -20,10 +20,10 @@ function SelectCropEvapotranspiration(
   const [resultCropEvapotranspiration, setResultCropEvapotranspiration] =
     useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
-  const [eto, setEto] = useState(null);
-  const [kc, setKc] = useState(null);
-  const [kl, setKl] = useState(null);
-  const [p, setP] = useState(null);
+  const [eto, setEto] = useState("");
+  const [kc, setKc] = useState("");
+  const [kl, setKl] = useState("");
+  const [p, setP] = useState("");
 
   const KellerComponentOverrides = createKellerComponentOverrides({
     irrigationSystemDesignService,
