@@ -4,13 +4,23 @@ function TotalInput({
   actualIrrigation,
   setActualIrrigation,
   electricalConductivityIrrigation,
+  handleElectricalConductivityIrrigationChange,
   setElectricalConductivityIrrigation,
   electricalConductivitySaturation,
+  handleElectricalConductivitySaturationChange,
   setElectricalConductivitySaturation,
   leachingFraction,
+  handleLeachingFractionChange,
   setLeachingFraction,
   efficiency,
+  handleEfficiencyChange,
   setEfficiency,
+  actualIrrigationError,
+  handleActualIrrigationChange,
+  electricalConductivityIrrigationError,
+  electricalConductivitySaturationError,
+  leachingFractionError,
+  efficiencyError,
 }) {
   return (
     <div
@@ -24,9 +34,11 @@ function TotalInput({
         id="input1"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          actualIrrigationError ? "is-invalid" : ""
+        }`}
         value={actualIrrigation}
-        onChange={(e) => setActualIrrigation(e.target.value)}
+        onChange={handleActualIrrigationChange}
       />
 
       <label className="left-label" htmlFor="input2">
@@ -36,9 +48,11 @@ function TotalInput({
         id="input2"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          electricalConductivityIrrigationError ? "is-invalid" : ""
+        }`}
         value={electricalConductivityIrrigation}
-        onChange={(e) => setElectricalConductivityIrrigation(e.target.value)}
+        onChange={handleElectricalConductivityIrrigationChange}
       />
 
       <label className="left-label" htmlFor="input3">
@@ -48,9 +62,11 @@ function TotalInput({
         id="input3"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          electricalConductivitySaturationError ? "is-invalid" : ""
+        }`}
         value={electricalConductivitySaturation}
-        onChange={(e) => setElectricalConductivitySaturation(e.target.value)}
+        onChange={handleElectricalConductivitySaturationChange}
       />
 
       <label className="left-label" htmlFor="input4">
@@ -60,9 +76,11 @@ function TotalInput({
         id="input4"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          leachingFractionError ? "is-invalid" : ""
+        }`}
         value={leachingFraction}
-        onChange={(e) => setLeachingFraction(e.target.value)}
+        onChange={handleLeachingFractionChange}
       />
 
       <label className="left-label" htmlFor="input5">
@@ -72,9 +90,9 @@ function TotalInput({
         id="input5"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${efficiencyError ? "is-invalid" : ""}`}
         value={efficiency}
-        onChange={(e) => setEfficiency(e.target.value)}
+        onChange={handleEfficiencyChange}
       />
     </div>
   );
