@@ -24,6 +24,38 @@ function Atmospheric({
   const handleCalculate = () => {
     AtmosphericComponentOverrides.CalculateButtonAtmospheric.onClick();
     setCalculated(true);
+
+    if (kc === "") {
+      setKcError(true);
+    }
+
+    if (actualevapotranspiration === "") {
+      setActualevapotranspirationError(true);
+    }
+
+    if (percentwettedarea === "") {
+      setPercentwettedareaError(true);
+    }
+  };
+
+  const [kcError, setKcError] = useState(false);
+  const [percentwettedareaError, setPercentwettedareaError] = useState(false);
+  const [actualevapotranspirationError, setActualevapotranspirationError] =
+    useState(false);
+
+  const handleActualevapotranspirationChange = (e) => {
+    setActualevapotranspiration(e.target.value);
+    setActualevapotranspirationError(false);
+  };
+
+  const handlePercentwettedareaChange = (e) => {
+    setPercentwettedarea(e.target.value);
+    setPercentwettedareaError(false);
+  };
+
+  const handleKcChange = (e) => {
+    setKc(e.target.value);
+    setKcError(false);
   };
 
   return (
@@ -48,6 +80,14 @@ function Atmospheric({
             setPercentwettedarea={setPercentwettedarea}
             actualevapotranspiration={actualevapotranspiration}
             setActualevapotranspiration={setActualevapotranspiration}
+            kcError={kcError}
+            percentwettedareaError={percentwettedareaError}
+            actualevapotranspirationError={actualevapotranspirationError}
+            handleActualevapotranspirationChange={
+              handleActualevapotranspirationChange
+            }
+            handlePercentwettedareaChange={handlePercentwettedareaChange}
+            handleKcChange={handleKcChange}
           />
           {calculated && (
             <ResultAtmospheric resultAtmospheric={resultAtmospheric} />

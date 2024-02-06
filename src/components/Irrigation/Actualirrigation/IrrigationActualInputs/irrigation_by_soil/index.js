@@ -11,6 +11,16 @@ function SoilInput({
   setSoilDepth,
   effectivePrecipitation,
   setEffectivePrecipitation,
+  soilMoistureFieldCapacityError,
+  soilMoistureAtPermanentWiltingPointError,
+  depletionFactorError,
+  soilDepthError,
+  effectivePrecipitationError,
+  handleSoilMoistureFieldCapacityChange,
+  handleSoilMoistureAtPermanentWiltingChange,
+  handleDepletionFactorChange,
+  handleSoilDepthChange,
+  handleEffectivePrecipitationChange,
 }) {
   return (
     <div
@@ -24,9 +34,11 @@ function SoilInput({
         id="input1"
         type="text"
         placeholder="Field capacity in cm³/cm³"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          soilMoistureFieldCapacityError ? "is-invalid" : ""
+        }`}
         value={soilMoistureFieldCapacity}
-        onChange={(e) => setSoilMoistureFieldCapacity(e.target.value)}
+        onChange={handleSoilMoistureFieldCapacityChange}
       />
 
       <label className="left-label" htmlFor="input2">
@@ -36,9 +48,11 @@ function SoilInput({
         id="input2"
         type="text"
         placeholder="Permanent wilting point in cm³/cm³"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          soilMoistureAtPermanentWiltingPointError ? "is-invalid" : ""
+        }`}
         value={soilMoistureAtPermanentWiltingPoint}
-        onChange={(e) => setSoilMoistureAtPermanentWiltingPoint(e.target.value)}
+        onChange={handleSoilMoistureAtPermanentWiltingChange}
       />
 
       <label className="left-label" htmlFor="input3">
@@ -48,9 +62,11 @@ function SoilInput({
         id="input3"
         type="text"
         placeholder="0.3 to 0.7. It is always less than 1."
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          depletionFactorError ? "is-invalid" : ""
+        }`}
         value={depletionFactor}
-        onChange={(e) => setDepletionFactor(e.target.value)}
+        onChange={handleDepletionFactorChange}
       />
 
       <label className="left-label" htmlFor="input4">
@@ -60,9 +76,9 @@ function SoilInput({
         id="input4"
         type="text"
         placeholder="Soil depth in cm"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${soilDepthError ? "is-invalid" : ""}`}
         value={soilDepth}
-        onChange={(e) => setSoilDepth(e.target.value)}
+        onChange={handleSoilDepthChange}
       />
 
       <label className="left-label" htmlFor="input5">
@@ -72,9 +88,11 @@ function SoilInput({
         id="input5"
         type="text"
         placeholder="Effective precipitation in mm"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          effectivePrecipitationError ? "is-invalid" : ""
+        }`}
         value={effectivePrecipitation}
-        onChange={(e) => setEffectivePrecipitation(e.target.value)}
+        onChange={handleEffectivePrecipitationChange}
       />
     </div>
   );

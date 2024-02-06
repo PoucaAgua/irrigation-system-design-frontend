@@ -13,6 +13,18 @@ function MaximunInput({
   setEffectivePrecipitation,
   fractionOfTotalWettedArea,
   setFractionOfTotalWettedArea,
+  soilMoistureFieldCapacityError,
+  soilMoistureAtPermanentWiltingPointError,
+  depletionFactorError,
+  soilDepthError,
+  effectivePrecipitationError,
+  fractionOfTotalWettedAreaError,
+  handleFractionOfTotalWettedChange,
+  handleSoilMoistureFieldCapacityChange,
+  handleSoilMoistureAtPermanentWiltingChange,
+  handleDepletionFactorChange,
+  handleSoilDepthChange,
+  handleEffectivePrecipitationChange,
 }) {
   return (
     <div
@@ -26,9 +38,11 @@ function MaximunInput({
         id="input1"
         type="text"
         placeholder="Field capacity in cm³/cm³"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          soilMoistureFieldCapacityError ? "is-invalid" : ""
+        }`}
         value={soilMoistureFieldCapacity}
-        onChange={(e) => setSoilMoistureFieldCapacity(e.target.value)}
+        onChange={handleSoilMoistureFieldCapacityChange}
       />
 
       <label className="left-label" htmlFor="input2">
@@ -38,9 +52,11 @@ function MaximunInput({
         id="input2"
         type="text"
         placeholder="Permanent wilting point in cm³/cm³"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          soilMoistureAtPermanentWiltingPointError ? "is-invalid" : ""
+        }`}
         value={soilMoistureAtPermanentWiltingPoint}
-        onChange={(e) => setSoilMoistureAtPermanentWiltingPoint(e.target.value)}
+        onChange={handleSoilMoistureAtPermanentWiltingChange}
       />
 
       <label className="left-label" htmlFor="input3">
@@ -50,9 +66,11 @@ function MaximunInput({
         id="input3"
         type="text"
         placeholder="0.3 to 0.7. It is always less than 1."
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          depletionFactorError ? "is-invalid" : ""
+        }`}
         value={depletionFactor}
-        onChange={(e) => setDepletionFactor(e.target.value)}
+        onChange={handleDepletionFactorChange}
       />
 
       <label className="left-label" htmlFor="input4">
@@ -62,9 +80,9 @@ function MaximunInput({
         id="input4"
         type="text"
         placeholder="Soil depth in cm"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${soilDepthError ? "is-invalid" : ""}`}
         value={soilDepth}
-        onChange={(e) => setSoilDepth(e.target.value)}
+        onChange={handleSoilDepthChange}
       />
 
       <label className="left-label" htmlFor="input5">
@@ -74,9 +92,11 @@ function MaximunInput({
         id="input5"
         type="text"
         placeholder="Effective precipitation in mm"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          effectivePrecipitationError ? "is-invalid" : ""
+        }`}
         value={effectivePrecipitation}
-        onChange={(e) => setEffectivePrecipitation(e.target.value)}
+        onChange={handleEffectivePrecipitationChange}
       />
 
       <label className="left-label" htmlFor="input6">
@@ -86,9 +106,11 @@ function MaximunInput({
         id="input6"
         type="text"
         placeholder="fraction of total wetted area, dimensionless"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          fractionOfTotalWettedAreaError ? "is-invalid" : ""
+        }`}
         value={fractionOfTotalWettedArea}
-        onChange={(e) => setFractionOfTotalWettedArea(e.target.value)}
+        onChange={handleFractionOfTotalWettedChange}
       />
     </div>
   );

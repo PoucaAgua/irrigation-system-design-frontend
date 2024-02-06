@@ -7,6 +7,12 @@ function AtmosphericInput({
   setPercentwettedarea,
   actualevapotranspiration,
   setActualevapotranspiration,
+  kcError,
+  percentwettedareaError,
+  actualevapotranspirationError,
+  handleActualevapotranspirationChange,
+  handlePercentwettedareaChange,
+  handleKcChange,
 }) {
   return (
     <div
@@ -20,9 +26,9 @@ function AtmosphericInput({
         id="input1"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${kcError ? "is-invalid" : ""}`}
         value={kc}
-        onChange={(e) => setKc(e.target.value)}
+        onChange={handleKcChange}
       />
 
       <label className="left-label" htmlFor="input2">
@@ -32,9 +38,11 @@ function AtmosphericInput({
         id="input2"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          percentwettedareaError ? "is-invalid" : ""
+        }`}
         value={percentwettedarea}
-        onChange={(e) => setPercentwettedarea(e.target.value)}
+        onChange={handlePercentwettedareaChange}
       />
 
       <label className="left-label" htmlFor="input3">
@@ -44,9 +52,11 @@ function AtmosphericInput({
         id="input3"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          actualevapotranspirationError ? "is-invalid" : ""
+        }`}
         value={actualevapotranspiration}
-        onChange={(e) => setActualevapotranspiration(e.target.value)}
+        onChange={handleActualevapotranspirationChange}
       />
     </div>
   );
