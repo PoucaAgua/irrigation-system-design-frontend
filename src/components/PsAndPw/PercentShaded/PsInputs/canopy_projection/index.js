@@ -1,6 +1,19 @@
 import React from "react";
 
-function CanopyInput({ dco, setDco, sp, setSp, sr, setSr }) {
+function CanopyInput({
+  dco,
+  setDco,
+  sp,
+  setSp,
+  sr,
+  setSr,
+  dcoError,
+  spError,
+  srError,
+  handleSpChange,
+  handleSrChange,
+  handleDcoChange,
+}) {
   return (
     <div
       className="input mb-3 d-flex flex-column"
@@ -12,10 +25,10 @@ function CanopyInput({ dco, setDco, sp, setSp, sr, setSr }) {
       <input
         id="input1"
         type="text"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${dcoError ? "is-invalid" : ""}`}
         placeholder="Dco (m)"
         value={dco}
-        onChange={(e) => setDco(e.target.value)}
+        onChange={handleDcoChange}
       />
 
       <label htmlFor="input2" className="left-label">
@@ -24,10 +37,10 @@ function CanopyInput({ dco, setDco, sp, setSp, sr, setSr }) {
       <input
         id="input2"
         type="text"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${spError ? "is-invalid" : ""}`}
         placeholder="Sp (m)"
         value={sp}
-        onChange={(e) => setSp(e.target.value)}
+        onChange={handleSpChange}
       />
 
       <label htmlFor="input3" className="left-label">
@@ -36,10 +49,10 @@ function CanopyInput({ dco, setDco, sp, setSp, sr, setSr }) {
       <input
         id="input3"
         type="text"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${srError ? "is-invalid" : ""}`}
         placeholder="Sr (m)"
         value={sr}
-        onChange={(e) => setSr(e.target.value)}
+        onChange={handleSrChange}
       />
     </div>
   );

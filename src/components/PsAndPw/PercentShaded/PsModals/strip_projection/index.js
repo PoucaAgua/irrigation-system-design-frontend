@@ -18,7 +18,28 @@ function StripModalRender({
   const handleCalculate = () => {
     StripComponentOverrides.CalculateButtonPsStrip.onClick();
     setCalculated(true);
+
+    if (ss === "") {
+      setSsError(true);
+    }
+
+    if (sr === "") {
+      setSrError(true);
+    }
   };
+  const [ssError, setSsError] = useState(false);
+  const [srError, setSrError] = useState(false);
+
+  const handleSsChange = (e) => {
+    setSs(e.target.value);
+    setSsError(false);
+  };
+
+  const handleSrChange = (e) => {
+    setSr(e.target.value);
+    setSrError(false);
+  };
+
   return (
     <>
       <div className="form-check" style={{ marginLeft: 16 }}>
@@ -41,7 +62,16 @@ function StripModalRender({
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <StripInput sr={sr} setSr={setSr} ss={ss} setSs={setSs} />
+          <StripInput
+            sr={sr}
+            setSr={setSr}
+            ss={ss}
+            setSs={setSs}
+            ssError={ssError}
+            srError={srError}
+            handleSsChange={handleSsChange}
+            handleSrChange={handleSrChange}
+          />
           {calculated && <ResultPs resultPs={resultPs} />}
         </Modal.Body>
         <Modal.Footer>

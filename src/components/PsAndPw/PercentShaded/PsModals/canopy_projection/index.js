@@ -20,7 +20,38 @@ function CanopyModalRender({
   const handleCalculate = () => {
     CanopyComponentOverrides.CalculateButtonCanopy.onClick();
     setCalculated(true);
+
+    if (sp === "") {
+      setSpError(true);
+    }
+
+    if (sr === "") {
+      setSrError(true);
+    }
+
+    if (dco === "") {
+      setDcoError(true);
+    }
   };
+  const [spError, setSpError] = useState(false);
+  const [srError, setSrError] = useState(false);
+  const [dcoError, setDcoError] = useState(false);
+
+  const handleSpChange = (e) => {
+    setSp(e.target.value);
+    setSpError(false);
+  };
+
+  const handleSrChange = (e) => {
+    setSr(e.target.value);
+    setSrError(false);
+  };
+
+  const handleDcoChange = (e) => {
+    setDco(e.target.value);
+    setDcoError(false);
+  };
+
   return (
     <>
       <div className="form-check" style={{ marginLeft: 16 }}>
@@ -50,6 +81,12 @@ function CanopyModalRender({
             setSp={setSp}
             sr={sr}
             setSr={setSr}
+            dcoError={dcoError}
+            spError={spError}
+            srError={srError}
+            handleSrChange={handleSrChange}
+            handleSpChange={handleSpChange}
+            handleDcoChange={handleDcoChange}
           />
           {calculated && <ResultPs resultPs={resultPs} />}
         </Modal.Body>
