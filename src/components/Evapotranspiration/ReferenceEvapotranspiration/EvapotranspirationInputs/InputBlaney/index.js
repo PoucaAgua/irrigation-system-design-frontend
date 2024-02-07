@@ -44,11 +44,21 @@ function Blaney({
     if (latitude === "") {
       setLatitudeError(true);
     }
+
+    if (month === "") {
+      setMonthError(true);
+    }
+
+    if (hemisphere === "") {
+      setHemisphereError(true);
+    }
   };
   const [temperatureMedError, setTemperatureMedError] = useState(false);
   const [temperatureMaxError, setTemperatureMaxError] = useState(false);
   const [temperatureMinError, setTemperatureMinError] = useState(false);
+  const [hemisphereError, setHemisphereError] = useState(false);
   const [latitudeError, setLatitudeError] = useState(false);
+  const [monthError, setMonthError] = useState(false);
 
   const handleTemperatureMaxChange = (e) => {
     setTemperatureMax(e.target.value);
@@ -70,15 +80,32 @@ function Blaney({
     setLatitudeError(false);
   };
 
+  const handleMonthChange = (e) => {
+    setMonth(e.target.value);
+    setMonthError(false);
+  };
+
+  const handleHemisphereChange = (e) => {
+    setHemisphere(e.target.value);
+    setHemisphereError(false);
+  };
+
   return (
     <>
       <p className="text-center fs-3" style={{ marginTop: 50 }}>
         Blaney Criddle
       </p>
-      <SelectorMonth month={month} setMonth={setMonth} />
+      <SelectorMonth
+        month={month}
+        setMonth={setMonth}
+        monthError={monthError}
+        handleMonthChange={handleMonthChange}
+      />
       <SelectorHemisphere
         hemisphere={hemisphere}
         setHemisphere={setHemisphere}
+        hemisphereError={hemisphereError}
+        handleHemisphereChange={handleHemisphereChange}
       />
       <div className="form-group">
         <label htmlFor="input1" className="left-label">

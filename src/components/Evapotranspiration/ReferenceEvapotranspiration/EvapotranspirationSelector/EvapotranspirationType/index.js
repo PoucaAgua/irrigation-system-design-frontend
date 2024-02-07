@@ -13,8 +13,8 @@ function SelectEvapotranspiration() {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
   const [resultEvapotranspiration, setResultEvapotranspiration] =
     useState(null);
-  const [month, setMonth] = useState(null);
-  const [hemisphere, setHemisphere] = useState(null);
+  const [month, setMonth] = useState("");
+  const [hemisphere, setHemisphere] = useState("");
   const [temperatureMin, setTemperatureMin] = useState("");
   const [temperatureMax, setTemperatureMax] = useState("");
   const [temperatureMed, setTemperatureMed] = useState("");

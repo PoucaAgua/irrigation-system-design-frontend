@@ -41,11 +41,16 @@ function Hargraves({
     if (latitude === "") {
       setLatitudeError(true);
     }
+
+    if (month === "") {
+      setMonthError(true);
+    }
   };
   const [temperatureMedError, setTemperatureMedError] = useState(false);
   const [temperatureMaxError, setTemperatureMaxError] = useState(false);
   const [temperatureMinError, setTemperatureMinError] = useState(false);
   const [latitudeError, setLatitudeError] = useState(false);
+  const [monthError, setMonthError] = useState(false);
 
   const handleTemperatureMaxChange = (e) => {
     setTemperatureMax(e.target.value);
@@ -67,12 +72,22 @@ function Hargraves({
     setLatitudeError(false);
   };
 
+  const handleMonthChange = (e) => {
+    setMonth(e.target.value);
+    setMonthError(false);
+  };
+
   return (
     <>
       <p className="text-center fs-3" style={{ marginTop: 50 }}>
         Hargraves Samani
       </p>
-      <SelectorMonth month={month} setMonth={setMonth} />
+      <SelectorMonth
+        month={month}
+        setMonth={setMonth}
+        monthError={monthError}
+        handleMonthChange={handleMonthChange}
+      />
       <div className="form-group">
         <label htmlFor="input1" className="left-label">
           Temperature max:
