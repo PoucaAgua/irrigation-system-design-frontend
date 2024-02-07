@@ -181,6 +181,7 @@ function SelectEvapotranspiration() {
         className="form-select d-flex flex-column align-items-center mb-3"
         aria-label="Default select example"
         onChange={handleSelectChange}
+        style={{ width: "50vh" }}
       >
         <option value="" selected>
           Select an option
