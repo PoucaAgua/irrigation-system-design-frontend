@@ -15,16 +15,16 @@ function SelectEvapotranspiration() {
     useState(null);
   const [month, setMonth] = useState(null);
   const [hemisphere, setHemisphere] = useState(null);
-  const [temperatureMin, setTemperatureMin] = useState(null);
-  const [temperatureMax, setTemperatureMax] = useState(null);
-  const [temperatureMed, setTemperatureMed] = useState(null);
-  const [latitude, setLatitude] = useState(null);
-  const [relativeHumidity, setRelativeHumidity] = useState(null);
-  const [days, setDays] = useState(null);
-  const [altitude, setAltitude] = useState(null);
-  const [windSpeed, setWindSpeed] = useState(null);
-  const [groundHeat, setGroundHeat] = useState(null);
-  const [dailyRadiation, setDailyRadiation] = useState(null);
+  const [temperatureMin, setTemperatureMin] = useState("");
+  const [temperatureMax, setTemperatureMax] = useState("");
+  const [temperatureMed, setTemperatureMed] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const [relativeHumidity, setRelativeHumidity] = useState("");
+  const [days, setDays] = useState("");
+  const [altitude, setAltitude] = useState("");
+  const [windSpeed, setWindSpeed] = useState("");
+  const [groundHeat, setGroundHeat] = useState("");
+  const [dailyRadiation, setDailyRadiation] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
 
   const BlaneyComponentOverrides = createBlaneyComponentOverrides({

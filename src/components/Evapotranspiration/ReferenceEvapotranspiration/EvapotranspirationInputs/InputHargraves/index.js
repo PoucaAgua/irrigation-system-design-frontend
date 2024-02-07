@@ -25,7 +25,48 @@ function Hargraves({
   const handleCalculate = () => {
     HargravesComponentOverrides.CalculateButtonHargraves.onClick();
     setCalculated(true);
+
+    if (temperatureMax === "") {
+      setTemperatureMaxError(true);
+    }
+
+    if (temperatureMed === "") {
+      setTemperatureMedError(true);
+    }
+
+    if (temperatureMin === "") {
+      setTemperatureMinError(true);
+    }
+
+    if (latitude === "") {
+      setLatitudeError(true);
+    }
   };
+  const [temperatureMedError, setTemperatureMedError] = useState(false);
+  const [temperatureMaxError, setTemperatureMaxError] = useState(false);
+  const [temperatureMinError, setTemperatureMinError] = useState(false);
+  const [latitudeError, setLatitudeError] = useState(false);
+
+  const handleTemperatureMaxChange = (e) => {
+    setTemperatureMax(e.target.value);
+    setTemperatureMaxError(false);
+  };
+
+  const handleTemperatureMedChange = (e) => {
+    setTemperatureMed(e.target.value);
+    setTemperatureMedError(false);
+  };
+
+  const handleTemperatureMinChange = (e) => {
+    setTemperatureMin(e.target.value);
+    setTemperatureMinError(false);
+  };
+
+  const handleLatitudeChange = (e) => {
+    setLatitude(e.target.value);
+    setLatitudeError(false);
+  };
+
   return (
     <>
       <p className="text-center fs-3" style={{ marginTop: 50 }}>
@@ -34,28 +75,32 @@ function Hargraves({
       <SelectorMonth month={month} setMonth={setMonth} />
       <div className="form-group">
         <label htmlFor="input1" className="left-label">
-          Temperature med:
-        </label>
-        <input
-          id="input1"
-          type="text"
-          className="form-control mb-3 custom-input"
-          placeholder="(°C)"
-          value={temperatureMed}
-          onChange={(e) => setTemperatureMed(e.target.value)}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="input1" className="left-label">
           Temperature max:
         </label>
         <input
           id="input1"
           type="text"
-          className="form-control mb-3 custom-input"
+          className={`form-control mb-3 ${
+            temperatureMaxError ? "is-invalid" : ""
+          }`}
           placeholder="(°C)"
           value={temperatureMax}
-          onChange={(e) => setTemperatureMax(e.target.value)}
+          onChange={handleTemperatureMaxChange}
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="input1" className="left-label">
+          Temperature med:
+        </label>
+        <input
+          id="input1"
+          type="text"
+          className={`form-control mb-3 ${
+            temperatureMedError ? "is-invalid" : ""
+          }`}
+          placeholder="(°C)"
+          value={temperatureMed}
+          onChange={handleTemperatureMedChange}
         />
       </div>
       <div className="form-group">
@@ -65,10 +110,12 @@ function Hargraves({
         <input
           id="input1"
           type="text"
-          className="form-control mb-3 custom-input"
+          className={`form-control mb-3 ${
+            temperatureMinError ? "is-invalid" : ""
+          }`}
           placeholder="(°C)"
           value={temperatureMin}
-          onChange={(e) => setTemperatureMin(e.target.value)}
+          onChange={handleTemperatureMinChange}
         />
       </div>
       <div className="form-group">
@@ -78,10 +125,10 @@ function Hargraves({
         <input
           id="input1"
           type="text"
-          className="form-control mb-3 custom-input"
+          className={`form-control mb-3 ${latitudeError ? "is-invalid" : ""}`}
           placeholder="(°)"
           value={latitude}
-          onChange={(e) => setLatitude(e.target.value)}
+          onChange={handleLatitudeChange}
         />
       </div>
 
