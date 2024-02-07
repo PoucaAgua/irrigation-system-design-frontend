@@ -1,6 +1,15 @@
 import React from "react";
 
-function DiameterInput({ demandFlow, setDemandFlow, speedMax, setSpeedMax }) {
+function DiameterInput({
+  demandFlow,
+  setDemandFlow,
+  speedMax,
+  setSpeedMax,
+  demandFlowError,
+  speedMaxError,
+  handleDemandFlowChange,
+  handleSpeedMaxChange,
+}) {
   return (
     <div
       className="input mb-3 d-flex flex-column"
@@ -13,9 +22,9 @@ function DiameterInput({ demandFlow, setDemandFlow, speedMax, setSpeedMax }) {
         id="input1"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${demandFlowError ? "is-invalid" : ""}`}
         value={demandFlow}
-        onChange={(e) => setDemandFlow(e.target.value)}
+        onChange={handleDemandFlowChange}
       />
 
       <label className="left-label" htmlFor="input2">
@@ -25,9 +34,9 @@ function DiameterInput({ demandFlow, setDemandFlow, speedMax, setSpeedMax }) {
         id="input2"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${speedMaxError ? "is-invalid" : ""}`}
         value={speedMax}
-        onChange={(e) => setSpeedMax(e.target.value)}
+        onChange={handleSpeedMaxChange}
       />
     </div>
   );

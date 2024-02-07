@@ -22,6 +22,26 @@ function SizingDiameter({
   const handleCalculate = () => {
     SizingDiameterComponentOverrides.CalculateDerivationDiameter.onClick();
     setCalculated(true);
+
+    if (demandFlow === "") {
+      setDemandFlowError(true);
+    }
+
+    if (speedMax === "") {
+      setSpeedMaxError(true);
+    }
+  };
+  const [demandFlowError, setDemandFlowError] = useState(false);
+  const [speedMaxError, setSpeedMaxError] = useState(false);
+
+  const handleDemandFlowChange = (e) => {
+    setDemandFlow(e.target.value);
+    setDemandFlowError(false);
+  };
+
+  const handleSpeedMaxChange = (e) => {
+    setSpeedMax(e.target.value);
+    setSpeedMaxError(false);
   };
 
   return (
@@ -44,6 +64,10 @@ function SizingDiameter({
             setDemandFlow={setDemandFlow}
             speedMax={speedMax}
             setSpeedMax={setSpeedMax}
+            demandFlowError={demandFlowError}
+            speedMaxError={speedMaxError}
+            handleDemandFlowChange={handleDemandFlowChange}
+            handleSpeedMaxChange={handleSpeedMaxChange}
           />
           {calculated && <ResultDiameter resultDiameter={resultDiameter} />}
         </Modal.Body>

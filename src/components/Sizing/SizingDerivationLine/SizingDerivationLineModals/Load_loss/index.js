@@ -26,6 +26,46 @@ function SizingLoad({
   const handleCalculate = () => {
     SizingLoadComponentOverrides.CalculateDerivationLoad.onClick();
     setCalculated(true);
+
+    if (diameterDerivation === "") {
+      setDiameterDerivationError(true);
+    }
+
+    if (lengthDerivation === "") {
+      setLengthDerivationError(true);
+    }
+
+    if (noutputs === "") {
+      setNoutputsError(true);
+    }
+
+    if (flow === "") {
+      setFlowError(true);
+    }
+  };
+  const [diameterDerivationError, setDiameterDerivationError] = useState(false);
+  const [lengthDerivationError, setLengthDerivationError] = useState(false);
+  const [noutputsError, setNoutputsError] = useState(false);
+  const [flowError, setFlowError] = useState(false);
+
+  const handleDiameterDerivationChange = (e) => {
+    setDiameterDerivation(e.target.value);
+    setDiameterDerivationError(false);
+  };
+
+  const handleLengthDerivationChange = (e) => {
+    setLengthDerivation(e.target.value);
+    setLengthDerivationError(false);
+  };
+
+  const handleNoutputsChange = (e) => {
+    setNoutputs(e.target.value);
+    setNoutputsError(false);
+  };
+
+  const handleFlowChange = (e) => {
+    setFlow(e.target.value);
+    setFlowError(false);
   };
 
   return (
@@ -52,6 +92,14 @@ function SizingLoad({
             setNoutputs={setNoutputs}
             diameterDerivation={diameterDerivation}
             setDiameterDerivation={setDiameterDerivation}
+            diameterDerivationError={diameterDerivationError}
+            lengthDerivationError={lengthDerivationError}
+            noutputsError={noutputsError}
+            flowError={flowError}
+            handleDiameterDerivationChange={handleDiameterDerivationChange}
+            handleLengthDerivationChange={handleLengthDerivationChange}
+            handleNoutputsChange={handleNoutputsChange}
+            handleFlowChange={handleFlowChange}
           />
           {calculated && <ResultLoad resultSizingLoad={resultSizingLoad} />}
         </Modal.Body>
