@@ -9,6 +9,14 @@ function HeadInput({
   setEmitterSpacing,
   nominalFlow,
   setNominalFlow,
+  nominalFlowError,
+  emitterSpacingError,
+  internalDiameterError,
+  lengthLateralError,
+  handleNominalFlowChange,
+  handleEmitterSpacingChange,
+  handleInternalDiameterChange,
+  handleLengthLateralChange,
 }) {
   return (
     <div
@@ -22,9 +30,11 @@ function HeadInput({
         id="input1"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          lengthLateralError ? "is-invalid" : ""
+        }`}
         value={lengthLateral}
-        onChange={(e) => setLengthLateral(e.target.value)}
+        onChange={handleLengthLateralChange}
       />
 
       <label className="left-label" htmlFor="input2">
@@ -34,9 +44,11 @@ function HeadInput({
         id="input2"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          internalDiameterError ? "is-invalid" : ""
+        }`}
         value={internalDiameter}
-        onChange={(e) => setInternalDiameter(e.target.value)}
+        onChange={handleInternalDiameterChange}
       />
 
       <label className="left-label" htmlFor="input3">
@@ -46,9 +58,11 @@ function HeadInput({
         id="input3"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          emitterSpacingError ? "is-invalid" : ""
+        }`}
         value={emitterSpacing}
-        onChange={(e) => setEmitterSpacing(e.target.value)}
+        onChange={handleEmitterSpacingChange}
       />
 
       <label className="left-label" htmlFor="input4">
@@ -58,9 +72,9 @@ function HeadInput({
         id="input4"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${nominalFlowError ? "is-invalid" : ""}`}
         value={nominalFlow}
-        onChange={(e) => setNominalFlow(e.target.value)}
+        onChange={handleNominalFlowChange}
       />
     </div>
   );

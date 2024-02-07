@@ -17,6 +17,22 @@ function DiameterInput({
   setExponentPressure,
   coefficient,
   setCoefficient,
+  coefficientError,
+  exponentPressureError,
+  flowExponentError,
+  emitterSpacingError,
+  internalDiameterError,
+  maxFlowError,
+  nominalFlowError,
+  servicePressureError,
+  handleCoefficientChange,
+  handleExponentPressureChange,
+  handleInternalDiameterChange,
+  handleFlowExponentChange,
+  handleEmitterSpacingChange,
+  handleMaxFlowChange,
+  handleNominalFlowChange,
+  handleServicePressureChange,
 }) {
   return (
     <div
@@ -30,9 +46,11 @@ function DiameterInput({
         id="input1"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          servicePressureError ? "is-invalid" : ""
+        }`}
         value={servicePressure}
-        onChange={(e) => setServicePressure(e.target.value)}
+        onChange={handleServicePressureChange}
       />
 
       <label className="left-label" htmlFor="input2">
@@ -42,9 +60,9 @@ function DiameterInput({
         id="input2"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${nominalFlowError ? "is-invalid" : ""}`}
         value={nominalFlow}
-        onChange={(e) => setNominalFlow(e.target.value)}
+        onChange={handleNominalFlowChange}
       />
 
       <label className="left-label" htmlFor="input3">
@@ -54,9 +72,9 @@ function DiameterInput({
         id="input3"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${maxFlowError ? "is-invalid" : ""}`}
         value={maxFlow}
-        onChange={(e) => setMaxFlow(e.target.value)}
+        onChange={handleMaxFlowChange}
       />
 
       <label className="left-label" htmlFor="input4">
@@ -66,9 +84,11 @@ function DiameterInput({
         id="input4"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          internalDiameterError ? "is-invalid" : ""
+        }`}
         value={internalDiameter}
-        onChange={(e) => setInternalDiameter(e.target.value)}
+        onChange={handleInternalDiameterChange}
       />
 
       <label className="left-label" htmlFor="input5">
@@ -78,9 +98,11 @@ function DiameterInput({
         id="input5"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          emitterSpacingError ? "is-invalid" : ""
+        }`}
         value={emitterSpacing}
-        onChange={(e) => setEmitterSpacing(e.target.value)}
+        onChange={handleEmitterSpacingChange}
       />
 
       <label className="left-label" htmlFor="input6">
@@ -90,9 +112,9 @@ function DiameterInput({
         id="input6"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${flowExponentError ? "is-invalid" : ""}`}
         value={flowExponent}
-        onChange={(e) => setFlowExponent(e.target.value)}
+        onChange={handleFlowExponentChange}
       />
 
       <label className="left-label" htmlFor="input7">
@@ -102,9 +124,11 @@ function DiameterInput({
         id="input7"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          exponentPressureError ? "is-invalid" : ""
+        }`}
         value={exponentPressure}
-        onChange={(e) => setExponentPressure(e.target.value)}
+        onChange={handleExponentPressureChange}
       />
 
       <label className="left-label" htmlFor="input8">
@@ -114,9 +138,9 @@ function DiameterInput({
         id="input8"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${coefficientError ? "is-invalid" : ""}`}
         value={coefficient}
-        onChange={(e) => setCoefficient(e.target.value)}
+        onChange={handleCoefficientChange}
       />
     </div>
   );

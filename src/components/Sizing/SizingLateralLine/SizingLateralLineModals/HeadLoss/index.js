@@ -26,6 +26,46 @@ function SizingHead({
   const handleCalculate = () => {
     SizingHeadComponentOverrides.CalculateLateralHead.onClick();
     setCalculated(true);
+
+    if (nominalFlow === "") {
+      setNominalFlowError(true);
+    }
+
+    if (emitterSpacing === "") {
+      setEmitterSpacingError(true);
+    }
+
+    if (internalDiameter === "") {
+      setInternalDiameterError(true);
+    }
+
+    if (lengthLateral === "") {
+      setLengthLateralError(true);
+    }
+  };
+  const [nominalFlowError, setNominalFlowError] = useState(false);
+  const [emitterSpacingError, setEmitterSpacingError] = useState(false);
+  const [internalDiameterError, setInternalDiameterError] = useState(false);
+  const [lengthLateralError, setLengthLateralError] = useState(false);
+
+  const handleNominalFlowChange = (e) => {
+    setNominalFlow(e.target.value);
+    setNominalFlowError(false);
+  };
+
+  const handleEmitterSpacingChange = (e) => {
+    setEmitterSpacing(e.target.value);
+    setEmitterSpacingError(false);
+  };
+
+  const handleInternalDiameterChange = (e) => {
+    setInternalDiameter(e.target.value);
+    setInternalDiameterError(false);
+  };
+
+  const handleLengthLateralChange = (e) => {
+    setLengthLateral(e.target.value);
+    setLengthLateralError(false);
   };
 
   return (
@@ -52,6 +92,14 @@ function SizingHead({
             setEmitterSpacing={setEmitterSpacing}
             nominalFlow={nominalFlow}
             setNominalFlow={setNominalFlow}
+            nominalFlowError={nominalFlowError}
+            emitterSpacingError={emitterSpacingError}
+            internalDiameterError={internalDiameterError}
+            lengthLateralError={lengthLateralError}
+            handleNominalFlowChange={handleNominalFlowChange}
+            handleEmitterSpacingChange={handleEmitterSpacingChange}
+            handleInternalDiameterChange={handleInternalDiameterChange}
+            handleLengthLateralChange={handleLengthLateralChange}
           />
           {calculated && (
             <ResultSizingHead resultSizingHead={resultSizingHead} />
