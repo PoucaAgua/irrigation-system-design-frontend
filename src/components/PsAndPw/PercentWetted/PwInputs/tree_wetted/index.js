@@ -13,6 +13,18 @@ function TreeInput({
   setQ,
   k0,
   setK0,
+  k0Error,
+  qError,
+  zError,
+  spError,
+  srError,
+  npError,
+  handleK0Change,
+  handleQChange,
+  handleZChange,
+  handleSrChange,
+  handleSpChange,
+  handleNpChange,
 }) {
   return (
     <div
@@ -25,10 +37,10 @@ function TreeInput({
       <input
         id="input1"
         type="text"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${npError ? "is-invalid" : ""}`}
         placeholder="Np"
         value={np}
-        onChange={(e) => setNp(e.target.value)}
+        onChange={handleNpChange}
       />
 
       <label htmlFor="input2" className="left-label">
@@ -37,10 +49,10 @@ function TreeInput({
       <input
         id="input2"
         type="text"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${spError ? "is-invalid" : ""}`}
         placeholder="Sp (m)"
         value={sp}
-        onChange={(e) => setSp(e.target.value)}
+        onChange={handleSpChange}
       />
 
       <label htmlFor="input3" className="left-label">
@@ -49,10 +61,10 @@ function TreeInput({
       <input
         id="input3"
         type="text"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${srError ? "is-invalid" : ""}`}
         placeholder="Sr (m)"
         value={sr}
-        onChange={(e) => setSr(e.target.value)}
+        onChange={handleSrChange}
       />
 
       <b
@@ -68,10 +80,10 @@ function TreeInput({
       <input
         id="input4"
         type="text"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${zError ? "is-invalid" : ""}`}
         placeholder="Z (cm)"
         value={z}
-        onChange={(e) => setZ(e.target.value)}
+        onChange={handleZChange}
       />
 
       <label htmlFor="input5" className="left-label">
@@ -80,10 +92,10 @@ function TreeInput({
       <input
         id="input5"
         type="text"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${qError ? "is-invalid" : ""}`}
         placeholder="Q"
         value={q}
-        onChange={(e) => setQ(e.target.value)}
+        onChange={handleQChange}
       />
 
       <label htmlFor="input6" className="left-label">
@@ -92,10 +104,10 @@ function TreeInput({
       <input
         id="input6"
         type="text"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${k0Error ? "is-invalid" : ""}`}
         placeholder="cm h-1 (k0)"
         value={k0}
-        onChange={(e) => setK0(e.target.value)}
+        onChange={handleK0Change}
       />
     </div>
   );
