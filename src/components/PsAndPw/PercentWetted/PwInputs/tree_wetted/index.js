@@ -37,7 +37,9 @@ function TreeInput({
       <input
         id="input1"
         type="text"
-        className={`form-control mb-3 ${npError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          npError ? "is-invalid" : np ? "is-valid" : ""
+        }`}
         placeholder="Np"
         value={np}
         onChange={handleNpChange}
@@ -49,7 +51,9 @@ function TreeInput({
       <input
         id="input2"
         type="text"
-        className={`form-control mb-3 ${spError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          spError ? "is-invalid" : sp ? "is-valid" : ""
+        }`}
         placeholder="Sp (m)"
         value={sp}
         onChange={handleSpChange}
@@ -61,7 +65,9 @@ function TreeInput({
       <input
         id="input3"
         type="text"
-        className={`form-control mb-3 ${srError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          srError ? "is-invalid" : sr ? "is-valid" : ""
+        }`}
         placeholder="Sr (m)"
         value={sr}
         onChange={handleSrChange}
@@ -80,7 +86,9 @@ function TreeInput({
       <input
         id="input4"
         type="text"
-        className={`form-control mb-3 ${zError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          zError ? "is-invalid" : z ? "is-valid" : ""
+        }`}
         placeholder="Z (cm)"
         value={z}
         onChange={handleZChange}
@@ -92,7 +100,9 @@ function TreeInput({
       <input
         id="input5"
         type="text"
-        className={`form-control mb-3 ${qError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          qError ? "is-invalid" : q ? "is-valid" : ""
+        }`}
         placeholder="Q"
         value={q}
         onChange={handleQChange}
@@ -104,7 +114,9 @@ function TreeInput({
       <input
         id="input6"
         type="text"
-        className={`form-control mb-3 ${k0Error ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          k0Error ? "is-invalid" : k0 ? "is-valid" : ""
+        }`}
         placeholder="cm h-1 (k0)"
         value={k0}
         onChange={handleK0Change}

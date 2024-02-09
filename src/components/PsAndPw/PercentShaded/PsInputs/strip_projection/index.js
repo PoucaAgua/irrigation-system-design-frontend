@@ -21,7 +21,9 @@ function StripInput({
       <input
         id="input1"
         type="text"
-        className={`form-control mb-3 ${srError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          srError ? "is-invalid" : sr ? "is-valid" : ""
+        }`}
         placeholder="Sr (m)"
         value={sr}
         onChange={handleSrChange}
@@ -32,7 +34,9 @@ function StripInput({
       <input
         id="input2"
         type="text"
-        className={`form-control mb-3 ${ssError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          ssError ? "is-invalid" : ss ? "is-valid" : ""
+        }`}
         placeholder="Ss (m)"
         value={ss}
         onChange={handleSsChange}

@@ -25,7 +25,9 @@ function RadiusInput({
       <input
         id="input1"
         type="text"
-        className={`form-control mb-3 ${qError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          qError ? "is-invalid" : q ? "is-valid" : ""
+        }`}
         placeholder="Q"
         value={q}
         onChange={handleQChange}
@@ -36,7 +38,9 @@ function RadiusInput({
       <input
         id="input2"
         type="text"
-        className={`form-control mb-3 ${k0Error ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          k0Error ? "is-invalid" : k0 ? "is-valid" : ""
+        }`}
         placeholder="Ko (cm h-1)"
         value={k0}
         onChange={handleK0Change}
@@ -47,7 +51,9 @@ function RadiusInput({
       <input
         id="input3"
         type="text"
-        className={`form-control mb-3 ${alphaError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          alphaError ? "is-invalid" : alpha ? "is-valid" : ""
+        }`}
         placeholder="α"
         value={alpha}
         onChange={handleAlphaChange}

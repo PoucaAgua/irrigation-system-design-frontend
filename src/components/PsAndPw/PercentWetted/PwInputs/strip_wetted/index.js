@@ -7,7 +7,6 @@ function StripInput({
   setSp,
   sr,
   setSr,
-  StripPwComponentOverrides,
   spError,
   srError,
   swError,
@@ -32,7 +31,9 @@ function StripInput({
       <input
         id="input1"
         type="text"
-        className={`form-control mb-3 ${swError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          swError ? "is-invalid" : sw ? "is-valid" : ""
+        }`}
         placeholder="Sw (m²)"
         value={sw}
         onChange={handleSwChange}
@@ -43,7 +44,9 @@ function StripInput({
       <input
         id="input2"
         type="text"
-        className={`form-control mb-3 ${spError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          spError ? "is-invalid" : sp ? "is-valid" : ""
+        }`}
         placeholder="Sp (m)"
         value={sp}
         onChange={handleSpChange}
@@ -59,9 +62,11 @@ function StripInput({
         Spacing between plants in the row:
       </label>
       <input
-        id="input2"
+        id="input3"
         type="text"
-        className={`form-control mb-3 ${spError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          spError ? "is-invalid" : sp ? "is-valid" : ""
+        }`}
         placeholder="Sp (m)"
         value={sp}
         onChange={handleSpChange}
@@ -70,9 +75,11 @@ function StripInput({
         Spacing between rows of plants:
       </label>
       <input
-        id="input3"
+        id="input4"
         type="text"
-        className={`form-control mb-3 ${srError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          srError ? "is-invalid" : sr ? "is-valid" : ""
+        }`}
         placeholder="Sr (m)"
         value={sr}
         onChange={handleSrChange}

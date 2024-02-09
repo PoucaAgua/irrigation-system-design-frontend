@@ -25,7 +25,9 @@ function CanopyInput({
       <input
         id="input1"
         type="text"
-        className={`form-control mb-3 ${dcoError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          dcoError ? "is-invalid" : dco ? "is-valid" : ""
+        }`}
         placeholder="Dco (m)"
         value={dco}
         onChange={handleDcoChange}
@@ -37,7 +39,9 @@ function CanopyInput({
       <input
         id="input2"
         type="text"
-        className={`form-control mb-3 ${spError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          spError ? "is-invalid" : sp ? "is-valid" : ""
+        }`}
         placeholder="Sp (m)"
         value={sp}
         onChange={handleSpChange}
@@ -49,7 +53,9 @@ function CanopyInput({
       <input
         id="input3"
         type="text"
-        className={`form-control mb-3 ${srError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          srError ? "is-invalid" : sr ? "is-valid" : ""
+        }`}
         placeholder="Sr (m)"
         value={sr}
         onChange={handleSrChange}
