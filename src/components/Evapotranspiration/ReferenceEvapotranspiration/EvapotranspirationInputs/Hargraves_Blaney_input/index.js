@@ -1,6 +1,6 @@
 import React from "react";
 
-function Hargraves_Blaney_Inputs({
+function HargravesBlaneyInputs({
   temperatureMax,
   temperatureMed,
   temperatureMin,
@@ -24,7 +24,11 @@ function Hargraves_Blaney_Inputs({
           id="input1"
           type="text"
           className={`form-control mb-3 ${
-            temperatureMaxError ? "is-invalid" : ""
+            temperatureMaxError
+              ? "is-invalid"
+              : temperatureMax
+              ? "is-valid"
+              : ""
           }`}
           placeholder="(°C)"
           value={temperatureMax}
@@ -32,14 +36,18 @@ function Hargraves_Blaney_Inputs({
         />
       </div>
       <div className="form-group">
-        <label htmlFor="input1" className="left-label">
+        <label htmlFor="input2" className="left-label">
           Temperature med:
         </label>
         <input
-          id="input1"
+          id="input2"
           type="text"
           className={`form-control mb-3 ${
-            temperatureMedError ? "is-invalid" : ""
+            temperatureMedError
+              ? "is-invalid"
+              : temperatureMed
+              ? "is-valid"
+              : ""
           }`}
           placeholder="(°C)"
           value={temperatureMed}
@@ -47,14 +55,18 @@ function Hargraves_Blaney_Inputs({
         />
       </div>
       <div className="form-group">
-        <label htmlFor="input1" className="left-label">
+        <label htmlFor="input3" className="left-label">
           Temperature min:
         </label>
         <input
-          id="input1"
+          id="input3"
           type="text"
           className={`form-control mb-3 ${
-            temperatureMinError ? "is-invalid" : ""
+            temperatureMinError
+              ? "is-invalid"
+              : temperatureMin
+              ? "is-valid"
+              : ""
           }`}
           placeholder="(°C)"
           value={temperatureMin}
@@ -62,13 +74,15 @@ function Hargraves_Blaney_Inputs({
         />
       </div>
       <div className="form-group">
-        <label htmlFor="input1" className="left-label">
+        <label htmlFor="input4" className="left-label">
           Latitude:
         </label>
         <input
-          id="input1"
+          id="input4"
           type="text"
-          className={`form-control mb-3 ${latitudeError ? "is-invalid" : ""}`}
+          className={`form-control mb-3 ${
+            latitudeError ? "is-invalid" : latitude ? "is-valid" : ""
+          }`}
           placeholder="(°)"
           value={latitude}
           onChange={handleLatitudeChange}
@@ -77,4 +91,5 @@ function Hargraves_Blaney_Inputs({
     </>
   );
 }
-export default Hargraves_Blaney_Inputs;
+
+export default HargravesBlaneyInputs;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ResultCard from "../../EvapotranspirationCardResult";
 import SelectorMonth from "../../EvapotranspirationSelector/EvapotranspirationHargraves/MonthSelector";
-import InputHargraves from "../../EvapotranspirationInputs/Hargraves_Blaney_input";
+import HargravesBlaneyInputs from "../../EvapotranspirationInputs/Hargraves_Blaney_input";
 
 function HargravesMain({
   Hargraves,
@@ -89,7 +89,7 @@ function HargravesMain({
         monthError={monthError}
         handleMonthChange={handleMonthChange}
       />
-      <InputHargraves
+      <HargravesBlaneyInputs
         temperatureMax={temperatureMax}
         temperatureMed={temperatureMed}
         temperatureMin={temperatureMin}

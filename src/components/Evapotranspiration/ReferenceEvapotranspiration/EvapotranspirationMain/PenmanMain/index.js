@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ResultCard from "../../EvapotranspirationCardResult";
-import PenmanInput from "../../EvapotranspirationInputs/PenmanInput";
+import PenmanInputs from "../../EvapotranspirationInputs/PenmanInput";
 
 function PenmanMain({
   Penman,
@@ -129,7 +129,7 @@ function PenmanMain({
       <p className="text-center fs-3" style={{ marginTop: 50 }}>
         Penman Monteith
       </p>
-      <PenmanInput
+      <PenmanInputs
         temperatureMin={temperatureMin}
         temperatureMax={temperatureMax}
         temperatureMed={temperatureMed}

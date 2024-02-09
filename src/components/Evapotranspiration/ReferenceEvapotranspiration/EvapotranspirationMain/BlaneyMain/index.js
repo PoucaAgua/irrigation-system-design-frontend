@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ResultCard from "../../EvapotranspirationCardResult";
 import SelectorMonth from "../../EvapotranspirationSelector/EvapotranspirationBlaney/MonthSelector";
 import SelectorHemisphere from "../../EvapotranspirationSelector/EvapotranspirationBlaney/HemisphereSelector";
-import InputBlaney from "../../EvapotranspirationInputs/Hargraves_Blaney_input";
+import HargravesBlaneyInputs from "../../EvapotranspirationInputs/Hargraves_Blaney_input";
 
 function BlaneyMain({
   Blaney,
@@ -108,7 +108,7 @@ function BlaneyMain({
         hemisphereError={hemisphereError}
         handleHemisphereChange={handleHemisphereChange}
       />
-      <InputBlaney
+      <HargravesBlaneyInputs
         temperatureMax={temperatureMax}
         temperatureMed={temperatureMed}
         temperatureMin={temperatureMin}

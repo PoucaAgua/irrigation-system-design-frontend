@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import InputHargraves from "../../EvapotranspirationInputs/InputHargraves";
-import InputBlaney from "../../EvapotranspirationInputs/InputBlaney";
-import InputPenman from "../../EvapotranspirationInputs/InputPenman";
+import MainHargraves from "../../EvapotranspirationMain/HargravesMain";
+import MainBlaney from "../../EvapotranspirationMain/BlaneyMain";
+import MainPenman from "../../EvapotranspirationMain/PenmanMain";
 import { createHargravesComponentOverrides } from "../../EvapotranspirationCalculate/CalculateHargraves";
 import { createBlaneyComponentOverrides } from "../../EvapotranspirationCalculate/CalculateBlaney";
 import { createPenmanComponentOverrides } from "../../EvapotranspirationCalculate/CalculatePenman";
@@ -99,7 +99,7 @@ function SelectEvapotranspiration() {
     switch (selectedOption) {
       case "Hargraves":
         return (
-          <InputHargraves
+          <MainHargraves
             HargravesComponentOverrides={HargravesComponentOverrides}
             irrigationSystemDesignService={irrigationSystemDesignService}
             temperatureMin={temperatureMin}
@@ -120,7 +120,7 @@ function SelectEvapotranspiration() {
         );
       case "Blaney":
         return (
-          <InputBlaney
+          <MainBlaney
             BlaneyComponentOverrides={BlaneyComponentOverrides}
             irrigationSystemDesignService={irrigationSystemDesignService}
             loadingCalculate={loadingCalculate}
@@ -143,7 +143,7 @@ function SelectEvapotranspiration() {
         );
       case "Penman":
         return (
-          <InputPenman
+          <MainPenman
             PenmanComponentOverrides={PenmanComponentOverrides}
             irrigationSystemDesignService={irrigationSystemDesignService}
             loadingCalculate={loadingCalculate}
