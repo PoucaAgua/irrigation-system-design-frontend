@@ -23,7 +23,11 @@ function ShiftInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          actualIrrigationError ? "is-invalid" : ""
+          actualIrrigationError
+            ? "is-invalid"
+            : actualIrrigation
+            ? "is-valid"
+            : ""
         }`}
         value={actualIrrigation}
         onChange={handleActualIrrigationChange}
@@ -37,7 +41,11 @@ function ShiftInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          cropEvapotranspirationError ? "is-invalid" : ""
+          cropEvapotranspirationError
+            ? "is-invalid"
+            : cropEvapotranspiration
+            ? "is-valid"
+            : ""
         }`}
         value={cropEvapotranspiration}
         onChange={handleCropEvapotranspirationChange}

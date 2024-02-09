@@ -26,7 +26,9 @@ function AtmosphericInput({
         id="input1"
         type="text"
         placeholder=""
-        className={`form-control mb-3 ${kcError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          kcError ? "is-invalid" : kc ? "is-valid" : ""
+        }`}
         value={kc}
         onChange={handleKcChange}
       />
@@ -39,7 +41,11 @@ function AtmosphericInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          percentwettedareaError ? "is-invalid" : ""
+          percentwettedareaError
+            ? "is-invalid"
+            : percentwettedarea
+            ? "is-valid"
+            : ""
         }`}
         value={percentwettedarea}
         onChange={handlePercentwettedareaChange}
@@ -53,7 +59,11 @@ function AtmosphericInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          actualevapotranspirationError ? "is-invalid" : ""
+          actualevapotranspirationError
+            ? "is-invalid"
+            : actualevapotranspiration
+            ? "is-valid"
+            : ""
         }`}
         value={actualevapotranspiration}
         onChange={handleActualevapotranspirationChange}

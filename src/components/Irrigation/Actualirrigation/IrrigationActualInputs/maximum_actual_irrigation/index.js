@@ -39,7 +39,11 @@ function MaximunInput({
         type="text"
         placeholder="Field capacity in cm³/cm³"
         className={`form-control mb-3 ${
-          soilMoistureFieldCapacityError ? "is-invalid" : ""
+          soilMoistureFieldCapacityError
+            ? "is-invalid"
+            : soilMoistureFieldCapacity
+            ? "is-valid"
+            : ""
         }`}
         value={soilMoistureFieldCapacity}
         onChange={handleSoilMoistureFieldCapacityChange}
@@ -53,7 +57,11 @@ function MaximunInput({
         type="text"
         placeholder="Permanent wilting point in cm³/cm³"
         className={`form-control mb-3 ${
-          soilMoistureAtPermanentWiltingPointError ? "is-invalid" : ""
+          soilMoistureAtPermanentWiltingPointError
+            ? "is-invalid"
+            : soilMoistureAtPermanentWiltingPoint
+            ? "is-valid"
+            : ""
         }`}
         value={soilMoistureAtPermanentWiltingPoint}
         onChange={handleSoilMoistureAtPermanentWiltingChange}
@@ -67,7 +75,11 @@ function MaximunInput({
         type="text"
         placeholder="0.3 to 0.7. It is always less than 1."
         className={`form-control mb-3 ${
-          depletionFactorError ? "is-invalid" : ""
+          depletionFactorError
+            ? "is-invalid"
+            : depletionFactor
+            ? "is-valid"
+            : ""
         }`}
         value={depletionFactor}
         onChange={handleDepletionFactorChange}
@@ -80,7 +92,9 @@ function MaximunInput({
         id="input4"
         type="text"
         placeholder="Soil depth in cm"
-        className={`form-control mb-3 ${soilDepthError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          soilDepthError ? "is-invalid" : soilDepth ? "is-valid" : ""
+        }`}
         value={soilDepth}
         onChange={handleSoilDepthChange}
       />
@@ -93,7 +107,11 @@ function MaximunInput({
         type="text"
         placeholder="Effective precipitation in mm"
         className={`form-control mb-3 ${
-          effectivePrecipitationError ? "is-invalid" : ""
+          effectivePrecipitationError
+            ? "is-invalid"
+            : effectivePrecipitation
+            ? "is-valid"
+            : ""
         }`}
         value={effectivePrecipitation}
         onChange={handleEffectivePrecipitationChange}
@@ -107,7 +125,11 @@ function MaximunInput({
         type="text"
         placeholder="fraction of total wetted area, dimensionless"
         className={`form-control mb-3 ${
-          fractionOfTotalWettedAreaError ? "is-invalid" : ""
+          fractionOfTotalWettedAreaError
+            ? "is-invalid"
+            : fractionOfTotalWettedArea
+            ? "is-valid"
+            : ""
         }`}
         value={fractionOfTotalWettedArea}
         onChange={handleFractionOfTotalWettedChange}

@@ -35,7 +35,11 @@ function PlantInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          totalIrrigationError ? "is-invalid" : ""
+          totalIrrigationError
+            ? "is-invalid"
+            : totalIrrigation
+            ? "is-valid"
+            : ""
         }`}
         value={totalIrrigation}
         onChange={handleTotalIrrigationChange}
@@ -49,7 +53,11 @@ function PlantInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          spacingBetweenPlantsError ? "is-invalid" : ""
+          spacingBetweenPlantsError
+            ? "is-invalid"
+            : spacingBetweenPlants
+            ? "is-valid"
+            : ""
         }`}
         value={spacingBetweenPlants}
         onChange={handleSpacingBetweenPlantsChange}
@@ -63,7 +71,11 @@ function PlantInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          spacingBetweenSideLinesError ? "is-invalid" : ""
+          spacingBetweenSideLinesError
+            ? "is-invalid"
+            : spacingBetweenSideLines
+            ? "is-valid"
+            : ""
         }`}
         value={spacingBetweenSideLines}
         onChange={handleSpacingBetweenSideLinesChange}
@@ -77,7 +89,11 @@ function PlantInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          numberOfEmittersPerPlantError ? "is-invalid" : ""
+          numberOfEmittersPerPlantError
+            ? "is-invalid"
+            : numberOfEmittersPerPlant
+            ? "is-valid"
+            : ""
         }`}
         value={numberOfEmittersPerPlant}
         onChange={handleNumberOfEmittersPerPlantChange}
@@ -90,7 +106,9 @@ function PlantInput({
         id="input5"
         type="text"
         placeholder=""
-        className={`form-control mb-3 ${emitterFlowError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          emitterFlowError ? "is-invalid" : emitterFlow ? "is-valid" : ""
+        }`}
         value={emitterFlow}
         onChange={handleEmitterFlowChange}
       />

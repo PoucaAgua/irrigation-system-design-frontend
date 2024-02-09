@@ -35,7 +35,11 @@ function SoilInput({
         type="text"
         placeholder="Field capacity in cm³/cm³"
         className={`form-control mb-3 ${
-          soilMoistureFieldCapacityError ? "is-invalid" : ""
+          soilMoistureFieldCapacityError
+            ? "is-invalid"
+            : soilMoistureFieldCapacity
+            ? "is-valid"
+            : ""
         }`}
         value={soilMoistureFieldCapacity}
         onChange={handleSoilMoistureFieldCapacityChange}
@@ -49,7 +53,11 @@ function SoilInput({
         type="text"
         placeholder="Permanent wilting point in cm³/cm³"
         className={`form-control mb-3 ${
-          soilMoistureAtPermanentWiltingPointError ? "is-invalid" : ""
+          soilMoistureAtPermanentWiltingPointError
+            ? "is-invalid"
+            : soilMoistureAtPermanentWiltingPoint
+            ? "is-valid"
+            : ""
         }`}
         value={soilMoistureAtPermanentWiltingPoint}
         onChange={handleSoilMoistureAtPermanentWiltingChange}
@@ -63,7 +71,11 @@ function SoilInput({
         type="text"
         placeholder="0.3 to 0.7. It is always less than 1."
         className={`form-control mb-3 ${
-          depletionFactorError ? "is-invalid" : ""
+          depletionFactorError
+            ? "is-invalid"
+            : depletionFactor
+            ? "is-valid"
+            : ""
         }`}
         value={depletionFactor}
         onChange={handleDepletionFactorChange}
@@ -76,7 +88,9 @@ function SoilInput({
         id="input4"
         type="text"
         placeholder="Soil depth in cm"
-        className={`form-control mb-3 ${soilDepthError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          soilDepthError ? "is-invalid" : soilDepth ? "is-valid" : ""
+        }`}
         value={soilDepth}
         onChange={handleSoilDepthChange}
       />
@@ -89,7 +103,11 @@ function SoilInput({
         type="text"
         placeholder="Effective precipitation in mm"
         className={`form-control mb-3 ${
-          effectivePrecipitationError ? "is-invalid" : ""
+          effectivePrecipitationError
+            ? "is-invalid"
+            : effectivePrecipitation
+            ? "is-valid"
+            : ""
         }`}
         value={effectivePrecipitation}
         onChange={handleEffectivePrecipitationChange}

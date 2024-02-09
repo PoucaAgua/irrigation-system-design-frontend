@@ -31,7 +31,11 @@ function LineInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          totalIrrigationError ? "is-invalid" : ""
+          totalIrrigationError
+            ? "is-invalid"
+            : totalIrrigation
+            ? "is-valid"
+            : ""
         }`}
         value={totalIrrigation}
         onChange={handleTotalIrrigationChange}
@@ -45,7 +49,11 @@ function LineInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          spacingBetweenSideLinesError ? "is-invalid" : ""
+          spacingBetweenSideLinesError
+            ? "is-invalid"
+            : spacingBetweenSideLines
+            ? "is-valid"
+            : ""
         }`}
         value={spacingBetweenSideLines}
         onChange={handleSpacingBetweenSideLinesChange}
@@ -59,7 +67,11 @@ function LineInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          spacingBetweenEmittersError ? "is-invalid" : ""
+          spacingBetweenEmittersError
+            ? "is-invalid"
+            : spacingBetweenEmitters
+            ? "is-valid"
+            : ""
         }`}
         value={spacingBetweenEmitters}
         onChange={handleSpacingBetweenEmittersChange}
@@ -72,7 +84,9 @@ function LineInput({
         id="input4"
         type="text"
         placeholder=""
-        className={`form-control mb-3 ${emitterFlowError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          emitterFlowError ? "is-invalid" : emitterFlow ? "is-valid" : ""
+        }`}
         value={emitterFlow}
         onChange={handleEmitterFlowChange}
       />

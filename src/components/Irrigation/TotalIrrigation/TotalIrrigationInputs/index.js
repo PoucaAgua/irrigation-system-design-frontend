@@ -35,7 +35,11 @@ function TotalInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          actualIrrigationError ? "is-invalid" : ""
+          actualIrrigationError
+            ? "is-invalid"
+            : actualIrrigation
+            ? "is-valid"
+            : ""
         }`}
         value={actualIrrigation}
         onChange={handleActualIrrigationChange}
@@ -49,7 +53,11 @@ function TotalInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          electricalConductivityIrrigationError ? "is-invalid" : ""
+          electricalConductivityIrrigationError
+            ? "is-invalid"
+            : electricalConductivityIrrigation
+            ? "is-valid"
+            : ""
         }`}
         value={electricalConductivityIrrigation}
         onChange={handleElectricalConductivityIrrigationChange}
@@ -63,7 +71,11 @@ function TotalInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          electricalConductivitySaturationError ? "is-invalid" : ""
+          electricalConductivitySaturationError
+            ? "is-invalid"
+            : electricalConductivitySaturation
+            ? "is-valid"
+            : ""
         }`}
         value={electricalConductivitySaturation}
         onChange={handleElectricalConductivitySaturationChange}
@@ -77,7 +89,11 @@ function TotalInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          leachingFractionError ? "is-invalid" : ""
+          leachingFractionError
+            ? "is-invalid"
+            : leachingFraction
+            ? "is-valid"
+            : ""
         }`}
         value={leachingFraction}
         onChange={handleLeachingFractionChange}
@@ -90,7 +106,9 @@ function TotalInput({
         id="input5"
         type="text"
         placeholder=""
-        className={`form-control mb-3 ${efficiencyError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          efficiencyError ? "is-invalid" : efficiency ? "is-valid" : ""
+        }`}
         value={efficiency}
         onChange={handleEfficiencyChange}
       />
