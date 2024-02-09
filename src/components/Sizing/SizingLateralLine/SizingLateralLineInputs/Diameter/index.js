@@ -47,7 +47,11 @@ function DiameterInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          servicePressureError ? "is-invalid" : ""
+          servicePressureError
+            ? "is-invalid"
+            : servicePressure
+            ? "is-valid"
+            : ""
         }`}
         value={servicePressure}
         onChange={handleServicePressureChange}
@@ -60,7 +64,9 @@ function DiameterInput({
         id="input2"
         type="text"
         placeholder=""
-        className={`form-control mb-3 ${nominalFlowError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          nominalFlowError ? "is-invalid" : nominalFlow ? "is-valid" : ""
+        }`}
         value={nominalFlow}
         onChange={handleNominalFlowChange}
       />
@@ -72,7 +78,9 @@ function DiameterInput({
         id="input3"
         type="text"
         placeholder=""
-        className={`form-control mb-3 ${maxFlowError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          maxFlowError ? "is-invalid" : maxFlow ? "is-valid" : ""
+        }`}
         value={maxFlow}
         onChange={handleMaxFlowChange}
       />
@@ -85,7 +93,11 @@ function DiameterInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          internalDiameterError ? "is-invalid" : ""
+          internalDiameterError
+            ? "is-invalid"
+            : internalDiameter
+            ? "is-valid"
+            : ""
         }`}
         value={internalDiameter}
         onChange={handleInternalDiameterChange}
@@ -99,7 +111,7 @@ function DiameterInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          emitterSpacingError ? "is-invalid" : ""
+          emitterSpacingError ? "is-invalid" : emitterSpacing ? "is-valid" : ""
         }`}
         value={emitterSpacing}
         onChange={handleEmitterSpacingChange}
@@ -112,7 +124,9 @@ function DiameterInput({
         id="input6"
         type="text"
         placeholder=""
-        className={`form-control mb-3 ${flowExponentError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          flowExponentError ? "is-invalid" : flowExponent ? "is-valid" : ""
+        }`}
         value={flowExponent}
         onChange={handleFlowExponentChange}
       />
@@ -125,7 +139,11 @@ function DiameterInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          exponentPressureError ? "is-invalid" : ""
+          exponentPressureError
+            ? "is-invalid"
+            : exponentPressure
+            ? "is-valid"
+            : ""
         }`}
         value={exponentPressure}
         onChange={handleExponentPressureChange}
@@ -138,7 +156,9 @@ function DiameterInput({
         id="input8"
         type="text"
         placeholder=""
-        className={`form-control mb-3 ${coefficientError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          coefficientError ? "is-invalid" : coefficient ? "is-valid" : ""
+        }`}
         value={coefficient}
         onChange={handleCoefficientChange}
       />

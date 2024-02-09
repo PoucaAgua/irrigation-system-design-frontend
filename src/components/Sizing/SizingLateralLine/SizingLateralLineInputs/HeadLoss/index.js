@@ -31,7 +31,7 @@ function HeadInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          lengthLateralError ? "is-invalid" : ""
+          lengthLateralError ? "is-invalid" : lengthLateral ? "is-valid" : ""
         }`}
         value={lengthLateral}
         onChange={handleLengthLateralChange}
@@ -45,7 +45,11 @@ function HeadInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          internalDiameterError ? "is-invalid" : ""
+          internalDiameterError
+            ? "is-invalid"
+            : internalDiameter
+            ? "is-valid"
+            : ""
         }`}
         value={internalDiameter}
         onChange={handleInternalDiameterChange}
@@ -59,7 +63,7 @@ function HeadInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          emitterSpacingError ? "is-invalid" : ""
+          emitterSpacingError ? "is-invalid" : emitterSpacing ? "is-valid" : ""
         }`}
         value={emitterSpacing}
         onChange={handleEmitterSpacingChange}
@@ -72,7 +76,9 @@ function HeadInput({
         id="input4"
         type="text"
         placeholder=""
-        className={`form-control mb-3 ${nominalFlowError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          nominalFlowError ? "is-invalid" : nominalFlow ? "is-valid" : ""
+        }`}
         value={nominalFlow}
         onChange={handleNominalFlowChange}
       />

@@ -31,7 +31,11 @@ function LoadInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          lengthDerivationError ? "is-invalid" : ""
+          lengthDerivationError
+            ? "is-invalid"
+            : lengthDerivation
+            ? "is-valid"
+            : ""
         }`}
         value={lengthDerivation}
         onChange={handleLengthDerivationChange}
@@ -44,7 +48,9 @@ function LoadInput({
         id="input2"
         type="text"
         placeholder=""
-        className={`form-control mb-3 ${flowError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          flowError ? "is-invalid" : flow ? "is-valid" : ""
+        }`}
         value={flow}
         onChange={handleFlowChange}
       />
@@ -56,7 +62,9 @@ function LoadInput({
         id="input3"
         type="text"
         placeholder=""
-        className={`form-control mb-3 ${noutputsError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          noutputsError ? "is-invalid" : noutputs ? "is-valid" : ""
+        }`}
         value={noutputs}
         onChange={handleNoutputsChange}
       />
@@ -69,7 +77,11 @@ function LoadInput({
         type="text"
         placeholder=""
         className={`form-control mb-3 ${
-          diameterDerivationError ? "is-invalid" : ""
+          diameterDerivationError
+            ? "is-invalid"
+            : diameterDerivation
+            ? "is-valid"
+            : ""
         }`}
         value={diameterDerivation}
         onChange={handleDiameterDerivationChange}

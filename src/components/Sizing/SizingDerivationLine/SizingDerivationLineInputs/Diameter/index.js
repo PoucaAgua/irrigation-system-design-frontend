@@ -22,7 +22,9 @@ function DiameterInput({
         id="input1"
         type="text"
         placeholder=""
-        className={`form-control mb-3 ${demandFlowError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          demandFlowError ? "is-invalid" : demandFlow ? "is-valid" : ""
+        }`}
         value={demandFlow}
         onChange={handleDemandFlowChange}
       />
@@ -34,7 +36,9 @@ function DiameterInput({
         id="input2"
         type="text"
         placeholder=""
-        className={`form-control mb-3 ${speedMaxError ? "is-invalid" : ""}`}
+        className={`form-control mb-3 ${
+          speedMaxError ? "is-invalid" : speedMax ? "is-valid" : ""
+        }`}
         value={speedMax}
         onChange={handleSpeedMaxChange}
       />
