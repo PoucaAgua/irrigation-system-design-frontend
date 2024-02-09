@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import ResultCard from "../../EvapotranspirationCardResult";
 import SelectorMonth from "../../EvapotranspirationSelector/EvapotranspirationBlaney/MonthSelector";
 import SelectorHemisphere from "../../EvapotranspirationSelector/EvapotranspirationBlaney/HemisphereSelector";
+import InputBlaney from "../../EvapotranspirationInputs/Hargraves_Blaney_input";
 
-function Blaney({
+function BlaneyMain({
   Blaney,
   BlaneyComponentOverrides,
   irrigationSystemDesignService,
@@ -107,65 +108,20 @@ function Blaney({
         hemisphereError={hemisphereError}
         handleHemisphereChange={handleHemisphereChange}
       />
-      <div className="form-group">
-        <label htmlFor="input1" className="left-label">
-          Temperature max:
-        </label>
-        <input
-          id="input1"
-          type="text"
-          className={`form-control mb-3 ${
-            temperatureMaxError ? "is-invalid" : ""
-          }`}
-          placeholder="(°C)"
-          value={temperatureMax}
-          onChange={handleTemperatureMaxChange}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="input1" className="left-label">
-          Temperature med:
-        </label>
-        <input
-          id="input1"
-          type="text"
-          className={`form-control mb-3 ${
-            temperatureMedError ? "is-invalid" : ""
-          }`}
-          placeholder="(°C)"
-          value={temperatureMed}
-          onChange={handleTemperatureMedChange}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="input1" className="left-label">
-          Temperature min:
-        </label>
-        <input
-          id="input1"
-          type="text"
-          className={`form-control mb-3 ${
-            temperatureMinError ? "is-invalid" : ""
-          }`}
-          placeholder="(°C)"
-          value={temperatureMin}
-          onChange={handleTemperatureMinChange}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="input1" className="left-label">
-          Latitude:
-        </label>
-        <input
-          id="input1"
-          type="text"
-          className={`form-control mb-3 ${latitudeError ? "is-invalid" : ""}`}
-          placeholder="(°)"
-          value={latitude}
-          onChange={handleLatitudeChange}
-        />
-      </div>
-
+      <InputBlaney
+        temperatureMax={temperatureMax}
+        temperatureMed={temperatureMed}
+        temperatureMin={temperatureMin}
+        latitude={latitude}
+        temperatureMaxError={temperatureMaxError}
+        handleTemperatureMaxChange={handleTemperatureMaxChange}
+        temperatureMedError={temperatureMedError}
+        handleTemperatureMedChange={handleTemperatureMedChange}
+        temperatureMinError={temperatureMinError}
+        handleTemperatureMinChange={handleTemperatureMinChange}
+        latitudeError={latitudeError}
+        handleLatitudeChange={handleLatitudeChange}
+      />
       <div class="d-grid gap-2 col-6 mx-auto">
         <button
           class="btn btn-secondary"
@@ -182,4 +138,4 @@ function Blaney({
     </>
   );
 }
-export default Blaney;
+export default BlaneyMain;
