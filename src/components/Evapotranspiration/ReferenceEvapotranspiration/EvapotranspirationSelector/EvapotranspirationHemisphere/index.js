@@ -10,7 +10,7 @@ function Hemisphere({
     <select
       id="hemisphereSelect"
       className={`form-select d-flex flex-column align-items-center mb-3 ${
-        hemisphereError ? "is-invalid" : ""
+        hemisphereError ? "is-invalid" : hemisphere ? "is-valid" : ""
       }`}
       aria-label="Default select example"
       value={hemisphere}
@@ -22,4 +22,5 @@ function Hemisphere({
     </select>
   );
 }
+
 export default Hemisphere;

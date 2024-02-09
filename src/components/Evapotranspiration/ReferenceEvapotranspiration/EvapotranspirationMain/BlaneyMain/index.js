@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ResultCard from "../../EvapotranspirationCardResult";
-import SelectorMonth from "../../EvapotranspirationSelector/EvapotranspirationBlaney/MonthSelector";
-import SelectorHemisphere from "../../EvapotranspirationSelector/EvapotranspirationBlaney/HemisphereSelector";
+import SelectorMonth from "../../EvapotranspirationSelector/EvapotranspirationMonth";
+import SelectorHemisphere from "../../EvapotranspirationSelector/EvapotranspirationHemisphere";
 import HargravesBlaneyInputs from "../../EvapotranspirationInputs/Hargraves_Blaney_input";
 
 function BlaneyMain({

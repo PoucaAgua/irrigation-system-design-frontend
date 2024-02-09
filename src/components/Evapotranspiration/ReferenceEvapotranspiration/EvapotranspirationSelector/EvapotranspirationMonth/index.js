@@ -4,13 +4,13 @@ function Month({ month, setMonth, monthError, handleMonthChange }) {
   return (
     <select
       className={`form-select d-flex flex-column align-items-center mb-3 ${
-        monthError ? "is-invalid" : ""
+        monthError ? "is-invalid" : month ? "is-valid" : ""
       }`}
       aria-label="Default select example"
       value={month}
       onChange={handleMonthChange}
     >
-      <option defaultValue>Select the month</option>
+      <option value="">Select the month</option>
       <option value="Jan">January</option>
       <option value="Fev">February</option>
       <option value="Mar">March</option>
