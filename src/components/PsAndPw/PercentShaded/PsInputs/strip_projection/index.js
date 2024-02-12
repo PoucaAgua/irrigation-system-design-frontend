@@ -1,6 +1,15 @@
 import React from "react";
 
-function StripInput({ sr, setSr, ss, setSs }) {
+function StripInput({
+  sr,
+  setSr,
+  ss,
+  setSs,
+  ssError,
+  srError,
+  handleSsChange,
+  handleSrChange,
+}) {
   return (
     <div
       className="input mb-3 d-flex flex-column"
@@ -12,10 +21,12 @@ function StripInput({ sr, setSr, ss, setSs }) {
       <input
         id="input1"
         type="text"
-        className="form-control"
+        className={`form-control mb-3 ${
+          srError ? "is-invalid" : sr ? "is-valid" : ""
+        }`}
         placeholder="Sr (m)"
         value={sr}
-        onChange={(e) => setSr(e.target.value)}
+        onChange={handleSrChange}
       />
       <label htmlFor="input2" className="form-label">
         Shaded strip:
@@ -23,10 +34,12 @@ function StripInput({ sr, setSr, ss, setSs }) {
       <input
         id="input2"
         type="text"
-        className="form-control"
+        className={`form-control mb-3 ${
+          ssError ? "is-invalid" : ss ? "is-valid" : ""
+        }`}
         placeholder="Ss (m)"
         value={ss}
-        onChange={(e) => setSs(e.target.value)}
+        onChange={handleSsChange}
       />
     </div>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 
-function LabeledInputs({
+function PsAndPwInputs({
   resultPs,
   resultPw,
   setResultPs,
@@ -92,7 +92,9 @@ function LabeledInputs({
         <input
           id="input4"
           type="text"
-          className="form-control mb-3 custom-input"
+          className={`form-control mb-3 custom-input ${
+            inputValuePw ? "is-valid" : ""
+          }`}
           placeholder="Pw (%)"
           value={inputValuePw}
           onChange={handleInputChangePw}
@@ -118,7 +120,9 @@ function LabeledInputs({
         <input
           id="input4"
           type="text"
-          className="form-control mb-3 custom-input"
+          className={`form-control mb-3 custom-input ${
+            inputValuePs ? "is-valid" : ""
+          }`}
           placeholder="Ps (%)"
           value={inputValuePs}
           onChange={handleInputChangePs}
@@ -136,7 +140,9 @@ function LabeledInputs({
             <input
               id="input1"
               type="text"
-              className="form-control mb-3 custom-input"
+              className={`form-control mb-3 custom-input ${
+                sr ? "is-valid" : ""
+              }`}
               placeholder="Sr (m)"
               value={sr}
               onChange={(e) => setSr(e.target.value)}
@@ -149,7 +155,9 @@ function LabeledInputs({
             <input
               id="input2"
               type="text"
-              className="form-control mb-3 custom-input"
+              className={`form-control mb-3 custom-input ${
+                sp ? "is-valid" : ""
+              }`}
               placeholder="Sp (m)"
               value={sp}
               onChange={(e) => setSp(e.target.value)}
@@ -162,7 +170,9 @@ function LabeledInputs({
             <input
               id="input3"
               type="text"
-              className="form-control mb-3 custom-input"
+              className={`form-control mb-3 custom-input ${
+                ss ? "is-valid" : ""
+              }`}
               placeholder="Ss (m)"
               value={ss}
               onChange={(e) => setSs(e.target.value)}
@@ -175,7 +185,9 @@ function LabeledInputs({
             <input
               id="input3"
               type="text"
-              className="form-control mb-3 custom-input"
+              className={`form-control mb-3 custom-input ${
+                dco ? "is-valid" : ""
+              }`}
               placeholder="Dco (m)"
               value={dco}
               onChange={(e) => setDco(e.target.value)}
@@ -194,7 +206,9 @@ function LabeledInputs({
             <input
               id="input1"
               type="text"
-              className="form-control mb-3 custom-input"
+              className={`form-control mb-3 custom-input ${
+                sr ? "is-valid" : ""
+              }`}
               placeholder="Sr (m)"
               value={sr}
               onChange={(e) => setSr(e.target.value)}
@@ -207,7 +221,9 @@ function LabeledInputs({
             <input
               id="input2"
               type="text"
-              className="form-control mb-3 custom-input"
+              className={`form-control mb-3 custom-input ${
+                sp ? "is-valid" : ""
+              }`}
               placeholder="Sp (m)"
               value={sp}
               onChange={(e) => setSp(e.target.value)}
@@ -220,7 +236,9 @@ function LabeledInputs({
             <input
               id="input3"
               type="text"
-              className="form-control mb-3 custom-input"
+              className={`form-control mb-3 custom-input ${
+                sw ? "is-valid" : ""
+              }`}
               placeholder="Sw (m²)"
               value={sw}
               onChange={(e) => StripPwComponentOverrides.Sw.onChange(e)}
@@ -233,7 +251,9 @@ function LabeledInputs({
             <input
               id="input3"
               type="text"
-              className="form-control mb-3 custom-input"
+              className={`form-control mb-3 custom-input ${
+                np ? "is-valid" : ""
+              }`}
               placeholder="Np (m)"
               value={np}
               onChange={(e) => setNp(e.target.value)}
@@ -246,7 +266,9 @@ function LabeledInputs({
             <input
               id="input3"
               type="text"
-              className="form-control mb-3 custom-input"
+              className={`form-control mb-3 custom-input ${
+                z ? "is-valid" : ""
+              }`}
               placeholder="Z (m)"
               value={z}
               onChange={(e) => setZ(e.target.value)}
@@ -259,7 +281,9 @@ function LabeledInputs({
             <input
               id="input3"
               type="text"
-              className="form-control mb-3 custom-input"
+              className={`form-control mb-3 custom-input ${
+                q ? "is-valid" : ""
+              }`}
               placeholder="Q (m)"
               value={q}
               onChange={(e) => setQ(e.target.value)}
@@ -272,7 +296,9 @@ function LabeledInputs({
             <input
               id="input3"
               type="text"
-              className="form-control mb-3 custom-input"
+              className={`form-control mb-3 custom-input ${
+                k0 ? "is-valid" : ""
+              }`}
               placeholder="Ko (cm h-1)"
               value={k0}
               onChange={(e) => setK0(e.target.value)}
@@ -285,7 +311,9 @@ function LabeledInputs({
             <input
               id="input3"
               type="text"
-              className="form-control mb-3 custom-input"
+              className={`form-control mb-3 custom-input ${
+                alpha ? "is-valid" : ""
+              }`}
               placeholder="α"
               value={alpha}
               onChange={(e) => RadiusComponentOverrides.Alpha.onChange(e)}
@@ -297,4 +325,4 @@ function LabeledInputs({
   );
 }
 
-export default LabeledInputs;
+export default PsAndPwInputs;

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import InputKeller from "../CropEvapotranspirationInputs/KellerInputs";
-import InputBernardo from "../CropEvapotranspirationInputs/BernardoInputs";
-import InputFereres from "../CropEvapotranspirationInputs/FereresInputs";
-import InputKellerAndBliesner from "../CropEvapotranspirationInputs/KellerAndBliesnerInputs";
+import MainKeller from "../CropEvapotranspirationMain/KellerMain";
+import MainBernardo from "../CropEvapotranspirationMain/BernardoMain";
+import MainFereres from "../CropEvapotranspirationMain/FereresMain";
+import MainKellerAndBliesner from "../CropEvapotranspirationMain/KellerAndBliesnerMain";
 import { createKellerComponentOverrides } from "../CropEvapotranspirationCalculate/KellerCalculate";
 import { createBernardoComponentOverrides } from "../CropEvapotranspirationCalculate/BernardoCalculate";
 import { createFereresComponentOverrides } from "../CropEvapotranspirationCalculate/FereresCalculate";
@@ -20,10 +20,10 @@ function SelectCropEvapotranspiration(
   const [resultCropEvapotranspiration, setResultCropEvapotranspiration] =
     useState(null);
   const [selectedOption, setSelectedOption] = useState(null);
-  const [eto, setEto] = useState(null);
-  const [kc, setKc] = useState(null);
-  const [kl, setKl] = useState(null);
-  const [p, setP] = useState(null);
+  const [eto, setEto] = useState("");
+  const [kc, setKc] = useState("");
+  const [kl, setKl] = useState("");
+  const [p, setP] = useState("");
 
   const KellerComponentOverrides = createKellerComponentOverrides({
     irrigationSystemDesignService,
@@ -99,7 +99,7 @@ function SelectCropEvapotranspiration(
     switch (selectedOption) {
       case "Keller":
         return (
-          <InputKeller
+          <MainKeller
             KellerComponentOverrides={KellerComponentOverrides}
             irrigationSystemDesignService={irrigationSystemDesignService}
             loadingCalculate={loadingCalculate}
@@ -117,7 +117,7 @@ function SelectCropEvapotranspiration(
         );
       case "Bernardo":
         return (
-          <InputBernardo
+          <MainBernardo
             BernardoComponentOverrides={BernardoComponentOverrides}
             irrigationSystemDesignService={irrigationSystemDesignService}
             loadingCalculate={loadingCalculate}
@@ -135,7 +135,7 @@ function SelectCropEvapotranspiration(
         );
       case "Fereres":
         return (
-          <InputFereres
+          <MainFereres
             FereresComponentOverrides={FereresComponentOverrides}
             irrigationSystemDesignService={irrigationSystemDesignService}
             loadingCalculate={loadingCalculate}
@@ -153,7 +153,7 @@ function SelectCropEvapotranspiration(
         );
       case "KellerAndBliesner":
         return (
-          <InputKellerAndBliesner
+          <MainKellerAndBliesner
             KellerAndBliesnerComponentOverrides={
               KellerAndBliesnerComponentOverrides
             }
@@ -182,6 +182,7 @@ function SelectCropEvapotranspiration(
         className="form-select d-flex flex-column align-items-center mb-3"
         aria-label="Default select example"
         onChange={handleSelectChange}
+        style={{ width: "50vh" }}
       >
         <option value="" selected>
           Select an option

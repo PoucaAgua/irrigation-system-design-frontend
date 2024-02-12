@@ -9,6 +9,14 @@ function LoadInput({
   setNoutputs,
   diameterDerivation,
   setDiameterDerivation,
+  diameterDerivationError,
+  lengthDerivationError,
+  noutputsError,
+  flowError,
+  handleDiameterDerivationChange,
+  handleLengthDerivationChange,
+  handleNoutputsChange,
+  handleFlowChange,
 }) {
   return (
     <div
@@ -22,9 +30,15 @@ function LoadInput({
         id="input1"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          lengthDerivationError
+            ? "is-invalid"
+            : lengthDerivation
+            ? "is-valid"
+            : ""
+        }`}
         value={lengthDerivation}
-        onChange={(e) => setLengthDerivation(e.target.value)}
+        onChange={handleLengthDerivationChange}
       />
 
       <label className="left-label" htmlFor="input2">
@@ -34,9 +48,11 @@ function LoadInput({
         id="input2"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          flowError ? "is-invalid" : flow ? "is-valid" : ""
+        }`}
         value={flow}
-        onChange={(e) => setFlow(e.target.value)}
+        onChange={handleFlowChange}
       />
 
       <label className="left-label" htmlFor="input3">
@@ -46,9 +62,11 @@ function LoadInput({
         id="input3"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          noutputsError ? "is-invalid" : noutputs ? "is-valid" : ""
+        }`}
         value={noutputs}
-        onChange={(e) => setNoutputs(e.target.value)}
+        onChange={handleNoutputsChange}
       />
 
       <label className="left-label" htmlFor="input4">
@@ -58,9 +76,15 @@ function LoadInput({
         id="input4"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          diameterDerivationError
+            ? "is-invalid"
+            : diameterDerivation
+            ? "is-valid"
+            : ""
+        }`}
         value={diameterDerivation}
-        onChange={(e) => setDiameterDerivation(e.target.value)}
+        onChange={handleDiameterDerivationChange}
       />
     </div>
   );

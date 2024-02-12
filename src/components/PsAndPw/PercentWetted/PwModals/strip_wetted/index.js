@@ -22,7 +22,38 @@ function PwStripModalRender({
   const handleCalculate = () => {
     StripPwComponentOverrides.CalculateButtonStripPw.onClick();
     setCalculated(true);
+
+    if (sp === "") {
+      setSpError(true);
+    }
+
+    if (sr === "") {
+      setSrError(true);
+    }
+
+    if (sw === "") {
+      setSwError(true);
+    }
   };
+  const [srError, setSrError] = useState(false);
+  const [spError, setSpError] = useState(false);
+  const [swError, setSwError] = useState(false);
+
+  const handleSpChange = (e) => {
+    setSp(e.target.value);
+    setSpError(false);
+  };
+
+  const handleSrChange = (e) => {
+    setSr(e.target.value);
+    setSrError(false);
+  };
+
+  const handleSwChange = (e) => {
+    setSw(e.target.value);
+    setSwError(false);
+  };
+
   return (
     <>
       {" "}
@@ -52,7 +83,12 @@ function PwStripModalRender({
             setSp={setSp}
             sr={sr}
             setSr={setSr}
-            StripPwComponentOverrides={StripPwComponentOverrides}
+            srError={srError}
+            spError={spError}
+            swError={swError}
+            handleSpChange={handleSpChange}
+            handleSrChange={handleSrChange}
+            handleSwChange={handleSwChange}
           />
           {calculated && <ResultPw resultPw={resultPw} />}
         </Modal.Body>

@@ -34,6 +34,49 @@ function Line({
   const handleCalculate = () => {
     IrrigationTimeByLineComponentOverrides.CalculateButtonByLine.onClick();
     setCalculated(true);
+
+    if (totalIrrigation === "") {
+      setTotalIrrigationError(true);
+    }
+
+    if (spacingBetweenSideLines === "") {
+      setSpacingBetweenSideLinesError(true);
+    }
+
+    if (spacingBetweenEmitters === "") {
+      setSpacingBetweenEmittersError(true);
+    }
+
+    if (emitterFlow === "") {
+      setEmitterFlowError(true);
+    }
+  };
+
+  const [totalIrrigationError, setTotalIrrigationError] = useState(false);
+  const [spacingBetweenSideLinesError, setSpacingBetweenSideLinesError] =
+    useState(false);
+  const [spacingBetweenEmittersError, setSpacingBetweenEmittersError] =
+    useState(false);
+  const [emitterFlowError, setEmitterFlowError] = useState(false);
+
+  const handleTotalIrrigationChange = (e) => {
+    setTotalIrrigation(e.target.value);
+    setTotalIrrigationError(false);
+  };
+
+  const handleSpacingBetweenSideLinesChange = (e) => {
+    setSpacingBetweenSideLines(e.target.value);
+    setSpacingBetweenSideLinesError(false);
+  };
+
+  const handleSpacingBetweenEmittersChange = (e) => {
+    setSpacingbetweenEmitters(e.target.value);
+    setSpacingBetweenEmittersError(false);
+  };
+
+  const handleEmitterFlowChange = (e) => {
+    setEmitterFlow(e.target.value);
+    setEmitterFlowError(false);
   };
 
   return (
@@ -60,6 +103,18 @@ function Line({
             setSpacingbetweenEmitters={setSpacingbetweenEmitters}
             emitterFlow={emitterFlow}
             setEmitterFlow={setEmitterFlow}
+            totalIrrigationError={totalIrrigationError}
+            handleTotalIrrigationChange={handleTotalIrrigationChange}
+            spacingBetweenSideLinesError={spacingBetweenSideLinesError}
+            handleSpacingBetweenSideLinesChange={
+              handleSpacingBetweenSideLinesChange
+            }
+            spacingBetweenEmittersError={spacingBetweenEmittersError}
+            handleSpacingBetweenEmittersChange={
+              handleSpacingBetweenEmittersChange
+            }
+            emitterFlowError={emitterFlowError}
+            handleEmitterFlowChange={handleEmitterFlowChange}
           />
           {calculated && (
             <ResultIrrigationTimeByLine

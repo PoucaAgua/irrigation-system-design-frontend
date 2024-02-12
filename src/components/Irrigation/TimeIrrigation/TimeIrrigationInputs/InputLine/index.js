@@ -9,6 +9,14 @@ function LineInput({
   setSpacingbetweenEmitters,
   emitterFlow,
   setEmitterFlow,
+  totalIrrigationError,
+  spacingBetweenSideLinesError,
+  spacingBetweenEmittersError,
+  emitterFlowError,
+  handleTotalIrrigationChange,
+  handleSpacingBetweenSideLinesChange,
+  handleSpacingBetweenEmittersChange,
+  handleEmitterFlowChange,
 }) {
   return (
     <div
@@ -22,9 +30,15 @@ function LineInput({
         id="input1"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          totalIrrigationError
+            ? "is-invalid"
+            : totalIrrigation
+            ? "is-valid"
+            : ""
+        }`}
         value={totalIrrigation}
-        onChange={(e) => setTotalIrrigation(e.target.value)}
+        onChange={handleTotalIrrigationChange}
       />
 
       <label className="left-label" htmlFor="input2">
@@ -34,9 +48,15 @@ function LineInput({
         id="input2"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          spacingBetweenSideLinesError
+            ? "is-invalid"
+            : spacingBetweenSideLines
+            ? "is-valid"
+            : ""
+        }`}
         value={spacingBetweenSideLines}
-        onChange={(e) => setSpacingBetweenSideLines(e.target.value)}
+        onChange={handleSpacingBetweenSideLinesChange}
       />
 
       <label className="left-label" htmlFor="input3">
@@ -46,9 +66,15 @@ function LineInput({
         id="input3"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          spacingBetweenEmittersError
+            ? "is-invalid"
+            : spacingBetweenEmitters
+            ? "is-valid"
+            : ""
+        }`}
         value={spacingBetweenEmitters}
-        onChange={(e) => setSpacingbetweenEmitters(e.target.value)}
+        onChange={handleSpacingBetweenEmittersChange}
       />
 
       <label className="left-label" htmlFor="input4">
@@ -58,9 +84,11 @@ function LineInput({
         id="input4"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          emitterFlowError ? "is-invalid" : emitterFlow ? "is-valid" : ""
+        }`}
         value={emitterFlow}
-        onChange={(e) => setEmitterFlow(e.target.value)}
+        onChange={handleEmitterFlowChange}
       />
     </div>
   );

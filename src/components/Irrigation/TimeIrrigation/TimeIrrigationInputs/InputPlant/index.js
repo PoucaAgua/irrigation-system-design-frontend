@@ -11,6 +11,16 @@ function PlantInput({
   setNumberOfEmittersPerPlant,
   emitterFlow,
   setEmitterFlow,
+  numberOfEmittersPerPlantError,
+  spacingBetweenSideLinesError,
+  spacingBetweenPlantsError,
+  totalIrrigationError,
+  emitterFlowError,
+  handleTotalIrrigationChange,
+  handleSpacingBetweenSideLinesChange,
+  handleSpacingBetweenPlantsChange,
+  handleEmitterFlowChange,
+  handleNumberOfEmittersPerPlantChange,
 }) {
   return (
     <div
@@ -24,9 +34,15 @@ function PlantInput({
         id="input1"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          totalIrrigationError
+            ? "is-invalid"
+            : totalIrrigation
+            ? "is-valid"
+            : ""
+        }`}
         value={totalIrrigation}
-        onChange={(e) => setTotalIrrigation(e.target.value)}
+        onChange={handleTotalIrrigationChange}
       />
 
       <label className="left-label" htmlFor="input2">
@@ -36,9 +52,15 @@ function PlantInput({
         id="input2"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          spacingBetweenPlantsError
+            ? "is-invalid"
+            : spacingBetweenPlants
+            ? "is-valid"
+            : ""
+        }`}
         value={spacingBetweenPlants}
-        onChange={(e) => setSpacingBetweenPlants(e.target.value)}
+        onChange={handleSpacingBetweenPlantsChange}
       />
 
       <label className="left-label" htmlFor="input3">
@@ -48,9 +70,15 @@ function PlantInput({
         id="input3"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          spacingBetweenSideLinesError
+            ? "is-invalid"
+            : spacingBetweenSideLines
+            ? "is-valid"
+            : ""
+        }`}
         value={spacingBetweenSideLines}
-        onChange={(e) => setSpacingBetweenSideLines(e.target.value)}
+        onChange={handleSpacingBetweenSideLinesChange}
       />
 
       <label className="left-label" htmlFor="input4">
@@ -60,9 +88,15 @@ function PlantInput({
         id="input4"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          numberOfEmittersPerPlantError
+            ? "is-invalid"
+            : numberOfEmittersPerPlant
+            ? "is-valid"
+            : ""
+        }`}
         value={numberOfEmittersPerPlant}
-        onChange={(e) => setNumberOfEmittersPerPlant(e.target.value)}
+        onChange={handleNumberOfEmittersPerPlantChange}
       />
 
       <label className="left-label" htmlFor="input5">
@@ -72,9 +106,11 @@ function PlantInput({
         id="input5"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          emitterFlowError ? "is-invalid" : emitterFlow ? "is-valid" : ""
+        }`}
         value={emitterFlow}
-        onChange={(e) => setEmitterFlow(e.target.value)}
+        onChange={handleEmitterFlowChange}
       />
     </div>
   );

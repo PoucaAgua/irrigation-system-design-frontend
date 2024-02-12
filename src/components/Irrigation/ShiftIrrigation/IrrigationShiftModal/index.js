@@ -27,6 +27,27 @@ function ShiftIrrigation({
   const handleCalculate = () => {
     ShiftComponentOverrides.CalculateTotalIrrigation.onClick();
     setCalculated(true);
+
+    if (actualIrrigation === "") {
+      setActualIrrigationError(true);
+    }
+
+    if (cropEvapotranspiration === "") {
+      setCropEvapotranspirationError(true);
+    }
+  };
+  const [actualIrrigationError, setActualIrrigationError] = useState(false);
+  const [cropEvapotranspirationError, setCropEvapotranspirationError] =
+    useState(false);
+
+  const handleActualIrrigationChange = (e) => {
+    setActualIrrigation(e.target.value);
+    setActualIrrigationError(false);
+  };
+
+  const handleCropEvapotranspirationChange = (e) => {
+    setCropEvapotranspiration(e.target.value);
+    setCropEvapotranspirationError(false);
   };
 
   return (
@@ -49,6 +70,12 @@ function ShiftIrrigation({
             setActualIrrigation={setActualIrrigation}
             cropEvapotranspiration={cropEvapotranspiration}
             setCropEvapotranspiration={setCropEvapotranspiration}
+            actualIrrigationError={actualIrrigationError}
+            handleActualIrrigationChange={handleActualIrrigationChange}
+            cropEvapotranspirationError={cropEvapotranspirationError}
+            handleCropEvapotranspirationChange={
+              handleCropEvapotranspirationChange
+            }
           />
           {calculated && <ResultShift resultShift={resultShift} />}
         </Modal.Body>

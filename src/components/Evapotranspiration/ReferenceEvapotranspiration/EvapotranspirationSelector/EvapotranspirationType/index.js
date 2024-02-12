@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import InputHargraves from "../../EvapotranspirationInputs/InputHargraves";
-import InputBlaney from "../../EvapotranspirationInputs/InputBlaney";
-import InputPenman from "../../EvapotranspirationInputs/InputPenman";
+import MainHargraves from "../../EvapotranspirationMain/HargravesMain";
+import MainBlaney from "../../EvapotranspirationMain/BlaneyMain";
+import MainPenman from "../../EvapotranspirationMain/PenmanMain";
 import { createHargravesComponentOverrides } from "../../EvapotranspirationCalculate/CalculateHargraves";
 import { createBlaneyComponentOverrides } from "../../EvapotranspirationCalculate/CalculateBlaney";
 import { createPenmanComponentOverrides } from "../../EvapotranspirationCalculate/CalculatePenman";
@@ -13,18 +13,18 @@ function SelectEvapotranspiration() {
   const [loadingCalculate, setLoadingCalculate] = useState(false);
   const [resultEvapotranspiration, setResultEvapotranspiration] =
     useState(null);
-  const [month, setMonth] = useState(null);
-  const [hemisphere, setHemisphere] = useState(null);
-  const [temperatureMin, setTemperatureMin] = useState(null);
-  const [temperatureMax, setTemperatureMax] = useState(null);
-  const [temperatureMed, setTemperatureMed] = useState(null);
-  const [latitude, setLatitude] = useState(null);
-  const [relativeHumidity, setRelativeHumidity] = useState(null);
-  const [days, setDays] = useState(null);
-  const [altitude, setAltitude] = useState(null);
-  const [windSpeed, setWindSpeed] = useState(null);
-  const [groundHeat, setGroundHeat] = useState(null);
-  const [dailyRadiation, setDailyRadiation] = useState(null);
+  const [month, setMonth] = useState("");
+  const [hemisphere, setHemisphere] = useState("");
+  const [temperatureMin, setTemperatureMin] = useState("");
+  const [temperatureMax, setTemperatureMax] = useState("");
+  const [temperatureMed, setTemperatureMed] = useState("");
+  const [latitude, setLatitude] = useState("");
+  const [relativeHumidity, setRelativeHumidity] = useState("");
+  const [days, setDays] = useState("");
+  const [altitude, setAltitude] = useState("");
+  const [windSpeed, setWindSpeed] = useState("");
+  const [groundHeat, setGroundHeat] = useState("");
+  const [dailyRadiation, setDailyRadiation] = useState("");
   const [selectedOption, setSelectedOption] = useState(null);
 
   const BlaneyComponentOverrides = createBlaneyComponentOverrides({
@@ -99,7 +99,7 @@ function SelectEvapotranspiration() {
     switch (selectedOption) {
       case "Hargraves":
         return (
-          <InputHargraves
+          <MainHargraves
             HargravesComponentOverrides={HargravesComponentOverrides}
             irrigationSystemDesignService={irrigationSystemDesignService}
             temperatureMin={temperatureMin}
@@ -120,7 +120,7 @@ function SelectEvapotranspiration() {
         );
       case "Blaney":
         return (
-          <InputBlaney
+          <MainBlaney
             BlaneyComponentOverrides={BlaneyComponentOverrides}
             irrigationSystemDesignService={irrigationSystemDesignService}
             loadingCalculate={loadingCalculate}
@@ -143,7 +143,7 @@ function SelectEvapotranspiration() {
         );
       case "Penman":
         return (
-          <InputPenman
+          <MainPenman
             PenmanComponentOverrides={PenmanComponentOverrides}
             irrigationSystemDesignService={irrigationSystemDesignService}
             loadingCalculate={loadingCalculate}
@@ -181,6 +181,7 @@ function SelectEvapotranspiration() {
         className="form-select d-flex flex-column align-items-center mb-3"
         aria-label="Default select example"
         onChange={handleSelectChange}
+        style={{ width: "50vh" }}
       >
         <option value="" selected>
           Select an option

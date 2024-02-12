@@ -28,6 +28,62 @@ function TotalIrrigation({
   const handleCalculate = () => {
     TotalComponentOverrides.CalculateTotalIrrigation.onClick();
     setCalculated(true);
+
+    if (actualIrrigation === "") {
+      setActualIrrigationError(true);
+    }
+
+    if (electricalConductivityIrrigation === "") {
+      setElectricalConductivityIrrigationError(true);
+    }
+
+    if (electricalConductivitySaturation === "") {
+      setElectricalConductivitySaturationError(true);
+    }
+
+    if (leachingFraction === "") {
+      setLeachingFractionError(true);
+    }
+
+    if (efficiency === "") {
+      setEfficiencyError(true);
+    }
+  };
+  const [actualIrrigationError, setActualIrrigationError] = useState(false);
+  const [
+    electricalConductivityIrrigationError,
+    setElectricalConductivityIrrigationError,
+  ] = useState(false);
+  const [
+    electricalConductivitySaturationError,
+    setElectricalConductivitySaturationError,
+  ] = useState(false);
+  const [leachingFractionError, setLeachingFractionError] = useState(false);
+  const [efficiencyError, setEfficiencyError] = useState(false);
+
+  const handleActualIrrigationChange = (e) => {
+    setActualIrrigation(e.target.value);
+    setActualIrrigationError(false);
+  };
+
+  const handleElectricalConductivityIrrigationChange = (e) => {
+    setElectricalConductivityIrrigation(e.target.value);
+    setElectricalConductivityIrrigationError(false);
+  };
+
+  const handleElectricalConductivitySaturationChange = (e) => {
+    setElectricalConductivitySaturation(e.target.value);
+    setElectricalConductivitySaturationError(false);
+  };
+
+  const handleLeachingFractionChange = (e) => {
+    setLeachingFraction(e.target.value);
+    setLeachingFractionError(false);
+  };
+
+  const handleEfficiencyChange = (e) => {
+    setEfficiency(e.target.value);
+    setEfficiencyError(false);
   };
 
   return (
@@ -49,17 +105,35 @@ function TotalIrrigation({
             actualIrrigation={actualIrrigation}
             setActualIrrigation={setActualIrrigation}
             electricalConductivityIrrigation={electricalConductivityIrrigation}
+            handleElectricalConductivityIrrigationChange={
+              handleElectricalConductivityIrrigationChange
+            }
+            electricalConductivityIrrigationError={
+              electricalConductivityIrrigationError
+            }
             setElectricalConductivityIrrigation={
               setElectricalConductivityIrrigation
             }
             electricalConductivitySaturation={electricalConductivitySaturation}
+            electricalConductivitySaturationError={
+              electricalConductivitySaturationError
+            }
+            handleElectricalConductivitySaturationChange={
+              handleElectricalConductivitySaturationChange
+            }
             setElectricalConductivitySaturation={
               setElectricalConductivitySaturation
             }
             leachingFraction={leachingFraction}
+            handleLeachingFractionChange={handleLeachingFractionChange}
+            leachingFractionError={leachingFractionError}
             setLeachingFraction={setLeachingFraction}
+            efficiencyError={efficiencyError}
             efficiency={efficiency}
+            handleEfficiencyChange={handleEfficiencyChange}
             setEfficiency={setEfficiency}
+            actualIrrigationError={actualIrrigationError}
+            handleActualIrrigationChange={handleActualIrrigationChange}
           />
           {calculated && <ResultTotal resultTotal={resultTotal} />}
         </Modal.Body>

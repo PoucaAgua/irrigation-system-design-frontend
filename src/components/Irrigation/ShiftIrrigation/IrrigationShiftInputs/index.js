@@ -5,6 +5,10 @@ function ShiftInput({
   setActualIrrigation,
   cropEvapotranspiration,
   setCropEvapotranspiration,
+  actualIrrigationError,
+  handleActualIrrigationChange,
+  cropEvapotranspirationError,
+  handleCropEvapotranspirationChange,
 }) {
   return (
     <div
@@ -18,9 +22,15 @@ function ShiftInput({
         id="input1"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          actualIrrigationError
+            ? "is-invalid"
+            : actualIrrigation
+            ? "is-valid"
+            : ""
+        }`}
         value={actualIrrigation}
-        onChange={(e) => setActualIrrigation(e.target.value)}
+        onChange={handleActualIrrigationChange}
       />
 
       <label className="left-label" htmlFor="input2">
@@ -30,9 +40,15 @@ function ShiftInput({
         id="input2"
         type="text"
         placeholder=""
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          cropEvapotranspirationError
+            ? "is-invalid"
+            : cropEvapotranspiration
+            ? "is-valid"
+            : ""
+        }`}
         value={cropEvapotranspiration}
-        onChange={(e) => setCropEvapotranspiration(e.target.value)}
+        onChange={handleCropEvapotranspirationChange}
       />
     </div>
   );

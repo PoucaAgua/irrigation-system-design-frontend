@@ -30,6 +30,73 @@ function Maximum({
   const handleCalculate = () => {
     MaximumComponentOverrides.CalculateButtonMaximum.onClick();
     setCalculated(true);
+
+    if (soilMoistureFieldCapacity === "") {
+      setSoilMoistureFieldCapacityError(true);
+    }
+
+    if (soilMoistureAtPermanentWiltingPoint === "") {
+      setSoilMoistureAtPermanentWiltingPointError(true);
+    }
+
+    if (depletionFactor === "") {
+      setDepletionFactorError(true);
+    }
+
+    if (soilDepth === "") {
+      setSoilDepthError(true);
+    }
+
+    if (effectivePrecipitation === "") {
+      setEffectivePrecipitationError(true);
+    }
+
+    if (fractionOfTotalWettedArea === "") {
+      setFractionOfTotalWettedAreaError(true);
+    }
+  };
+
+  const [effectivePrecipitationError, setEffectivePrecipitationError] =
+    useState(false);
+  const [soilDepthError, setSoilDepthError] = useState(false);
+  const [depletionFactorError, setDepletionFactorError] = useState(false);
+  const [
+    soilMoistureAtPermanentWiltingPointError,
+    setSoilMoistureAtPermanentWiltingPointError,
+  ] = useState(false);
+  const [soilMoistureFieldCapacityError, setSoilMoistureFieldCapacityError] =
+    useState(false);
+  const [fractionOfTotalWettedAreaError, setFractionOfTotalWettedAreaError] =
+    useState(false);
+
+  const handleSoilMoistureFieldCapacityChange = (e) => {
+    setSoilMoistureFieldCapacity(e.target.value);
+    setSoilMoistureFieldCapacityError(false);
+  };
+
+  const handleSoilMoistureAtPermanentWiltingChange = (e) => {
+    setSoilMoistureAtPermanentWiltingPoint(e.target.value);
+    setSoilMoistureAtPermanentWiltingPointError(false);
+  };
+
+  const handleDepletionFactorChange = (e) => {
+    setDepletionFactor(e.target.value);
+    setDepletionFactorError(false);
+  };
+
+  const handleSoilDepthChange = (e) => {
+    setSoilDepth(e.target.value);
+    setSoilDepthError(false);
+  };
+
+  const handleEffectivePrecipitationChange = (e) => {
+    setEffectivePrecipitation(e.target.value);
+    setEffectivePrecipitationError(false);
+  };
+
+  const handleFractionOfTotalWettedChange = (e) => {
+    setFractionOfTotalWettedArea(e.target.value);
+    setFractionOfTotalWettedAreaError(false);
   };
 
   return (
@@ -64,6 +131,28 @@ function Maximum({
             setEffectivePrecipitation={setEffectivePrecipitation}
             fractionOfTotalWettedArea={fractionOfTotalWettedArea}
             setFractionOfTotalWettedArea={setFractionOfTotalWettedArea}
+            soilMoistureFieldCapacityError={soilMoistureFieldCapacityError}
+            soilMoistureAtPermanentWiltingPointError={
+              soilMoistureAtPermanentWiltingPointError
+            }
+            depletionFactorError={depletionFactorError}
+            soilDepthError={soilDepthError}
+            effectivePrecipitationError={effectivePrecipitationError}
+            handleSoilMoistureFieldCapacityChange={
+              handleSoilMoistureFieldCapacityChange
+            }
+            handleSoilMoistureAtPermanentWiltingChange={
+              handleSoilMoistureAtPermanentWiltingChange
+            }
+            handleDepletionFactorChange={handleDepletionFactorChange}
+            handleSoilDepthChange={handleSoilDepthChange}
+            handleEffectivePrecipitationChange={
+              handleEffectivePrecipitationChange
+            }
+            fractionOfTotalWettedAreaError={fractionOfTotalWettedAreaError}
+            handleFractionOfTotalWettedChange={
+              handleFractionOfTotalWettedChange
+            }
           />
           {calculated && <ResultMaximum resultMaximum={resultMaximum} />}
         </Modal.Body>

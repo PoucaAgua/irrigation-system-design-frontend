@@ -7,7 +7,12 @@ function StripInput({
   setSp,
   sr,
   setSr,
-  StripPwComponentOverrides,
+  spError,
+  srError,
+  swError,
+  handleSrChange,
+  handleSpChange,
+  handleSwChange,
 }) {
   return (
     <div
@@ -26,10 +31,12 @@ function StripInput({
       <input
         id="input1"
         type="text"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          swError ? "is-invalid" : sw ? "is-valid" : ""
+        }`}
         placeholder="Sw (m²)"
         value={sw}
-        onChange={(e) => StripPwComponentOverrides.Sw.onChange(e)}
+        onChange={handleSwChange}
       />
       <label htmlFor="input2" className="left-label">
         Spacing between plants in the row:
@@ -37,10 +44,12 @@ function StripInput({
       <input
         id="input2"
         type="text"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          spError ? "is-invalid" : sp ? "is-valid" : ""
+        }`}
         placeholder="Sp (m)"
         value={sp}
-        onChange={(e) => StripPwComponentOverrides.Sp.onChange(e)}
+        onChange={handleSpChange}
       />
 
       <b
@@ -55,10 +64,12 @@ function StripInput({
       <input
         id="input3"
         type="text"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          spError ? "is-invalid" : sp ? "is-valid" : ""
+        }`}
         placeholder="Sp (m)"
         value={sp}
-        onChange={(e) => StripPwComponentOverrides.Sp.onChange(e)}
+        onChange={handleSpChange}
       />
       <label htmlFor="input4" className="left-label">
         Spacing between rows of plants:
@@ -66,10 +77,12 @@ function StripInput({
       <input
         id="input4"
         type="text"
-        className="form-control mb-3"
+        className={`form-control mb-3 ${
+          srError ? "is-invalid" : sr ? "is-valid" : ""
+        }`}
         placeholder="Sr (m)"
         value={sr}
-        onChange={(e) => StripPwComponentOverrides.Sr.onChange(e)}
+        onChange={handleSrChange}
       />
     </div>
   );

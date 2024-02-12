@@ -22,7 +22,38 @@ function RadiusModalRender({
   const handleCalculate = () => {
     RadiusComponentOverrides.CalculateButtonRadius.onClick();
     setCalculated(true);
+
+    if (q === "") {
+      setQError(true);
+    }
+
+    if (k0 === "") {
+      setK0Error(true);
+    }
+
+    if (alpha === "") {
+      setAlphaError(true);
+    }
   };
+  const [qError, setQError] = useState(false);
+  const [k0Error, setK0Error] = useState(false);
+  const [alphaError, setAlphaError] = useState(false);
+
+  const handleQChange = (e) => {
+    setQ(e.target.value);
+    setQError(false);
+  };
+
+  const handleK0Change = (e) => {
+    setK0(e.target.value);
+    setK0Error(false);
+  };
+
+  const handleAlphaChange = (e) => {
+    setAlpha(e.target.value);
+    setAlphaError(false);
+  };
+
   return (
     <>
       {" "}
@@ -53,6 +84,12 @@ function RadiusModalRender({
             setK0={setK0}
             alpha={alpha}
             setAlpha={setAlpha}
+            qError={qError}
+            k0Error={k0Error}
+            alphaError={alphaError}
+            handleQChange={handleQChange}
+            handleK0Change={handleK0Change}
+            handleAlphaChange={handleAlphaChange}
           />
           {calculated && <ResultPw resultPs={resultPw} />}
         </Modal.Body>

@@ -28,6 +28,62 @@ function Soil({
   const handleCalculate = () => {
     SoilComponentOverrides.CalculateButtonSoilParams.onClick();
     setCalculated(true);
+
+    if (soilMoistureFieldCapacity === "") {
+      setSoilMoistureFieldCapacityError(true);
+    }
+
+    if (soilMoistureAtPermanentWiltingPoint === "") {
+      setSoilMoistureAtPermanentWiltingPointError(true);
+    }
+
+    if (depletionFactor === "") {
+      setDepletionFactorError(true);
+    }
+
+    if (soilDepth === "") {
+      setSoilDepthError(true);
+    }
+
+    if (effectivePrecipitation === "") {
+      setEffectivePrecipitationError(true);
+    }
+  };
+
+  const [effectivePrecipitationError, setEffectivePrecipitationError] =
+    useState(false);
+  const [soilDepthError, setSoilDepthError] = useState(false);
+  const [depletionFactorError, setDepletionFactorError] = useState(false);
+  const [
+    soilMoistureAtPermanentWiltingPointError,
+    setSoilMoistureAtPermanentWiltingPointError,
+  ] = useState(false);
+  const [soilMoistureFieldCapacityError, setSoilMoistureFieldCapacityError] =
+    useState(false);
+
+  const handleSoilMoistureFieldCapacityChange = (e) => {
+    setSoilMoistureFieldCapacity(e.target.value);
+    setSoilMoistureFieldCapacityError(false);
+  };
+
+  const handleSoilMoistureAtPermanentWiltingChange = (e) => {
+    setSoilMoistureAtPermanentWiltingPoint(e.target.value);
+    setSoilMoistureAtPermanentWiltingPointError(false);
+  };
+
+  const handleDepletionFactorChange = (e) => {
+    setDepletionFactor(e.target.value);
+    setDepletionFactorError(false);
+  };
+
+  const handleSoilDepthChange = (e) => {
+    setSoilDepth(e.target.value);
+    setSoilDepthError(false);
+  };
+
+  const handleEffectivePrecipitationChange = (e) => {
+    setEffectivePrecipitation(e.target.value);
+    setEffectivePrecipitationError(false);
   };
 
   return (
@@ -60,6 +116,24 @@ function Soil({
             setSoilDepth={setSoilDepth}
             effectivePrecipitation={effectivePrecipitation}
             setEffectivePrecipitation={setEffectivePrecipitation}
+            soilMoistureFieldCapacityError={soilMoistureFieldCapacityError}
+            soilMoistureAtPermanentWiltingPointError={
+              soilMoistureAtPermanentWiltingPointError
+            }
+            depletionFactorError={depletionFactorError}
+            soilDepthError={soilDepthError}
+            effectivePrecipitationError={effectivePrecipitationError}
+            handleSoilMoistureFieldCapacityChange={
+              handleSoilMoistureFieldCapacityChange
+            }
+            handleSoilMoistureAtPermanentWiltingChange={
+              handleSoilMoistureAtPermanentWiltingChange
+            }
+            handleDepletionFactorChange={handleDepletionFactorChange}
+            handleSoilDepthChange={handleSoilDepthChange}
+            handleEffectivePrecipitationChange={
+              handleEffectivePrecipitationChange
+            }
           />
           {calculated && (
             <ResultSoilParams resultSoilParams={resultSoilParams} />
