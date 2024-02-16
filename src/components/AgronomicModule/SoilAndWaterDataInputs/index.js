@@ -36,7 +36,7 @@ function SoilAndWaterData(props) {
         </div>
         <div className="form-group">
           <label htmlFor="input2" className="left-label">
-            soil moisture at permanent wilting point - Opmp:
+            soil moisture at permanent - Opmp:
           </label>
           <input
             id="input2"
@@ -81,7 +81,7 @@ function SoilAndWaterData(props) {
         </div>
         <div className="form-group">
           <label htmlFor="input3" className="left-label">
-            Electrical Conductivity of Soil Saturation Extract (maximum CEe):
+            Electrical Conductivity of Soil Saturation:
           </label>
           <input
             id="input3"
@@ -96,7 +96,7 @@ function SoilAndWaterData(props) {
         </div>
         <div className="form-group">
           <label htmlFor="input3" className="left-label">
-            Electrical Conductivity of Irrigation Water (CEi):
+            Electrical Conductivity of Irrigation(CEi):
           </label>
           <input
             id="input3"
