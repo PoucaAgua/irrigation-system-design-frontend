@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 
-function ModalF(group, setGroup, crop, setCrop, f, setF) {
+function ModalF(props) {
+  const { group, setGroup, crop, setCrop, f, setF } = props;
   const [show, setShow] = useState(false);
   const [windowWidth] = useState(window.innerWidth);
   const handleClose = () => setShow(false);
@@ -46,7 +47,7 @@ function ModalF(group, setGroup, crop, setCrop, f, setF) {
               <label htmlFor="option2">Group:</label>
               <select
                 id="option1"
-                className="form-control mb-3"
+                className={`form-control mb-3 ${group ? "is-valid" : ""}`}
                 value={group}
                 onChange={handleGroup}
               >
@@ -60,7 +61,7 @@ function ModalF(group, setGroup, crop, setCrop, f, setF) {
               <label htmlFor="option2">Crop:</label>
               <select
                 id="option2"
-                className="form-control mb-3"
+                className={`form-control mb-3 ${crop ? "is-valid" : ""}`}
                 value={crop}
                 onChange={handleCrop}
               >
@@ -75,8 +76,7 @@ function ModalF(group, setGroup, crop, setCrop, f, setF) {
             <label htmlFor="input">f:</label>
             <input
               type="text"
-              className="form-control"
-              placeholder="Enter something..."
+              className={`form-control mb-3 ${f ? "is-valid" : ""}`}
               value={f}
               onChange={handleF}
             />

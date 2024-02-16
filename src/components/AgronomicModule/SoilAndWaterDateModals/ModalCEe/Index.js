@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 
-function ModalCEe(group, setGroup, crop, setCrop, CEe, setCEe) {
+function ModalCEe(props) {
+  const { group, setGroup, crop, setCrop, CEe, setCEe } = props;
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -45,7 +46,7 @@ function ModalCEe(group, setGroup, crop, setCrop, CEe, setCEe) {
               <label htmlFor="option2">Group:</label>
               <select
                 id="option1"
-                className="form-control mb-3"
+                className={`form-control mb-3 ${group ? "is-valid" : ""}`}
                 value={group}
                 onChange={handleGroup}
               >
@@ -59,7 +60,7 @@ function ModalCEe(group, setGroup, crop, setCrop, CEe, setCEe) {
               <label htmlFor="option2">Crop:</label>
               <select
                 id="option2"
-                className="form-control mb-3"
+                className={`form-control mb-3 ${crop ? "is-valid" : ""}`}
                 value={crop}
                 onChange={handleCrop}
               >
@@ -74,8 +75,7 @@ function ModalCEe(group, setGroup, crop, setCrop, CEe, setCEe) {
             <label htmlFor="input">CEe máx:</label>
             <input
               type="text"
-              className="form-control"
-              placeholder="Enter something..."
+              className={`form-control mb-3 ${CEe ? "is-valid" : ""}`}
               value={CEe}
               onChange={handleCEe}
             />
