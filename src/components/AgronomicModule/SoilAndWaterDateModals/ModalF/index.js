@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faExclamationCircle,
+  faCheckCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 function ModalF(props) {
   const { group, setGroup, crop, setCrop, f, setF } = props;
@@ -20,6 +25,8 @@ function ModalF(props) {
     setF(e.target.value);
   };
 
+  const allFieldsFilled = group && crop && f;
+
   return (
     <>
       <Button
@@ -28,11 +35,35 @@ function ModalF(props) {
           height: 40,
           marginBottom: 15,
           marginLeft: windowWidth < 500 ? 0 : 5,
+          position: "relative",
         }}
         variant="secondary"
         onClick={handleShow}
       >
-        Calculate f
+        <span style={{ marginRight: 5 }}>Calculate f</span>
+        {!allFieldsFilled ? (
+          <FontAwesomeIcon
+            icon={faExclamationCircle}
+            style={{
+              position: "absolute",
+              right: -12,
+              top: -12,
+              fontSize: "1.5em",
+              color: "red",
+            }}
+          />
+        ) : (
+          <FontAwesomeIcon
+            icon={faCheckCircle}
+            style={{
+              position: "absolute",
+              right: -12,
+              top: -12,
+              fontSize: "1.5em",
+              color: "green",
+            }}
+          />
+        )}
       </Button>
 
       <Modal show={show} onHide={handleClose}>

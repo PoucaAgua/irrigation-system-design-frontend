@@ -1,5 +1,10 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faExclamationCircle,
+  faCheckCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 function ModalCEe(props) {
   const { group, setGroup, crop, setCrop, CEe, setCEe } = props;
@@ -19,6 +24,8 @@ function ModalCEe(props) {
     setCEe(e.target.value);
   };
 
+  const allFieldsFilled = group && crop && CEe;
+
   return (
     <>
       <Button
@@ -27,11 +34,35 @@ function ModalCEe(props) {
           width: 220,
           height: 40,
           marginBottom: 15,
+          position: "relative",
         }}
         variant="secondary"
         onClick={handleShow}
       >
-        Calculate CEe
+        <span style={{ marginRight: 5 }}>Calculate CEe</span>
+        {!allFieldsFilled ? (
+          <FontAwesomeIcon
+            icon={faExclamationCircle}
+            style={{
+              position: "absolute",
+              right: -12,
+              top: -12,
+              fontSize: "1.5em",
+              color: "red",
+            }}
+          />
+        ) : (
+          <FontAwesomeIcon
+            icon={faCheckCircle}
+            style={{
+              position: "absolute",
+              right: -12,
+              top: -12,
+              fontSize: "1.5em",
+              color: "green",
+            }}
+          />
+        )}
       </Button>
 
       <Modal show={show} onHide={handleClose}>
