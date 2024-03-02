@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
-import SoilAndWaterDataInputs from "../SoilAndWaterDataInputs";
-import SoilAndWaterDataTitle from "../SoildAndWaterDateTitle";
-import ModalCEe from "../SoilAndWaterDateModals/ModalCEe/Index";
-import ModalF from "../SoilAndWaterDateModals/ModalF";
+import SoilAndWaterDataInputs from "../SoilAndWaterData/SoilAndWaterDataInputs";
+import SoilAndWaterDataTitle from "../SoilAndWaterData/SoilAndWaterDateTitle";
+import ModalCEe from "../SoilAndWaterData/SoilAndWaterDateModals/ModalCEe/Index";
+import ModalF from "../SoilAndWaterData/SoilAndWaterDateModals/ModalF";
 import TestComponent from "../TestComponent";
 
 function AgronomicModuleMain() {
