@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faExclamationCircle,
+  faCheckCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import ResultPs from "../../PsResultModal/ResultModalStrip";
 import StripInput from "../../PsInputs/strip_projection";
 
@@ -15,6 +20,9 @@ function StripModalRender({
   StripComponentOverrides,
 }) {
   const [calculated, setCalculated] = useState(false);
+  const [ssError, setSsError] = useState(false);
+  const [srError, setSrError] = useState(false);
+
   const handleCalculate = () => {
     StripComponentOverrides.CalculateButtonPsStrip.onClick();
     setCalculated(true);
@@ -27,8 +35,6 @@ function StripModalRender({
       setSrError(true);
     }
   };
-  const [ssError, setSsError] = useState(false);
-  const [srError, setSrError] = useState(false);
 
   const handleSsChange = (e) => {
     setSs(e.target.value);
@@ -52,6 +58,25 @@ function StripModalRender({
         />
         <label className="form-check-label" htmlFor="stripRadioButtonStrip">
           Strip Projection
+          {sr && ss ? (
+            <FontAwesomeIcon
+              icon={faCheckCircle}
+              style={{
+                marginLeft: 5,
+                fontSize: "1.0em",
+                color: "green",
+              }}
+            />
+          ) : (
+            <FontAwesomeIcon
+              icon={faExclamationCircle}
+              style={{
+                marginLeft: 5,
+                fontSize: "1.0em",
+                color: "red",
+              }}
+            />
+          )}
         </label>
       </div>
       <Modal show={showModalPsStrip} onHide={toggleModalStrip}>
