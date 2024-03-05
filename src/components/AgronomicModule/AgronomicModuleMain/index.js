@@ -6,6 +6,7 @@ import ModalCEe from "../SoilAndWaterData/SoilAndWaterDateModals/ModalCEe/Index"
 import ModalF from "../SoilAndWaterData/SoilAndWaterDateModals/ModalF";
 //import TestComponent from "../TestComponent";
 import SystemLayoutTitle from "../SystemLayout/SystemLayoutTitle";
+import SystemLayoutInputs from "../SystemLayout/SystemLayoutInputs";
 
 function AgronomicModuleMain() {
   const [soilCapacity, setSoilCapacity] = useState("");
@@ -18,7 +19,17 @@ function AgronomicModuleMain() {
   const [crop, setCrop] = useState("");
   const [CEe, setCEe] = useState("");
   const [f, setF] = useState("");
+
+  const [sr, setSr] = useState("");
+  const [sp, setSp] = useState("");
+  const [sl, setSl] = useState("");
+  const [pw, setPw] = useState("");
+  const [ps, setPs] = useState("");
+  const [ue, setUe] = useState("");
+
   const [showContinueButton, setShowContinueButton] = useState(false);
+  const [showNextComponentSystemLayout, setShowNextComponentSystemLayout] =
+    useState(false);
 
   useEffect(() => {
     const allFieldsFilled =
@@ -47,8 +58,6 @@ function AgronomicModuleMain() {
     f,
   ]);
 
-  const [showNextComponentSystemLayout, setShowNextComponentSystemLayout] =
-    useState(false);
   const handleContinue = () => {
     setSoilCapacity("");
     setSoilPermanent("");
@@ -125,7 +134,24 @@ function AgronomicModuleMain() {
       )}
       {showNextComponentSystemLayout && (
         <>
-          <SystemLayoutTitle />
+          {" "}
+          <div className="container">
+            <SystemLayoutTitle />
+            <SystemLayoutInputs
+              sr={sr}
+              setSr={setSr}
+              sp={sp}
+              setSp={setSp}
+              sl={sl}
+              setSl={setSl}
+              pw={pw}
+              setPw={setPw}
+              ps={ps}
+              setPs={setPs}
+              ue={ue}
+              setUe={setUe}
+            />
+          </div>
         </>
       )}
     </>
