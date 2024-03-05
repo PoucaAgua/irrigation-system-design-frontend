@@ -4,7 +4,8 @@ import SoilAndWaterDataInputs from "../SoilAndWaterData/SoilAndWaterDataInputs";
 import SoilAndWaterDataTitle from "../SoilAndWaterData/SoilAndWaterDateTitle";
 import ModalCEe from "../SoilAndWaterData/SoilAndWaterDateModals/ModalCEe/Index";
 import ModalF from "../SoilAndWaterData/SoilAndWaterDateModals/ModalF";
-import TestComponent from "../TestComponent";
+//import TestComponent from "../TestComponent";
+import SystemLayoutTitle from "../SystemLayout/SystemLayoutTitle";
 
 function AgronomicModuleMain() {
   const [soilCapacity, setSoilCapacity] = useState("");
@@ -46,7 +47,8 @@ function AgronomicModuleMain() {
     f,
   ]);
 
-  const [showNextComponent, setShowNextComponent] = useState(false);
+  const [showNextComponentSystemLayout, setShowNextComponentSystemLayout] =
+    useState(false);
   const handleContinue = () => {
     setSoilCapacity("");
     setSoilPermanent("");
@@ -59,12 +61,12 @@ function AgronomicModuleMain() {
     setCEe("");
     setF("");
     setShowContinueButton(false);
-    setShowNextComponent(true);
+    setShowNextComponentSystemLayout(true);
   };
 
   return (
     <>
-      {!showNextComponent && (
+      {!showNextComponentSystemLayout && (
         <div className="container">
           <SoilAndWaterDataTitle />
           <SoilAndWaterDataInputs
@@ -121,7 +123,11 @@ function AgronomicModuleMain() {
           </Button>
         </div>
       )}
-      {showNextComponent && <TestComponent />}
+      {showNextComponentSystemLayout && (
+        <>
+          <SystemLayoutTitle />
+        </>
+      )}
     </>
   );
 }
