@@ -51,6 +51,11 @@ function AgronomicModuleMain() {
 
   const [showContinueButtonSystemLayout, setShowContinueButtonSystemLayout] =
     useState(false);
+  const [
+    showContinueButtonEmitterSelection,
+    setShowContinueButtonEmitterSelection,
+  ] = useState(false);
+
   const [showNextComponentSystemLayout, setShowNextComponentSystemLayout] =
     useState(false);
 
@@ -134,7 +139,26 @@ function AgronomicModuleMain() {
   };
 
   useEffect(() => {
-    const allFieldsFilled =
+    const allFieldsFilledSystemLayout =
+      sr !== "" &&
+      sp !== "" &&
+      dco !== "" &&
+      ss !== "" &&
+      sl !== "" &&
+      q !== "" &&
+      k0 !== "" &&
+      pw !== "" &&
+      ps !== "" &&
+      alpha !== "" &&
+      np !== "" &&
+      ue !== "" &&
+      z !== "";
+
+    setShowContinueButtonEmitterSelection(allFieldsFilledSystemLayout);
+  }, [sr, sp, dco, ss, sl, q, k0, alpha, np, z, pw, ps, ue]);
+
+  useEffect(() => {
+    const allFieldsFilledSoilAndWaterDate =
       soilCapacity !== "" &&
       soilPermanent !== "" &&
       soilConsumption !== "" &&
@@ -146,7 +170,7 @@ function AgronomicModuleMain() {
       CEe !== "" &&
       f !== "";
 
-    setShowContinueButtonSystemLayout(allFieldsFilled);
+    setShowContinueButtonSystemLayout(allFieldsFilledSoilAndWaterDate);
   }, [
     soilCapacity,
     soilPermanent,
@@ -296,6 +320,23 @@ function AgronomicModuleMain() {
             />
           </div>
         </>
+      )}
+      {showContinueButtonEmitterSelection && (
+        <div
+          style={{ display: "flex", justifyContent: "center", marginTop: 15 }}
+        >
+          <Button
+            onClick={handleContinue}
+            style={{
+              width: 220,
+              height: 40,
+            }}
+            variant="secondary"
+            className="text-center"
+          >
+            Continuar
+          </Button>
+        </div>
       )}
     </>
   );
