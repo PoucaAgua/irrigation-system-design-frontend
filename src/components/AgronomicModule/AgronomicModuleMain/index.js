@@ -49,7 +49,8 @@ function AgronomicModuleMain() {
   const [np, setNp] = useState("");
   const [z, setZ] = useState("");
 
-  const [showContinueButton, setShowContinueButton] = useState(false);
+  const [showContinueButtonSystemLayout, setShowContinueButtonSystemLayout] =
+    useState(false);
   const [showNextComponentSystemLayout, setShowNextComponentSystemLayout] =
     useState(false);
 
@@ -145,7 +146,7 @@ function AgronomicModuleMain() {
       CEe !== "" &&
       f !== "";
 
-    setShowContinueButton(allFieldsFilled);
+    setShowContinueButtonSystemLayout(allFieldsFilled);
   }, [
     soilCapacity,
     soilPermanent,
@@ -170,7 +171,7 @@ function AgronomicModuleMain() {
     setCrop("");
     setCEe("");
     setF("");
-    setShowContinueButton(false);
+    setShowContinueButtonSystemLayout(false);
     setShowNextComponentSystemLayout(true);
   };
 
@@ -216,7 +217,7 @@ function AgronomicModuleMain() {
           </div>
         </div>
       )}
-      {showContinueButton && (
+      {showContinueButtonSystemLayout && (
         <div
           style={{ display: "flex", justifyContent: "center", marginTop: 15 }}
         >
