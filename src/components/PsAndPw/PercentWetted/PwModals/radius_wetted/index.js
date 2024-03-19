@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faExclamationCircle,
+  faCheckCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import ResultPw from "../../PwResultModal/ResultModalRadius";
 import RadiusInput from "../../PwInputs/radius_wetted";
 
@@ -19,25 +24,32 @@ function RadiusModalRender({
   RadiusComponentOverrides,
 }) {
   const [calculated, setCalculated] = useState(false);
+  const [qError, setQError] = useState(false);
+  const [k0Error, setK0Error] = useState(false);
+  const [alphaError, setAlphaError] = useState(false);
+
   const handleCalculate = () => {
     RadiusComponentOverrides.CalculateButtonRadius.onClick();
     setCalculated(true);
 
     if (q === "") {
       setQError(true);
+    } else {
+      setQError(false);
     }
 
     if (k0 === "") {
       setK0Error(true);
+    } else {
+      setK0Error(false);
     }
 
     if (alpha === "") {
       setAlphaError(true);
+    } else {
+      setAlphaError(false);
     }
   };
-  const [qError, setQError] = useState(false);
-  const [k0Error, setK0Error] = useState(false);
-  const [alphaError, setAlphaError] = useState(false);
 
   const handleQChange = (e) => {
     setQ(e.target.value);
@@ -67,6 +79,25 @@ function RadiusModalRender({
         />
         <label className="form-check-label" htmlFor="radioButtonRadius">
           Twice Saturated Wetted Radius
+          {q && k0 && alpha ? (
+            <FontAwesomeIcon
+              icon={faCheckCircle}
+              style={{
+                marginLeft: 5,
+                fontSize: "1.0em",
+                color: "green",
+              }}
+            />
+          ) : (
+            <FontAwesomeIcon
+              icon={faExclamationCircle}
+              style={{
+                marginLeft: 5,
+                fontSize: "1.0em",
+                color: "red",
+              }}
+            />
+          )}
         </label>
       </div>
       <Modal show={showModalPwRadius} onHide={toggleModalRadius}>

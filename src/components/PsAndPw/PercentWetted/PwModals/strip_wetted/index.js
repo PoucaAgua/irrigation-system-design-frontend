@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faExclamationCircle,
+  faCheckCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import ResultPw from "../../PwResultModal/ResultModalStrip";
 import StripInput from "../../PwInputs/strip_wetted";
 
@@ -19,25 +24,32 @@ function PwStripModalRender({
   StripPwComponentOverrides,
 }) {
   const [calculated, setCalculated] = useState(false);
+  const [srError, setSrError] = useState(false);
+  const [spError, setSpError] = useState(false);
+  const [swError, setSwError] = useState(false);
+
   const handleCalculate = () => {
     StripPwComponentOverrides.CalculateButtonStripPw.onClick();
     setCalculated(true);
 
     if (sp === "") {
       setSpError(true);
+    } else {
+      setSpError(false);
     }
 
     if (sr === "") {
       setSrError(true);
+    } else {
+      setSrError(false);
     }
 
     if (sw === "") {
       setSwError(true);
+    } else {
+      setSwError(false);
     }
   };
-  const [srError, setSrError] = useState(false);
-  const [spError, setSpError] = useState(false);
-  const [swError, setSwError] = useState(false);
 
   const handleSpChange = (e) => {
     setSp(e.target.value);
@@ -56,7 +68,6 @@ function PwStripModalRender({
 
   return (
     <>
-      {" "}
       <div className="form-check" style={{ marginLeft: 16 }}>
         <input
           type="radio"
@@ -67,6 +78,25 @@ function PwStripModalRender({
         />
         <label className="form-check-label" htmlFor="radioButtonCStrip">
           Continuous Strip
+          {sp && sr && sw ? (
+            <FontAwesomeIcon
+              icon={faCheckCircle}
+              style={{
+                marginLeft: 5,
+                fontSize: "1.0em",
+                color: "green",
+              }}
+            />
+          ) : (
+            <FontAwesomeIcon
+              icon={faExclamationCircle}
+              style={{
+                marginLeft: 5,
+                fontSize: "1.0em",
+                color: "red",
+              }}
+            />
+          )}
         </label>
       </div>
       <Modal show={showModalPwStrip} onHide={toggleModalPwStrip}>
