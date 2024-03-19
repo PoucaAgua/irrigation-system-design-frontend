@@ -4,7 +4,7 @@ import SoilAndWaterDataInputs from "../SoilAndWaterData/SoilAndWaterDataInputs";
 import SoilAndWaterDataTitle from "../SoilAndWaterData/SoilAndWaterDateTitle";
 import ModalCEe from "../SoilAndWaterData/SoilAndWaterDateModals/ModalCEe/Index";
 import ModalF from "../SoilAndWaterData/SoilAndWaterDateModals/ModalF";
-//import TestComponent from "../TestComponent";
+import TestComponent from "../TestComponent";
 import SystemLayoutTitle from "../SystemLayout/SystemLayoutTitle";
 import SystemLayoutInputs from "../SystemLayout/SystemLayoutInputs";
 import SystemLayoutModals from "../SystemLayout/SystemLayoutModals";
@@ -58,6 +58,10 @@ function AgronomicModuleMain() {
 
   const [showNextComponentSystemLayout, setShowNextComponentSystemLayout] =
     useState(false);
+  const [
+    showNextComponentEmitterSelection,
+    setShowNextComponentEmitterSelection,
+  ] = useState(false);
 
   const CanopyComponentOverrides = createCanopyComponentOverrides({
     sr,
@@ -184,7 +188,7 @@ function AgronomicModuleMain() {
     f,
   ]);
 
-  const handleContinue = () => {
+  const handleContinueSystemLayout = () => {
     setSoilCapacity("");
     setSoilPermanent("");
     setSoilConsumption("");
@@ -197,6 +201,25 @@ function AgronomicModuleMain() {
     setF("");
     setShowContinueButtonSystemLayout(false);
     setShowNextComponentSystemLayout(true);
+  };
+
+  const handleContinueEmitterSelection = () => {
+    setSr("");
+    setSp("");
+    setDco("");
+    setSs("");
+    setSl("");
+    setQ("");
+    setK0("");
+    setAlpha("");
+    setNp("");
+    setZ("");
+    setPw("");
+    setPs("");
+    setUe("");
+    setShowNextComponentSystemLayout(false);
+    setShowContinueButtonEmitterSelection(false);
+    setShowNextComponentEmitterSelection(true);
   };
 
   return (
@@ -246,7 +269,7 @@ function AgronomicModuleMain() {
           style={{ display: "flex", justifyContent: "center", marginTop: 15 }}
         >
           <Button
-            onClick={handleContinue}
+            onClick={handleContinueSystemLayout}
             style={{
               width: 220,
               height: 40,
@@ -326,7 +349,7 @@ function AgronomicModuleMain() {
           style={{ display: "flex", justifyContent: "center", marginTop: 15 }}
         >
           <Button
-            onClick={handleContinue}
+            onClick={handleContinueEmitterSelection}
             style={{
               width: 220,
               height: 40,
@@ -337,6 +360,11 @@ function AgronomicModuleMain() {
             Continuar
           </Button>
         </div>
+      )}
+      {showNextComponentEmitterSelection && (
+        <>
+          <TestComponent />
+        </>
       )}
     </>
   );
